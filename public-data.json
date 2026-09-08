@@ -1,39 +1,51 @@
 {
-  "generatedUtc": "2026-09-08T20:00:14.756Z",
+  "generatedUtc": "2026-09-08T22:08:46.648Z",
   "clans": [
     {
       "label": "All-Stars Clan",
       "tag": "#YLVY8R90",
       "name": "All•Stars clan",
-      "clanScore": 112148,
+      "clanScore": 113265,
       "warTrophies": 2973,
       "requiredTrophies": 9000,
-      "donationsPerWeek": 1242,
+      "donationsPerWeek": 1328,
       "location": "Canada",
       "members": [
-        {
-          "tag": "#LY888JYPQ",
-          "name": "mr wqlrus",
-          "role": "Elder",
-          "trophies": 14000,
-          "clanRank": 2,
-          "donations": 52,
-          "lastSeen": "2026-09-08T18:34:57.0000000+00:00",
-          "warAverage": 2367,
-          "rating": 5,
-          "familyRank": 9
-        },
         {
           "tag": "#PYRGYV9Q0",
           "name": "Fin",
           "role": "Elder",
           "trophies": 14000,
-          "clanRank": 8,
+          "clanRank": 7,
           "donations": 26,
-          "lastSeen": "2026-09-08T18:05:19.0000000+00:00",
+          "lastSeen": "2026-09-08T21:40:16.0000000+00:00",
           "warAverage": 2280,
           "rating": 4,
-          "familyRank": 29
+          "familyRank": 27
+        },
+        {
+          "tag": "#9LV0PGL9V",
+          "name": "Doge",
+          "role": "Member",
+          "trophies": 14000,
+          "clanRank": 20,
+          "donations": 34,
+          "lastSeen": "2026-09-08T21:01:17.0000000+00:00",
+          "warAverage": 1380,
+          "rating": 3,
+          "familyRank": 73
+        },
+        {
+          "tag": "#LY888JYPQ",
+          "name": "mr wqlrus",
+          "role": "Elder",
+          "trophies": 14000,
+          "clanRank": 6,
+          "donations": 52,
+          "lastSeen": "2026-09-08T18:34:57.0000000+00:00",
+          "warAverage": 2367,
+          "rating": 4,
+          "familyRank": 25
         },
         {
           "tag": "#GGQVLCCP8",
@@ -45,40 +57,28 @@
           "lastSeen": "2026-09-08T15:24:52.0000000+00:00",
           "warAverage": 2417,
           "rating": 5,
-          "familyRank": 8
-        },
-        {
-          "tag": "#9LV0PGL9V",
-          "name": "Doge",
-          "role": "Member",
-          "trophies": 14000,
-          "clanRank": 20,
-          "donations": 34,
-          "lastSeen": "2026-09-08T14:54:35.0000000+00:00",
-          "warAverage": 1380,
-          "rating": 3,
-          "familyRank": 74
+          "familyRank": 7
         },
         {
           "tag": "#VGU0G88CU",
           "name": "MasterDua",
           "role": "Elder",
           "trophies": 13967,
-          "clanRank": 4,
-          "donations": 72,
-          "lastSeen": "2026-09-08T19:18:51.0000000+00:00",
+          "clanRank": 8,
+          "donations": 82,
+          "lastSeen": "2026-09-08T21:14:13.0000000+00:00",
           "warAverage": 2083,
-          "rating": 5,
-          "familyRank": 19
+          "rating": 4,
+          "familyRank": 31
         },
         {
           "tag": "#CLYPJRPP9",
           "name": "Made",
           "role": "Elder",
-          "trophies": 13935,
+          "trophies": 13904,
           "clanRank": 14,
-          "donations": 24,
-          "lastSeen": "2026-09-08T15:41:45.0000000+00:00",
+          "donations": 32,
+          "lastSeen": "2026-09-08T21:24:00.0000000+00:00",
           "warAverage": 1733,
           "rating": 4,
           "familyRank": 44
@@ -89,8 +89,8 @@
           "role": "Elder",
           "trophies": 13566,
           "clanRank": 10,
-          "donations": 26,
-          "lastSeen": "2026-09-08T15:37:27.0000000+00:00",
+          "donations": 44,
+          "lastSeen": "2026-09-08T21:25:15.0000000+00:00",
           "warAverage": 2017,
           "rating": 4,
           "familyRank": 35
@@ -100,12 +100,12 @@
           "name": "mc7719",
           "role": "Elder",
           "trophies": 13405,
-          "clanRank": 3,
+          "clanRank": 2,
           "donations": 62,
           "lastSeen": "2026-09-08T18:44:56.0000000+00:00",
           "warAverage": 2267,
           "rating": 5,
-          "familyRank": 11
+          "familyRank": 9
         },
         {
           "tag": "#9PG88JLQ9",
@@ -117,7 +117,7 @@
           "lastSeen": "2026-09-07T07:22:50.0000000+00:00",
           "warAverage": 1788,
           "rating": 3,
-          "familyRank": 69
+          "familyRank": 67
         },
         {
           "tag": "#2QYRV2UVP",
@@ -153,28 +153,28 @@
           "lastSeen": "2026-09-08T07:39:29.0000000+00:00",
           "warAverage": 1850,
           "rating": 3,
-          "familyRank": 68
+          "familyRank": 66
         },
         {
           "tag": "#9C8G0VV",
           "name": "Wheels",
           "role": "Member",
           "trophies": 12657,
-          "clanRank": 27,
+          "clanRank": 28,
           "donations": 18,
           "lastSeen": "2026-09-08T14:53:17.0000000+00:00",
           "warAverage": 838,
           "rating": 2,
-          "familyRank": 95
+          "familyRank": 94
         },
         {
           "tag": "#YUVJ29QGV",
           "name": "SPARKY",
           "role": "Member",
-          "trophies": 12559,
+          "trophies": 12500,
           "clanRank": 13,
-          "donations": 160,
-          "lastSeen": "2026-09-08T18:44:52.0000000+00:00",
+          "donations": 176,
+          "lastSeen": "2026-09-08T21:51:06.0000000+00:00",
           "warAverage": 1767,
           "rating": 4,
           "familyRank": 43
@@ -184,24 +184,24 @@
           "name": "SlipStache",
           "role": "Elder",
           "trophies": 12359,
-          "clanRank": 7,
+          "clanRank": 5,
           "donations": 10,
           "lastSeen": "2026-09-08T18:16:07.0000000+00:00",
           "warAverage": 2650,
           "rating": 4,
-          "familyRank": 26
+          "familyRank": 22
         },
         {
           "tag": "#8CP0UU8UY",
           "name": "SuperCellDad",
           "role": "Co-Leader",
           "trophies": 12292,
-          "clanRank": 6,
+          "clanRank": 4,
           "donations": 112,
           "lastSeen": "2026-09-08T13:00:25.0000000+00:00",
           "warAverage": 1875,
           "rating": 5,
-          "familyRank": 22
+          "familyRank": 18
         },
         {
           "tag": "#90GYYY9C8",
@@ -213,16 +213,16 @@
           "lastSeen": "2026-09-08T18:19:46.0000000+00:00",
           "warAverage": 1400,
           "rating": 4,
-          "familyRank": 56
+          "familyRank": 55
         },
         {
           "tag": "#JUCL9RUP8",
           "name": "arveencool",
           "role": "Co-Leader",
-          "trophies": 11797,
+          "trophies": 11857,
           "clanRank": 11,
           "donations": 28,
-          "lastSeen": "2026-09-07T15:01:37.0000000+00:00",
+          "lastSeen": "2026-09-08T20:23:31.0000000+00:00",
           "warAverage": 1917,
           "rating": 4,
           "familyRank": 38
@@ -234,10 +234,10 @@
           "trophies": 11726,
           "clanRank": 30,
           "donations": 0,
-          "lastSeen": "2026-09-07T21:33:41.0000000+00:00",
+          "lastSeen": "2026-09-08T20:44:05.0000000+00:00",
           "warAverage": 433,
-          "rating": 1,
-          "familyRank": 127
+          "rating": 2,
+          "familyRank": 104
         },
         {
           "tag": "#PQCULY0GY",
@@ -245,11 +245,11 @@
           "role": "Member",
           "trophies": 11691,
           "clanRank": 24,
-          "donations": 52,
-          "lastSeen": "2026-09-08T18:06:27.0000000+00:00",
+          "donations": 60,
+          "lastSeen": "2026-09-08T20:01:49.0000000+00:00",
           "warAverage": 904,
           "rating": 3,
-          "familyRank": 83
+          "familyRank": 84
         },
         {
           "tag": "#PCRCUYU9L",
@@ -276,16 +276,28 @@
           "familyRank": 46
         },
         {
+          "tag": "#8P2V2Y9CQ",
+          "name": "NotanNPC",
+          "role": "Member",
+          "trophies": 11036,
+          "clanRank": 25,
+          "donations": 0,
+          "lastSeen": "2026-09-08T21:11:06.0000000+00:00",
+          "warAverage": 0,
+          "rating": 3,
+          "familyRank": 88
+        },
+        {
           "tag": "#99VLLY0G",
           "name": "Marsh",
           "role": "Leader",
           "trophies": 11030,
-          "clanRank": 5,
+          "clanRank": 3,
           "donations": 190,
           "lastSeen": "2026-09-08T15:49:08.0000000+00:00",
           "warAverage": 1942,
           "rating": 5,
-          "familyRank": 21
+          "familyRank": 17
         },
         {
           "tag": "#JQYQ2CRGJ",
@@ -309,19 +321,19 @@
           "lastSeen": "2026-09-08T18:46:52.0000000+00:00",
           "warAverage": 1350,
           "rating": 3,
-          "familyRank": 76
+          "familyRank": 75
         },
         {
           "tag": "#29UGVUJ",
           "name": "UCIMDVS",
           "role": "Co-Leader",
-          "trophies": 10767,
-          "clanRank": 29,
-          "donations": 24,
-          "lastSeen": "2026-09-08T03:38:54.0000000+00:00",
+          "trophies": 10794,
+          "clanRank": 31,
+          "donations": 50,
+          "lastSeen": "2026-09-08T21:53:47.0000000+00:00",
           "warAverage": 140,
           "rating": 2,
-          "familyRank": 107
+          "familyRank": 109
         },
         {
           "tag": "#R0G88080",
@@ -333,14 +345,14 @@
           "lastSeen": "2026-09-06T02:03:39.0000000+00:00",
           "warAverage": 1700,
           "rating": 3,
-          "familyRank": 70
+          "familyRank": 68
         },
         {
           "tag": "#8QGR9RLRV",
           "name": "Mace",
           "role": "Member",
           "trophies": 10500,
-          "clanRank": 25,
+          "clanRank": 26,
           "donations": 0,
           "lastSeen": "2026-09-08T16:05:46.0000000+00:00",
           "warAverage": 0,
@@ -351,10 +363,10 @@
           "tag": "#GJQG298CL",
           "name": "Duncoferda69",
           "role": "Member",
-          "trophies": 10318,
-          "clanRank": 26,
+          "trophies": 10404,
+          "clanRank": 27,
           "donations": 18,
-          "lastSeen": "2026-09-08T19:53:09.0000000+00:00",
+          "lastSeen": "2026-09-08T20:18:26.0000000+00:00",
           "warAverage": 0,
           "rating": 3,
           "familyRank": 91
@@ -364,7 +376,7 @@
           "name": "nuphous",
           "role": "Member",
           "trophies": 10314,
-          "clanRank": 28,
+          "clanRank": 29,
           "donations": 20,
           "lastSeen": "2026-09-07T15:40:00.0000000+00:00",
           "warAverage": 500,
@@ -377,47 +389,23 @@
       "label": "ALL STARS ACDMY",
       "tag": "#QJU2Y8L8",
       "name": "ALL STARS ACDMY",
-      "clanScore": 135878,
+      "clanScore": 135888,
       "warTrophies": 2835,
       "requiredTrophies": 11000,
-      "donationsPerWeek": 3386,
+      "donationsPerWeek": 3514,
       "location": "Canada",
       "members": [
         {
-          "tag": "#PLP0LJYUY",
-          "name": "FahedHD",
+          "tag": "#LGQ09J2P",
+          "name": "kregeth",
           "role": "Member",
           "trophies": 14000,
-          "clanRank": 47,
-          "donations": 0,
-          "lastSeen": "2026-09-08T19:34:41.0000000+00:00",
-          "warAverage": 0,
-          "rating": 2,
-          "familyRank": 115
-        },
-        {
-          "tag": "#90RURVRQ",
-          "name": "Spock Lives 2",
-          "role": "Elder",
-          "trophies": 14000,
-          "clanRank": 14,
-          "donations": 20,
-          "lastSeen": "2026-09-08T19:16:13.0000000+00:00",
-          "warAverage": 2325,
+          "clanRank": 31,
+          "donations": 278,
+          "lastSeen": "2026-09-08T22:01:27.0000000+00:00",
+          "warAverage": 1000,
           "rating": 4,
-          "familyRank": 28
-        },
-        {
-          "tag": "#CCP00JQ90",
-          "name": "domrt",
-          "role": "Member",
-          "trophies": 14000,
-          "clanRank": 44,
-          "donations": 58,
-          "lastSeen": "2026-09-08T18:15:02.0000000+00:00",
-          "warAverage": 250,
-          "rating": 2,
-          "familyRank": 105
+          "familyRank": 59
         },
         {
           "tag": "#UGR9CRV8U",
@@ -426,22 +414,70 @@
           "trophies": 14000,
           "clanRank": 21,
           "donations": 26,
-          "lastSeen": "2026-09-08T18:07:23.0000000+00:00",
+          "lastSeen": "2026-09-08T21:49:28.0000000+00:00",
           "warAverage": 1667,
           "rating": 4,
           "familyRank": 45
+        },
+        {
+          "tag": "#CCP00JQ90",
+          "name": "domrt",
+          "role": "Member",
+          "trophies": 14000,
+          "clanRank": 43,
+          "donations": 76,
+          "lastSeen": "2026-09-08T21:06:34.0000000+00:00",
+          "warAverage": 250,
+          "rating": 2,
+          "familyRank": 107
+        },
+        {
+          "tag": "#YLQ92L900",
+          "name": "ancalagon",
+          "role": "Elder",
+          "trophies": 14000,
+          "clanRank": 2,
+          "donations": 243,
+          "lastSeen": "2026-09-08T20:42:48.0000000+00:00",
+          "warAverage": 2475,
+          "rating": 5,
+          "familyRank": 3
+        },
+        {
+          "tag": "#PLP0LJYUY",
+          "name": "FahedHD",
+          "role": "Member",
+          "trophies": 14000,
+          "clanRank": 46,
+          "donations": 0,
+          "lastSeen": "2026-09-08T19:34:41.0000000+00:00",
+          "warAverage": 0,
+          "rating": 2,
+          "familyRank": 116
+        },
+        {
+          "tag": "#90RURVRQ",
+          "name": "Spock Lives 2",
+          "role": "Elder",
+          "trophies": 14000,
+          "clanRank": 13,
+          "donations": 20,
+          "lastSeen": "2026-09-08T19:16:13.0000000+00:00",
+          "warAverage": 2325,
+          "rating": 4,
+          "familyRank": 26
         },
         {
           "tag": "#YP82RL298",
           "name": "seth",
           "role": "Co-Leader",
           "trophies": 14000,
-          "clanRank": 7,
+          "clanRank": 6,
           "donations": 202,
           "lastSeen": "2026-09-08T16:58:38.0000000+00:00",
           "warAverage": 2167,
           "rating": 5,
-          "familyRank": 15
+          "familyRank": 13
         },
         {
           "tag": "#G2CC0RV",
@@ -453,7 +489,7 @@
           "lastSeen": "2026-09-08T16:56:27.0000000+00:00",
           "warAverage": 0,
           "rating": 4,
-          "familyRank": 63
+          "familyRank": 61
         },
         {
           "tag": "#2RPVRQ9",
@@ -468,18 +504,6 @@
           "familyRank": 48
         },
         {
-          "tag": "#YLQ92L900",
-          "name": "ancalagon",
-          "role": "Elder",
-          "trophies": 14000,
-          "clanRank": 3,
-          "donations": 233,
-          "lastSeen": "2026-09-08T16:17:46.0000000+00:00",
-          "warAverage": 2475,
-          "rating": 5,
-          "familyRank": 4
-        },
-        {
           "tag": "#YJQ2QVQQ2",
           "name": "rambo",
           "role": "Elder",
@@ -492,52 +516,40 @@
           "familyRank": 51
         },
         {
-          "tag": "#LGQ09J2P",
-          "name": "kregeth",
-          "role": "Member",
-          "trophies": 14000,
-          "clanRank": 31,
-          "donations": 250,
-          "lastSeen": "2026-09-08T15:50:09.0000000+00:00",
-          "warAverage": 1000,
-          "rating": 4,
-          "familyRank": 61
-        },
-        {
           "tag": "#2P008RYVR",
           "name": "U.S.king ....",
           "role": "Elder",
           "trophies": 14000,
-          "clanRank": 11,
+          "clanRank": 9,
           "donations": 316,
           "lastSeen": "2026-09-08T13:25:51.0000000+00:00",
           "warAverage": 1871,
           "rating": 5,
-          "familyRank": 23
+          "familyRank": 19
         },
         {
           "tag": "#92U2GLGJ",
           "name": "jeFfy-sMoLes",
           "role": "Elder",
           "trophies": 14000,
-          "clanRank": 5,
+          "clanRank": 4,
           "donations": 113,
           "lastSeen": "2026-09-08T12:33:27.0000000+00:00",
           "warAverage": 2217,
           "rating": 5,
-          "familyRank": 13
+          "familyRank": 11
         },
         {
           "tag": "#V0VYU9L0J",
           "name": "<C7>Shadow",
           "role": "Member",
           "trophies": 14000,
-          "clanRank": 37,
+          "clanRank": 38,
           "donations": 0,
           "lastSeen": "2026-09-08T12:00:49.0000000+00:00",
           "warAverage": 1100,
           "rating": 3,
-          "familyRank": 80
+          "familyRank": 81
         },
         {
           "tag": "#VJL9GVJJP",
@@ -561,7 +573,7 @@
           "lastSeen": "2026-09-07T23:36:12.0000000+00:00",
           "warAverage": 1917,
           "rating": 3,
-          "familyRank": 67
+          "familyRank": 65
         },
         {
           "tag": "#R0U0LQR",
@@ -592,24 +604,24 @@
           "name": "IronhIDE",
           "role": "Elder",
           "trophies": 13779,
-          "clanRank": 9,
+          "clanRank": 7,
           "donations": 168,
           "lastSeen": "2026-09-08T15:48:27.0000000+00:00",
           "warAverage": 2100,
           "rating": 5,
-          "familyRank": 18
+          "familyRank": 15
         },
         {
           "tag": "#G9V20RCCR",
           "name": "jjjet",
           "role": "Member",
           "trophies": 13618,
-          "clanRank": 48,
+          "clanRank": 47,
           "donations": 0,
           "lastSeen": "2026-09-08T03:55:45.0000000+00:00",
           "warAverage": 0,
           "rating": 2,
-          "familyRank": 119
+          "familyRank": 120
         },
         {
           "tag": "#QGV9YGU",
@@ -621,7 +633,7 @@
           "lastSeen": "2026-09-04T23:05:24.0000000+00:00",
           "warAverage": 0,
           "rating": 1,
-          "familyRank": 131
+          "familyRank": 132
         },
         {
           "tag": "#809900L90",
@@ -652,12 +664,12 @@
           "name": "Homelander",
           "role": "Member",
           "trophies": 13479,
-          "clanRank": 46,
+          "clanRank": 45,
           "donations": 0,
           "lastSeen": "2026-09-08T13:51:12.0000000+00:00",
           "warAverage": 50,
           "rating": 2,
-          "familyRank": 113
+          "familyRank": 114
         },
         {
           "tag": "#28UPP02J2",
@@ -676,19 +688,19 @@
           "name": "IT3",
           "role": "Elder",
           "trophies": 13242,
-          "clanRank": 6,
+          "clanRank": 5,
           "donations": 94,
           "lastSeen": "2026-09-08T14:37:27.0000000+00:00",
           "warAverage": 2200,
           "rating": 5,
-          "familyRank": 14
+          "familyRank": 12
         },
         {
           "tag": "#V2CGLPCPY",
           "name": "john pork",
           "role": "Member",
           "trophies": 13132,
-          "clanRank": 43,
+          "clanRank": 42,
           "donations": 8,
           "lastSeen": "2026-09-07T23:01:59.0000000+00:00",
           "warAverage": 600,
@@ -700,19 +712,19 @@
           "name": "aqua",
           "role": "Elder",
           "trophies": 12805,
-          "clanRank": 10,
+          "clanRank": 8,
           "donations": 84,
           "lastSeen": "2026-09-08T12:12:56.0000000+00:00",
           "warAverage": 2033,
           "rating": 5,
-          "familyRank": 20
+          "familyRank": 16
         },
         {
           "tag": "#QV2JGUGG8",
           "name": "Raj",
           "role": "Member",
           "trophies": 12652,
-          "clanRank": 42,
+          "clanRank": 41,
           "donations": 34,
           "lastSeen": "2026-09-08T15:56:41.0000000+00:00",
           "warAverage": 713,
@@ -729,43 +741,43 @@
           "lastSeen": "2026-09-08T02:48:41.0000000+00:00",
           "warAverage": 1950,
           "rating": 3,
-          "familyRank": 66
+          "familyRank": 64
         },
         {
           "tag": "#9LR9VL2",
           "name": "LIL JIJI",
           "role": "Member",
           "trophies": 12574,
-          "clanRank": 41,
+          "clanRank": 40,
           "donations": 0,
           "lastSeen": "2026-09-07T02:40:42.0000000+00:00",
           "warAverage": 825,
           "rating": 2,
-          "familyRank": 96
+          "familyRank": 95
         },
         {
           "tag": "#9RRGUYC2",
           "name": "Necross",
           "role": "Member",
           "trophies": 12533,
-          "clanRank": 40,
+          "clanRank": 37,
           "donations": 0,
-          "lastSeen": "2026-09-07T17:01:20.0000000+00:00",
+          "lastSeen": "2026-09-08T21:51:33.0000000+00:00",
           "warAverage": 1125,
-          "rating": 2,
-          "familyRank": 92
+          "rating": 3,
+          "familyRank": 80
         },
         {
           "tag": "#99RLGCG",
           "name": "MTL BLAZE",
           "role": "Elder",
           "trophies": 12528,
-          "clanRank": 8,
+          "clanRank": 14,
           "donations": 84,
           "lastSeen": "2026-09-08T18:39:53.0000000+00:00",
           "warAverage": 2167,
-          "rating": 5,
-          "familyRank": 16
+          "rating": 4,
+          "familyRank": 30
         },
         {
           "tag": "#92C892VC",
@@ -784,36 +796,48 @@
           "name": "Diamondz",
           "role": "Member",
           "trophies": 12226,
-          "clanRank": 45,
+          "clanRank": 44,
           "donations": 0,
           "lastSeen": "2026-09-08T17:54:15.0000000+00:00",
           "warAverage": 160,
           "rating": 2,
-          "familyRank": 106
+          "familyRank": 108
         },
         {
           "tag": "#C89QY9GVQ",
           "name": "StonedLlama420x",
           "role": "Member",
-          "trophies": 12188,
-          "clanRank": 49,
-          "donations": 112,
-          "lastSeen": "2026-09-08T15:38:40.0000000+00:00",
+          "trophies": 12166,
+          "clanRank": 48,
+          "donations": 130,
+          "lastSeen": "2026-09-08T21:47:45.0000000+00:00",
           "warAverage": 0,
           "rating": 2,
-          "familyRank": 125
+          "familyRank": 126
         },
         {
           "tag": "#RQRQ9LVU",
           "name": "TheSphinx",
           "role": "Elder",
           "trophies": 12120,
-          "clanRank": 4,
+          "clanRank": 3,
           "donations": 67,
           "lastSeen": "2026-09-08T10:41:13.0000000+00:00",
           "warAverage": 2475,
           "rating": 5,
-          "familyRank": 5
+          "familyRank": 4
+        },
+        {
+          "tag": "#RPLP8UGP2",
+          "name": "sour♥️noskill",
+          "role": "Member",
+          "trophies": 12032,
+          "clanRank": 30,
+          "donations": 91,
+          "lastSeen": "2026-09-08T20:27:49.0000000+00:00",
+          "warAverage": 1200,
+          "rating": 4,
+          "familyRank": 57
         },
         {
           "tag": "#9RQPYPG",
@@ -821,23 +845,11 @@
           "role": "Elder",
           "trophies": 12000,
           "clanRank": 20,
-          "donations": 141,
-          "lastSeen": "2026-09-08T15:59:52.0000000+00:00",
+          "donations": 159,
+          "lastSeen": "2026-09-08T21:05:02.0000000+00:00",
           "warAverage": 1792,
           "rating": 4,
           "familyRank": 42
-        },
-        {
-          "tag": "#RPLP8UGP2",
-          "name": "sour♥️noskill",
-          "role": "Member",
-          "trophies": 11916,
-          "clanRank": 30,
-          "donations": 73,
-          "lastSeen": "2026-09-08T04:27:45.0000000+00:00",
-          "warAverage": 1200,
-          "rating": 4,
-          "familyRank": 59
         },
         {
           "tag": "#YLC9899",
@@ -861,26 +873,26 @@
           "lastSeen": "2026-09-08T18:04:36.0000000+00:00",
           "warAverage": 1233,
           "rating": 4,
-          "familyRank": 58
+          "familyRank": 56
         },
         {
           "tag": "#8VRUC20GQ",
           "name": "imnotgood",
           "role": "Elder",
           "trophies": 11549,
-          "clanRank": 2,
-          "donations": 42,
-          "lastSeen": "2026-09-08T19:27:40.0000000+00:00",
+          "clanRank": 12,
+          "donations": 50,
+          "lastSeen": "2026-09-08T21:39:31.0000000+00:00",
           "warAverage": 2625,
-          "rating": 5,
-          "familyRank": 3
+          "rating": 4,
+          "familyRank": 24
         },
         {
           "tag": "#PCCGVQY2J",
           "name": "BigDog",
           "role": "Member",
           "trophies": 11500,
-          "clanRank": 38,
+          "clanRank": 39,
           "donations": 0,
           "lastSeen": "2026-09-08T17:00:37.0000000+00:00",
           "warAverage": 0,
@@ -904,12 +916,12 @@
           "name": "father⚡️henry",
           "role": "Member",
           "trophies": 11404,
-          "clanRank": 39,
+          "clanRank": 49,
           "donations": 24,
           "lastSeen": "2026-09-08T05:08:20.0000000+00:00",
           "warAverage": 0,
-          "rating": 3,
-          "familyRank": 88
+          "rating": 2,
+          "familyRank": 127
         },
         {
           "tag": "#UGC8LV2C",
@@ -928,12 +940,12 @@
           "name": "Limitless",
           "role": "Elder",
           "trophies": 11298,
-          "clanRank": 13,
+          "clanRank": 11,
           "donations": 16,
           "lastSeen": "2026-09-08T17:26:59.0000000+00:00",
           "warAverage": 2725,
           "rating": 4,
-          "familyRank": 25
+          "familyRank": 21
         },
         {
           "tag": "#VPUCJ9UJ2",
@@ -945,7 +957,7 @@
           "lastSeen": "2026-09-08T12:16:24.0000000+00:00",
           "warAverage": 0,
           "rating": 4,
-          "familyRank": 64
+          "familyRank": 62
         },
         {
           "tag": "#VRQVUYCUC",
@@ -969,19 +981,19 @@
           "lastSeen": "2026-09-06T23:48:03.0000000+00:00",
           "warAverage": 1400,
           "rating": 3,
-          "familyRank": 73
+          "familyRank": 72
         },
         {
           "tag": "#9RC2URGJG",
           "name": "Matty²",
           "role": "Leader",
           "trophies": 10503,
-          "clanRank": 12,
-          "donations": 203,
-          "lastSeen": "2026-09-08T19:22:53.0000000+00:00",
+          "clanRank": 10,
+          "donations": 213,
+          "lastSeen": "2026-09-08T21:55:28.0000000+00:00",
           "warAverage": 1850,
           "rating": 5,
-          "familyRank": 24
+          "familyRank": 20
         }
       ]
     },
@@ -992,68 +1004,68 @@
       "clanScore": 135469,
       "warTrophies": 2555,
       "requiredTrophies": 12000,
-      "donationsPerWeek": 2574,
+      "donationsPerWeek": 2710,
       "location": "Canada",
       "members": [
-        {
-          "tag": "#8Q9J0L9J9",
-          "name": "LilManChristian",
-          "role": "Member",
-          "trophies": 14000,
-          "clanRank": 14,
-          "donations": 209,
-          "lastSeen": "2026-09-08T19:44:34.0000000+00:00",
-          "warAverage": 1050,
-          "rating": 4,
-          "familyRank": 60
-        },
-        {
-          "tag": "#CLYRJ9G8V",
-          "name": "Get Wrecked",
-          "role": "Member",
-          "trophies": 14000,
-          "clanRank": 37,
-          "donations": 24,
-          "lastSeen": "2026-09-08T19:43:24.0000000+00:00",
-          "warAverage": 0,
-          "rating": 2,
-          "familyRank": 116
-        },
-        {
-          "tag": "#CL0GRLG",
-          "name": "Rowan",
-          "role": "Member",
-          "trophies": 14000,
-          "clanRank": 38,
-          "donations": 160,
-          "lastSeen": "2026-09-08T19:18:11.0000000+00:00",
-          "warAverage": 0,
-          "rating": 2,
-          "familyRank": 118
-        },
         {
           "tag": "#RRPU9JPU",
           "name": "Flagoogle clan",
           "role": "Member",
           "trophies": 14000,
-          "clanRank": 12,
-          "donations": 64,
-          "lastSeen": "2026-09-08T19:04:16.0000000+00:00",
+          "clanRank": 16,
+          "donations": 72,
+          "lastSeen": "2026-09-08T21:35:56.0000000+00:00",
           "warAverage": 1471,
-          "rating": 4,
-          "familyRank": 55
+          "rating": 3,
+          "familyRank": 70
         },
         {
           "tag": "#J888U2J",
           "name": "Dono",
           "role": "Member",
           "trophies": 14000,
-          "clanRank": 39,
+          "clanRank": 37,
           "donations": 0,
-          "lastSeen": "2026-09-08T18:17:49.0000000+00:00",
+          "lastSeen": "2026-09-08T21:09:02.0000000+00:00",
           "warAverage": 0,
           "rating": 2,
-          "familyRank": 114
+          "familyRank": 115
+        },
+        {
+          "tag": "#8Q9J0L9J9",
+          "name": "LilManChristian",
+          "role": "Member",
+          "trophies": 14000,
+          "clanRank": 12,
+          "donations": 209,
+          "lastSeen": "2026-09-08T19:44:34.0000000+00:00",
+          "warAverage": 1050,
+          "rating": 4,
+          "familyRank": 58
+        },
+        {
+          "tag": "#CLYRJ9G8V",
+          "name": "Get Wrecked",
+          "role": "Member",
+          "trophies": 14000,
+          "clanRank": 38,
+          "donations": 24,
+          "lastSeen": "2026-09-08T19:43:24.0000000+00:00",
+          "warAverage": 0,
+          "rating": 2,
+          "familyRank": 117
+        },
+        {
+          "tag": "#CL0GRLG",
+          "name": "Rowan",
+          "role": "Member",
+          "trophies": 14000,
+          "clanRank": 39,
+          "donations": 160,
+          "lastSeen": "2026-09-08T19:18:11.0000000+00:00",
+          "warAverage": 0,
+          "rating": 2,
+          "familyRank": 119
         },
         {
           "tag": "#RRQU2VUV8",
@@ -1065,7 +1077,7 @@
           "lastSeen": "2026-09-08T18:13:28.0000000+00:00",
           "warAverage": 0,
           "rating": 2,
-          "familyRank": 117
+          "familyRank": 118
         },
         {
           "tag": "#9UC0QU2G8",
@@ -1077,19 +1089,19 @@
           "lastSeen": "2026-09-08T17:42:24.0000000+00:00",
           "warAverage": 2442,
           "rating": 5,
-          "familyRank": 7
+          "familyRank": 6
         },
         {
           "tag": "#2CLLGPPR9",
           "name": "lucifer akash",
           "role": "Member",
           "trophies": 14000,
-          "clanRank": 27,
+          "clanRank": 26,
           "donations": 0,
           "lastSeen": "2026-09-08T16:42:04.0000000+00:00",
           "warAverage": 933,
           "rating": 2,
-          "familyRank": 94
+          "familyRank": 93
         },
         {
           "tag": "#P2RC2L8VV",
@@ -1101,19 +1113,19 @@
           "lastSeen": "2026-09-08T15:22:06.0000000+00:00",
           "warAverage": 113,
           "rating": 2,
-          "familyRank": 109
+          "familyRank": 110
         },
         {
           "tag": "#CGYLP2VCY",
           "name": "Joulz",
           "role": "Member",
           "trophies": 14000,
-          "clanRank": 17,
+          "clanRank": 15,
           "donations": 38,
           "lastSeen": "2026-09-08T15:09:16.0000000+00:00",
           "warAverage": 1495,
           "rating": 3,
-          "familyRank": 71
+          "familyRank": 69
         },
         {
           "tag": "#GVR9UGVPL",
@@ -1125,7 +1137,7 @@
           "lastSeen": "2026-09-08T04:55:02.0000000+00:00",
           "warAverage": 2642,
           "rating": 4,
-          "familyRank": 27
+          "familyRank": 23
         },
         {
           "tag": "#VQQPPR0CR",
@@ -1144,19 +1156,19 @@
           "name": "LittyLikeATiddy",
           "role": "Elder",
           "trophies": 14000,
-          "clanRank": 24,
+          "clanRank": 27,
           "donations": 58,
           "lastSeen": "2026-09-08T01:17:15.0000000+00:00",
           "warAverage": 750,
-          "rating": 3,
-          "familyRank": 85
+          "rating": 2,
+          "familyRank": 96
         },
         {
           "tag": "#JCJJ028",
           "name": "Shrey",
           "role": "Member",
           "trophies": 14000,
-          "clanRank": 25,
+          "clanRank": 24,
           "donations": 122,
           "lastSeen": "2026-09-07T22:30:41.0000000+00:00",
           "warAverage": 608,
@@ -1185,38 +1197,38 @@
           "lastSeen": "2026-09-08T04:07:08.0000000+00:00",
           "warAverage": 67,
           "rating": 2,
-          "familyRank": 112
-        },
-        {
-          "tag": "#UPUJRQ2V",
-          "name": "Dani",
-          "role": "Member",
-          "trophies": 13825,
-          "clanRank": 15,
-          "donations": 174,
-          "lastSeen": "2026-09-08T19:33:09.0000000+00:00",
-          "warAverage": 971,
-          "rating": 4,
-          "familyRank": 62
+          "familyRank": 113
         },
         {
           "tag": "#GJC28QU8L",
           "name": "GlueHuffer",
           "role": "Elder",
           "trophies": 13762,
-          "clanRank": 13,
+          "clanRank": 19,
           "donations": 96,
           "lastSeen": "2026-09-08T09:02:06.0000000+00:00",
           "warAverage": 1283,
+          "rating": 3,
+          "familyRank": 76
+        },
+        {
+          "tag": "#UPUJRQ2V",
+          "name": "Dani",
+          "role": "Member",
+          "trophies": 13758,
+          "clanRank": 13,
+          "donations": 192,
+          "lastSeen": "2026-09-08T21:12:12.0000000+00:00",
+          "warAverage": 971,
           "rating": 4,
-          "familyRank": 57
+          "familyRank": 60
         },
         {
           "tag": "#R8U8UUC9",
           "name": "Domo45",
           "role": "Member",
           "trophies": 13406,
-          "clanRank": 48,
+          "clanRank": 47,
           "donations": 8,
           "lastSeen": "2026-09-07T16:46:17.0000000+00:00",
           "warAverage": 167,
@@ -1228,12 +1240,12 @@
           "name": "GOPINATH",
           "role": "Member",
           "trophies": 13301,
-          "clanRank": 19,
+          "clanRank": 18,
           "donations": 26,
           "lastSeen": "2026-09-08T17:26:21.0000000+00:00",
           "warAverage": 1367,
           "rating": 3,
-          "familyRank": 75
+          "familyRank": 74
         },
         {
           "tag": "#2U99LJ029",
@@ -1245,40 +1257,28 @@
           "lastSeen": "2026-09-08T14:15:36.0000000+00:00",
           "warAverage": 83,
           "rating": 2,
-          "familyRank": 110
+          "familyRank": 111
         },
         {
           "tag": "#PVPCPP8PV",
           "name": "Butter Chicken",
           "role": "Elder",
           "trophies": 13261,
-          "clanRank": 16,
+          "clanRank": 14,
           "donations": 0,
           "lastSeen": "2026-09-07T16:21:37.0000000+00:00",
           "warAverage": 1992,
           "rating": 3,
-          "familyRank": 65
+          "familyRank": 63
         },
         {
           "tag": "#U2RV2UU00",
           "name": "Mehrshad",
           "role": "Member",
-          "trophies": 13201,
+          "trophies": 13229,
           "clanRank": 41,
           "donations": 8,
-          "lastSeen": "2026-09-08T16:06:43.0000000+00:00",
-          "warAverage": 0,
-          "rating": 2,
-          "familyRank": 120
-        },
-        {
-          "tag": "#PLJLCRRL9",
-          "name": "Jeloni CR",
-          "role": "Member",
-          "trophies": 13007,
-          "clanRank": 42,
-          "donations": 150,
-          "lastSeen": "2026-09-08T07:13:19.0000000+00:00",
+          "lastSeen": "2026-09-08T20:36:30.0000000+00:00",
           "warAverage": 0,
           "rating": 2,
           "familyRank": 121
@@ -1287,13 +1287,25 @@
           "tag": "#20G800V928",
           "name": "QuincyPromes",
           "role": "Member",
-          "trophies": 13000,
-          "clanRank": 26,
+          "trophies": 13083,
+          "clanRank": 25,
           "donations": 0,
-          "lastSeen": "2026-09-08T19:46:58.0000000+00:00",
+          "lastSeen": "2026-09-08T22:04:52.0000000+00:00",
           "warAverage": 967,
           "rating": 2,
-          "familyRank": 93
+          "familyRank": 92
+        },
+        {
+          "tag": "#PLJLCRRL9",
+          "name": "Jeloni CR",
+          "role": "Member",
+          "trophies": 13007,
+          "clanRank": 42,
+          "donations": 176,
+          "lastSeen": "2026-09-08T20:37:28.0000000+00:00",
+          "warAverage": 0,
+          "rating": 2,
+          "familyRank": 122
         },
         {
           "tag": "#VCJLCVJPU",
@@ -1305,7 +1317,7 @@
           "lastSeen": "2026-09-07T17:16:18.0000000+00:00",
           "warAverage": 2200,
           "rating": 4,
-          "familyRank": 31
+          "familyRank": 29
         },
         {
           "tag": "#8VC9J8LJ",
@@ -1320,52 +1332,52 @@
           "familyRank": 1
         },
         {
-          "tag": "#VRYGP2VRL",
-          "name": "Shani",
-          "role": "Member",
-          "trophies": 12753,
-          "clanRank": 47,
-          "donations": 0,
-          "lastSeen": "2026-09-08T05:10:08.0000000+00:00",
-          "warAverage": 267,
-          "rating": 1,
-          "familyRank": 129
-        },
-        {
           "tag": "#8CG2QYC",
           "name": "Equalizer",
           "role": "Member",
-          "trophies": 12712,
+          "trophies": 12776,
           "clanRank": 23,
-          "donations": 144,
-          "lastSeen": "2026-09-08T19:57:39.0000000+00:00",
+          "donations": 152,
+          "lastSeen": "2026-09-08T21:47:58.0000000+00:00",
           "warAverage": 830,
           "rating": 3,
-          "familyRank": 84
+          "familyRank": 85
+        },
+        {
+          "tag": "#VRYGP2VRL",
+          "name": "Shani",
+          "role": "Member",
+          "trophies": 12722,
+          "clanRank": 32,
+          "donations": 0,
+          "lastSeen": "2026-09-08T20:38:10.0000000+00:00",
+          "warAverage": 267,
+          "rating": 2,
+          "familyRank": 106
         },
         {
           "tag": "#UYLGRCL",
           "name": "march",
           "role": "Elder",
-          "trophies": 12613,
+          "trophies": 12643,
           "clanRank": 2,
-          "donations": 38,
-          "lastSeen": "2026-09-08T16:21:19.0000000+00:00",
+          "donations": 64,
+          "lastSeen": "2026-09-08T20:13:39.0000000+00:00",
           "warAverage": 2450,
           "rating": 5,
-          "familyRank": 6
+          "familyRank": 5
         },
         {
           "tag": "#V8C80LP8R",
           "name": "MorganOutlaw",
           "role": "Member",
-          "trophies": 12565,
+          "trophies": 12538,
           "clanRank": 43,
           "donations": 0,
-          "lastSeen": "2026-09-08T19:43:52.0000000+00:00",
+          "lastSeen": "2026-09-08T20:46:30.0000000+00:00",
           "warAverage": 0,
           "rating": 2,
-          "familyRank": 122
+          "familyRank": 123
         },
         {
           "tag": "#VQQVLPPPV",
@@ -1377,7 +1389,7 @@
           "lastSeen": "2026-09-08T19:51:13.0000000+00:00",
           "warAverage": 0,
           "rating": 2,
-          "familyRank": 123
+          "familyRank": 124
         },
         {
           "tag": "#8YQ8U98UG",
@@ -1389,7 +1401,7 @@
           "lastSeen": "2026-09-08T15:22:46.0000000+00:00",
           "warAverage": 0,
           "rating": 2,
-          "familyRank": 124
+          "familyRank": 125
         },
         {
           "tag": "#VJU0Q09QL",
@@ -1397,11 +1409,11 @@
           "role": "Elder",
           "trophies": 12360,
           "clanRank": 4,
-          "donations": 146,
-          "lastSeen": "2026-09-08T19:58:19.0000000+00:00",
+          "donations": 154,
+          "lastSeen": "2026-09-08T20:57:33.0000000+00:00",
           "warAverage": 2367,
           "rating": 5,
-          "familyRank": 10
+          "familyRank": 8
         },
         {
           "tag": "#P09PUUVRR",
@@ -1421,11 +1433,11 @@
           "role": "Member",
           "trophies": 12093,
           "clanRank": 6,
-          "donations": 76,
-          "lastSeen": "2026-09-08T17:06:06.0000000+00:00",
+          "donations": 110,
+          "lastSeen": "2026-09-08T22:02:20.0000000+00:00",
           "warAverage": 2133,
           "rating": 5,
-          "familyRank": 17
+          "familyRank": 14
         },
         {
           "tag": "#2G9C80PRL",
@@ -1437,7 +1449,7 @@
           "lastSeen": "2026-09-08T18:50:43.0000000+00:00",
           "warAverage": 1008,
           "rating": 3,
-          "familyRank": 81
+          "familyRank": 82
         },
         {
           "tag": "#GUJYLUG",
@@ -1449,7 +1461,7 @@
           "lastSeen": "2026-09-08T02:36:34.0000000+00:00",
           "warAverage": 2208,
           "rating": 4,
-          "familyRank": 30
+          "familyRank": 28
         },
         {
           "tag": "#2PQ2C8PPV",
@@ -1461,7 +1473,7 @@
           "lastSeen": "2026-09-03T09:52:38.0000000+00:00",
           "warAverage": 0,
           "rating": 1,
-          "familyRank": 132
+          "familyRank": 133
         },
         {
           "tag": "#JY9J0CP0",
@@ -1473,7 +1485,7 @@
           "lastSeen": "2026-09-08T10:31:51.0000000+00:00",
           "warAverage": 83,
           "rating": 2,
-          "familyRank": 111
+          "familyRank": 112
         },
         {
           "tag": "#QV2QQR8R",
@@ -1497,7 +1509,7 @@
           "lastSeen": "2026-09-08T19:20:21.0000000+00:00",
           "warAverage": 367,
           "rating": 2,
-          "familyRank": 104
+          "familyRank": 105
         },
         {
           "tag": "#JVPY29LG2",
@@ -1509,7 +1521,7 @@
           "lastSeen": "2026-09-04T20:08:49.0000000+00:00",
           "warAverage": 0,
           "rating": 1,
-          "familyRank": 133
+          "familyRank": 134
         },
         {
           "tag": "#208PRGQ8PP",
@@ -1517,8 +1529,8 @@
           "role": "Leader",
           "trophies": 10518,
           "clanRank": 11,
-          "donations": 218,
-          "lastSeen": "2026-09-08T06:56:05.0000000+00:00",
+          "donations": 226,
+          "lastSeen": "2026-09-08T21:52:26.0000000+00:00",
           "warAverage": 1667,
           "rating": 4,
           "familyRank": 47
@@ -1530,10 +1542,10 @@
           "trophies": 10287,
           "clanRank": 5,
           "donations": 146,
-          "lastSeen": "2026-09-08T16:33:45.0000000+00:00",
+          "lastSeen": "2026-09-08T21:53:55.0000000+00:00",
           "warAverage": 2250,
           "rating": 5,
-          "familyRank": 12
+          "familyRank": 10
         },
         {
           "tag": "#C990L998P",
@@ -1545,7 +1557,7 @@
           "lastSeen": "2026-09-07T19:39:34.0000000+00:00",
           "warAverage": 367,
           "rating": 1,
-          "familyRank": 128
+          "familyRank": 129
         },
         {
           "tag": "#20P8QCLPR2",
@@ -1557,19 +1569,19 @@
           "lastSeen": "2026-09-08T19:39:43.0000000+00:00",
           "warAverage": 933,
           "rating": 3,
-          "familyRank": 82
+          "familyRank": 83
         },
         {
           "tag": "#P0UVY9092",
           "name": "Chrisx900",
           "role": "Member",
           "trophies": 10200,
-          "clanRank": 32,
+          "clanRank": 48,
           "donations": 8,
           "lastSeen": "2026-09-08T08:07:46.0000000+00:00",
           "warAverage": 133,
-          "rating": 2,
-          "familyRank": 108
+          "rating": 1,
+          "familyRank": 131
         },
         {
           "tag": "#JV2LCYUU2",
@@ -1578,7 +1590,7 @@
           "trophies": 10176,
           "clanRank": 20,
           "donations": 8,
-          "lastSeen": "2026-09-08T12:16:45.0000000+00:00",
+          "lastSeen": "2026-09-08T21:15:25.0000000+00:00",
           "warAverage": 1158,
           "rating": 3,
           "familyRank": 79
@@ -1588,12 +1600,12 @@
           "name": "ccanuck",
           "role": "Elder",
           "trophies": 9539,
-          "clanRank": 18,
+          "clanRank": 17,
           "donations": 0,
-          "lastSeen": "2026-09-08T13:13:08.0000000+00:00",
+          "lastSeen": "2026-09-08T21:21:11.0000000+00:00",
           "warAverage": 1404,
           "rating": 3,
-          "familyRank": 72
+          "familyRank": 71
         }
       ]
     },
@@ -1614,7 +1626,7 @@
           "trophies": 11006,
           "clanRank": 1,
           "donations": 0,
-          "lastSeen": "2026-09-08T19:39:55.0000000+00:00",
+          "lastSeen": "2026-09-08T21:44:26.0000000+00:00",
           "warAverage": 0,
           "rating": 3,
           "familyRank": 89
@@ -1629,7 +1641,7 @@
           "lastSeen": "2026-08-27T22:06:07.0000000+00:00",
           "warAverage": 517,
           "rating": 1,
-          "familyRank": 126
+          "familyRank": 128
         },
         {
           "tag": "#VJ90VVP8J",
@@ -1674,29 +1686,16 @@
       "clanName": "ALL STARS ACDMY"
     },
     {
-      "tag": "#8VRUC20GQ",
-      "name": "imnotgood",
-      "role": "Elder",
-      "trophies": 11549,
-      "clanRank": 2,
-      "donations": 42,
-      "lastSeen": "2026-09-08T19:27:40.0000000+00:00",
-      "warAverage": 2625,
-      "rating": 5,
-      "familyRank": 3,
-      "clanName": "ALL STARS ACDMY"
-    },
-    {
       "tag": "#YLQ92L900",
       "name": "ancalagon",
       "role": "Elder",
       "trophies": 14000,
-      "clanRank": 3,
-      "donations": 233,
-      "lastSeen": "2026-09-08T16:17:46.0000000+00:00",
+      "clanRank": 2,
+      "donations": 243,
+      "lastSeen": "2026-09-08T20:42:48.0000000+00:00",
       "warAverage": 2475,
       "rating": 5,
-      "familyRank": 4,
+      "familyRank": 3,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -1704,25 +1703,25 @@
       "name": "TheSphinx",
       "role": "Elder",
       "trophies": 12120,
-      "clanRank": 4,
+      "clanRank": 3,
       "donations": 67,
       "lastSeen": "2026-09-08T10:41:13.0000000+00:00",
       "warAverage": 2475,
       "rating": 5,
-      "familyRank": 5,
+      "familyRank": 4,
       "clanName": "ALL STARS ACDMY"
     },
     {
       "tag": "#UYLGRCL",
       "name": "march",
       "role": "Elder",
-      "trophies": 12613,
+      "trophies": 12643,
       "clanRank": 2,
-      "donations": 38,
-      "lastSeen": "2026-09-08T16:21:19.0000000+00:00",
+      "donations": 64,
+      "lastSeen": "2026-09-08T20:13:39.0000000+00:00",
       "warAverage": 2450,
       "rating": 5,
-      "familyRank": 6,
+      "familyRank": 5,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -1735,7 +1734,7 @@
       "lastSeen": "2026-09-08T17:42:24.0000000+00:00",
       "warAverage": 2442,
       "rating": 5,
-      "familyRank": 7,
+      "familyRank": 6,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -1748,20 +1747,7 @@
       "lastSeen": "2026-09-08T15:24:52.0000000+00:00",
       "warAverage": 2417,
       "rating": 5,
-      "familyRank": 8,
-      "clanName": "All•Stars clan"
-    },
-    {
-      "tag": "#LY888JYPQ",
-      "name": "mr wqlrus",
-      "role": "Elder",
-      "trophies": 14000,
-      "clanRank": 2,
-      "donations": 52,
-      "lastSeen": "2026-09-08T18:34:57.0000000+00:00",
-      "warAverage": 2367,
-      "rating": 5,
-      "familyRank": 9,
+      "familyRank": 7,
       "clanName": "All•Stars clan"
     },
     {
@@ -1770,11 +1756,11 @@
       "role": "Elder",
       "trophies": 12360,
       "clanRank": 4,
-      "donations": 146,
-      "lastSeen": "2026-09-08T19:58:19.0000000+00:00",
+      "donations": 154,
+      "lastSeen": "2026-09-08T20:57:33.0000000+00:00",
       "warAverage": 2367,
       "rating": 5,
-      "familyRank": 10,
+      "familyRank": 8,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -1782,12 +1768,12 @@
       "name": "mc7719",
       "role": "Elder",
       "trophies": 13405,
-      "clanRank": 3,
+      "clanRank": 2,
       "donations": 62,
       "lastSeen": "2026-09-08T18:44:56.0000000+00:00",
       "warAverage": 2267,
       "rating": 5,
-      "familyRank": 11,
+      "familyRank": 9,
       "clanName": "All•Stars clan"
     },
     {
@@ -1797,10 +1783,10 @@
       "trophies": 10287,
       "clanRank": 5,
       "donations": 146,
-      "lastSeen": "2026-09-08T16:33:45.0000000+00:00",
+      "lastSeen": "2026-09-08T21:53:55.0000000+00:00",
       "warAverage": 2250,
       "rating": 5,
-      "familyRank": 12,
+      "familyRank": 10,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -1808,12 +1794,12 @@
       "name": "jeFfy-sMoLes",
       "role": "Elder",
       "trophies": 14000,
-      "clanRank": 5,
+      "clanRank": 4,
       "donations": 113,
       "lastSeen": "2026-09-08T12:33:27.0000000+00:00",
       "warAverage": 2217,
       "rating": 5,
-      "familyRank": 13,
+      "familyRank": 11,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -1821,12 +1807,12 @@
       "name": "IT3",
       "role": "Elder",
       "trophies": 13242,
-      "clanRank": 6,
+      "clanRank": 5,
       "donations": 94,
       "lastSeen": "2026-09-08T14:37:27.0000000+00:00",
       "warAverage": 2200,
       "rating": 5,
-      "familyRank": 14,
+      "familyRank": 12,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -1834,25 +1820,12 @@
       "name": "seth",
       "role": "Co-Leader",
       "trophies": 14000,
-      "clanRank": 7,
+      "clanRank": 6,
       "donations": 202,
       "lastSeen": "2026-09-08T16:58:38.0000000+00:00",
       "warAverage": 2167,
       "rating": 5,
-      "familyRank": 15,
-      "clanName": "ALL STARS ACDMY"
-    },
-    {
-      "tag": "#99RLGCG",
-      "name": "MTL BLAZE",
-      "role": "Elder",
-      "trophies": 12528,
-      "clanRank": 8,
-      "donations": 84,
-      "lastSeen": "2026-09-08T18:39:53.0000000+00:00",
-      "warAverage": 2167,
-      "rating": 5,
-      "familyRank": 16,
+      "familyRank": 13,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -1861,11 +1834,11 @@
       "role": "Member",
       "trophies": 12093,
       "clanRank": 6,
-      "donations": 76,
-      "lastSeen": "2026-09-08T17:06:06.0000000+00:00",
+      "donations": 110,
+      "lastSeen": "2026-09-08T22:02:20.0000000+00:00",
       "warAverage": 2133,
       "rating": 5,
-      "familyRank": 17,
+      "familyRank": 14,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -1873,38 +1846,25 @@
       "name": "IronhIDE",
       "role": "Elder",
       "trophies": 13779,
-      "clanRank": 9,
+      "clanRank": 7,
       "donations": 168,
       "lastSeen": "2026-09-08T15:48:27.0000000+00:00",
       "warAverage": 2100,
       "rating": 5,
-      "familyRank": 18,
+      "familyRank": 15,
       "clanName": "ALL STARS ACDMY"
-    },
-    {
-      "tag": "#VGU0G88CU",
-      "name": "MasterDua",
-      "role": "Elder",
-      "trophies": 13967,
-      "clanRank": 4,
-      "donations": 72,
-      "lastSeen": "2026-09-08T19:18:51.0000000+00:00",
-      "warAverage": 2083,
-      "rating": 5,
-      "familyRank": 19,
-      "clanName": "All•Stars clan"
     },
     {
       "tag": "#R229LGVCL",
       "name": "aqua",
       "role": "Elder",
       "trophies": 12805,
-      "clanRank": 10,
+      "clanRank": 8,
       "donations": 84,
       "lastSeen": "2026-09-08T12:12:56.0000000+00:00",
       "warAverage": 2033,
       "rating": 5,
-      "familyRank": 20,
+      "familyRank": 16,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -1912,12 +1872,12 @@
       "name": "Marsh",
       "role": "Leader",
       "trophies": 11030,
-      "clanRank": 5,
+      "clanRank": 3,
       "donations": 190,
       "lastSeen": "2026-09-08T15:49:08.0000000+00:00",
       "warAverage": 1942,
       "rating": 5,
-      "familyRank": 21,
+      "familyRank": 17,
       "clanName": "All•Stars clan"
     },
     {
@@ -1925,12 +1885,12 @@
       "name": "SuperCellDad",
       "role": "Co-Leader",
       "trophies": 12292,
-      "clanRank": 6,
+      "clanRank": 4,
       "donations": 112,
       "lastSeen": "2026-09-08T13:00:25.0000000+00:00",
       "warAverage": 1875,
       "rating": 5,
-      "familyRank": 22,
+      "familyRank": 18,
       "clanName": "All•Stars clan"
     },
     {
@@ -1938,12 +1898,12 @@
       "name": "U.S.king ....",
       "role": "Elder",
       "trophies": 14000,
-      "clanRank": 11,
+      "clanRank": 9,
       "donations": 316,
       "lastSeen": "2026-09-08T13:25:51.0000000+00:00",
       "warAverage": 1871,
       "rating": 5,
-      "familyRank": 23,
+      "familyRank": 19,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -1951,12 +1911,12 @@
       "name": "Matty²",
       "role": "Leader",
       "trophies": 10503,
-      "clanRank": 12,
-      "donations": 203,
-      "lastSeen": "2026-09-08T19:22:53.0000000+00:00",
+      "clanRank": 10,
+      "donations": 213,
+      "lastSeen": "2026-09-08T21:55:28.0000000+00:00",
       "warAverage": 1850,
       "rating": 5,
-      "familyRank": 24,
+      "familyRank": 20,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -1964,12 +1924,12 @@
       "name": "Limitless",
       "role": "Elder",
       "trophies": 11298,
-      "clanRank": 13,
+      "clanRank": 11,
       "donations": 16,
       "lastSeen": "2026-09-08T17:26:59.0000000+00:00",
       "warAverage": 2725,
       "rating": 4,
-      "familyRank": 25,
+      "familyRank": 21,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -1977,12 +1937,12 @@
       "name": "SlipStache",
       "role": "Elder",
       "trophies": 12359,
-      "clanRank": 7,
+      "clanRank": 5,
       "donations": 10,
       "lastSeen": "2026-09-08T18:16:07.0000000+00:00",
       "warAverage": 2650,
       "rating": 4,
-      "familyRank": 26,
+      "familyRank": 22,
       "clanName": "All•Stars clan"
     },
     {
@@ -1995,20 +1955,46 @@
       "lastSeen": "2026-09-08T04:55:02.0000000+00:00",
       "warAverage": 2642,
       "rating": 4,
-      "familyRank": 27,
+      "familyRank": 23,
       "clanName": "All-Stars ACDMY"
+    },
+    {
+      "tag": "#8VRUC20GQ",
+      "name": "imnotgood",
+      "role": "Elder",
+      "trophies": 11549,
+      "clanRank": 12,
+      "donations": 50,
+      "lastSeen": "2026-09-08T21:39:31.0000000+00:00",
+      "warAverage": 2625,
+      "rating": 4,
+      "familyRank": 24,
+      "clanName": "ALL STARS ACDMY"
+    },
+    {
+      "tag": "#LY888JYPQ",
+      "name": "mr wqlrus",
+      "role": "Elder",
+      "trophies": 14000,
+      "clanRank": 6,
+      "donations": 52,
+      "lastSeen": "2026-09-08T18:34:57.0000000+00:00",
+      "warAverage": 2367,
+      "rating": 4,
+      "familyRank": 25,
+      "clanName": "All•Stars clan"
     },
     {
       "tag": "#90RURVRQ",
       "name": "Spock Lives 2",
       "role": "Elder",
       "trophies": 14000,
-      "clanRank": 14,
+      "clanRank": 13,
       "donations": 20,
       "lastSeen": "2026-09-08T19:16:13.0000000+00:00",
       "warAverage": 2325,
       "rating": 4,
-      "familyRank": 28,
+      "familyRank": 26,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -2016,12 +2002,12 @@
       "name": "Fin",
       "role": "Elder",
       "trophies": 14000,
-      "clanRank": 8,
+      "clanRank": 7,
       "donations": 26,
-      "lastSeen": "2026-09-08T18:05:19.0000000+00:00",
+      "lastSeen": "2026-09-08T21:40:16.0000000+00:00",
       "warAverage": 2280,
       "rating": 4,
-      "familyRank": 29,
+      "familyRank": 27,
       "clanName": "All•Stars clan"
     },
     {
@@ -2034,7 +2020,7 @@
       "lastSeen": "2026-09-08T02:36:34.0000000+00:00",
       "warAverage": 2208,
       "rating": 4,
-      "familyRank": 30,
+      "familyRank": 28,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -2047,8 +2033,34 @@
       "lastSeen": "2026-09-07T17:16:18.0000000+00:00",
       "warAverage": 2200,
       "rating": 4,
-      "familyRank": 31,
+      "familyRank": 29,
       "clanName": "All-Stars ACDMY"
+    },
+    {
+      "tag": "#99RLGCG",
+      "name": "MTL BLAZE",
+      "role": "Elder",
+      "trophies": 12528,
+      "clanRank": 14,
+      "donations": 84,
+      "lastSeen": "2026-09-08T18:39:53.0000000+00:00",
+      "warAverage": 2167,
+      "rating": 4,
+      "familyRank": 30,
+      "clanName": "ALL STARS ACDMY"
+    },
+    {
+      "tag": "#VGU0G88CU",
+      "name": "MasterDua",
+      "role": "Elder",
+      "trophies": 13967,
+      "clanRank": 8,
+      "donations": 82,
+      "lastSeen": "2026-09-08T21:14:13.0000000+00:00",
+      "warAverage": 2083,
+      "rating": 4,
+      "familyRank": 31,
+      "clanName": "All•Stars clan"
     },
     {
       "tag": "#QV2QQR8R",
@@ -2095,8 +2107,8 @@
       "role": "Elder",
       "trophies": 13566,
       "clanRank": 10,
-      "donations": 26,
-      "lastSeen": "2026-09-08T15:37:27.0000000+00:00",
+      "donations": 44,
+      "lastSeen": "2026-09-08T21:25:15.0000000+00:00",
       "warAverage": 2017,
       "rating": 4,
       "familyRank": 35,
@@ -2132,10 +2144,10 @@
       "tag": "#JUCL9RUP8",
       "name": "arveencool",
       "role": "Co-Leader",
-      "trophies": 11797,
+      "trophies": 11857,
       "clanRank": 11,
       "donations": 28,
-      "lastSeen": "2026-09-07T15:01:37.0000000+00:00",
+      "lastSeen": "2026-09-08T20:23:31.0000000+00:00",
       "warAverage": 1917,
       "rating": 4,
       "familyRank": 38,
@@ -2186,8 +2198,8 @@
       "role": "Elder",
       "trophies": 12000,
       "clanRank": 20,
-      "donations": 141,
-      "lastSeen": "2026-09-08T15:59:52.0000000+00:00",
+      "donations": 159,
+      "lastSeen": "2026-09-08T21:05:02.0000000+00:00",
       "warAverage": 1792,
       "rating": 4,
       "familyRank": 42,
@@ -2197,10 +2209,10 @@
       "tag": "#YUVJ29QGV",
       "name": "SPARKY",
       "role": "Member",
-      "trophies": 12559,
+      "trophies": 12500,
       "clanRank": 13,
-      "donations": 160,
-      "lastSeen": "2026-09-08T18:44:52.0000000+00:00",
+      "donations": 176,
+      "lastSeen": "2026-09-08T21:51:06.0000000+00:00",
       "warAverage": 1767,
       "rating": 4,
       "familyRank": 43,
@@ -2210,10 +2222,10 @@
       "tag": "#CLYPJRPP9",
       "name": "Made",
       "role": "Elder",
-      "trophies": 13935,
+      "trophies": 13904,
       "clanRank": 14,
-      "donations": 24,
-      "lastSeen": "2026-09-08T15:41:45.0000000+00:00",
+      "donations": 32,
+      "lastSeen": "2026-09-08T21:24:00.0000000+00:00",
       "warAverage": 1733,
       "rating": 4,
       "familyRank": 44,
@@ -2226,7 +2238,7 @@
       "trophies": 14000,
       "clanRank": 21,
       "donations": 26,
-      "lastSeen": "2026-09-08T18:07:23.0000000+00:00",
+      "lastSeen": "2026-09-08T21:49:28.0000000+00:00",
       "warAverage": 1667,
       "rating": 4,
       "familyRank": 45,
@@ -2251,8 +2263,8 @@
       "role": "Leader",
       "trophies": 10518,
       "clanRank": 11,
-      "donations": 218,
-      "lastSeen": "2026-09-08T06:56:05.0000000+00:00",
+      "donations": 226,
+      "lastSeen": "2026-09-08T21:52:26.0000000+00:00",
       "warAverage": 1667,
       "rating": 4,
       "familyRank": 47,
@@ -2350,19 +2362,6 @@
       "clanName": "ALL STARS ACDMY"
     },
     {
-      "tag": "#RRPU9JPU",
-      "name": "Flagoogle clan",
-      "role": "Member",
-      "trophies": 14000,
-      "clanRank": 12,
-      "donations": 64,
-      "lastSeen": "2026-09-08T19:04:16.0000000+00:00",
-      "warAverage": 1471,
-      "rating": 4,
-      "familyRank": 55,
-      "clanName": "All-Stars ACDMY"
-    },
-    {
       "tag": "#90GYYY9C8",
       "name": "torpman",
       "role": "Member",
@@ -2372,21 +2371,8 @@
       "lastSeen": "2026-09-08T18:19:46.0000000+00:00",
       "warAverage": 1400,
       "rating": 4,
-      "familyRank": 56,
+      "familyRank": 55,
       "clanName": "All•Stars clan"
-    },
-    {
-      "tag": "#GJC28QU8L",
-      "name": "GlueHuffer",
-      "role": "Elder",
-      "trophies": 13762,
-      "clanRank": 13,
-      "donations": 96,
-      "lastSeen": "2026-09-08T09:02:06.0000000+00:00",
-      "warAverage": 1283,
-      "rating": 4,
-      "familyRank": 57,
-      "clanName": "All-Stars ACDMY"
     },
     {
       "tag": "#J9QC08UJL",
@@ -2398,20 +2384,20 @@
       "lastSeen": "2026-09-08T18:04:36.0000000+00:00",
       "warAverage": 1233,
       "rating": 4,
-      "familyRank": 58,
+      "familyRank": 56,
       "clanName": "ALL STARS ACDMY"
     },
     {
       "tag": "#RPLP8UGP2",
       "name": "sour♥️noskill",
       "role": "Member",
-      "trophies": 11916,
+      "trophies": 12032,
       "clanRank": 30,
-      "donations": 73,
-      "lastSeen": "2026-09-08T04:27:45.0000000+00:00",
+      "donations": 91,
+      "lastSeen": "2026-09-08T20:27:49.0000000+00:00",
       "warAverage": 1200,
       "rating": 4,
-      "familyRank": 59,
+      "familyRank": 57,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -2419,12 +2405,12 @@
       "name": "LilManChristian",
       "role": "Member",
       "trophies": 14000,
-      "clanRank": 14,
+      "clanRank": 12,
       "donations": 209,
       "lastSeen": "2026-09-08T19:44:34.0000000+00:00",
       "warAverage": 1050,
       "rating": 4,
-      "familyRank": 60,
+      "familyRank": 58,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -2433,24 +2419,24 @@
       "role": "Member",
       "trophies": 14000,
       "clanRank": 31,
-      "donations": 250,
-      "lastSeen": "2026-09-08T15:50:09.0000000+00:00",
+      "donations": 278,
+      "lastSeen": "2026-09-08T22:01:27.0000000+00:00",
       "warAverage": 1000,
       "rating": 4,
-      "familyRank": 61,
+      "familyRank": 59,
       "clanName": "ALL STARS ACDMY"
     },
     {
       "tag": "#UPUJRQ2V",
       "name": "Dani",
       "role": "Member",
-      "trophies": 13825,
-      "clanRank": 15,
-      "donations": 174,
-      "lastSeen": "2026-09-08T19:33:09.0000000+00:00",
+      "trophies": 13758,
+      "clanRank": 13,
+      "donations": 192,
+      "lastSeen": "2026-09-08T21:12:12.0000000+00:00",
       "warAverage": 971,
       "rating": 4,
-      "familyRank": 62,
+      "familyRank": 60,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -2463,7 +2449,7 @@
       "lastSeen": "2026-09-08T16:56:27.0000000+00:00",
       "warAverage": 0,
       "rating": 4,
-      "familyRank": 63,
+      "familyRank": 61,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -2476,7 +2462,7 @@
       "lastSeen": "2026-09-08T12:16:24.0000000+00:00",
       "warAverage": 0,
       "rating": 4,
-      "familyRank": 64,
+      "familyRank": 62,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -2484,12 +2470,12 @@
       "name": "Butter Chicken",
       "role": "Elder",
       "trophies": 13261,
-      "clanRank": 16,
+      "clanRank": 14,
       "donations": 0,
       "lastSeen": "2026-09-07T16:21:37.0000000+00:00",
       "warAverage": 1992,
       "rating": 3,
-      "familyRank": 65,
+      "familyRank": 63,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -2502,7 +2488,7 @@
       "lastSeen": "2026-09-08T02:48:41.0000000+00:00",
       "warAverage": 1950,
       "rating": 3,
-      "familyRank": 66,
+      "familyRank": 64,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -2515,7 +2501,7 @@
       "lastSeen": "2026-09-07T23:36:12.0000000+00:00",
       "warAverage": 1917,
       "rating": 3,
-      "familyRank": 67,
+      "familyRank": 65,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -2528,7 +2514,7 @@
       "lastSeen": "2026-09-08T07:39:29.0000000+00:00",
       "warAverage": 1850,
       "rating": 3,
-      "familyRank": 68,
+      "familyRank": 66,
       "clanName": "All•Stars clan"
     },
     {
@@ -2541,7 +2527,7 @@
       "lastSeen": "2026-09-07T07:22:50.0000000+00:00",
       "warAverage": 1788,
       "rating": 3,
-      "familyRank": 69,
+      "familyRank": 67,
       "clanName": "All•Stars clan"
     },
     {
@@ -2554,7 +2540,7 @@
       "lastSeen": "2026-09-06T02:03:39.0000000+00:00",
       "warAverage": 1700,
       "rating": 3,
-      "familyRank": 70,
+      "familyRank": 68,
       "clanName": "All•Stars clan"
     },
     {
@@ -2562,12 +2548,25 @@
       "name": "Joulz",
       "role": "Member",
       "trophies": 14000,
-      "clanRank": 17,
+      "clanRank": 15,
       "donations": 38,
       "lastSeen": "2026-09-08T15:09:16.0000000+00:00",
       "warAverage": 1495,
       "rating": 3,
-      "familyRank": 71,
+      "familyRank": 69,
+      "clanName": "All-Stars ACDMY"
+    },
+    {
+      "tag": "#RRPU9JPU",
+      "name": "Flagoogle clan",
+      "role": "Member",
+      "trophies": 14000,
+      "clanRank": 16,
+      "donations": 72,
+      "lastSeen": "2026-09-08T21:35:56.0000000+00:00",
+      "warAverage": 1471,
+      "rating": 3,
+      "familyRank": 70,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -2575,12 +2574,12 @@
       "name": "ccanuck",
       "role": "Elder",
       "trophies": 9539,
-      "clanRank": 18,
+      "clanRank": 17,
       "donations": 0,
-      "lastSeen": "2026-09-08T13:13:08.0000000+00:00",
+      "lastSeen": "2026-09-08T21:21:11.0000000+00:00",
       "warAverage": 1404,
       "rating": 3,
-      "familyRank": 72,
+      "familyRank": 71,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -2593,7 +2592,7 @@
       "lastSeen": "2026-09-06T23:48:03.0000000+00:00",
       "warAverage": 1400,
       "rating": 3,
-      "familyRank": 73,
+      "familyRank": 72,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -2603,10 +2602,10 @@
       "trophies": 14000,
       "clanRank": 20,
       "donations": 34,
-      "lastSeen": "2026-09-08T14:54:35.0000000+00:00",
+      "lastSeen": "2026-09-08T21:01:17.0000000+00:00",
       "warAverage": 1380,
       "rating": 3,
-      "familyRank": 74,
+      "familyRank": 73,
       "clanName": "All•Stars clan"
     },
     {
@@ -2614,12 +2613,12 @@
       "name": "GOPINATH",
       "role": "Member",
       "trophies": 13301,
-      "clanRank": 19,
+      "clanRank": 18,
       "donations": 26,
       "lastSeen": "2026-09-08T17:26:21.0000000+00:00",
       "warAverage": 1367,
       "rating": 3,
-      "familyRank": 75,
+      "familyRank": 74,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -2632,8 +2631,21 @@
       "lastSeen": "2026-09-08T18:46:52.0000000+00:00",
       "warAverage": 1350,
       "rating": 3,
-      "familyRank": 76,
+      "familyRank": 75,
       "clanName": "All•Stars clan"
+    },
+    {
+      "tag": "#GJC28QU8L",
+      "name": "GlueHuffer",
+      "role": "Elder",
+      "trophies": 13762,
+      "clanRank": 19,
+      "donations": 96,
+      "lastSeen": "2026-09-08T09:02:06.0000000+00:00",
+      "warAverage": 1283,
+      "rating": 3,
+      "familyRank": 76,
+      "clanName": "All-Stars ACDMY"
     },
     {
       "tag": "#2J0QLJVR9",
@@ -2668,23 +2680,36 @@
       "trophies": 10176,
       "clanRank": 20,
       "donations": 8,
-      "lastSeen": "2026-09-08T12:16:45.0000000+00:00",
+      "lastSeen": "2026-09-08T21:15:25.0000000+00:00",
       "warAverage": 1158,
       "rating": 3,
       "familyRank": 79,
       "clanName": "All-Stars ACDMY"
     },
     {
+      "tag": "#9RRGUYC2",
+      "name": "Necross",
+      "role": "Member",
+      "trophies": 12533,
+      "clanRank": 37,
+      "donations": 0,
+      "lastSeen": "2026-09-08T21:51:33.0000000+00:00",
+      "warAverage": 1125,
+      "rating": 3,
+      "familyRank": 80,
+      "clanName": "ALL STARS ACDMY"
+    },
+    {
       "tag": "#V0VYU9L0J",
       "name": "<C7>Shadow",
       "role": "Member",
       "trophies": 14000,
-      "clanRank": 37,
+      "clanRank": 38,
       "donations": 0,
       "lastSeen": "2026-09-08T12:00:49.0000000+00:00",
       "warAverage": 1100,
       "rating": 3,
-      "familyRank": 80,
+      "familyRank": 81,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -2697,7 +2722,7 @@
       "lastSeen": "2026-09-08T18:50:43.0000000+00:00",
       "warAverage": 1008,
       "rating": 3,
-      "familyRank": 81,
+      "familyRank": 82,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -2710,7 +2735,7 @@
       "lastSeen": "2026-09-08T19:39:43.0000000+00:00",
       "warAverage": 933,
       "rating": 3,
-      "familyRank": 82,
+      "familyRank": 83,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -2719,35 +2744,22 @@
       "role": "Member",
       "trophies": 11691,
       "clanRank": 24,
-      "donations": 52,
-      "lastSeen": "2026-09-08T18:06:27.0000000+00:00",
+      "donations": 60,
+      "lastSeen": "2026-09-08T20:01:49.0000000+00:00",
       "warAverage": 904,
       "rating": 3,
-      "familyRank": 83,
+      "familyRank": 84,
       "clanName": "All•Stars clan"
     },
     {
       "tag": "#8CG2QYC",
       "name": "Equalizer",
       "role": "Member",
-      "trophies": 12712,
+      "trophies": 12776,
       "clanRank": 23,
-      "donations": 144,
-      "lastSeen": "2026-09-08T19:57:39.0000000+00:00",
+      "donations": 152,
+      "lastSeen": "2026-09-08T21:47:58.0000000+00:00",
       "warAverage": 830,
-      "rating": 3,
-      "familyRank": 84,
-      "clanName": "All-Stars ACDMY"
-    },
-    {
-      "tag": "#9CR8CL0RR",
-      "name": "LittyLikeATiddy",
-      "role": "Elder",
-      "trophies": 14000,
-      "clanRank": 24,
-      "donations": 58,
-      "lastSeen": "2026-09-08T01:17:15.0000000+00:00",
-      "warAverage": 750,
       "rating": 3,
       "familyRank": 85,
       "clanName": "All-Stars ACDMY"
@@ -2757,7 +2769,7 @@
       "name": "Shrey",
       "role": "Member",
       "trophies": 14000,
-      "clanRank": 25,
+      "clanRank": 24,
       "donations": 122,
       "lastSeen": "2026-09-07T22:30:41.0000000+00:00",
       "warAverage": 608,
@@ -2770,7 +2782,7 @@
       "name": "BigDog",
       "role": "Member",
       "trophies": 11500,
-      "clanRank": 38,
+      "clanRank": 39,
       "donations": 0,
       "lastSeen": "2026-09-08T17:00:37.0000000+00:00",
       "warAverage": 0,
@@ -2779,17 +2791,17 @@
       "clanName": "ALL STARS ACDMY"
     },
     {
-      "tag": "#P0YG2G9UC",
-      "name": "father⚡️henry",
+      "tag": "#8P2V2Y9CQ",
+      "name": "NotanNPC",
       "role": "Member",
-      "trophies": 11404,
-      "clanRank": 39,
-      "donations": 24,
-      "lastSeen": "2026-09-08T05:08:20.0000000+00:00",
+      "trophies": 11036,
+      "clanRank": 25,
+      "donations": 0,
+      "lastSeen": "2026-09-08T21:11:06.0000000+00:00",
       "warAverage": 0,
       "rating": 3,
       "familyRank": 88,
-      "clanName": "ALL STARS ACDMY"
+      "clanName": "All•Stars clan"
     },
     {
       "tag": "#UU2JQ2",
@@ -2798,7 +2810,7 @@
       "trophies": 11006,
       "clanRank": 1,
       "donations": 0,
-      "lastSeen": "2026-09-08T19:39:55.0000000+00:00",
+      "lastSeen": "2026-09-08T21:44:26.0000000+00:00",
       "warAverage": 0,
       "rating": 3,
       "familyRank": 89,
@@ -2809,7 +2821,7 @@
       "name": "Mace",
       "role": "Member",
       "trophies": 10500,
-      "clanRank": 25,
+      "clanRank": 26,
       "donations": 0,
       "lastSeen": "2026-09-08T16:05:46.0000000+00:00",
       "warAverage": 0,
@@ -2821,39 +2833,26 @@
       "tag": "#GJQG298CL",
       "name": "Duncoferda69",
       "role": "Member",
-      "trophies": 10318,
-      "clanRank": 26,
+      "trophies": 10404,
+      "clanRank": 27,
       "donations": 18,
-      "lastSeen": "2026-09-08T19:53:09.0000000+00:00",
+      "lastSeen": "2026-09-08T20:18:26.0000000+00:00",
       "warAverage": 0,
       "rating": 3,
       "familyRank": 91,
       "clanName": "All•Stars clan"
     },
     {
-      "tag": "#9RRGUYC2",
-      "name": "Necross",
-      "role": "Member",
-      "trophies": 12533,
-      "clanRank": 40,
-      "donations": 0,
-      "lastSeen": "2026-09-07T17:01:20.0000000+00:00",
-      "warAverage": 1125,
-      "rating": 2,
-      "familyRank": 92,
-      "clanName": "ALL STARS ACDMY"
-    },
-    {
       "tag": "#20G800V928",
       "name": "QuincyPromes",
       "role": "Member",
-      "trophies": 13000,
-      "clanRank": 26,
+      "trophies": 13083,
+      "clanRank": 25,
       "donations": 0,
-      "lastSeen": "2026-09-08T19:46:58.0000000+00:00",
+      "lastSeen": "2026-09-08T22:04:52.0000000+00:00",
       "warAverage": 967,
       "rating": 2,
-      "familyRank": 93,
+      "familyRank": 92,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -2861,12 +2860,12 @@
       "name": "lucifer akash",
       "role": "Member",
       "trophies": 14000,
-      "clanRank": 27,
+      "clanRank": 26,
       "donations": 0,
       "lastSeen": "2026-09-08T16:42:04.0000000+00:00",
       "warAverage": 933,
       "rating": 2,
-      "familyRank": 94,
+      "familyRank": 93,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -2874,12 +2873,12 @@
       "name": "Wheels",
       "role": "Member",
       "trophies": 12657,
-      "clanRank": 27,
+      "clanRank": 28,
       "donations": 18,
       "lastSeen": "2026-09-08T14:53:17.0000000+00:00",
       "warAverage": 838,
       "rating": 2,
-      "familyRank": 95,
+      "familyRank": 94,
       "clanName": "All•Stars clan"
     },
     {
@@ -2887,20 +2886,33 @@
       "name": "LIL JIJI",
       "role": "Member",
       "trophies": 12574,
-      "clanRank": 41,
+      "clanRank": 40,
       "donations": 0,
       "lastSeen": "2026-09-07T02:40:42.0000000+00:00",
       "warAverage": 825,
       "rating": 2,
-      "familyRank": 96,
+      "familyRank": 95,
       "clanName": "ALL STARS ACDMY"
+    },
+    {
+      "tag": "#9CR8CL0RR",
+      "name": "LittyLikeATiddy",
+      "role": "Elder",
+      "trophies": 14000,
+      "clanRank": 27,
+      "donations": 58,
+      "lastSeen": "2026-09-08T01:17:15.0000000+00:00",
+      "warAverage": 750,
+      "rating": 2,
+      "familyRank": 96,
+      "clanName": "All-Stars ACDMY"
     },
     {
       "tag": "#QV2JGUGG8",
       "name": "Raj",
       "role": "Member",
       "trophies": 12652,
-      "clanRank": 42,
+      "clanRank": 41,
       "donations": 34,
       "lastSeen": "2026-09-08T15:56:41.0000000+00:00",
       "warAverage": 713,
@@ -2939,7 +2951,7 @@
       "name": "john pork",
       "role": "Member",
       "trophies": 13132,
-      "clanRank": 43,
+      "clanRank": 42,
       "donations": 8,
       "lastSeen": "2026-09-07T23:01:59.0000000+00:00",
       "warAverage": 600,
@@ -2952,7 +2964,7 @@
       "name": "nuphous",
       "role": "Member",
       "trophies": 10314,
-      "clanRank": 28,
+      "clanRank": 29,
       "donations": 20,
       "lastSeen": "2026-09-07T15:40:00.0000000+00:00",
       "warAverage": 500,
@@ -2987,6 +2999,19 @@
       "clanName": "All-Stars ACDMY"
     },
     {
+      "tag": "#CCCLQQQUG",
+      "name": "DĪNHO",
+      "role": "Member",
+      "trophies": 11726,
+      "clanRank": 30,
+      "donations": 0,
+      "lastSeen": "2026-09-08T20:44:05.0000000+00:00",
+      "warAverage": 433,
+      "rating": 2,
+      "familyRank": 104,
+      "clanName": "All•Stars clan"
+    },
+    {
       "tag": "#228RUVLG",
       "name": "Onimen",
       "role": "Elder",
@@ -2996,7 +3021,20 @@
       "lastSeen": "2026-09-08T19:20:21.0000000+00:00",
       "warAverage": 367,
       "rating": 2,
-      "familyRank": 104,
+      "familyRank": 105,
+      "clanName": "All-Stars ACDMY"
+    },
+    {
+      "tag": "#VRYGP2VRL",
+      "name": "Shani",
+      "role": "Member",
+      "trophies": 12722,
+      "clanRank": 32,
+      "donations": 0,
+      "lastSeen": "2026-09-08T20:38:10.0000000+00:00",
+      "warAverage": 267,
+      "rating": 2,
+      "familyRank": 106,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -3004,12 +3042,12 @@
       "name": "domrt",
       "role": "Member",
       "trophies": 14000,
-      "clanRank": 44,
-      "donations": 58,
-      "lastSeen": "2026-09-08T18:15:02.0000000+00:00",
+      "clanRank": 43,
+      "donations": 76,
+      "lastSeen": "2026-09-08T21:06:34.0000000+00:00",
       "warAverage": 250,
       "rating": 2,
-      "familyRank": 105,
+      "familyRank": 107,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -3017,39 +3055,26 @@
       "name": "Diamondz",
       "role": "Member",
       "trophies": 12226,
-      "clanRank": 45,
+      "clanRank": 44,
       "donations": 0,
       "lastSeen": "2026-09-08T17:54:15.0000000+00:00",
       "warAverage": 160,
       "rating": 2,
-      "familyRank": 106,
+      "familyRank": 108,
       "clanName": "ALL STARS ACDMY"
     },
     {
       "tag": "#29UGVUJ",
       "name": "UCIMDVS",
       "role": "Co-Leader",
-      "trophies": 10767,
-      "clanRank": 29,
-      "donations": 24,
-      "lastSeen": "2026-09-08T03:38:54.0000000+00:00",
+      "trophies": 10794,
+      "clanRank": 31,
+      "donations": 50,
+      "lastSeen": "2026-09-08T21:53:47.0000000+00:00",
       "warAverage": 140,
       "rating": 2,
-      "familyRank": 107,
+      "familyRank": 109,
       "clanName": "All•Stars clan"
-    },
-    {
-      "tag": "#P0UVY9092",
-      "name": "Chrisx900",
-      "role": "Member",
-      "trophies": 10200,
-      "clanRank": 32,
-      "donations": 8,
-      "lastSeen": "2026-09-08T08:07:46.0000000+00:00",
-      "warAverage": 133,
-      "rating": 2,
-      "familyRank": 108,
-      "clanName": "All-Stars ACDMY"
     },
     {
       "tag": "#P2RC2L8VV",
@@ -3061,7 +3086,7 @@
       "lastSeen": "2026-09-08T15:22:06.0000000+00:00",
       "warAverage": 113,
       "rating": 2,
-      "familyRank": 109,
+      "familyRank": 110,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -3074,7 +3099,7 @@
       "lastSeen": "2026-09-08T14:15:36.0000000+00:00",
       "warAverage": 83,
       "rating": 2,
-      "familyRank": 110,
+      "familyRank": 111,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -3087,7 +3112,7 @@
       "lastSeen": "2026-09-08T10:31:51.0000000+00:00",
       "warAverage": 83,
       "rating": 2,
-      "familyRank": 111,
+      "familyRank": 112,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -3100,7 +3125,7 @@
       "lastSeen": "2026-09-08T04:07:08.0000000+00:00",
       "warAverage": 67,
       "rating": 2,
-      "familyRank": 112,
+      "familyRank": 113,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -3108,12 +3133,12 @@
       "name": "Homelander",
       "role": "Member",
       "trophies": 13479,
-      "clanRank": 46,
+      "clanRank": 45,
       "donations": 0,
       "lastSeen": "2026-09-08T13:51:12.0000000+00:00",
       "warAverage": 50,
       "rating": 2,
-      "familyRank": 113,
+      "familyRank": 114,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -3121,12 +3146,12 @@
       "name": "Dono",
       "role": "Member",
       "trophies": 14000,
-      "clanRank": 39,
+      "clanRank": 37,
       "donations": 0,
-      "lastSeen": "2026-09-08T18:17:49.0000000+00:00",
+      "lastSeen": "2026-09-08T21:09:02.0000000+00:00",
       "warAverage": 0,
       "rating": 2,
-      "familyRank": 114,
+      "familyRank": 115,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -3134,12 +3159,12 @@
       "name": "FahedHD",
       "role": "Member",
       "trophies": 14000,
-      "clanRank": 47,
+      "clanRank": 46,
       "donations": 0,
       "lastSeen": "2026-09-08T19:34:41.0000000+00:00",
       "warAverage": 0,
       "rating": 2,
-      "familyRank": 115,
+      "familyRank": 116,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -3147,12 +3172,12 @@
       "name": "Get Wrecked",
       "role": "Member",
       "trophies": 14000,
-      "clanRank": 37,
+      "clanRank": 38,
       "donations": 24,
       "lastSeen": "2026-09-08T19:43:24.0000000+00:00",
       "warAverage": 0,
       "rating": 2,
-      "familyRank": 116,
+      "familyRank": 117,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -3165,7 +3190,7 @@
       "lastSeen": "2026-09-08T18:13:28.0000000+00:00",
       "warAverage": 0,
       "rating": 2,
-      "familyRank": 117,
+      "familyRank": 118,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -3173,12 +3198,12 @@
       "name": "Rowan",
       "role": "Member",
       "trophies": 14000,
-      "clanRank": 38,
+      "clanRank": 39,
       "donations": 160,
       "lastSeen": "2026-09-08T19:18:11.0000000+00:00",
       "warAverage": 0,
       "rating": 2,
-      "familyRank": 118,
+      "familyRank": 119,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -3186,25 +3211,25 @@
       "name": "jjjet",
       "role": "Member",
       "trophies": 13618,
-      "clanRank": 48,
+      "clanRank": 47,
       "donations": 0,
       "lastSeen": "2026-09-08T03:55:45.0000000+00:00",
       "warAverage": 0,
       "rating": 2,
-      "familyRank": 119,
+      "familyRank": 120,
       "clanName": "ALL STARS ACDMY"
     },
     {
       "tag": "#U2RV2UU00",
       "name": "Mehrshad",
       "role": "Member",
-      "trophies": 13201,
+      "trophies": 13229,
       "clanRank": 41,
       "donations": 8,
-      "lastSeen": "2026-09-08T16:06:43.0000000+00:00",
+      "lastSeen": "2026-09-08T20:36:30.0000000+00:00",
       "warAverage": 0,
       "rating": 2,
-      "familyRank": 120,
+      "familyRank": 121,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -3213,24 +3238,24 @@
       "role": "Member",
       "trophies": 13007,
       "clanRank": 42,
-      "donations": 150,
-      "lastSeen": "2026-09-08T07:13:19.0000000+00:00",
+      "donations": 176,
+      "lastSeen": "2026-09-08T20:37:28.0000000+00:00",
       "warAverage": 0,
       "rating": 2,
-      "familyRank": 121,
+      "familyRank": 122,
       "clanName": "All-Stars ACDMY"
     },
     {
       "tag": "#V8C80LP8R",
       "name": "MorganOutlaw",
       "role": "Member",
-      "trophies": 12565,
+      "trophies": 12538,
       "clanRank": 43,
       "donations": 0,
-      "lastSeen": "2026-09-08T19:43:52.0000000+00:00",
+      "lastSeen": "2026-09-08T20:46:30.0000000+00:00",
       "warAverage": 0,
       "rating": 2,
-      "familyRank": 122,
+      "familyRank": 123,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -3243,7 +3268,7 @@
       "lastSeen": "2026-09-08T19:51:13.0000000+00:00",
       "warAverage": 0,
       "rating": 2,
-      "familyRank": 123,
+      "familyRank": 124,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -3256,20 +3281,33 @@
       "lastSeen": "2026-09-08T15:22:46.0000000+00:00",
       "warAverage": 0,
       "rating": 2,
-      "familyRank": 124,
+      "familyRank": 125,
       "clanName": "All-Stars ACDMY"
     },
     {
       "tag": "#C89QY9GVQ",
       "name": "StonedLlama420x",
       "role": "Member",
-      "trophies": 12188,
-      "clanRank": 49,
-      "donations": 112,
-      "lastSeen": "2026-09-08T15:38:40.0000000+00:00",
+      "trophies": 12166,
+      "clanRank": 48,
+      "donations": 130,
+      "lastSeen": "2026-09-08T21:47:45.0000000+00:00",
       "warAverage": 0,
       "rating": 2,
-      "familyRank": 125,
+      "familyRank": 126,
+      "clanName": "ALL STARS ACDMY"
+    },
+    {
+      "tag": "#P0YG2G9UC",
+      "name": "father⚡️henry",
+      "role": "Member",
+      "trophies": 11404,
+      "clanRank": 49,
+      "donations": 24,
+      "lastSeen": "2026-09-08T05:08:20.0000000+00:00",
+      "warAverage": 0,
+      "rating": 2,
+      "familyRank": 127,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -3282,21 +3320,8 @@
       "lastSeen": "2026-08-27T22:06:07.0000000+00:00",
       "warAverage": 517,
       "rating": 1,
-      "familyRank": 126,
+      "familyRank": 128,
       "clanName": "ALL STARS-ACDMY"
-    },
-    {
-      "tag": "#CCCLQQQUG",
-      "name": "DĪNHO",
-      "role": "Member",
-      "trophies": 11726,
-      "clanRank": 30,
-      "donations": 0,
-      "lastSeen": "2026-09-07T21:33:41.0000000+00:00",
-      "warAverage": 433,
-      "rating": 1,
-      "familyRank": 127,
-      "clanName": "All•Stars clan"
     },
     {
       "tag": "#C990L998P",
@@ -3308,19 +3333,6 @@
       "lastSeen": "2026-09-07T19:39:34.0000000+00:00",
       "warAverage": 367,
       "rating": 1,
-      "familyRank": 128,
-      "clanName": "All-Stars ACDMY"
-    },
-    {
-      "tag": "#VRYGP2VRL",
-      "name": "Shani",
-      "role": "Member",
-      "trophies": 12753,
-      "clanRank": 47,
-      "donations": 0,
-      "lastSeen": "2026-09-08T05:10:08.0000000+00:00",
-      "warAverage": 267,
-      "rating": 1,
       "familyRank": 129,
       "clanName": "All-Stars ACDMY"
     },
@@ -3329,12 +3341,25 @@
       "name": "Domo45",
       "role": "Member",
       "trophies": 13406,
-      "clanRank": 48,
+      "clanRank": 47,
       "donations": 8,
       "lastSeen": "2026-09-07T16:46:17.0000000+00:00",
       "warAverage": 167,
       "rating": 1,
       "familyRank": 130,
+      "clanName": "All-Stars ACDMY"
+    },
+    {
+      "tag": "#P0UVY9092",
+      "name": "Chrisx900",
+      "role": "Member",
+      "trophies": 10200,
+      "clanRank": 48,
+      "donations": 8,
+      "lastSeen": "2026-09-08T08:07:46.0000000+00:00",
+      "warAverage": 133,
+      "rating": 1,
+      "familyRank": 131,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -3347,7 +3372,7 @@
       "lastSeen": "2026-09-04T23:05:24.0000000+00:00",
       "warAverage": 0,
       "rating": 1,
-      "familyRank": 131,
+      "familyRank": 132,
       "clanName": "ALL STARS ACDMY"
     },
     {
@@ -3360,7 +3385,7 @@
       "lastSeen": "2026-09-03T09:52:38.0000000+00:00",
       "warAverage": 0,
       "rating": 1,
-      "familyRank": 132,
+      "familyRank": 133,
       "clanName": "All-Stars ACDMY"
     },
     {
@@ -3373,8 +3398,154 @@
       "lastSeen": "2026-09-04T20:08:49.0000000+00:00",
       "warAverage": 0,
       "rating": 1,
-      "familyRank": 133,
+      "familyRank": 134,
       "clanName": "All-Stars ACDMY"
+    }
+  ],
+  "publicEvents": [
+    {
+      "id": 78,
+      "eventUtc": "2026-09-08T21:58:53.7058148+00:00",
+      "eventType": "Battle",
+      "playerTag": "#9RC2URGJG",
+      "playerName": "Matty²",
+      "clanFromTag": "#QJU2Y8L8",
+      "clanFromName": "ALL STARS ACDMY",
+      "clanToTag": "#YLVY8R90",
+      "clanToName": "All•Stars clan",
+      "details": "Matty² defeated Marsh in the ALL STARS Battle Arena • 49% win odds"
+    },
+    {
+      "id": 70,
+      "eventUtc": "2026-09-08T21:13:23.6400138+00:00",
+      "eventType": "Joined",
+      "playerTag": "#8P2V2Y9CQ",
+      "playerName": "NotanNPC",
+      "clanFromTag": null,
+      "clanFromName": null,
+      "clanToTag": "#YLVY8R90",
+      "clanToName": "All•Stars clan",
+      "details": "First observed in clan network"
+    },
+    {
+      "id": 50,
+      "eventUtc": "2026-09-08T19:59:39.3535692+00:00",
+      "eventType": "Joined",
+      "playerTag": "#GJQG298CL",
+      "playerName": "Duncoferda69",
+      "clanFromTag": null,
+      "clanFromName": null,
+      "clanToTag": "#YLVY8R90",
+      "clanToName": "All•Stars clan",
+      "details": "First observed in clan network"
+    },
+    {
+      "id": 48,
+      "eventUtc": "2026-09-08T19:40:38.6404840+00:00",
+      "eventType": "Joined",
+      "playerTag": "#VJ90VVP8J",
+      "playerName": "Matty⁵",
+      "clanFromTag": null,
+      "clanFromName": null,
+      "clanToTag": "#G29UJVYR",
+      "clanToName": "ALL STARS-ACDMY",
+      "details": "First observed in clan network"
+    },
+    {
+      "id": 47,
+      "eventUtc": "2026-09-08T19:40:38.6404840+00:00",
+      "eventType": "Joined",
+      "playerTag": "#UJRR9JC2C",
+      "playerName": "Matty⁴",
+      "clanFromTag": null,
+      "clanFromName": null,
+      "clanToTag": "#G29UJVYR",
+      "clanToName": "ALL STARS-ACDMY",
+      "details": "First observed in clan network"
+    },
+    {
+      "id": 46,
+      "eventUtc": "2026-09-08T19:40:38.6404840+00:00",
+      "eventType": "Joined",
+      "playerTag": "#UU2JQ2",
+      "playerName": "Matty™",
+      "clanFromTag": null,
+      "clanFromName": null,
+      "clanToTag": "#G29UJVYR",
+      "clanToName": "ALL STARS-ACDMY",
+      "details": "First observed in clan network"
+    },
+    {
+      "id": 36,
+      "eventUtc": "2026-09-08T18:39:20.0040163+00:00",
+      "eventType": "Left",
+      "playerTag": "#LCLQP208",
+      "playerName": "Justin",
+      "clanFromTag": "#YLVY8R90",
+      "clanFromName": "All•Stars clan",
+      "clanToTag": null,
+      "clanToName": null,
+      "details": "No longer present in any tracked clan"
+    },
+    {
+      "id": 35,
+      "eventUtc": "2026-09-08T18:36:04.5278557+00:00",
+      "eventType": "Joined",
+      "playerTag": "#LCLQP208",
+      "playerName": "Justin",
+      "clanFromTag": null,
+      "clanFromName": null,
+      "clanToTag": "#YLVY8R90",
+      "clanToName": "All•Stars clan",
+      "details": "First observed in clan network"
+    },
+    {
+      "id": 7,
+      "eventUtc": "2026-09-08T16:57:42.7877258+00:00",
+      "eventType": "Joined",
+      "playerTag": "#PCCGVQY2J",
+      "playerName": "BigDog",
+      "clanFromTag": null,
+      "clanFromName": null,
+      "clanToTag": "#QJU2Y8L8",
+      "clanToName": "ALL STARS ACDMY",
+      "details": "First observed in clan network"
+    },
+    {
+      "id": 5,
+      "eventUtc": "2026-09-08T16:33:09.0617622+00:00",
+      "eventType": "Left",
+      "playerTag": "#9VLUP0J2",
+      "playerName": "DRAZZ ET ZAKK",
+      "clanFromTag": "#QJU2Y8L8",
+      "clanFromName": "ALL STARS ACDMY",
+      "clanToTag": null,
+      "clanToName": null,
+      "details": "No longer present in any tracked clan"
+    },
+    {
+      "id": 4,
+      "eventUtc": "2026-09-08T16:33:09.0617622+00:00",
+      "eventType": "Joined",
+      "playerTag": "#8QGR9RLRV",
+      "playerName": "Mace",
+      "clanFromTag": null,
+      "clanFromName": null,
+      "clanToTag": "#YLVY8R90",
+      "clanToName": "All•Stars clan",
+      "details": "First observed in clan network"
+    },
+    {
+      "id": 1,
+      "eventUtc": "2026-09-08T05:01:21.8271145+00:00",
+      "eventType": "RoleChanged",
+      "playerTag": "#PQVL89QGV",
+      "playerName": "cody",
+      "clanFromTag": "#QJU2Y8L8",
+      "clanFromName": "ALL STARS ACDMY",
+      "clanToTag": "#QJU2Y8L8",
+      "clanToName": "ALL STARS ACDMY",
+      "details": "Member → Elder"
     }
   ]
 }
