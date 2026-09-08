@@ -3,18 +3,274 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ALL STARS CLAN Rankings</title>
+<title>★ ALL STARS CLAN</title>
 <style>
-body{margin:0;min-height:100vh;display:grid;place-items:center;background:linear-gradient(180deg,#176b9f,#0a365d);color:#fff;font-family:Segoe UI,Arial,sans-serif}
-.card{width:min(620px,90vw);padding:32px;border:2px solid #efc85e;border-radius:12px;background:#082b4b;text-align:center;box-shadow:0 20px 60px #0006}
-h1{color:#ffe89a;margin:0 0 10px}p{color:#b9daed;margin:8px 0}.small{font-size:13px;color:#8fbad4}
+:root{
+  --bg:#0b4a77;--bg2:#0a365d;--panel:#0a3254;--panel2:#0d416d;
+  --gold:#efc85e;--gold2:#ffe89a;--text:#eaf6ff;--sub:#9fc8df;
+  --line:rgba(239,200,94,.34);--blue:#1a6a99;--green:#72e2aa;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;color:var(--text);
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:
+    linear-gradient(45deg,rgba(255,255,255,.035) 25%,transparent 25%,transparent 75%,rgba(255,255,255,.035) 75%),
+    linear-gradient(45deg,rgba(0,20,48,.08) 25%,transparent 25%,transparent 75%,rgba(0,20,48,.08) 75%),
+    linear-gradient(180deg,#176b9f 0%,#0e4b7b 42%,#0a365d 100%);
+  background-position:0 0,26px 26px,0 0;background-size:52px 52px,52px 52px,auto;
+  background-attachment:fixed
+}
+header{
+  position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;
+  min-height:86px;padding:12px 22px;
+  background:linear-gradient(180deg,#0d416d,#082a4a);
+  border-bottom:2px solid rgba(239,200,94,.72);
+  box-shadow:0 8px 24px rgba(0,15,34,.4)
+}
+.crest{
+  width:54px;height:62px;display:grid;place-items:center;font-size:28px;
+  background:linear-gradient(145deg,#f6cc5d,#a86a11);
+  clip-path:polygon(50% 0,88% 13%,83% 72%,50% 100%,17% 72%,12% 13%);
+  color:#073d69;text-shadow:0 1px #fff7b8
+}
+.brand h1{margin:0;color:var(--gold);font:900 24px "Arial Black","Segoe UI";text-shadow:0 2px 0 #744607,0 5px 8px #0008}
+.brand p{margin:5px 0 0;color:#9fcbe7;font-size:9px}
+.header-right{margin-left:auto;text-align:right}
+.last-updated{font-size:10px;color:#c5e1ef}
+.snapshot-note{font-size:8px;color:#79a9c7;margin-top:3px}
+.shell{max-width:1600px;margin:auto;padding:18px 22px 40px}
+.nav{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+button{
+  font:inherit;cursor:pointer;color:#eaf6ff;background:linear-gradient(180deg,#1c6ba1,#0f456f);
+  border:1px solid rgba(239,200,94,.48);border-radius:6px;padding:9px 14px
+}
+button.active{color:#fff2ad;box-shadow:inset 0 -3px var(--gold)}
+.panel{
+  border:1px solid var(--line);border-radius:9px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(15,64,102,.97),rgba(8,43,74,.98));
+  box-shadow:0 8px 22px rgba(0,20,42,.2)
+}
+.bar{display:flex;align-items:center;gap:8px;min-height:46px;padding:0 13px;background:linear-gradient(180deg,#155a8d,#0d3c66);border-bottom:1px solid var(--line)}
+.bar h2{margin:0;color:var(--gold2);font-size:13px}
+.right{margin-left:auto;color:#91b9d0;font-size:8px}
+.hero{
+  margin-bottom:14px;padding:15px;border:1px solid var(--line);border-radius:9px;
+  background:radial-gradient(circle at 85% -20%,rgba(73,178,231,.18),transparent 38%),linear-gradient(145deg,#125787,#082f52)
+}
+.hero h2{margin:0;color:var(--gold2)}
+.hero p{margin:6px 0 0;color:#a9cee2;font-size:9px}
+.find-row{display:flex;gap:8px;margin-top:12px}
+input,select{
+  width:100%;background:#072945;border:1px solid #2c6d99;color:#e6f4ff;border-radius:6px;padding:9px 10px;outline:none
+}
+.find-row input{max-width:430px}
+.tabs{display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;margin-bottom:12px;flex-wrap:wrap}
+.tab{flex:1;min-width:160px;border-radius:0;border:0;border-right:1px solid var(--line);text-align:left;background:linear-gradient(180deg,#10466f,#0b3457)}
+.tab.active{background:linear-gradient(180deg,#2477aa,#14527f)}
+.tab-name{font-weight:800}
+.tab-meta{font-size:8px;color:#8dbbd8;margin-top:3px}
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-bottom:12px}
+.stat{padding:11px;border:1px solid rgba(239,200,94,.25);border-radius:7px;background:linear-gradient(145deg,#135b8b,#0b3b65)}
+.stat .k{font-size:7px;color:#ebd88e;text-transform:uppercase}
+.stat .v{font-size:19px;font-weight:900;margin-top:4px}
+.tools{display:flex;gap:8px;padding:10px;background:#092f51;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tools input{max-width:340px}
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:950px}
+th{font-size:7px;text-transform:uppercase;letter-spacing:.05em;text-align:left;color:#efd98f;background:#0b3559;padding:8px;border-bottom:1px solid var(--line)}
+td{font-size:9px;color:#d8ebf6;padding:9px 8px;border-bottom:1px solid rgba(137,188,220,.14)}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:rgba(37,117,169,.22)}
+.rank{color:var(--gold2);font-weight:900}
+.clan{color:#9dc9df}
+.stars{color:#ffd55c;letter-spacing:1px}
+.hidden{display:none!important}
+.empty{padding:28px;text-align:center;color:#8fb3c9;font-size:10px}
+.podium{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.podium-card{padding:14px;text-align:center;border:1px solid #c99b35;border-radius:8px;background:linear-gradient(180deg,#f1d36f,#9c6e18);color:#15324c}
+.podium-card b{display:block;font-size:15px}.podium-card span{font-size:8px}
+.modal{position:fixed;inset:0;z-index:100;background:#02070db8;display:grid;place-items:center;padding:18px}
+.modal-card{width:min(820px,96vw);max-height:88vh;overflow:auto;background:linear-gradient(180deg,#104a76,#082e4f);border:1px solid #e0b84c;border-radius:9px}
+.modal-head{display:flex;align-items:center;padding:13px 15px;border-bottom:1px solid var(--line);background:#0d3c65}
+.modal-head h3{margin:0;color:var(--gold2)}.modal-head button{margin-left:auto}
+.modal-body{padding:14px}
+.profile-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.profile-box{padding:10px;border:1px solid #315878;border-radius:6px;background:#082f51}
+.profile-box .k{font-size:7px;color:#89adc4;text-transform:uppercase}.profile-box .v{margin-top:5px;font-size:12px;font-weight:800}
+@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.profile-grid{grid-template-columns:repeat(2,1fr)}.podium{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="card">
-<h1>★ ALL STARS CLAN ★</h1>
-<p>Public Rankings Site</p>
-<p class="small">GitHub Pages test successful.</p>
+<header>
+  <div class="crest">★</div>
+  <div class="brand">
+    <h1>ALL STARS CLAN</h1>
+    <p>Public clan rankings • member stats • family leaderboard</p>
+  </div>
+  <div class="header-right">
+    <div id="lastUpdated" class="last-updated">Loading public snapshot…</div>
+    <div class="snapshot-note">Read-only public site</div>
+  </div>
+</header>
+
+<main class="shell">
+  <div class="nav">
+    <button id="dashBtn" class="active" onclick="showPage('dashboard')">Clan Dashboard</button>
+    <button id="rankBtn" onclick="showPage('rankings')">All Stars Rankings</button>
+  </div>
+
+  <section class="hero">
+    <h2>Find Me</h2>
+    <p>Enter your Clash Royale name or player tag to jump directly to your current clan and player card.</p>
+    <div class="find-row">
+      <input id="findInput" placeholder="Player name or #TAG" onkeydown="if(event.key==='Enter')findMe()">
+      <button onclick="findMe()">Find Me</button>
+    </div>
+    <div id="findMsg" style="margin-top:7px;font-size:9px;color:#a8cee2"></div>
+  </section>
+
+  <section id="dashboardPage">
+    <div id="clanTabs" class="tabs"></div>
+    <div id="clanStats" class="stats"></div>
+    <div class="panel">
+      <div class="bar"><h2 id="rosterTitle">Clan Roster</h2><div class="right">Click a player for their public performance card</div></div>
+      <div class="tools"><input id="rosterSearch" placeholder="Search roster…" oninput="renderRoster()"></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Rank</th><th>Player</th><th>Role</th><th>Trophies</th><th>Donations</th><th>War Avg</th><th>Rating</th><th>Family Rank</th></tr></thead>
+          <tbody id="rosterRows"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="rankingsPage" class="hidden">
+    <div class="hero">
+      <h2>★ ALL STARS FAMILY RANKINGS ★</h2>
+      <p>Compare members across every tracked ALL STARS clan using the public performance snapshot.</p>
+    </div>
+    <div id="familyPodium" class="podium"></div>
+    <div class="panel">
+      <div class="bar"><h2>Family Leaderboard</h2><div class="right">All tracked clans</div></div>
+      <div class="tools"><input id="familySearch" placeholder="Search player or clan…" oninput="renderFamily()"></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Family Rank</th><th>Player</th><th>Clan</th><th>Clan Rank</th><th>Rating</th><th>War Avg</th><th>Donations</th><th>Trophies</th></tr></thead>
+          <tbody id="familyRows"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="playerModal" class="modal hidden" onclick="if(event.target===this)closePlayer()">
+  <div class="modal-card">
+    <div class="modal-head"><h3 id="playerTitle">Player</h3><button onclick="closePlayer()">Close</button></div>
+    <div id="playerBody" class="modal-body"></div>
+  </div>
 </div>
+
+<script>
+let DATA={generatedUtc:null,clans:[],family:[]},activeClan=0;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+const stars=n=>'★'.repeat(Math.max(0,Math.min(5,Math.round(Number(n)||0))))+'☆'.repeat(5-Math.max(0,Math.min(5,Math.round(Number(n)||0))));
+
+async function init(){
+  try{
+    const r=await fetch('public-data.json?ts='+Date.now(),{cache:'no-store'});
+    if(!r.ok)throw new Error('snapshot unavailable');
+    DATA=await r.json();
+  }catch{
+    DATA={generatedUtc:null,clans:[],family:[]};
+  }
+  $('lastUpdated').textContent=DATA.generatedUtc?'Last updated: '+new Date(DATA.generatedUtc).toLocaleString():'No public snapshot published yet';
+  renderTabs();renderClan();renderFamily();
+}
+function showPage(p){
+  $('dashboardPage').classList.toggle('hidden',p!=='dashboard');
+  $('rankingsPage').classList.toggle('hidden',p!=='rankings');
+  $('dashBtn').classList.toggle('active',p==='dashboard');
+  $('rankBtn').classList.toggle('active',p==='rankings');
+}
+function renderTabs(){
+  const clans=DATA.clans||[];
+  if(activeClan>=clans.length)activeClan=0;
+  $('clanTabs').innerHTML=clans.length?clans.map((c,i)=>`<button class="tab ${i===activeClan?'active':''}" onclick="activeClan=${i};renderTabs();renderClan()"><div class="tab-name">${esc(c.name||c.label)}</div><div class="tab-meta">${esc(c.tag)} • ${c.members?.length||0} members</div></button>`).join(''):'<div class="empty" style="width:100%">No public clan snapshot has been published yet.</div>';
+}
+function renderClan(){
+  const c=(DATA.clans||[])[activeClan];
+  if(!c){
+    $('clanStats').innerHTML='';
+    $('rosterTitle').textContent='Clan Roster';
+    $('rosterRows').innerHTML='<tr><td colspan="8" class="empty">The site is ready. The first tracker snapshot will populate this page.</td></tr>';
+    return;
+  }
+  $('rosterTitle').textContent=c.name||c.label||'Clan Roster';
+  const avgT=Math.round((c.members||[]).reduce((a,m)=>a+(m.trophies||0),0)/Math.max(1,(c.members||[]).length));
+  $('clanStats').innerHTML=[
+    ['Members',`${c.members?.length||0} / 50`],
+    ['Clan Score',Number(c.clanScore||0).toLocaleString()],
+    ['War Trophies',Number(c.warTrophies||0).toLocaleString()],
+    ['Average Trophies',Number(avgT||0).toLocaleString()],
+    ['Donations / Week',Number(c.donationsPerWeek||0).toLocaleString()]
+  ].map(x=>`<div class="stat"><div class="k">${x[0]}</div><div class="v">${x[1]}</div></div>`).join('');
+  renderRoster();
+}
+function renderRoster(){
+  const c=(DATA.clans||[])[activeClan]; if(!c)return;
+  const q=($('rosterSearch').value||'').trim().toLowerCase();
+  const rows=(c.members||[]).filter(m=>!q||String(m.name||'').toLowerCase().includes(q)||String(m.tag||'').toLowerCase().includes(q));
+  $('rosterRows').innerHTML=rows.length?rows.map(m=>`<tr onclick="openPlayer('${esc(m.tag)}')">
+    <td class="rank">#${m.clanRank??'-'}</td><td><b>${esc(m.name)}</b><div style="font-size:7px;color:#7fa5bd">${esc(m.tag)}</div></td>
+    <td>${esc(m.role||'Member')}</td><td>${Number(m.trophies||0).toLocaleString()}</td><td>${Number(m.donations||0).toLocaleString()}</td>
+    <td>${Number(m.warAverage||0).toLocaleString()}</td><td class="stars">${stars(m.rating)}</td><td>#${m.familyRank??'-'}</td>
+  </tr>`).join(''):'<tr><td colspan="8" class="empty">No matching players.</td></tr>';
+}
+function allPlayers(){
+  const x=[];(DATA.clans||[]).forEach(c=>(c.members||[]).forEach(m=>x.push({...m,clanName:c.name||c.label})));
+  return x;
+}
+function renderFamily(){
+  const source=(DATA.family?.length?DATA.family:allPlayers()).slice().sort((a,b)=>(a.familyRank||9999)-(b.familyRank||9999));
+  const q=($('familySearch')?.value||'').trim().toLowerCase();
+  const rows=source.filter(m=>!q||String(m.name||'').toLowerCase().includes(q)||String(m.clanName||'').toLowerCase().includes(q)||String(m.tag||'').toLowerCase().includes(q));
+  $('familyPodium').innerHTML=source.slice(0,3).map((m,i)=>`<div class="podium-card"><span>#${i+1} FAMILY</span><b>${esc(m.name)}</b><span>${esc(m.clanName||'')} • ${stars(m.rating)}</span></div>`).join('');
+  $('familyRows').innerHTML=rows.length?rows.map(m=>`<tr onclick="openPlayer('${esc(m.tag)}')"><td class="rank">#${m.familyRank??'-'}</td><td><b>${esc(m.name)}</b><div style="font-size:7px;color:#7fa5bd">${esc(m.tag)}</div></td><td class="clan">${esc(m.clanName||'')}</td><td>#${m.clanRank??'-'}</td><td class="stars">${stars(m.rating)}</td><td>${Number(m.warAverage||0).toLocaleString()}</td><td>${Number(m.donations||0).toLocaleString()}</td><td>${Number(m.trophies||0).toLocaleString()}</td></tr>`).join(''):'<tr><td colspan="8" class="empty">No public family snapshot has been published yet.</td></tr>';
+}
+function findPlayer(tag){return allPlayers().find(m=>String(m.tag||'').toUpperCase()===String(tag||'').toUpperCase())}
+function openPlayer(tag){
+  const p=findPlayer(tag);if(!p)return;
+  $('playerTitle').textContent=p.name||'Player';
+  $('playerBody').innerHTML=`<div class="profile-grid">
+    <div class="profile-box"><div class="k">Clan</div><div class="v">${esc(p.clanName||'')}</div></div>
+    <div class="profile-box"><div class="k">Clan Rank</div><div class="v">#${p.clanRank??'-'}</div></div>
+    <div class="profile-box"><div class="k">Family Rank</div><div class="v">#${p.familyRank??'-'}</div></div>
+    <div class="profile-box"><div class="k">ASC Rating</div><div class="v stars">${stars(p.rating)}</div></div>
+    <div class="profile-box"><div class="k">Trophies</div><div class="v">${Number(p.trophies||0).toLocaleString()}</div></div>
+    <div class="profile-box"><div class="k">Donations</div><div class="v">${Number(p.donations||0).toLocaleString()}</div></div>
+    <div class="profile-box"><div class="k">War Average</div><div class="v">${Number(p.warAverage||0).toLocaleString()}</div></div>
+    <div class="profile-box"><div class="k">Role</div><div class="v">${esc(p.role||'Member')}</div></div>
+  </div>`;
+  $('playerModal').classList.remove('hidden');
+}
+function closePlayer(){$('playerModal').classList.add('hidden')}
+function findMe(){
+  const q=($('findInput').value||'').trim().toLowerCase();if(!q){$('findMsg').textContent='Enter your player name or tag.';return}
+  const players=allPlayers();
+  let matches=players.filter(p=>String(p.tag||'').toLowerCase()===q||String(p.name||'').toLowerCase()===q);
+  if(!matches.length)matches=players.filter(p=>String(p.name||'').toLowerCase().includes(q));
+  if(matches.length===1){
+    const p=matches[0],ci=(DATA.clans||[]).findIndex(c=>(c.members||[]).some(m=>m.tag===p.tag));
+    if(ci>=0){activeClan=ci;showPage('dashboard');renderTabs();renderClan();$('rosterSearch').value=p.name||p.tag;renderRoster()}
+    $('findMsg').textContent=`Found ${p.name} in ${p.clanName}.`;
+    openPlayer(p.tag);
+  }else if(matches.length>1){
+    $('findMsg').textContent='More than one player matched. Use the exact player tag.';
+  }else $('findMsg').textContent='That player is not in the latest published ALL STARS snapshot.';
+}
+init();
+</script>
 </body>
 </html>
