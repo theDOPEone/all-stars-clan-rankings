@@ -769,7 +769,7 @@ html,body{max-width:100%;overflow-x:hidden}
       <div class="mini-console-head"><span>PUBLIC MIRROR</span><span class="live-pill">ONLINE</span></div>
       <div id="miniLogBody" class="mini-console-body"><div class="console-line muted-line">Loading snapshot...</div></div>
     </div>
-    <div class="public-signin-wrap"><div class="public-mirror-badge"><span class="dot ok"></span><b>PUBLIC</b><span>Member / Elder View</span></div><button class="public-signin-btn" onclick="openManagementLogin()">Sign In</button><span class="public-signin-note">Leader / Co-Leader</span></div>
+    <div class="public-signin-wrap"><div class="public-mirror-badge"><span class="dot ok"></span><b>PUBLIC</b><span>Member / Elder View</span></div><button class="public-signin-btn" onclick="openMemberLogin()">Member Sign In</button><button class="public-signin-btn" onclick="openManagementLogin()">Leadership</button></div>
   </div>
 </header>
 <main class="shell">
@@ -805,7 +805,7 @@ html,body{max-width:100%;overflow-x:hidden}
   </section>
 
   <section id="memberPage" class="hidden public-page">
-    <div class="rankings-hero"><h2>★ MEMBER ZONE ★</h2><p>Public, read-only activities for Members and Elders. Full personal member accounts and sign-in are still in development.</p></div>
+    <div class="rankings-hero"><h2>★ MEMBER ZONE ★</h2><p>Battle, rankings and Spotlight stay public. Verified ALL STARS members can now sign in and manage their personal profile through the live clan server.</p></div>
     <div class="member-hub-grid">
       <div class="member-hub-card full">
         <div class="member-hub-head">ALL STARS Battle Arena</div>
@@ -831,7 +831,7 @@ html,body{max-width:100%;overflow-x:hidden}
       </div>
       <div class="member-hub-card">
         <div class="member-hub-head">Member Accounts</div>
-        <div class="member-hub-body"><div class="member-dev-badge">IN DEVELOPMENT</div><div class="member-dev-note">Member / Elder personal accounts will come later. For now this area stays public and read-only so everyone can compare players, explore rankings and open performance cards without needing an account.</div><button class="btn secondary" style="margin-top:10px;opacity:.55;cursor:not-allowed" disabled>Member Sign In — Coming Later</button></div>
+        <div class="member-hub-body"><div class="member-dev-badge">LIVE</div><div class="member-dev-note">Member / Elder accounts are now available. New accounts require a one-time verification code from ALL STARS leadership. If the tracker PC is offline, account sign-in will be temporarily unavailable while this public site remains online.</div><div style="display:flex;gap:7px;flex-wrap:wrap;margin-top:10px"><button class="btn" onclick="openMemberLogin()">Member Sign In</button><button class="btn secondary" onclick="openMemberRegistration()">Create Account</button></div></div>
       </div>
     </div>
   </section>
@@ -845,6 +845,12 @@ let DATA={generatedUtc:null,clans:[],family:[],publicEvents:[]},activeClan=0,cur
 const MANAGEMENT_URL='https://ion-kebab-muster.ngrok-free.dev/';
 const LIVE_BASE=MANAGEMENT_URL.replace(/\/$/,'');
 const $=id=>document.getElementById(id);
+function openMemberLogin(){
+  window.open(MANAGEMENT_URL+'?login=member','_blank','noopener');
+}
+function openMemberRegistration(){
+  window.open(MANAGEMENT_URL+'?login=register','_blank','noopener');
+}
 function openManagementLogin(){
   window.open(MANAGEMENT_URL+'?login=coleader','_blank','noopener');
 }
