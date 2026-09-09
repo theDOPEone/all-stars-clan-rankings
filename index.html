@@ -840,6 +840,74 @@ html,body{max-width:100%;overflow-x:hidden}
   .community-profile-since{padding:8px 10px 11px}
 }
 
+
+/* STEP 5 — CURRENT DECK INSIDE COMMUNITY PROFILE */
+.community-profile-deck{
+  margin-top:10px;
+  padding:9px 10px;
+  border:1px solid #2d5c7a;
+  border-radius:7px;
+  background:rgba(5,31,52,.62);
+}
+.community-profile-deck-title{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin-bottom:7px;
+  font-size:7px;
+  font-weight:1000;
+  color:#ffe58c;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.community-profile-deck-title span{
+  color:#7fa9c1;
+  font-weight:700;
+  text-transform:none;
+  letter-spacing:0;
+}
+.community-profile-deck-cards{
+  display:grid;
+  grid-template-columns:repeat(8,minmax(0,1fr));
+  gap:5px;
+}
+.community-profile-deck-card{
+  min-width:0;
+  border:1px solid #315f7d;
+  border-radius:5px;
+  background:#082844;
+  padding:3px;
+  text-align:center;
+}
+.community-profile-deck-card img{
+  width:100%;
+  aspect-ratio:0.72;
+  object-fit:contain;
+  display:block;
+  filter:drop-shadow(0 3px 3px rgba(0,0,0,.35));
+}
+.community-profile-deck-card .n{
+  font-size:6px;
+  color:#93bfd5;
+  margin-top:2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.community-profile-deck-empty{
+  padding:10px 0;
+  text-align:center;
+  font-size:8px;
+  color:#7299af;
+}
+@media(max-width:900px){
+  .community-profile-deck-cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media(max-width:520px){
+  .community-profile-deck-cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .community-profile-deck-card .n{display:none}
+}
+
 </style></head>
 <body>
 <header class="top">
@@ -1035,6 +1103,19 @@ function resolvePublicCommunityProfileCardArt(profile,liveProfile){
   if(liveProfile?.favouriteCardIcon)return{name:liveProfile.favouriteCardName||'Favourite Card',icon:liveProfile.favouriteCardIcon};
   return{name:'',icon:''};
 }
+
+function publicCommunityProfileDeckHtml(liveProfile){
+  const deck=Array.isArray(liveProfile?.currentDeck)?liveProfile.currentDeck:[];
+  if(!deck.length){
+    return `<div class="community-profile-deck"><div class="community-profile-deck-title">Current Deck <span>Live Clash Royale deck</span></div><div class="community-profile-deck-empty">Current deck unavailable.</div></div>`;
+  }
+  return `<div class="community-profile-deck">
+    <div class="community-profile-deck-title">Current Deck <span>Live Clash Royale deck</span></div>
+    <div class="community-profile-deck-cards">
+      ${deck.slice(0,8).map(c=>`<div class="community-profile-deck-card"><img src="${esc(c.icon||'')}" alt="${esc(c.name||'Card')}"><div class="n">${esc(c.name||'')}</div></div>`).join('')}
+    </div>
+  </div>`;
+}
 function publicCommunityProfileHtml(profile,liveProfile){
   if(!profile)return '';
   const display=profile.displayName||profile.playerName||'ALL STARS Member';
@@ -1053,6 +1134,7 @@ function publicCommunityProfileHtml(profile,liveProfile){
         </div>
         ${status?`<div class="community-profile-status">${esc(status)}</div>`:''}
         <div class="community-profile-about ${about?'':'empty'}">${about?esc(about):'This member has not added an About Me yet.'}</div>
+        ${publicCommunityProfileDeckHtml(liveProfile)}
       </div>
       ${card.icon?`<div class="community-profile-cardart"><img src="${esc(card.icon)}" alt="${esc(card.name||'Favourite card')}"><div class="label">${esc(card.name||'Favourite Card')}</div></div>`:`<div class="community-profile-cardart empty">${card.name?`${esc(card.name)}<br>card art unavailable`:'Favourite card not set'}</div>`}
     </div>
