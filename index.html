@@ -834,15 +834,18 @@ html,body{max-width:100%;overflow-x:hidden}
 .community-profile-since{padding:9px 14px 13px;font-size:7px;color:#739bb2}
 .profile-view-btn{
   margin-top:10px;display:inline-flex;align-items:center;gap:6px;
-  border:1px solid #d5aa32;border-radius:5px;background:linear-gradient(180deg,#176b9e,#0d4d78);
+  border:1px solid #d5aa32;border-radius:5px;background:linear-gradient(180deg,#115d8d,#083858);
   color:#fff2ad;font-size:8px;font-weight:1000;padding:7px 10px;cursor:pointer;
-  box-shadow:0 2px 5px rgba(0,0,0,.2)
+  box-shadow:inset 0 1px rgba(119,204,255,.12),0 2px 5px rgba(0,0,0,.24)
 }
-.profile-view-btn:hover{filter:brightness(1.1)}
+.profile-view-btn:hover{border-color:#ffe079;background:linear-gradient(180deg,#1673aa,#0a466d)}
 .profile-view-icon{
-  width:18px;height:18px;border-radius:50%;display:inline-grid;place-items:center;
-  border:1px solid rgba(255,226,131,.55);background:#0a395d;font-size:11px
+  width:18px;height:18px;border-radius:50%;display:inline-block;position:relative;overflow:hidden;
+  border:1px solid #e6bd4d;background:linear-gradient(180deg,#146b9d,#072e4d);font-size:0;
+  box-shadow:inset 0 0 0 2px rgba(4,31,52,.35)
 }
+.profile-view-icon::before{content:'';position:absolute;left:6px;top:3px;width:6px;height:6px;border-radius:50%;background:#d9f2ff;box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.profile-view-icon::after{content:'';position:absolute;left:3px;bottom:2px;width:12px;height:7px;border-radius:7px 7px 3px 3px;background:#8ed6f5;box-shadow:0 -1px 0 rgba(255,255,255,.3)}
 @media(max-width:700px){
   .community-profile-hero{grid-template-columns:1fr 92px;padding:10px;gap:9px}
   .community-profile-cardart{min-height:102px}.community-profile-cardart img{max-width:82px;max-height:94px}
@@ -1095,7 +1098,18 @@ async function liveFetch(path,options={}){const controller=new AbortController()
 async function tryLoadLive(){try{const [dr,er]=await Promise.all([liveFetch('/api/dashboard'),liveFetch('/api/public-events?limit=100')]);if(!dr.ok||!er.ok)throw new Error('Live tracker unavailable');const dashboard=await dr.json(),events=await er.json();if(!dashboard||!Array.isArray(dashboard.clans))throw new Error('Invalid live dashboard');DATA=buildPublicDataFromDashboard(dashboard,events);DATA_SOURCE='live';LIVE_CONNECTED=true;return true}catch{LIVE_CONNECTED=false;return false}}
 async function loadSnapshot(){const r=await fetch('public-data.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('Public snapshot unavailable');const x=await r.json();if(x?.schema==='asc-public-raw-v1'&&x.dashboard)DATA=buildPublicDataFromDashboard(x.dashboard,x.publicEvents||[],x.generatedUtc||null);else DATA=x;DATA_SOURCE='snapshot';LIVE_CONNECTED=false}
 function renderLoadedData(initial=false){renderHeader();renderTabs();if(currentPage==='dashboard')renderClan();if(currentPage==='rankings')renderFamilyRankings();if(currentPage==='member'){buildPublicBattlePickers();renderPublicBattleArena();renderPublicMemberBattleLog();if(initial||!$('spotlight')?.dataset.tag)randomSpotlight(false);ensurePublicSpotlightTimer()}}
-async function refreshPublicData(initial=false){const live=await tryLoadLive();if(!live){try{await loadSnapshot()}catch(e){showError('Could not load live tracker or public snapshot. '+e.message);return}}hideError();renderLoadedData(initial)}
+async function refreshPublicData(initial=false){
+  const live=await tryLoadLive();if(!live){try{await loadSnapshot()}catch(e){showError('Could not load live tracker or public snapshot. '+e.message);return}}hideError();
+  if(initial){renderLoadedData(true);return}
+  renderHeader();
+  // Keep background data fresh without replacing the page the visitor is
+  // reading or clearing a search field they are currently using.
+  if(currentPage!=='dashboard')return;
+  const active=document.activeElement,isEditing=!!active&&(['INPUT','TEXTAREA','SELECT'].includes(active.tagName)||active.isContentEditable);if(isEditing)return;
+  const search=$('rosterSearch')?.value||'',pageY=window.scrollY,rosterY=document.querySelector('#dashboard .scroll')?.scrollTop||0,activityY=document.querySelector('#dashboard .public-activity-body')?.scrollTop||0;
+  renderTabs();renderClan();if($('rosterSearch')){$('rosterSearch').value=search;renderRoster()}
+  requestAnimationFrame(()=>{window.scrollTo(0,pageY);const roster=document.querySelector('#dashboard .scroll'),activity=document.querySelector('#dashboard .public-activity-body');if(roster)roster.scrollTop=rosterY;if(activity)activity.scrollTop=activityY});
+}
 async function init(){await refreshPublicData(true);setInterval(()=>refreshPublicData(false),60000)}
 function renderHeader(){const p=allPlayers(),age=fmtAge(DATA.generatedUtc);if(DATA_SOURCE==='live'){$('runtimeText').innerHTML=`<span class="snapshot-age fresh">● LIVE</span> • ${(DATA.clans||[]).length} clans • ${p.length} players`;$('miniLogBody').innerHTML=`<div class="console-line"><span class="console-time">SOURCE</span><span class="console-level log-info">LIVE</span><span class="console-message">Connected to ALL STARS tracker</span></div><div class="console-line"><span class="console-time">SCAN</span><span class="console-level log-system">INFO</span><span class="console-message">${DATA.generatedUtc?new Date(DATA.generatedUtc).toLocaleString():'Live data'}</span></div><div class="console-line"><span class="console-time">MODE</span><span class="console-level log-system">SAFE</span><span class="console-message">Public endpoints only</span></div>`}else{$('runtimeText').innerHTML=`<span class="snapshot-age ${age.cls}">SNAPSHOT • ${age.text}</span> • ${(DATA.clans||[]).length} clans • ${p.length} players`;$('miniLogBody').innerHTML=`<div class="console-line"><span class="console-time">SOURCE</span><span class="console-level log-system">SNAP</span><span class="console-message">Tracker offline — using GitHub snapshot</span></div><div class="console-line"><span class="console-time">PUBLISHED</span><span class="console-level log-info">INFO</span><span class="console-message">${DATA.generatedUtc?new Date(DATA.generatedUtc).toLocaleString():'No snapshot date'}</span></div><div class="console-line"><span class="console-time">MODE</span><span class="console-level log-system">SAFE</span><span class="console-message">Read-only fallback</span></div>`}}
 function showError(t){$('error').textContent=t;$('error').classList.remove('hidden')}function hideError(){$('error').classList.add('hidden')}
@@ -1211,6 +1225,7 @@ function publicCommunityProfileHtml(profile,liveProfile){
       <div class="community-profile-fact"><div class="k">Favorite Card</div><div class="v">${esc(card.name||'Not set')}</div></div>
       <div class="community-profile-fact"><div class="k">Favorite Deck / Archetype</div><div class="v">${esc(deck||'Not set')}</div></div>
       <div class="community-profile-fact"><div class="k">Community Role</div><div class="v">${esc(profile.role||'Member')}</div></div>
+      <div class="community-profile-fact"><div class="k">Collected Clan Points</div><div class="v">★ ${Number(profile.points||0).toLocaleString()}</div></div>
     </div>
     ${joined?`<div class="community-profile-since">ALL STARS community account since ${esc(joined)}</div>`:''}
   </section>`;
