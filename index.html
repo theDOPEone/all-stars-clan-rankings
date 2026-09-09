@@ -774,6 +774,72 @@ html,body{max-width:100%;overflow-x:hidden}
 .community-profile-since{margin-top:9px;font-size:7px;color:#739bb2}
 @media(max-width:700px){.community-profile-head{align-items:flex-start;flex-wrap:wrap}.community-profile-status{margin-left:0;max-width:100%}.community-profile-facts{grid-template-columns:1fr}}
 
+
+/* STEP 4 — PROFILE HERO + SPOTLIGHT PROFILE ACTION */
+.community-profile-panel{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 78% -35%,rgba(72,161,218,.24),transparent 42%),
+    linear-gradient(180deg,#0b3b61 0%,#082d4c 42%,#072844 100%);
+}
+.community-profile-hero{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 118px;
+  gap:14px;
+  align-items:stretch;
+  padding:14px;
+  border-bottom:1px solid rgba(239,200,94,.28);
+}
+.community-profile-main{min-width:0}
+.community-profile-id{display:flex;align-items:center;gap:10px}
+.community-profile-id .avatar{
+  width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  background:linear-gradient(180deg,#176b9f,#0a3b61);
+  border:1px solid #d5aa32;color:#ffe58a;font-size:21px;font-weight:1000;
+  box-shadow:0 4px 12px rgba(0,0,0,.28)
+}
+.community-profile-name{font-size:15px;font-weight:1000;color:#ffe58a}
+.community-profile-handle{font-size:8px;color:#9bc4d9;margin-top:3px}
+.community-profile-status{
+  display:inline-block;margin:10px 0 0 0;max-width:100%;
+  padding:5px 9px;border:1px solid #376b8b;border-radius:999px;
+  background:#062b49;color:#d6edf8;font-size:8px;font-weight:900
+}
+.community-profile-about{margin-top:12px;padding:10px 11px;border:1px solid #2d5b79;border-radius:7px;background:rgba(5,31,52,.55);font-size:9px;line-height:1.55;color:#d9edf7;white-space:pre-wrap}
+.community-profile-about.empty{color:#789db2;font-style:italic}
+.community-profile-cardart{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:132px;border:1px solid rgba(239,200,94,.28);border-radius:8px;
+  background:radial-gradient(circle at 50% 25%,rgba(70,164,222,.3),rgba(5,31,52,.28) 55%,rgba(3,22,38,.72));
+  position:relative;overflow:hidden
+}
+.community-profile-cardart img{max-width:108px;max-height:122px;object-fit:contain;filter:drop-shadow(0 8px 9px rgba(0,0,0,.42))}
+.community-profile-cardart .label{position:absolute;left:7px;right:7px;bottom:6px;text-align:center;font-size:7px;color:#ffe69d;font-weight:900;text-shadow:0 1px 3px #000}
+.community-profile-cardart.empty{color:#6f94aa;font-size:8px;text-align:center;padding:10px}
+.community-profile-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:0;padding:11px 14px 0}
+.community-profile-fact{padding:8px 9px;border:1px solid #2c5a79;border-radius:6px;background:#072943}
+.community-profile-fact .k{font-size:7px;color:#7faac2;text-transform:uppercase;letter-spacing:.04em}
+.community-profile-fact .v{font-size:10px;color:#fff1aa;font-weight:900;margin-top:3px;white-space:normal}
+.community-profile-since{padding:9px 14px 13px;font-size:7px;color:#739bb2}
+.profile-view-btn{
+  margin-top:10px;display:inline-flex;align-items:center;gap:6px;
+  border:1px solid #d5aa32;border-radius:5px;background:linear-gradient(180deg,#176b9e,#0d4d78);
+  color:#fff2ad;font-size:8px;font-weight:1000;padding:7px 10px;cursor:pointer;
+  box-shadow:0 2px 5px rgba(0,0,0,.2)
+}
+.profile-view-btn:hover{filter:brightness(1.1)}
+.profile-view-icon{
+  width:18px;height:18px;border-radius:50%;display:inline-grid;place-items:center;
+  border:1px solid rgba(255,226,131,.55);background:#0a395d;font-size:11px
+}
+@media(max-width:700px){
+  .community-profile-hero{grid-template-columns:1fr 92px;padding:10px;gap:9px}
+  .community-profile-cardart{min-height:102px}.community-profile-cardart img{max-width:82px;max-height:94px}
+  .community-profile-facts{grid-template-columns:1fr;padding:9px 10px 0}
+  .community-profile-since{padding:8px 10px 11px}
+}
+
 </style></head>
 <body>
 <header class="top">
@@ -955,32 +1021,50 @@ function publicCareerStatsHtml(p){
   return `<div class="panel career-panel"><div class="bar"><h3>Career Stats</h3><span class="right">Current lifetime profile totals</span></div><div class="career-grid">${s('Total Battles',fmt(p.battleCount))}${s('Wins',fmt(p.wins))}${s('Losses',fmt(p.losses))}${s('Win Rate',winRate,'Wins ÷ wins + losses')}${s('Three-Crown Wins',fmt(p.threeCrownWins))}${s('Best Trophies',fmt(p.bestTrophies))}${s('Total Donations',fmt(p.totalDonations))}${s('Donations Received',fmt(p.donationsReceived))}${s('Challenge Max Wins',fmt(p.challengeMaxWins))}${s('Tournament Battles',fmt(p.tournamentBattleCount))}${s('Account Level',fmt(p.expLevel))}${s('Cards / Badges',`${fmt(p.cardCollectionCount)} / ${fmt(p.badgeCount)}`)}</div><div class="career-note">Total Battles can include battle types beyond the displayed wins/losses. Win Rate uses wins and losses only.</div></div>`;
 }
 
-function publicCommunityProfileHtml(profile){
+function resolvePublicCommunityProfileCardArt(profile,liveProfile){
+  const wanted=String(profile?.favoriteCard||'').trim();
+  const wantedKey=wanted.toLowerCase().replace(/[^a-z0-9]/g,'');
+  const deck=Array.isArray(liveProfile?.currentDeck)?liveProfile.currentDeck:[];
+  if(wantedKey){
+    const match=deck.find(c=>String(c?.name||'').toLowerCase().replace(/[^a-z0-9]/g,'')===wantedKey);
+    if(match?.icon)return{name:wanted,icon:match.icon};
+    const liveKey=String(liveProfile?.favouriteCardName||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+    if(liveKey===wantedKey&&liveProfile?.favouriteCardIcon)return{name:wanted,icon:liveProfile.favouriteCardIcon};
+    return{name:wanted,icon:''};
+  }
+  if(liveProfile?.favouriteCardIcon)return{name:liveProfile.favouriteCardName||'Favourite Card',icon:liveProfile.favouriteCardIcon};
+  return{name:'',icon:''};
+}
+function publicCommunityProfileHtml(profile,liveProfile){
   if(!profile)return '';
   const display=profile.displayName||profile.playerName||'ALL STARS Member';
   const initials=String(display).trim().slice(0,1).toUpperCase()||'★';
   const status=String(profile.statusMessage||'').trim();
   const about=String(profile.about||'').trim();
-  const card=String(profile.favoriteCard||'').trim();
+  const card=resolvePublicCommunityProfileCardArt(profile,liveProfile);
   const deck=String(profile.favoriteDeck||'').trim();
   const joined=profile.createdUtc?new Date(profile.createdUtc).toLocaleDateString():'';
   return `<section class="community-profile-panel">
-    <div class="community-profile-head">
-      <div class="avatar">${esc(initials)}</div>
-      <div><div class="title">${esc(display)}</div><div class="handle">@${esc(profile.userName||'member')} • ${esc(profile.role||'Member')} • ${esc(profile.clanName||'ALL STARS')}</div></div>
-      ${status?`<div class="community-profile-status">${esc(status)}</div>`:''}
+    <div class="community-profile-hero">
+      <div class="community-profile-main">
+        <div class="community-profile-id">
+          <div class="avatar">${esc(initials)}</div>
+          <div><div class="community-profile-name">${esc(display)}</div><div class="community-profile-handle">@${esc(profile.userName||'member')} • ${esc(profile.role||'Member')} • ${esc(profile.clanName||'ALL STARS')}</div></div>
+        </div>
+        ${status?`<div class="community-profile-status">${esc(status)}</div>`:''}
+        <div class="community-profile-about ${about?'':'empty'}">${about?esc(about):'This member has not added an About Me yet.'}</div>
+      </div>
+      ${card.icon?`<div class="community-profile-cardart"><img src="${esc(card.icon)}" alt="${esc(card.name||'Favourite card')}"><div class="label">${esc(card.name||'Favourite Card')}</div></div>`:`<div class="community-profile-cardart empty">${card.name?`${esc(card.name)}<br>card art unavailable`:'Favourite card not set'}</div>`}
     </div>
-    <div class="community-profile-body">
-      <div class="community-profile-about ${about?'':'empty'}">${about?esc(about):'This member has not added an About Me yet.'}</div>
-      ${(card||deck)?`<div class="community-profile-facts">
-        <div class="community-profile-fact"><div class="k">Favorite Card</div><div class="v">${esc(card||'Not set')}</div></div>
-        <div class="community-profile-fact"><div class="k">Favorite Deck / Archetype</div><div class="v">${esc(deck||'Not set')}</div></div>
-      </div>`:''}
-      ${joined?`<div class="community-profile-since">ALL STARS community account since ${esc(joined)}</div>`:''}
+    <div class="community-profile-facts">
+      <div class="community-profile-fact"><div class="k">Favorite Card</div><div class="v">${esc(card.name||'Not set')}</div></div>
+      <div class="community-profile-fact"><div class="k">Favorite Deck / Archetype</div><div class="v">${esc(deck||'Not set')}</div></div>
+      <div class="community-profile-fact"><div class="k">Community Role</div><div class="v">${esc(profile.role||'Member')}</div></div>
     </div>
+    ${joined?`<div class="community-profile-since">ALL STARS community account since ${esc(joined)}</div>`:''}
   </section>`;
 }
-async function openPlayer(tag){const p=findPlayer(tag);if(!p)return;let liveProfile=null,communityProfile=null;if(LIVE_CONNECTED){try{const [pr,cr]=await Promise.all([liveFetch('/api/public-player-style/'+encodeURIComponent(tag)),liveFetch('/api/member-profile/'+encodeURIComponent(tag))]);if(pr.ok)liveProfile=await pr.json();if(cr.ok)communityProfile=await cr.json()}catch{}}$('playerTitle').textContent=p.name||'Player';$('playerBody').innerHTML=`<div class="rating-hero"><div><div class="rating-kicker">ASC Performance Rating</div><div class="rating-title">${esc(p.name)}</div><div class="rating-sub">${esc(p.clanName)} • ${esc(p.role||'Member')} • ${esc(p.tag)}</div><div>${starsHtml(p.rating)}</div></div><div class="rating-rank"><div class="rank-number">#${p.familyRank??'-'}</div><div class="rank-label">ALL STARS Family Rank</div></div></div><div class="rating-grid"><div class="rating-card"><div class="label">Clan Rank</div><div class="value">#${p.clanRank??'-'}</div></div><div class="rating-card"><div class="label">Family Rank</div><div class="value">#${p.familyRank??'-'}</div></div><div class="rating-card"><div class="label">Trophies</div><div class="value">${Number(p.trophies||0).toLocaleString()}</div></div><div class="rating-card"><div class="label">Weekly Donations</div><div class="value">${Number(p.donations||0).toLocaleString()}</div></div><div class="rating-card"><div class="label">War Fame Avg</div><div class="value">${Number(p.warAverage||0).toLocaleString()}</div></div></div>${publicCommunityProfileHtml(communityProfile)}${publicCareerStatsHtml(liveProfile)}<div class="public-modal-note">Public snapshot only. Management notes, Watch / Needs Attention status, kick reviews, passwords and security information are never published here.</div>`;$('playerModal').classList.remove('hidden')}function closePlayer(){$('playerModal').classList.add('hidden')}
+async function openPlayer(tag){const p=findPlayer(tag);if(!p)return;let liveProfile=null,communityProfile=null;if(LIVE_CONNECTED){try{const [pr,cr]=await Promise.all([liveFetch('/api/public-player-style/'+encodeURIComponent(tag)),liveFetch('/api/member-profile/'+encodeURIComponent(tag))]);if(pr.ok)liveProfile=await pr.json();if(cr.ok)communityProfile=await cr.json()}catch{}}$('playerTitle').textContent=p.name||'Player';$('playerBody').innerHTML=`<div class="rating-hero"><div><div class="rating-kicker">ASC Performance Rating</div><div class="rating-title">${esc(p.name)}</div><div class="rating-sub">${esc(p.clanName)} • ${esc(p.role||'Member')} • ${esc(p.tag)}</div><div>${starsHtml(p.rating)}</div></div><div class="rating-rank"><div class="rank-number">#${p.familyRank??'-'}</div><div class="rank-label">ALL STARS Family Rank</div></div></div><div class="rating-grid"><div class="rating-card"><div class="label">Clan Rank</div><div class="value">#${p.clanRank??'-'}</div></div><div class="rating-card"><div class="label">Family Rank</div><div class="value">#${p.familyRank??'-'}</div></div><div class="rating-card"><div class="label">Trophies</div><div class="value">${Number(p.trophies||0).toLocaleString()}</div></div><div class="rating-card"><div class="label">Weekly Donations</div><div class="value">${Number(p.donations||0).toLocaleString()}</div></div><div class="rating-card"><div class="label">War Fame Avg</div><div class="value">${Number(p.warAverage||0).toLocaleString()}</div></div></div>${publicCommunityProfileHtml(communityProfile,liveProfile)}${publicCareerStatsHtml(liveProfile)}<div class="public-modal-note">Public snapshot only. Management notes, Watch / Needs Attention status, kick reviews, passwords and security information are never published here.</div>`;$('playerModal').classList.remove('hidden')}function closePlayer(){$('playerModal').classList.add('hidden')}
 function openClanStats(e,i){e?.preventDefault();e?.stopPropagation();const c=(DATA.clans||[])[i];if(!c)return;const members=c.members||[],avgT=clanAverage(c,'trophies'),avgW=clanAverage(c,'warAverage'),leaders=members.filter(m=>String(m.role||'').toLowerCase()==='leader'),cos=members.filter(m=>String(m.role||'').toLowerCase().replace('-','')==='coleader');$('clanStatsContent').innerHTML=`<div class="clan-stats-head"><div class="clan-stats-crest">★</div><div class="clan-stats-title"><h2>${esc(c.name||c.label)}</h2><div>${esc(c.tag)} • ${esc(c.location||'')} • public snapshot</div></div><button class="btn secondary close" onclick="closeClanStats()">Close</button></div><div class="clan-stats-body"><div class="clan-stat-grid">${[['Members',`${members.length} / 50`],['Clan Score',Number(c.clanScore||0).toLocaleString()],['War Trophies',Number(c.warTrophies||0).toLocaleString()],['Required Trophies',Number(c.requiredTrophies||0).toLocaleString()],['Donations / Week',Number(c.donationsPerWeek||0).toLocaleString()],['Average Trophies',avgT.toLocaleString()],['Average War Fame',avgW.toLocaleString()],['Leader',leaders.map(x=>x.name).join(', ')||'—'],['Co-Leaders',cos.length?cos.map(x=>x.name).join(', '):'—']].map(x=>`<div class="clan-stat-card"><div class="label">${x[0]}</div><div class="value">${esc(x[1])}</div></div>`).join('')}</div></div>`;$('clanStatsModal').classList.remove('hidden')}function closeClanStats(){$('clanStatsModal').classList.add('hidden')}
 function publicBattlePower(p){
   if(!p)return 0;if(p.isClanTeam)return Number(p.combinedPower||0);const rating=(Number(p.rating)||0)/5,war=Math.min(1,Math.max(0,Number(p.warAverage||0)/2500)),trophies=Math.min(1,Math.max(0,Number(p.trophies||0)/14000)),donations=Math.min(1,Math.max(0,Number(p.donations||0)/200));return rating*45+war*25+trophies*20+donations*10
@@ -1017,7 +1101,7 @@ async function publicSpotlightStyle(tag){
 function publicSpotlightHtml(m,style){
   const fav=style?.favouriteCardName||'',art=style?.favouriteCardIcon||'',badge=style?.clanBadgeIcon||'',deck=Array.isArray(style?.currentDeck)?style.currentDeck:[];
   const deckHtml=deck.length?deck.slice(0,8).map(c=>`<div class="spotlight-deck-card" title="${esc(c.name||'Card')}">${c.icon?`<img src="${esc(c.icon)}" alt="${esc(c.name||'Card')}">`:'<span>?</span>'}</div>`).join(''):'<div class="spotlight-deck-card empty">Live</div><div class="spotlight-deck-card empty">deck</div><div class="spotlight-deck-card empty">data</div><div class="spotlight-deck-card empty">offline</div>';
-  return `<div class="spotlight-card" onclick="openPlayer('${esc(m.tag)}')"><div class="spotlight-hero"><div class="spotlight-copy"><div class="spotlight-name">${esc(m.name)}</div><div class="spotlight-meta">${esc(m.clanName)} • ${esc(m.role||'Member')} • #${m.familyRank??'-'} family</div><div>${starsHtml(m.rating)}</div>${fav?`<div class="spotlight-favourite">Favourite Card • <b>${esc(fav)}</b></div>`:''}</div><div class="spotlight-deck"><div class="spotlight-deck-title">Current Deck</div><div class="spotlight-deck-grid">${deckHtml}</div><div class="spotlight-deck-note">${deck.length?'Current deck from the live Clash Royale player profile.':'Deck artwork appears while the live tracker is online.'}</div></div>${art||badge?`<div class="spotlight-artbox">${badge?`<img class="spotlight-badge" src="${esc(badge)}" alt="">`:''}${art?`<img class="spotlight-art" src="${esc(art)}" alt="${esc(fav||'Favourite card')}">`:''}</div>`:''}</div><div class="spotlight-stats"><div class="spotlight-stat"><div class="n">Trophies</div><div class="v">${Number(m.trophies||0).toLocaleString()}</div></div><div class="spotlight-stat"><div class="n">Donations</div><div class="v">${Number(m.donations||0).toLocaleString()}</div></div><div class="spotlight-stat"><div class="n">War Avg</div><div class="v">${Number(m.warAverage||0).toLocaleString()}</div></div></div><div class="spotlight-auto">${LIVE_CONNECTED?'Automatically rotates among strong ALL STARS performers every 60 seconds.':'Snapshot mode • live deck/card artwork appears when the tracker is online.'}</div></div>`;
+  return `<div class="spotlight-card" onclick="openPlayer('${esc(m.tag)}')"><div class="spotlight-hero"><div class="spotlight-copy"><div class="spotlight-name">${esc(m.name)}</div><div class="spotlight-meta">${esc(m.clanName)} • ${esc(m.role||'Member')} • #${m.familyRank??'-'} family</div><div>${starsHtml(m.rating)}</div>${fav?`<div class="spotlight-favourite">Favourite Card • <b>${esc(fav)}</b></div>`:''}<button class="profile-view-btn" onclick="event.stopPropagation();openPlayer('${esc(m.tag)}')"><span class="profile-view-icon">👤</span>View Profile</button></div><div class="spotlight-deck"><div class="spotlight-deck-title">Current Deck</div><div class="spotlight-deck-grid">${deckHtml}</div><div class="spotlight-deck-note">${deck.length?'Current deck from the live Clash Royale player profile.':'Deck artwork appears while the live tracker is online.'}</div></div>${art||badge?`<div class="spotlight-artbox">${badge?`<img class="spotlight-badge" src="${esc(badge)}" alt="">`:''}${art?`<img class="spotlight-art" src="${esc(art)}" alt="${esc(fav||'Favourite card')}">`:''}</div>`:''}</div><div class="spotlight-stats"><div class="spotlight-stat"><div class="n">Trophies</div><div class="v">${Number(m.trophies||0).toLocaleString()}</div></div><div class="spotlight-stat"><div class="n">Donations</div><div class="v">${Number(m.donations||0).toLocaleString()}</div></div><div class="spotlight-stat"><div class="n">War Avg</div><div class="v">${Number(m.warAverage||0).toLocaleString()}</div></div></div><div class="spotlight-auto">${LIVE_CONNECTED?'Automatically rotates among strong ALL STARS performers every 60 seconds.':'Snapshot mode • live deck/card artwork appears when the tracker is online.'}</div></div>`;
 }
 async function randomSpotlight(force=false){
   const box=$('spotlight');if(!box||publicSpotlightBusy)return;
