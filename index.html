@@ -2951,7 +2951,7 @@ body.live-arena-loading-scene .live-arena-scene-loader-bar-wrap{
   background:
     linear-gradient(180deg,rgba(1,18,34,.56),rgba(2,20,37,.72) 52%,rgba(1,13,25,.88)),
     radial-gradient(circle at 50% 28%,rgba(23,104,157,.14),transparent 48%),
-    url('assets/arena/LoadingScreen_Chess.png') center center/cover no-repeat fixed!important;
+    url('/assets/arena/LoadingScreen_Chess.png') center center/cover no-repeat fixed!important;
 }
 .server-auth-gate:before{
   content:'';position:absolute;inset:0;pointer-events:none;
@@ -4525,7 +4525,7 @@ html.asc-custom-background body:not(.live-game-mode):before{
 /* ===== GLOBAL PROGRAM FONT — CLASH REGULAR ===== */
 @font-face{
   font-family:"Clash UI";
-  src:url("assets/fonts/Clash_Regular.otf") format("opentype");
+  src:url("/assets/fonts/Clash_Regular.otf") format("opentype");
   font-style:normal;
   font-weight:400;
   font-display:swap;
@@ -5535,7 +5535,7 @@ td,
   min-height:640px;
   padding:28px 34px 24px;
   border-radius:30px;
-  background:url('assets/clan_honor_stage_top.png') center top/100% 100% no-repeat;
+  background:url('/assets/clan_honor_stage_top.png') center top/100% 100% no-repeat;
   overflow:hidden;
   isolation:isolate;
 }
@@ -5792,7 +5792,7 @@ html:not(.asc-custom-background) body:not(.live-game-mode){
   padding:104px 36px 26px;
   border-radius:30px;
   background-color:#06417a;
-  background-image:url('assets/clan_honor_stage_top.png');
+  background-image:url('/assets/clan_honor_stage_top.png');
   background-repeat:no-repeat;
   background-position:center center;
   background-size:auto 100%;
@@ -5978,7 +5978,7 @@ html:not(.asc-custom-background) body:not(.live-game-mode){
   background-color:#0755a5!important;
   background-image:
     linear-gradient(180deg,rgba(0,37,78,.06),rgba(0,22,53,.14)),
-    url('assets/app_blue_diamond_background.png')!important;
+    url('/assets/app_blue_diamond_background.png')!important;
   background-repeat:repeat,repeat!important;
   background-size:auto,560px auto!important;
   background-position:center top,center top!important;
@@ -5996,7 +5996,7 @@ html:not(.asc-custom-background) body:not(.live-game-mode){
   padding:112px 22px 44px!important;
   border-radius:20px!important;
   background-color:transparent!important;
-  background-image:url('assets/clan_honor_portrait_backdrop.png')!important;
+  background-image:url('/assets/clan_honor_portrait_backdrop.png')!important;
   background-repeat:no-repeat!important;
   background-position:center center!important;
   background-size:100% 100%!important;
@@ -6158,7 +6158,7 @@ html:not(.asc-custom-background) body:not(.live-game-mode){
     margin:14px auto 0!important;
     padding:54px clamp(54px,5.2vw,92px) 24px!important;
     border-radius:24px!important;
-    background-image:url('assets/clan_honor_landscape_backdrop.png')!important;
+    background-image:url('/assets/clan_honor_landscape_backdrop.png')!important;
     background-size:100% 100%!important;
     background-position:center center!important;
     background-repeat:no-repeat!important;
@@ -6238,7 +6238,7 @@ html:not(.asc-custom-background) body:not(.live-game-mode){
     margin:10px 0 0!important;
     padding:clamp(68px,12vw,96px) clamp(4px,1.3vw,10px) 20px!important;
     border-radius:14px!important;
-    background-image:url('assets/clan_honor_portrait_backdrop.png')!important;
+    background-image:url('/assets/clan_honor_portrait_backdrop.png')!important;
     background-size:100% 100%!important;
     background-position:center center!important;
     background-repeat:no-repeat!important;
@@ -8929,7 +8929,7 @@ html:not(.asc-custom-background) body:not(.live-game-mode){
 .clan-honor-rankings-redesign{display:grid;gap:12px}
 .clan-honor-rankings-hero{position:relative;overflow:hidden;border:1px solid rgba(239,200,94,.28);border-radius:10px;background:linear-gradient(180deg,rgba(15,73,113,.95),rgba(8,44,70,.96));padding:14px 16px 12px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
 .clan-honor-rankings-bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,rgba(255,219,112,.18),transparent 28%),linear-gradient(90deg,rgba(9,35,54,.76),rgba(10,45,71,.16) 32%,rgba(9,35,54,.76));pointer-events:none}
-.clan-honor-rankings-bg::before{content:'';position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);width:min(520px,56%);height:112%;background:url('assets/arena-characters/Prince.png') center 44%/contain no-repeat;opacity:.16;filter:drop-shadow(0 12px 14px rgba(0,0,0,.28))}
+.clan-honor-rankings-bg::before{content:'';position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);width:min(520px,56%);height:112%;background:url('/assets/arena-characters/Prince.png') center 44%/contain no-repeat;opacity:.16;filter:drop-shadow(0 12px 14px rgba(0,0,0,.28))}
 .clan-honor-rankings-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,0) 18%,rgba(4,25,40,.10));}
 .clan-honor-rankings-header,.clan-honor-explain-grid,.clan-honor-find-inline,.family-find-result.compact{position:relative;z-index:1}
 .clan-honor-rankings-header{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding-bottom:9px;border-bottom:1px solid rgba(239,200,94,.18)}
@@ -8998,8 +8998,8 @@ html:not(.asc-custom-background) body:not(.live-game-mode){
 
 /* ===== IMAGE-BACKED CLAN HONOR SHOWCASE ===== */
 .clan-honor-asset-showcase{margin-top:12px;padding:10px;border:1px solid rgba(239,200,94,.38);border-radius:11px;background:linear-gradient(180deg,rgba(4,31,51,.96),rgba(4,26,44,.98));box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 14px 30px rgba(0,15,31,.22)}
-.clan-honor-asset-arena{position:relative;overflow:hidden;aspect-ratio:16/9;border:1px solid rgba(239,200,94,.32);border-radius:10px;background-color:#0a2f4b;background-image:linear-gradient(180deg,rgba(2,21,37,.10),rgba(2,21,37,.26)),url('assets/clan-honor/11_gilded_royal_throne_hall_banner.png');background-size:cover,contain;background-repeat:no-repeat,no-repeat;background-position:center,center top;box-shadow:inset 0 0 40px rgba(0,18,35,.24)}
-@media(min-width:1500px){.clan-honor-asset-arena{aspect-ratio:21/9;background-image:linear-gradient(180deg,rgba(2,21,37,.08),rgba(2,21,37,.22)),url('assets/clan-honor/13_gilded_royal_throne_hall_interface.png');background-size:cover,contain;background-repeat:no-repeat,no-repeat;background-position:center,center top}}
+.clan-honor-asset-arena{position:relative;overflow:hidden;aspect-ratio:16/9;border:1px solid rgba(239,200,94,.32);border-radius:10px;background-color:#0a2f4b;background-image:linear-gradient(180deg,rgba(2,21,37,.10),rgba(2,21,37,.26)),url('/assets/clan-honor/11_gilded_royal_throne_hall_banner.png');background-size:cover,contain;background-repeat:no-repeat,no-repeat;background-position:center,center top;box-shadow:inset 0 0 40px rgba(0,18,35,.24)}
+@media(min-width:1500px){.clan-honor-asset-arena{aspect-ratio:21/9;background-image:linear-gradient(180deg,rgba(2,21,37,.08),rgba(2,21,37,.22)),url('/assets/clan-honor/13_gilded_royal_throne_hall_interface.png');background-size:cover,contain;background-repeat:no-repeat,no-repeat;background-position:center,center top}}
 .clan-honor-asset-podium{position:absolute;appearance:none;border:0;background:none;padding:0;margin:0;cursor:pointer;filter:drop-shadow(0 13px 12px rgba(0,0,0,.28));transition:transform .22s ease,filter .22s ease;z-index:2}
 .clan-honor-asset-podium img{display:block;width:100%;height:auto;pointer-events:none;user-select:none}
 .clan-honor-asset-podium.rank-1{width:28%;left:36%;top:4%;z-index:4}
@@ -9030,8 +9030,8 @@ html:not(.asc-custom-background) body:not(.live-game-mode){
 .family-find.family-find-table{margin:0;max-width:none;grid-template-columns:minmax(180px,1fr) auto}.family-find.family-find-table input{height:36px;font-size:9px}.family-find.family-find-table .btn{height:36px;min-width:100px}.family-find-result-table{grid-column:1/-1;margin:0;min-height:14px;font-size:7px;color:#9bc3db}
 .family-table-panel.family-table-after-top3{border-radius:7px;overflow:hidden}.family-table-panel.family-table-after-top3 .family-controls{border-left:0;border-right:0;border-radius:0}
 @media(max-width:900px){.family-table-find-dock{grid-template-columns:1fr}.family-find.family-find-table{grid-template-columns:1fr auto}.clan-honor-asset-console{width:96%}}
-@media(max-width:700px){.clan-honor-asset-showcase{padding:7px}.clan-honor-asset-arena{aspect-ratio:9/16;background-image:linear-gradient(180deg,rgba(2,21,37,.06),rgba(2,21,37,.18)),url('assets/clan-honor/12_royal_blue_throne_hall_frame.png');background-size:cover,contain;background-repeat:no-repeat,no-repeat;background-position:center,center top}.clan-honor-asset-podium.rank-1{width:52%;left:24%;top:18%}.clan-honor-asset-podium.rank-2{width:39%;left:1%;top:36%}.clan-honor-asset-podium.rank-3{width:39%;right:1%;top:38%}.clan-honor-asset-marker{font-size:5.5px}.clan-honor-asset-name{font-size:6.2px!important}.clan-honor-asset-meta b{font-size:8px!important}.clan-honor-asset-meta small{font-size:4.5px}.clan-honor-fourth-button{width:96%;grid-template-columns:auto minmax(0,1fr) auto auto;padding:8px 9px}.clan-honor-fourth-button .tag{display:none}.clan-honor-asset-console{width:100%;aspect-ratio:1.45/1;margin-top:7px}.clan-honor-console-stat{padding-left:12%;width:34%;height:24%}.clan-honor-console-stat span{font-size:6px}.clan-honor-console-stat b{font-size:12px}.clan-honor-console-stat.s1{left:5%;top:18%}.clan-honor-console-stat.s2{left:53%;top:18%}.clan-honor-console-stat.s3{left:5%;top:45%}.clan-honor-console-stat.s4{left:53%;top:45%}.clan-honor-console-stat.s5{left:5%;top:72%}.clan-honor-console-stat.s6{left:53%;top:72%}.family-table-find-dock{padding:9px}.family-find.family-find-table{grid-template-columns:1fr}.family-find.family-find-table .btn{width:100%}}
-@media(max-width:900px) and (orientation:landscape){.clan-honor-asset-arena{aspect-ratio:20/9;background-image:linear-gradient(180deg,rgba(2,21,37,.04),rgba(2,21,37,.16)),url('assets/clan-honor/13_gilded_royal_throne_hall_interface.png');background-size:cover,contain;background-repeat:no-repeat,no-repeat;background-position:center,center top}.clan-honor-asset-podium.rank-1{width:25%;left:37.5%;top:0}.clan-honor-asset-podium.rank-2{width:20%;left:12%;top:14%}.clan-honor-asset-podium.rank-3{width:20%;right:12%;top:16%}}
+@media(max-width:700px){.clan-honor-asset-showcase{padding:7px}.clan-honor-asset-arena{aspect-ratio:9/16;background-image:linear-gradient(180deg,rgba(2,21,37,.06),rgba(2,21,37,.18)),url('/assets/clan-honor/12_royal_blue_throne_hall_frame.png');background-size:cover,contain;background-repeat:no-repeat,no-repeat;background-position:center,center top}.clan-honor-asset-podium.rank-1{width:52%;left:24%;top:18%}.clan-honor-asset-podium.rank-2{width:39%;left:1%;top:36%}.clan-honor-asset-podium.rank-3{width:39%;right:1%;top:38%}.clan-honor-asset-marker{font-size:5.5px}.clan-honor-asset-name{font-size:6.2px!important}.clan-honor-asset-meta b{font-size:8px!important}.clan-honor-asset-meta small{font-size:4.5px}.clan-honor-fourth-button{width:96%;grid-template-columns:auto minmax(0,1fr) auto auto;padding:8px 9px}.clan-honor-fourth-button .tag{display:none}.clan-honor-asset-console{width:100%;aspect-ratio:1.45/1;margin-top:7px}.clan-honor-console-stat{padding-left:12%;width:34%;height:24%}.clan-honor-console-stat span{font-size:6px}.clan-honor-console-stat b{font-size:12px}.clan-honor-console-stat.s1{left:5%;top:18%}.clan-honor-console-stat.s2{left:53%;top:18%}.clan-honor-console-stat.s3{left:5%;top:45%}.clan-honor-console-stat.s4{left:53%;top:45%}.clan-honor-console-stat.s5{left:5%;top:72%}.clan-honor-console-stat.s6{left:53%;top:72%}.family-table-find-dock{padding:9px}.family-find.family-find-table{grid-template-columns:1fr}.family-find.family-find-table .btn{width:100%}}
+@media(max-width:900px) and (orientation:landscape){.clan-honor-asset-arena{aspect-ratio:20/9;background-image:linear-gradient(180deg,rgba(2,21,37,.04),rgba(2,21,37,.16)),url('/assets/clan-honor/13_gilded_royal_throne_hall_interface.png');background-size:cover,contain;background-repeat:no-repeat,no-repeat;background-position:center,center top}.clan-honor-asset-podium.rank-1{width:25%;left:37.5%;top:0}.clan-honor-asset-podium.rank-2{width:20%;left:12%;top:14%}.clan-honor-asset-podium.rank-3{width:20%;right:12%;top:16%}}
 </style>
 <style id="ascGlobalBackgroundFinalOverride">
 /* ===== GLOBAL APP BACKGROUND — FINAL CASCADE OVERRIDE =====
@@ -9697,7 +9697,7 @@ main.shell>.nav.asc-nav-fixed::before{
   background-color:#0755a5;
   background-image:
     linear-gradient(180deg,rgba(0,37,78,.06),rgba(0,22,53,.14)),
-    url('assets/app_blue_diamond_background.png');
+    url('/assets/app_blue_diamond_background.png');
   background-repeat:repeat,repeat;
   background-size:auto,560px auto;
   background-position:center top,center top;
@@ -9890,9 +9890,9 @@ main.shell>.nav.asc-nav-fixed::before{
 }
 </style>
 
-<link rel="stylesheet" href="honor-scene.css?v=4">
-<link rel="stylesheet" href="family-rankings.css?v=1">
-<link rel="stylesheet" href="player-profile.css?v=1">
+<link rel="stylesheet" href="/honor-scene.css?v=4">
+<link rel="stylesheet" href="/family-rankings.css?v=1">
+<link rel="stylesheet" href="/player-profile.css?v=1">
 
 
 <style id="ascClashTypographyWeightPass">
@@ -9901,28 +9901,28 @@ main.shell>.nav.asc-nav-fixed::before{
    Heavy = major display titles. All weights use the real project font files. */
 @font-face{
   font-family:"Clash UI";
-  src:url("assets/fonts/Clash-Light.otf") format("opentype");
+  src:url("/assets/fonts/Clash-Light.otf") format("opentype");
   font-style:normal;
   font-weight:300;
   font-display:swap;
 }
 @font-face{
   font-family:"Clash UI";
-  src:url("assets/fonts/Clash_Regular.otf") format("opentype");
+  src:url("/assets/fonts/Clash_Regular.otf") format("opentype");
   font-style:normal;
   font-weight:400;
   font-display:swap;
 }
 @font-face{
   font-family:"Clash UI";
-  src:url("assets/fonts/Clash_Bold.otf") format("opentype");
+  src:url("/assets/fonts/Clash_Bold.otf") format("opentype");
   font-style:normal;
   font-weight:700;
   font-display:swap;
 }
 @font-face{
   font-family:"Clash UI";
-  src:url("assets/fonts/Clash-Heavy.otf") format("opentype");
+  src:url("/assets/fonts/Clash-Heavy.otf") format("opentype");
   font-style:normal;
   font-weight:900;
   font-display:swap;
@@ -10018,7 +10018,7 @@ main.shell>.nav>button,
   font-weight:400!important;
 }
 
-/* Normal emphasis / section headings = Clash Bold. */
+/* Normal emphasis / section headings = Clash Regular (one weight lighter). */
 strong,
 b,
 th,
@@ -10038,10 +10038,10 @@ h2,h3,h4,h5,h6,
 .clan-honor-explain-card b,
 .clan-honor-fourth-button .name,
 .clan-honor-console-stat b{
-  font-weight:700!important;
+  font-weight:400!important;
 }
 
-/* Major display/title text = Clash Heavy. */
+/* Major display/title text = Clash Bold (one weight lighter). */
 h1,
 .brand h1,
 .server-auth-brand h2,
@@ -10053,7 +10053,7 @@ h1,
 .clan-honor-cinematic-title h4,
 .live-player-name,
 .dream-title{
-  font-weight:900!important;
+  font-weight:700!important;
 }
 
 /* Keep true technical/log text monospace. */
@@ -10073,14 +10073,191 @@ samp,
 }
 </style>
 
+
+<style id="ascDashboardWelcomeV1">
+.dashboard-welcome-page #dashboardInfo,.dashboard-welcome-page #tabs,.dashboard-welcome-page #publicClanFeed{display:none!important}
+.dashboard-welcome-page{overflow:visible!important}
+.dashboard-welcome-shell{width:min(1480px,calc(100vw - 34px));margin:14px auto 0;padding-bottom:140px}
+.dashboard-welcome-hero{position:relative;min-height:420px;overflow:hidden;border:1px solid rgba(239,200,94,.58);border-radius:18px;background:linear-gradient(90deg,rgba(3,25,45,.98) 0%,rgba(5,43,72,.94) 48%,rgba(5,37,62,.82) 100%),url('/assets/arena/CR_LS_April26_Final.jpg') center 45%/cover no-repeat;box-shadow:0 18px 42px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.06)}
+.dashboard-welcome-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(2,18,31,.18)),radial-gradient(circle at 28% 32%,rgba(31,142,208,.18),transparent 35%);pointer-events:none}
+.dashboard-welcome-light{position:absolute;z-index:1;left:-8%;top:-35%;width:66%;height:150%;background:radial-gradient(ellipse at center,rgba(64,184,240,.20),transparent 63%);transform:rotate(-8deg);pointer-events:none}
+.dashboard-welcome-prince,.dashboard-welcome-archer{position:absolute;z-index:2;bottom:-16px;pointer-events:none;user-select:none;filter:drop-shadow(0 18px 22px rgba(0,0,0,.42))}
+.dashboard-welcome-prince{right:4%;height:94%;max-height:430px;object-fit:contain}
+.dashboard-welcome-archer{right:24%;height:57%;max-height:250px;opacity:.42;transform:scaleX(-1)}
+.dashboard-welcome-copy{position:relative;z-index:4;width:min(720px,58%);padding:42px 42px 38px}
+.dashboard-welcome-brand{display:flex;align-items:center;gap:16px}.dashboard-welcome-brand img{width:72px;height:72px;filter:drop-shadow(0 7px 12px rgba(0,0,0,.35))}.dashboard-welcome-brand span{display:block;color:#91c8e8;font-family:'Clash',sans-serif;font-weight:400;font-size:12px;letter-spacing:.12em}.dashboard-welcome-brand strong{display:block;margin-top:3px;color:#ffe077;font-family:'Clash',sans-serif;font-weight:700;font-size:34px;line-height:1.02;text-shadow:0 2px 0 rgba(63,39,0,.38)}
+.dashboard-welcome-lead{max-width:620px;margin:18px 0 14px;color:#d5e8f3;font-family:'Clash',sans-serif;font-weight:300;font-size:15px;line-height:1.45}
+.dashboard-session-pill{display:inline-grid;grid-template-columns:auto auto;grid-template-areas:'dot main' 'dot sub';column-gap:8px;align-items:center;margin:2px 0 18px;padding:8px 12px;border:1px solid rgba(123,185,219,.34);border-radius:999px;background:rgba(3,26,45,.74);box-shadow:inset 0 1px rgba(255,255,255,.04)}.dashboard-session-dot{grid-area:dot;width:9px;height:9px;border-radius:50%;background:#7b8790;box-shadow:0 0 0 3px rgba(123,135,144,.1)}.dashboard-session-dot.online{background:#40e29c;box-shadow:0 0 0 3px rgba(64,226,156,.12),0 0 8px rgba(64,226,156,.45)}.dashboard-session-pill b{grid-area:main;color:#f2f8fb;font-family:'Clash',sans-serif;font-weight:400;font-size:10px}.dashboard-session-pill small{grid-area:sub;color:#7fa8bf;font-family:'Clash',sans-serif;font-weight:300;font-size:7px}
+.dashboard-welcome-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:660px}.dashboard-cta{appearance:none;display:flex;align-items:center;gap:11px;min-height:72px;padding:11px 14px;text-align:left;border:1px solid rgba(85,157,197,.46);border-radius:11px;background:linear-gradient(180deg,rgba(17,87,132,.96),rgba(8,55,91,.98));box-shadow:0 7px 16px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.09);cursor:pointer;transition:transform .16s ease,filter .16s ease,border-color .16s ease}.dashboard-cta:hover{transform:translateY(-2px);filter:brightness(1.07);border-color:rgba(113,196,239,.72)}.dashboard-cta.primary{border-color:#f2c84b;background:linear-gradient(180deg,#dcae2e,#9a6a08);box-shadow:0 7px 18px rgba(0,0,0,.28),inset 0 1px rgba(255,244,181,.5),0 0 18px rgba(239,200,94,.12)}.dashboard-cta.owner{border-color:rgba(167,129,233,.6);background:linear-gradient(180deg,rgba(86,55,134,.98),rgba(45,31,85,.98))}.dashboard-cta.subtle{background:linear-gradient(180deg,rgba(22,52,72,.9),rgba(9,34,54,.96));border-color:rgba(102,130,148,.34)}.dashboard-cta-icon{flex:0 0 38px;display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:rgba(1,18,32,.36);font-size:20px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}.dashboard-cta b{display:block;color:#fff2b8;font-family:'Clash',sans-serif;font-weight:400;font-size:16px;line-height:1.08}.dashboard-cta small{display:block;margin-top:5px;color:#d6e8f2;font-family:'Clash',sans-serif;font-weight:300;font-size:10px;line-height:1.3}.dashboard-login-note{max-width:650px;margin:12px 2px 0;color:#90b4c9;font-family:'Clash',sans-serif;font-weight:300;font-size:8px;line-height:1.4}.dashboard-login-note b{color:#ffe077;font-weight:400}
+.dashboard-start-card{margin-top:14px;padding:18px;border:1px solid rgba(239,200,94,.28);border-radius:14px;background:linear-gradient(180deg,rgba(8,52,83,.96),rgba(5,37,62,.97));box-shadow:0 10px 26px rgba(0,0,0,.17),inset 0 1px rgba(255,255,255,.04)}.dashboard-section-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;padding-bottom:13px;border-bottom:1px solid rgba(239,200,94,.18)}.dashboard-section-heading span{color:#77a9c5;font-family:'Clash',sans-serif;font-weight:400;font-size:8px;letter-spacing:.11em}.dashboard-section-heading h2{margin:3px 0 0;color:#ffe077;font-family:'Clash',sans-serif;font-weight:400;font-size:20px}.dashboard-mini-link{appearance:none;border:1px solid rgba(91,172,216,.42);border-radius:8px;padding:8px 11px;background:#0c527f;color:#dff4ff;font-family:'Clash',sans-serif;font-weight:400;font-size:8px;cursor:pointer}.dashboard-mini-link:hover{filter:brightness(1.08)}
+.dashboard-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}.dashboard-step{display:grid;grid-template-columns:42px 1fr;gap:10px;min-height:108px;padding:13px;border:1px solid rgba(64,126,162,.32);border-radius:10px;background:rgba(3,28,49,.58)}.dashboard-step-num{display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(239,200,94,.62);border-radius:50%;background:linear-gradient(180deg,#bc8f1b,#714a05);color:#fff2b0;font-family:'Clash',sans-serif;font-weight:700;font-size:16px;box-shadow:0 5px 12px rgba(0,0,0,.24)}.dashboard-step b{display:block;color:#f3fbff;font-family:'Clash',sans-serif;font-weight:400;font-size:10px}.dashboard-step p{margin:5px 0 0;color:#9fc1d2;font-family:'Clash',sans-serif;font-weight:300;font-size:8px;line-height:1.42}.dashboard-step p strong{color:#ffe077;font-weight:400}
+.dashboard-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}.dashboard-feature-card{appearance:none;display:grid;grid-template-columns:48px 1fr auto;align-items:center;gap:11px;min-height:94px;padding:13px 14px;text-align:left;border:1px solid rgba(66,139,179,.34);border-radius:11px;background:linear-gradient(180deg,rgba(9,56,89,.94),rgba(4,37,62,.97));box-shadow:0 8px 18px rgba(0,0,0,.15);cursor:pointer;transition:transform .16s ease,border-color .16s ease,filter .16s ease}.dashboard-feature-card:hover{transform:translateY(-2px);filter:brightness(1.05);border-color:rgba(239,200,94,.44)}.dashboard-feature-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:linear-gradient(180deg,#155f90,#0b3f68);font-size:24px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}.dashboard-feature-card b{display:block;color:#ffe077;font-family:'Clash',sans-serif;font-weight:400;font-size:11px}.dashboard-feature-card p{margin:4px 0 0;color:#9fc0d2;font-family:'Clash',sans-serif;font-weight:300;font-size:8px;line-height:1.35}.dashboard-feature-arrow{color:#ffe077;font-size:26px;font-weight:700}
+@media(max-width:900px){.dashboard-welcome-shell{width:calc(100vw - 18px);margin-top:9px}.dashboard-welcome-hero{min-height:390px}.dashboard-welcome-copy{width:72%;padding:30px 24px}.dashboard-welcome-prince{right:-4%;height:80%;opacity:.8}.dashboard-welcome-archer{display:none}.dashboard-welcome-brand strong{font-size:27px}.dashboard-welcome-actions{grid-template-columns:1fr}.dashboard-steps,.dashboard-feature-grid{grid-template-columns:1fr}.dashboard-step{min-height:0}}
+@media(max-width:600px){.dashboard-welcome-shell{width:calc(100vw - 12px);margin-top:6px;padding-bottom:110px}.dashboard-welcome-hero{min-height:520px;border-radius:12px;background-position:60% center}.dashboard-welcome-hero::before{content:'';position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(3,26,45,.38),rgba(3,26,45,.94) 58%,rgba(3,26,45,.99))}.dashboard-welcome-prince{right:-12%;bottom:95px;height:53%;opacity:.58}.dashboard-welcome-copy{width:auto;padding:24px 16px 18px}.dashboard-welcome-brand{gap:10px}.dashboard-welcome-brand img{width:54px;height:54px}.dashboard-welcome-brand span{font-size:8px}.dashboard-welcome-brand strong{font-size:24px}.dashboard-welcome-lead{font-size:11px;line-height:1.4}.dashboard-welcome-actions{margin-top:2px}.dashboard-cta{min-height:62px;padding:9px 11px}.dashboard-cta-icon{width:34px;height:34px;flex-basis:34px;font-size:17px}.dashboard-cta b{font-size:13px}.dashboard-cta small{font-size:9px}.dashboard-login-note{font-size:7px}.dashboard-start-card{padding:12px;border-radius:11px}.dashboard-section-heading{align-items:flex-start}.dashboard-section-heading h2{font-size:15px}.dashboard-mini-link{font-size:7px;padding:7px 8px}.dashboard-step{grid-template-columns:34px 1fr;padding:10px}.dashboard-step-num{width:31px;height:31px;font-size:13px}.dashboard-step b{font-size:9px}.dashboard-step p{font-size:7.3px}.dashboard-feature-card{grid-template-columns:40px 1fr auto;min-height:78px;padding:10px}.dashboard-feature-icon{width:40px;height:40px;font-size:20px}.dashboard-feature-card b{font-size:9px}.dashboard-feature-card p{font-size:7.2px}}
+</style>
+
+
+<style id="ascClanHonorPlacementPassV1">
+/* ===== CLAN HONOR PLACEMENT PASS — VIEWPORT-MODE DRIVEN ===== */
+
+/* Live leader portrait inside the podium shield/display area. */
+.clan-honor-podium-leader-avatar{
+  position:absolute!important;
+  z-index:8!important;
+  left:50%!important;
+  top:31.7%!important;
+  width:22%!important;
+  aspect-ratio:1/1!important;
+  transform:translateX(-50%)!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:hidden!important;
+  clip-path:polygon(50% 0,94% 18%,88% 72%,50% 100%,12% 72%,6% 18%)!important;
+  background:radial-gradient(circle at 45% 28%,rgba(67,134,183,.72),rgba(4,32,57,.97) 68%)!important;
+  box-shadow:0 4px 10px rgba(0,0,0,.40),inset 0 0 0 2px rgba(255,225,126,.42)!important;
+  pointer-events:none!important;
+}
+.clan-honor-podium-leader-initial{
+  position:absolute!important;
+  inset:0!important;
+  display:grid!important;
+  place-items:center!important;
+  color:#e8f5ff!important;
+  font-size:clamp(8px,1vw,17px)!important;
+  font-weight:700!important;
+  text-shadow:0 2px 5px rgba(0,0,0,.65)!important;
+}
+.clan-honor-podium-leader-img{
+  position:relative!important;
+  z-index:2!important;
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+}
+.clan-honor-podium-leader-img.portrait-art{object-fit:cover!important;object-position:center 24%!important}
+.clan-honor-podium-leader-img.unit-art{object-fit:contain!important;object-position:center bottom!important;padding:4%!important}
+.clan-honor-asset-podium.rank-2 .clan-honor-podium-leader-avatar,
+.clan-honor-asset-podium.rank-3 .clan-honor-podium-leader-avatar{width:21%!important}
+
+/* Name remains in the engraved name plate; Honor/member line stays below it. */
+.clan-honor-asset-name{top:58.2%!important}
+.clan-honor-asset-meta{top:68.9%!important}
+/* MAIN / A1 / A2 / A3 now lives BELOW the Honor + members line. */
+.clan-honor-asset-marker{
+  top:77.2%!important;
+  width:auto!important;
+  min-width:19%!important;
+  padding:1.2% 4%!important;
+  border:1px solid rgba(124,207,227,.52)!important;
+  border-radius:999px!important;
+  background:rgba(3,42,67,.76)!important;
+  color:#dff6ff!important;
+  font-size:clamp(4.5px,.48vw,7px)!important;
+  line-height:1!important;
+  letter-spacing:.08em!important;
+}
+.clan-honor-asset-podium.rank-1 .clan-honor-asset-marker{
+  border-color:rgba(244,207,84,.58)!important;
+  color:#fff0a2!important;
+  background:rgba(77,53,8,.72)!important;
+}
+.clan-honor-asset-podium.rank-3 .clan-honor-asset-marker{
+  border-color:rgba(225,155,92,.55)!important;
+  color:#ffd1a1!important;
+}
+
+/* Portrait scene 1: tighten graphs horizontally without changing their vertical stack. */
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-cinematic-chart{
+  width:74%!important;
+  max-width:390px!important;
+  gap:3px!important;
+}
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-spotlight-bar{
+  flex-basis:50px!important;
+  max-width:50px!important;
+}
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-spotlight-fill{width:28px!important}
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-spotlight-plinth{width:38px!important}
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-spotlight-bar .clan-honor-clan-pill{
+  min-width:55px!important;
+  padding-left:7px!important;
+  padding-right:7px!important;
+}
+
+/* Smaller Current / Week buttons.  The added bottom margin preserves the lower metric row. */
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-period-controls{
+  width:72%!important;
+  max-width:350px!important;
+  gap:4px!important;
+  margin-top:5px!important;
+  margin-bottom:19px!important;
+}
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-period-controls button{
+  min-height:28px!important;
+  height:28px!important;
+  padding:2px 3px!important;
+  font-size:8.2px!important;
+  border-radius:8px!important;
+}
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-period-controls .honor-control-text{
+  font-size:inherit!important;
+}
+
+/* Landscape podium composition: compact group sitting immediately above/into the stats console. */
+html[data-asc-honor-view="pc-full"] .clan-honor-asset-podium.rank-1,
+html[data-asc-honor-view="pc-window"] .clan-honor-asset-podium.rank-1,
+html[data-asc-honor-view="mobile-landscape"] .clan-honor-asset-podium.rank-1{
+  width:18%!important;left:41%!important;top:10%!important;z-index:5!important;
+}
+html[data-asc-honor-view="pc-full"] .clan-honor-asset-podium.rank-2,
+html[data-asc-honor-view="pc-window"] .clan-honor-asset-podium.rank-2,
+html[data-asc-honor-view="mobile-landscape"] .clan-honor-asset-podium.rank-2{
+  width:14.5%!important;left:27%!important;top:21%!important;z-index:3!important;
+}
+html[data-asc-honor-view="pc-full"] .clan-honor-asset-podium.rank-3,
+html[data-asc-honor-view="pc-window"] .clan-honor-asset-podium.rank-3,
+html[data-asc-honor-view="mobile-landscape"] .clan-honor-asset-podium.rank-3{
+  width:14.5%!important;right:27%!important;top:22%!important;z-index:3!important;
+}
+html[data-asc-honor-view="pc-full"] .clan-honor-asset-console,
+html[data-asc-honor-view="pc-window"] .clan-honor-asset-console,
+html[data-asc-honor-view="mobile-landscape"] .clan-honor-asset-console{
+  z-index:7!important;
+  bottom:4.2%!important;
+}
+
+/* Portrait podium composition: lower and nested tightly against the stats panel. */
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-asset-podium.rank-1{
+  width:31%!important;left:34.5%!important;top:52%!important;z-index:5!important;
+}
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-asset-podium.rank-2{
+  width:23%!important;left:18%!important;top:58%!important;z-index:3!important;
+}
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-asset-podium.rank-3{
+  width:23%!important;right:18%!important;top:58%!important;z-index:3!important;
+}
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-asset-console{
+  width:74%!important;
+  bottom:4.5%!important;
+  z-index:7!important;
+}
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-podium-leader-avatar{width:23%!important}
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-asset-podium.rank-2 .clan-honor-podium-leader-avatar,
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-asset-podium.rank-3 .clan-honor-podium-leader-avatar{width:22%!important}
+
+/* Keep #2 / #3 visually behind #1 when their edges overlap. */
+.clan-honor-asset-podium.rank-1{z-index:5!important}
+.clan-honor-asset-podium.rank-2,.clan-honor-asset-podium.rank-3{z-index:3!important}
+</style>
+
 </head><body>
 <div id="serverAuthGate" class="server-auth-gate">
   <div class="server-auth-card">
     <div class="server-auth-character-bg" aria-hidden="true">
-      <img class="server-auth-character dart" src="assets/arena-characters/Dart_Goblin_Evolution_01.png" alt="">
-      <img class="server-auth-character archer" src="assets/arena-characters/Archer_Evolution_Pose01_Purple.png" alt="">
+      <img class="server-auth-character dart" src="/assets/arena-characters/Dart_Goblin_Evolution_01.png" alt="">
+      <img class="server-auth-character archer" src="/assets/arena-characters/Archer_Evolution_Pose01_Purple.png" alt="">
     </div>
-    <div class="server-auth-brand"><img src="asc-crest.svg" alt="ASC"><div><h2 id="serverAuthBrandTitle">ALL STARS CLAN — SERVER EDITION</h2><p id="serverAuthBrandSubtitle">Member / Elder • Leader / Co-Leader • Owner access</p></div></div>
+    <div class="server-auth-brand"><img src="/asc-crest.svg" alt="ASC"><div><h2 id="serverAuthBrandTitle">ALL STARS CLAN — SERVER EDITION</h2><p id="serverAuthBrandSubtitle">Member / Elder • Leader / Co-Leader • Owner access</p></div></div>
     <div id="ownerSetupBox" class="hidden">
       <div class="auth-note"><b>First-time Owner setup.</b> Create the Owner password on the tracker PC before sharing the server link.</div>
       <label>New Owner Password</label><input id="ownerSetupPassword" type="text" autocomplete="new-password" placeholder="At least 8 characters">
@@ -10156,7 +10333,7 @@ samp,
 </div>
 
 <header class="top">
-<div class="crest-wrap"><img class="crest" src="asc-crest.svg" alt="All Stars Clan crest"></div>
+<div class="crest-wrap"><img class="crest" src="/asc-crest.svg" alt="All Stars Clan crest"></div>
 <div class="brand">
   <h1><span class="initial">A</span>LL <span class="initial">S</span>TARS <span class="initial">C</span>LAN</h1>
   <p>Persistent clan member tracking • SQLite • automatic scans</p>
@@ -10184,7 +10361,7 @@ samp,
       <div class="owner-dev-card-body tracker-admin-console">
         <div class="owner-admin-profile tracker-admin-hero">
           <div class="owner-admin-avatar tracker-admin-avatar-wrap">
-            <img id="ownerAdminAvatar" src="asc-crest.svg" alt="ALL STARS Tracker">
+            <img id="ownerAdminAvatar" src="/asc-crest.svg" alt="ALL STARS Tracker">
             <span class="tracker-admin-online-dot" title="Tracker bot account"></span>
           </div>
           <div class="tracker-admin-identity">
@@ -10407,7 +10584,7 @@ samp,
         </div>
 
         <div class="owner-community-note">
-          Commands: /claim 8-hour rewards + jackpot · /balance linked balances · /battle Arena · /arena-leaderboard weekly Arena · /asc-points detailed stats · /asc-leaderboard points · /signup account setup · /link Discord · /switch-account default player · /asc-award leadership points.
+          Commands: /daily rewards · /balance linked balances · /battle Arena · /arena-leaderboard weekly Arena · /asc-points detailed stats · /asc-leaderboard points · /signup account setup · /link Discord · /switch-account default player · /asc-award leadership points.
         </div>
 
         <div id="discordCommandChannelOwner" class="owner-community-block">
@@ -10490,7 +10667,7 @@ samp,
 
   </div>
 </section>
-<section id="dashboardPage"><div id="dashboardInfo" class="info">Select a player to view their ASC Performance Rating and tracked stats.</div><div id="tabs" class="tabs"></div><div id="publicClanFeed"></div><div id="dashboard"></div></section>
+<section id="dashboardPage" class="dashboard-welcome-page"><div id="dashboardInfo" class="info hidden"></div><div id="tabs" class="tabs hidden"></div><div id="publicClanFeed" class="hidden"></div><div id="dashboard"></div></section>
 <section id="rankingsPage" class="hidden">
   <div id="familySummary" class="family-summary clan-honor-mount clan-honor-scene-mount"></div>
   <div id="familySummaryDetails" class="clan-honor-details-mount"></div>
@@ -10542,7 +10719,7 @@ samp,
           <div class="live-game-ambience" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
           <div class="live-arena-head">
             <div class="live-arena-brand">
-              <img class="live-arena-menu-accent" src="assets/arena-characters/clean/baby_dragon.png" alt="" aria-hidden="true">
+              <img class="live-arena-menu-accent" src="/assets/arena-characters/clean/baby_dragon.png" alt="" aria-hidden="true">
               <div>
               <div class="live-arena-kicker">⚡ REAL-TIME PLAYER VS PLAYER</div>
               <div class="live-arena-title">⚔ LIVE ARENA <span class="live-arena-beta">BETA</span></div>
@@ -10568,10 +10745,10 @@ samp,
 
         <div class="daily-arena-section">
           <div class="daily-arena-banner">
-            <img class="daily-arena-banner-art left" src="assets/arena-characters/Archer_Evolution_Pose01_Purple.png" alt="" aria-hidden="true">
-            <img id="dailyArenaRightArt" class="daily-arena-banner-art right" src="assets/arena-characters/Dart_Goblin_Evolution_01.png" alt="" aria-hidden="true">
+            <img class="daily-arena-banner-art left" src="/assets/arena-characters/Archer_Evolution_Pose01_Purple.png" alt="" aria-hidden="true">
+            <img id="dailyArenaRightArt" class="daily-arena-banner-art right" src="/assets/arena-characters/Dart_Goblin_Evolution_01.png" alt="" aria-hidden="true">
             <div class="daily-arena-banner-content">
-              <img class="daily-arena-logo" src="asc-crest.svg" alt="ALL STARS">
+              <img class="daily-arena-logo" src="/asc-crest.svg" alt="ALL STARS">
               <div class="daily-arena-banner-copy">
                 <div class="daily-arena-kicker">ALL STARS • POINT-EARNING DAILY RUN</div>
                 <div class="daily-arena-heading">⚔ DAILY 5 BATTLE ARENA ⚔</div>
@@ -10691,7 +10868,6 @@ samp,
 <div id="statusListModal" class="status-list-modal hidden" onclick="if(event.target===this)closeStatusList()"><div class="status-list-card"><div class="status-list-head"><div id="statusListIcon" class="status-list-icon">★</div><div class="status-list-title"><h2 id="statusListTitle">Players</h2><div id="statusListMeta"></div></div><button class="btn secondary close" onclick="closeStatusList()">Close</button></div><div id="statusListBody" class="status-list-body"></div></div></div>
 <div id="myProfileModal" class="modal hidden" onclick="if(event.target===this)closeMyMemberProfile()"><div class="modalcard my-profile-modalcard"><div class="modalhead"><h2 id="myProfileTitle">★ MY ALL STARS PROFILE</h2><button class="btn secondary close" onclick="closeMyMemberProfile()">Close</button></div><div id="myProfileBody" class="modalbody"></div></div></div>
 <div id="playerModal" class="modal hidden" onclick="if(event.target===this)closePlayer()"><div class="modalcard"><div class="modalhead"><h2 id="playerTitle">Player</h2><button class="btn secondary close" onclick="closePlayer()">Close</button></div><div id="playerBody" class="modalbody"></div></div></div>
-<script src="asc-config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@8.0.7/dist/browser/signalr.min.js"></script>
 <script>
 let settings=null,dash=null,activeClan=0,currentPage='dashboard',familyRankingMode='performance',memberZoneTab='battle';let sortState={key:'clanRank',dir:'asc'};let discordMembers=[],discordLinks=[],publicDiscordLinks=[],autoMatchSuggestions=[];let authState=null,memberAuthState={authenticated:false,status:'signed-out'},memberAccounts=[],memberAuthView='login',memberRegistrationPlayer=null,authMode='member',appStarted=false,loginGateOpen=false,memberDeviceConflictState=null;
@@ -10716,59 +10892,12 @@ function ascDeviceLabel(){
   return `${browser} on ${os}`;
 }
 const rawFetch=window.fetch.bind(window);
-const ascConfig=window.ASC_CONFIG||{};
-const ascApiBase=String(ascConfig.apiBaseUrl||'').trim().replace(/\/+$/,'');
-const ascApiOrigin=(()=>{try{return ascApiBase?new URL(ascApiBase).origin:''}catch{return''}})();
-const ascStaticFrontend=!!ascApiOrigin&&ascApiOrigin!==window.location.origin;
-const ASC_REMOTE_SESSION_KEY='ASC.RemoteSessionToken';
-function ascApiUrl(value){
-  if(typeof value!=='string'||!ascApiBase)return value;
-  if(value==='/api'||value.startsWith('/api/')||value.startsWith('/live-arena-hub'))return ascApiBase+value;
-  return value;
-}
-function ascSessionToken(){try{return sessionStorage.getItem(ASC_REMOTE_SESSION_KEY)||''}catch{return''}}
-function ascStoreSessionToken(value){try{if(value)sessionStorage.setItem(ASC_REMOTE_SESSION_KEY,value)}catch{}}
-function ascClearSessionToken(){try{sessionStorage.removeItem(ASC_REMOTE_SESSION_KEY)}catch{}}
-function ascIsRemoteApi(url){try{const u=new URL(url,window.location.href);return !!ascApiOrigin&&u.origin===ascApiOrigin&&(u.pathname==='/api'||u.pathname.startsWith('/api/')||u.pathname.startsWith('/live-arena-hub'))}catch{return false}}
-const nativeFetch=async(input,init={})=>{
-  let resolved=input;
-  if(typeof input==='string')resolved=ascApiUrl(input);
+const nativeFetch=(input,init={})=>{
   const headers=new Headers(init.headers||{});
   headers.set('X-ASC-Client-Instance',ascClientInstanceId);
   headers.set('X-ASC-Device-Id',ascDeviceId);
-  const target=typeof resolved==='string'?resolved:resolved?.url;
-  const remote=ascIsRemoteApi(target);
-
-  if(remote){
-    headers.set('ngrok-skip-browser-warning','1');
-    const sessionToken=ascSessionToken();
-    if(sessionToken)headers.set('X-ASC-Session-Token',sessionToken);
-  }
-
-  const response=await rawFetch(resolved,{...init,headers,credentials:remote?'omit':(init.credentials||'same-origin')});
-
-  if(remote){
-    const sessionToken=response.headers.get('X-ASC-Session-Token');
-    if(sessionToken)ascStoreSessionToken(sessionToken);
-    try{
-      const u=new URL(target,window.location.href);
-      if(response.ok&&(u.pathname==='/api/auth/logout'||u.pathname==='/api/member-auth/logout'))ascClearSessionToken();
-    }catch{}
-  }
-  return response;
+  return rawFetch(input,{...init,headers});
 };
-let ascPublicSnapshotCache=null,ascPublicSnapshotLoadedAt=0;
-async function ascLoadPublicSnapshot(force=false){
-  if(!ascStaticFrontend)return null;
-  if(!force&&ascPublicSnapshotCache&&Date.now()-ascPublicSnapshotLoadedAt<45000)return ascPublicSnapshotCache;
-  const url=String(ascConfig.publicDataUrl||'public-data.json');
-  const r=await rawFetch(url,{cache:'no-store'});
-  if(!r.ok)throw new Error('Public snapshot is unavailable.');
-  const x=await r.json();
-  ascPublicSnapshotCache=x;
-  ascPublicSnapshotLoadedAt=Date.now();
-  return x;
-}
 // All tracker API calls must carry the active browser-window identity.
 // Most of the existing dashboard uses fetch() directly, while the first
 // two-device pass only wrapped nativeFetch(). Without this assignment,
@@ -10787,45 +10916,7 @@ async function init(){
     await completePendingDiscordLink();
   }
 }
-const ascPollBusy={status:false,logs:false,session:false,dashboard:false};
-async function runTrackerPoll(key,work,visibleOnly=true){
-  if((visibleOnly&&document.hidden)||ascPollBusy[key])return;
-  ascPollBusy[key]=true;
-  try{await work()}catch{}finally{ascPollBusy[key]=false}
-}
-function startTrackerPolling(){
-  // The RoyaleAPI scan itself normally changes on a minutes-scale, so polling
-  // the browser every 5-8 seconds was generating tunnel traffic without showing
-  // meaningfully newer clan data. Keep the UI responsive while cutting idle use.
-  setInterval(()=>runTrackerPoll('status',refreshStatus),ascStaticFrontend?120000:30000);
-  setInterval(()=>runTrackerPoll('logs',async()=>{if(authState?.role==='owner')await refreshLogs()}),30000);
-
-  // Device-session freshness is five minutes server-side. One heartbeat per
-  // minute safely preserves the active-device lock while reducing requests ~87%.
-  setInterval(()=>runTrackerPoll('session',memberSessionHeartbeat,false),60000);
-  setInterval(()=>runTrackerPoll('dashboard',()=>loadDashboard(true)),60000);
-
-  // Background tabs do not need dashboard/status/log traffic. Catch up immediately
-  // when the user returns instead of continuing to transfer data while hidden.
-  document.addEventListener('visibilitychange',()=>{
-    if(document.hidden)return;
-    runTrackerPoll('status',refreshStatus);
-    runTrackerPoll('dashboard',()=>loadDashboard(true));
-    if(authState?.role==='owner')runTrackerPoll('logs',refreshLogs);
-    runTrackerPoll('session',memberSessionHeartbeat,false);
-  });
-}
-async function startServerApp(){
-  if(appStarted)return;
-  appStarted=true;
-  applyServerRoleUi();
-  bindMainPageSwipe();
-  await loadSettings();
-  await refreshAll();
-  if(authState?.role==='owner')await refreshLogs();
-  startTrackerPolling();
-}
-
+async function startServerApp(){if(appStarted)return;appStarted=true;applyServerRoleUi();bindMainPageSwipe();await loadSettings();await refreshAll();if(authState?.role==='owner')await refreshLogs();setInterval(refreshStatus,5000);setInterval(()=>{if(authState?.role==='owner')refreshLogs()},5000);setInterval(memberSessionHeartbeat,8000);setInterval(()=>loadDashboard(true),30000)}
 async function checkServerAuth(){
   try{
     const r=await nativeFetch('/api/auth/status',{cache:'no-store'});
@@ -10839,10 +10930,6 @@ async function checkServerAuth(){
     if(!authState.ownerConfigured){loginGateOpen=true;renderServerAuthGate();return false}
     loginGateOpen=false;renderServerAuthGate();return true
   }catch{
-    if(ascStaticFrontend){
-      authState={ownerConfigured:true,authenticated:false,status:'server-offline',role:'viewer',name:'Public Viewer'};
-      loginGateOpen=false;renderServerAuthGate();return true
-    }
     $('serverAuthError').textContent='Could not reach the tracker server.';
     loginGateOpen=true;$('serverAuthGate').classList.remove('hidden');return false
   }
@@ -11210,7 +11297,7 @@ function renderMemberAccountCard(){
     const renderKey='tracker-admin-account';
     if(box.dataset.renderKey===renderKey)return;
     box.dataset.renderKey=renderKey;
-    box.innerHTML=`<div class="member-profile-shell"><div class="member-account-summary"><div class="member-account-avatar tracker-admin-avatar"><img id="memberAccountAdminAvatar" src="asc-crest.svg" alt="ALL STARS Tracker"></div><div><div class="member-account-name">ALL STARS Tracker <span class="muted">@stat-bot</span></div><div class="member-account-meta">ALL STARS CLAN APP • Admin Bot • #ASCTRACKER</div></div><div id="memberAccountPoints" class="member-account-points"><strong>★★★★★</strong><span>HARD OPPONENT</span></div></div><div class="member-auth-note">Owner Live Arena identity. This virtual account can fight members in real-time 1v1 and is intentionally excluded from the normal Daily Battle Arena five.</div><div class="member-profile-actions"><button class="btn" onclick="openTrackerAdminProfile()">🤖 View Tracker Bot Profile</button><button class="btn" onclick="openOwnerLiveArena()">⚔ Enter Live Arena</button><button class="btn secondary" onclick="showPage('settings')">⚙ Owner Developer Mode</button><button class="btn secondary" onclick="myProfileLogout()">Log Out</button></div></div>`;
+    box.innerHTML=`<div class="member-profile-shell"><div class="member-account-summary"><div class="member-account-avatar tracker-admin-avatar"><img id="memberAccountAdminAvatar" src="/asc-crest.svg" alt="ALL STARS Tracker"></div><div><div class="member-account-name">ALL STARS Tracker <span class="muted">@stat-bot</span></div><div class="member-account-meta">ALL STARS CLAN APP • Admin Bot • #ASCTRACKER</div></div><div id="memberAccountPoints" class="member-account-points"><strong>★★★★★</strong><span>HARD OPPONENT</span></div></div><div class="member-auth-note">Owner Live Arena identity. This virtual account can fight members in real-time 1v1 and is intentionally excluded from the normal Daily Battle Arena five.</div><div class="member-profile-actions"><button class="btn" onclick="openTrackerAdminProfile()">🤖 View Tracker Bot Profile</button><button class="btn" onclick="openOwnerLiveArena()">⚔ Enter Live Arena</button><button class="btn secondary" onclick="showPage('settings')">⚙ Owner Developer Mode</button><button class="btn secondary" onclick="myProfileLogout()">Log Out</button></div></div>`;
     setTimeout(loadTrackerAdminAccountAvatar,0);
     return;
   }
@@ -11323,12 +11410,7 @@ async function setMemberAccountState(playerTag,action){
 }
 async function setOwnerPassword(){const password=$('ownerNewPassword').value;if(!password){showError('Enter the new Owner password first.');return}const r=await fetch('/api/auth/set-owner-password',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password})});const x=await r.json();if(!r.ok){showError(x.error||'Could not change Owner password.');return}$('ownerNewPassword').value='';$('ownerPasswordState').textContent='Owner password updated';setTimeout(()=>$('ownerPasswordState').textContent='Owner only',1700)}
 async function loadSettings(){
-  try{
-    const r=await fetch('/api/settings');if(!r.ok)throw new Error('settings unavailable');settings=await r.json();
-  }catch{
-    if(!ascStaticFrontend)throw new Error('Could not load tracker settings.');
-    settings=settings||{apiBaseUrl:'',pollMinutes:10,clans:[],rules:{inactiveHours:72,newMemberGraceHours:72,minDonations:100,minWarDecks:4,promotionWarPoints:1500,promotionConsecutiveWeeks:2,demotionWarPoints:1000,kickWarPoints:1000,kickConsecutiveWeeks:2,newMemberKickDays:3},discordConfigured:false};
-  }
+  const r=await fetch('/api/settings');settings=await r.json();
   $('apiBase').value=settings.apiBaseUrl||'https://api.clashroyale.com/v1';$('pollMinutes').value=settings.pollMinutes||10;
   (settings.clans||[]).forEach((c,i)=>{if(i<4){$('label'+i).value=c.label||'';$('tag'+i).value=c.tag||''}});
   const rr=settings.rules||{};$('inactiveHours').value=rr.inactiveHours??72;$('graceHours').value=rr.newMemberGraceHours??72;$('minDonations').value=rr.minDonations??100;$('minWarDecks').value=rr.minWarDecks??4;$('promotionWarPoints').value=rr.promotionWarPoints??1500;$('promotionWeeks').value=rr.promotionConsecutiveWeeks??2;$('demotionWarPoints').value=rr.demotionWarPoints??1000;$('kickWarPoints').value=rr.kickWarPoints??1000;$('kickWeeks').value=rr.kickConsecutiveWeeks??2;$('newMemberKickDays').value=rr.newMemberKickDays??3;
@@ -11433,7 +11515,7 @@ document.addEventListener('click',e=>{
 });
 async function loadTrackerAdminAccountAvatar(){
   const img=$('memberAccountAdminAvatar');if(!img)return;
-  try{const r=await nativeFetch('/api/tracker-bot-profile',{cache:'no-store'}),x=await r.json();if(r.ok){const bot=x.bot||{};img.src=bot.avatarUrl||bot.fallbackAvatarUrl||'asc-crest.svg'}}catch{}
+  try{const r=await nativeFetch('/api/tracker-bot-profile',{cache:'no-store'}),x=await r.json();if(r.ok){const bot=x.bot||{};img.src=bot.avatarUrl||bot.fallbackAvatarUrl||'/asc-crest.svg'}}catch{}
 }
 function openOwnerLiveArena(){
   if(authState?.role!=='owner')return;
@@ -11447,7 +11529,7 @@ async function loadOwnerAdminAccount(){
     const r=await nativeFetch('/api/owner/admin-account',{cache:'no-store'}),x=await r.json();
     if(!r.ok)throw new Error(x.error||'Could not load Tracker admin account.');
     const bot=x.bot||{},arena=x.arena||{};
-    if(avatar)avatar.src=bot.avatarUrl||bot.fallbackAvatarUrl||'asc-crest.svg';
+    if(avatar)avatar.src=bot.avatarUrl||bot.fallbackAvatarUrl||'/asc-crest.svg';
     if(rating)rating.textContent=`Arena Rating ${Number(arena.arenaRating||1650)} • ${Number(arena.difficultyStars||5)}-Star Hard Opponent`;
     if(paid)paid.textContent=`${Number(arena.totalPaidOut||0).toLocaleString()} points paid out • ${Number(arena.payouts||0)} payout${Number(arena.payouts||0)===1?'':'s'}`;
     if(record)record.textContent=`${Number(arena.wins||0)}-${Number(arena.losses||0)} Live Arena • streak ${Number(arena.currentStreak||0)}`;
@@ -11791,24 +11873,67 @@ async function manualScan(){hideError();$('saveMsg').textContent='Scanning...';c
 // positions intact while still receiving the newest tracker data.
 async function loadDashboard(background=false){
   try{
-    let nextDash=null;
-    if(ascStaticFrontend&&!isManager()){
-      try{const snapshot=await ascLoadPublicSnapshot(background);nextDash=snapshot?.dashboard||null}catch{}
-    }
-    if(!nextDash){const r=await fetch('/api/dashboard');if(!r.ok)throw new Error('Dashboard unavailable');nextDash=await r.json()}
-    dash=nextDash;
-    if(background){
-      if(currentPage!=='dashboard')return;
-      const active=document.activeElement,isEditing=!!active&&(['INPUT','TEXTAREA','SELECT'].includes(active.tagName)||active.isContentEditable);
-      if(isEditing||!$('playerModal')?.classList.contains('hidden')||!$('myProfileModal')?.classList.contains('hidden'))return;
-      const searchText=$('search')?.value||'',pageY=window.scrollY,rosterY=document.querySelector('#dashboard .scroll')?.scrollTop||0,feedY=document.querySelector('#publicClanFeed .public-feed-body')?.scrollTop||0;
-      renderTabs();renderClan();buildEventFilter();buildCoLeaderFilter();
-      if($('search')){$('search').value=searchText;filterRows()}
-      requestAnimationFrame(()=>{window.scrollTo(0,pageY);const roster=document.querySelector('#dashboard .scroll'),feed=document.querySelector('#publicClanFeed .public-feed-body');if(roster)roster.scrollTop=rosterY;if(feed)feed.scrollTop=feedY});
-      return;
-    }
-    renderTabs();renderClan();buildEventFilter();buildCoLeaderFilter();if(currentPage==='coleaders'){renderDreamTeam();renderCoLeaders()}if(currentPage==='rankings')renderFamilyRankings();if(currentPage==='member')renderMemberHub();
+    const r=await fetch('/api/dashboard'),nextDash=await r.json();dash=nextDash;
+    buildEventFilter();buildCoLeaderFilter();
+    if(currentPage==='dashboard')renderDashboardWelcome();
+    if(background)return;
+    if(currentPage==='coleaders'){renderDreamTeam();renderCoLeaders()}
+    if(currentPage==='rankings')renderFamilyRankings();
+    if(currentPage==='member')renderMemberHub();
   }catch(e){showError(e.message)}
+}
+
+function dashboardWelcomeIdentity(){
+  if(authState?.role==='owner')return{signedIn:true,role:'Owner',name:'ALL STARS Tracker',manager:true,owner:true};
+  if(authState?.role==='coleader')return{signedIn:true,role:'Leader / Co-Leader',name:authState?.name||'Leadership',manager:true,owner:false};
+  if(isMemberSignedIn())return{signedIn:true,role:roleName(memberAuthState?.role||'member'),name:memberAuthState?.playerName||memberAuthState?.userName||'Member',manager:false,owner:false};
+  return{signedIn:false,role:'Guest',name:'Public Viewer',manager:false,owner:false};
+}
+function renderDashboardWelcome(){
+  const box=$('dashboard');if(!box)return;
+  const me=dashboardWelcomeIdentity();
+  const local=location.hostname==='127.0.0.1'||location.hostname==='localhost';
+  const signedLabel=me.signedIn?`Signed in as ${esc(me.name)}`:'Browsing as Guest';
+  const roleLabel=me.signedIn?esc(me.role):'Public access';
+  const primaryActions=me.signedIn
+    ? `<button class="dashboard-cta primary" onclick="showPage('member')"><span class="dashboard-cta-icon">♛</span><span><b>Open Member Zone</b><small>Profile, Live Arena and member tools</small></span></button>
+       ${me.manager?`<button class="dashboard-cta" onclick="showPage('coleaders')"><span class="dashboard-cta-icon">⚔</span><span><b>Leadership Tools</b><small>Review performance and clan actions</small></span></button>`:''}
+       ${me.owner?`<button class="dashboard-cta" onclick="showPage('settings')"><span class="dashboard-cta-icon">⚙</span><span><b>Owner Settings</b><small>Tracker configuration and security</small></span></button>`:''}
+       <button class="dashboard-cta subtle" onclick="serverUserAction()"><span class="dashboard-cta-icon">↪</span><span><b>Sign Out</b><small>End this ALL STARS session</small></span></button>`
+    : `<button class="dashboard-cta primary" onclick="openServerLogin('member','login')"><span class="dashboard-cta-icon">♛</span><span><b>Sign In</b><small>Members, Elders, Leaders and Co-Leaders</small></span></button>
+       <button class="dashboard-cta" onclick="openServerLogin('member','register')"><span class="dashboard-cta-icon">★</span><span><b>Create Account</b><small>Use your one-time ALL STARS verification code</small></span></button>
+       ${local?`<button class="dashboard-cta owner" onclick="openServerLogin('owner')"><span class="dashboard-cta-icon">⚙</span><span><b>Owner Login</b><small>Server-PC administration access</small></span></button>`:''}`;
+
+  box.innerHTML=`
+    <div class="dashboard-welcome-shell">
+      <section class="dashboard-welcome-hero">
+        <div class="dashboard-welcome-light"></div>
+        <img class="dashboard-welcome-prince" src="/assets/arena-characters/Prince.png" alt="" aria-hidden="true">
+        <img class="dashboard-welcome-archer" src="/assets/arena-characters/Archer_Evolution_Pose01_Purple.png" alt="" aria-hidden="true">
+        <div class="dashboard-welcome-copy">
+          <div class="dashboard-welcome-brand"><img src="/asc-crest.svg" alt="ALL STARS crest"><div><span>ALL STARS CLAN APP</span><strong>Welcome to the Family</strong></div></div>
+          <p class="dashboard-welcome-lead">Your home for ALL STARS clan activity, player profiles, rankings, Live Arena and community tools.</p>
+          <div class="dashboard-session-pill"><span class="dashboard-session-dot ${me.signedIn?'online':''}"></span><b>${signedLabel}</b><small>${roleLabel}</small></div>
+          <div class="dashboard-welcome-actions">${primaryActions}</div>
+          ${!me.signedIn?`<p class="dashboard-login-note">Leaders and Co-Leaders use the same <b>Sign In</b> button as Members. Your tracked clan role is detected automatically.</p>`:''}
+        </div>
+      </section>
+
+      <section class="dashboard-start-card">
+        <div class="dashboard-section-heading"><div><span>GET STARTED</span><h2>${me.signedIn?'You’re Ready to Go':'Joining ALL STARS is Simple'}</h2></div><button class="dashboard-mini-link" onclick="showPage('rankings')">View Rankings →</button></div>
+        <div class="dashboard-steps">
+          <div class="dashboard-step"><div class="dashboard-step-num">1</div><div><b>${me.signedIn?'Explore the Family':'Get Your Code'}</b><p>${me.signedIn?'Open Rankings to see the complete ALL STARS family competition and player list.':'In Discord, use <strong>/signup</strong> with the ALL STARS Tracker bot to create your verification code.'}</p></div></div>
+          <div class="dashboard-step"><div class="dashboard-step-num">2</div><div><b>${me.signedIn?'Open Your Member Zone':'Create Your Account'}</b><p>${me.signedIn?'Your Member Zone holds your profile, Live Arena access and personal ALL STARS tools.':'Choose <strong>Create Account</strong>, enter your Clash player tag and one-time verification code, then set your login.'}</p></div></div>
+          <div class="dashboard-step"><div class="dashboard-step-num">3</div><div><b>${me.signedIn?'Stay Connected':'Link Your Accounts'}</b><p>${me.signedIn?'Discord linking keeps your ALL STARS identity connected across the tracker and community features.':'Use <strong>/link</strong> in Discord when you need to connect another Clash account to your ALL STARS identity.'}</p></div></div>
+        </div>
+      </section>
+
+      <section class="dashboard-feature-grid">
+        <button class="dashboard-feature-card" onclick="showPage('rankings')"><span class="dashboard-feature-icon">🏆</span><div><b>Family Rankings</b><p>Honor, performance, war, donations and family standings.</p></div><span class="dashboard-feature-arrow">›</span></button>
+        <button class="dashboard-feature-card" onclick="${me.signedIn||me.manager?"showPage('member')":"openServerLogin('member','login')"}"><span class="dashboard-feature-icon">⚔</span><div><b>Member Zone</b><p>Your profile, Daily Battle Arena and Live Arena access.</p></div><span class="dashboard-feature-arrow">›</span></button>
+        <button class="dashboard-feature-card" onclick="${me.manager?"showPage('events')":"showPage('rankings')"}"><span class="dashboard-feature-icon">📜</span><div><b>${me.manager?'Events & History':'Explore ALL STARS'}</b><p>${me.manager?'Clan activity, battle logs and leadership history.':'Browse the public family rankings before signing in.'}</p></div><span class="dashboard-feature-arrow">›</span></button>
+      </section>
+    </div>`;
 }
 function clanIdentityInfo(index){
   if(index===0)return{label:'MAIN',cls:'main'};
@@ -11867,7 +11992,7 @@ function openStatusList(kind){
   $('statusListModal').classList.remove('hidden');
 }
 function closeStatusList(){$('statusListModal').classList.add('hidden')}
-function filterRows(){const q=($('search').value||'').toLowerCase();document.querySelectorAll('#rows tr').forEach(r=>r.style.display=r.dataset.q.includes(q)?'':'none')}function showPage(p){const enteringMember=p==='member'&&currentPage!=='member';if(p==='member'&&!isMemberSignedIn()&&!isManager()){openServerLogin('member','login');return}if(enteringMember)memberZoneTab='battle';if((p==='events'||p==='coleaders')&&!isManager())p='dashboard';if(p==='settings'&&authState?.role!=='owner')p='dashboard';currentPage=p;document.body.classList.toggle('owner-settings-mode',p==='settings'&&authState?.role==='owner');document.documentElement.classList.toggle('member-zone-snap-active',p==='member');$('dashboardPage').classList.toggle('hidden',p!=='dashboard');$('rankingsPage').classList.toggle('hidden',p!=='rankings');$('memberPage').classList.toggle('hidden',p!=='member');$('eventsPage').classList.toggle('hidden',p!=='events');$('coLeadersPage').classList.toggle('hidden',p!=='coleaders');$('settingsPage')?.classList.toggle('hidden',p!=='settings');$('navDash').classList.toggle('active',p==='dashboard');$('navRankings').classList.toggle('active',p==='rankings');$('navMember').classList.toggle('active',p==='member');$('navEvents').classList.toggle('active',p==='events');$('navCoLeaders').classList.toggle('active',p==='coleaders');$('navSettings')?.classList.toggle('active',p==='settings');if(p==='rankings'){familyRankingMode='performance';renderFamilyRankings()}if(p==='member')renderMemberHub();if(p==='events'&&isManager())loadEvents();if(p==='coleaders')openCoLeaderTab();if(p==='settings'){loadOwnerSettingsConsole()}syncMainNavDial();applyServerRoleUi();requestAnimationFrame(()=>{if(typeof updatePageScrollControls==='function')updatePageScrollControls()})}
+function filterRows(){const q=($('search').value||'').toLowerCase();document.querySelectorAll('#rows tr').forEach(r=>r.style.display=r.dataset.q.includes(q)?'':'none')}function showPage(p){const enteringMember=p==='member'&&currentPage!=='member';if(p==='member'&&!isMemberSignedIn()&&!isManager()){openServerLogin('member','login');return}if(enteringMember)memberZoneTab='battle';if((p==='events'||p==='coleaders')&&!isManager())p='dashboard';if(p==='settings'&&authState?.role!=='owner')p='dashboard';currentPage=p;document.body.classList.toggle('owner-settings-mode',p==='settings'&&authState?.role==='owner');document.documentElement.classList.toggle('member-zone-snap-active',p==='member');$('dashboardPage').classList.toggle('hidden',p!=='dashboard');$('rankingsPage').classList.toggle('hidden',p!=='rankings');$('memberPage').classList.toggle('hidden',p!=='member');$('eventsPage').classList.toggle('hidden',p!=='events');$('coLeadersPage').classList.toggle('hidden',p!=='coleaders');$('settingsPage')?.classList.toggle('hidden',p!=='settings');$('navDash').classList.toggle('active',p==='dashboard');$('navRankings').classList.toggle('active',p==='rankings');$('navMember').classList.toggle('active',p==='member');$('navEvents').classList.toggle('active',p==='events');$('navCoLeaders').classList.toggle('active',p==='coleaders');$('navSettings')?.classList.toggle('active',p==='settings');if(p==='dashboard')renderDashboardWelcome();if(p==='rankings'){familyRankingMode='performance';renderFamilyRankings()}if(p==='member')renderMemberHub();if(p==='events'&&isManager())loadEvents();if(p==='coleaders')openCoLeaderTab();if(p==='settings'){loadOwnerSettingsConsole()}syncMainNavDial();applyServerRoleUi();requestAnimationFrame(()=>{if(typeof updatePageScrollControls==='function')updatePageScrollControls()})}
 function buildEventFilter(){const sel=$('eventClan');if(!sel)return;const old=sel.value;sel.innerHTML='<option value="">All clans</option>'+(dash?.clans||[]).map(c=>`<option value="${esc(c.tag)}">${esc(c.name)}</option>`).join('');sel.value=old}function buildCoLeaderFilter(){const sel=$('coLeaderClan');if(!sel)return;const old=sel.value;sel.innerHTML='<option value="">All clans</option>'+(dash?.clans||[]).map(c=>`<option value="${esc(c.tag)}">${esc(c.name)}</option>`).join('');sel.value=old}function sameWar(a,b){return a&&b&&Number(a.seasonId)===Number(b.seasonId)&&Number(a.sectionIndex)===Number(b.sectionIndex)}function warOutcome(c,m,header){const rec=(m.recentWars||[]).find(w=>sameWar(w,header));if(rec)return{known:true,fame:rec.fame||0,decks:rec.decksUsed||0,missed:(rec.decksUsed||0)===0};const entered=(m.clanJoinedUtc||m.firstSeenUtc)?new Date(m.clanJoinedUtc||m.firstSeenUtc):null,completed=header?.createdDate?new Date(header.createdDate):null;if(entered&&completed&&!isNaN(entered)&&!isNaN(completed)&&entered<=completed)return{known:true,fame:0,decks:0,missed:true};return{known:false,fame:null,decks:null,missed:false}}function completedOutcomes(c,m,max=6){return(c.recentWars||[]).slice(0,max).map(h=>({header:h,...warOutcome(c,m,h)}))}function streakFromLatest(outcomes,test){let n=0;for(const w of outcomes){if(!w.known||!test(w))break;n++}return n}function weekChips(outcomes,threshold,mode){return outcomes.slice(0,3).map((w,i)=>{if(!w.known)return`<span class="week-chip unknown">W${i+1}: unknown</span>`;const good=mode==='high'?w.fame>=threshold:w.fame>=threshold;return`<span class="week-chip ${good?'good':'bad'}">W${i+1}: ${Number(w.fame||0).toLocaleString()}</span>`}).join('')}
 function toggleDiscordProtection(){const s=$('discordProtectionSection');if(!s)return;const collapsed=s.classList.toggle('collapsed');$('discordCollapseText').textContent=collapsed?'Expand':'Collapse'}
 function toggleCoSelfService(){const s=$('coSelfServicePanel');if(!s)return;const collapsed=s.classList.toggle('collapsed');$('coSelfCollapseText').textContent=collapsed?'Expand':'Collapse'}
@@ -11892,7 +12017,7 @@ function renderDreamTeam(){
   box.innerHTML=top.map((x,i)=>`<div class="dream-plaque" title="${esc(x.c.name)} • ${x.weeks}/6 tracked weeks • Avg ${Number(x.avg).toLocaleString()} fame" onclick="openPlayer('${encodeURIComponent(x.m.tag)}')"><div class="dream-rank">#${i+1}</div><div class="dream-main"><div class="dream-name dream-name-line"><span>${esc(x.m.name)}</span>${discordBadgeForTag(x.m.tag)}</div><div class="dream-score">${Number(x.total).toLocaleString()} pts • avg ${Number(x.avg).toLocaleString()}</div></div></div>`).join('');
 }
 function discordIconSvg(){return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 5.37A16.7 16.7 0 0 0 16.22 4l-.2.4c1.46.36 2.14.88 2.14.88a13.2 13.2 0 0 0-4.08-.62 13.2 13.2 0 0 0-4.08.62s.68-.52 2.14-.88l-.2-.4a16.7 16.7 0 0 0-4.08 1.37C5.28 8.93 4.58 12.39 4.82 15.8a16.9 16.9 0 0 0 5 2.53l.4-.66c-.96-.36-1.87-.89-1.87-.89.16.12.31.23.47.33 1.36.93 3.01 1.42 4.78 1.42s3.42-.49 4.78-1.42c.16-.1.31-.21.47-.33 0 0-.92.53-1.88.89l.4.66a16.9 16.9 0 0 0 5-2.53c.29-3.96-.49-7.4-2.07-10.43ZM9.86 13.73c-.94 0-1.7-.86-1.7-1.92 0-1.05.75-1.91 1.7-1.91.95 0 1.71.86 1.7 1.91 0 1.06-.75 1.92-1.7 1.92Zm5.28 0c-.94 0-1.7-.86-1.7-1.92 0-1.05.75-1.91 1.7-1.91.95 0 1.71.86 1.7 1.91 0 1.06-.75 1.92-1.7 1.92Z"/></svg>`}
-async function loadPublicDiscordLinks(){try{const r=await fetch('/api/discord/linked-tags');if(!r.ok){publicDiscordLinks=[];return}publicDiscordLinks=await r.json();if(currentPage==='dashboard'&&dash)renderClan();if(currentPage==='rankings'&&dash)renderFamilyRankings()}catch{publicDiscordLinks=[]}}
+async function loadPublicDiscordLinks(){try{const r=await fetch('/api/discord/linked-tags');if(!r.ok){publicDiscordLinks=[];return}publicDiscordLinks=await r.json();if(currentPage==='dashboard'&&dash)renderDashboardWelcome();if(currentPage==='rankings'&&dash)renderFamilyRankings()}catch{publicDiscordLinks=[]}}
 function publicDiscordLinkFor(tag){return publicDiscordLinks.find(x=>(x.playerTag||'').toUpperCase()===(tag||'').toUpperCase())||null}
 function discordBadgeForTag(tag){const dl=discordLinkFor(tag)||publicDiscordLinkFor(tag);if(!dl)return'';const offline=dl.presentInServer===false;const tip=offline?'Linked to Discord, but not in the latest synced server member list':'Linked to Discord';return`<span class="discord-badge ${offline?'offline':''}" title="${esc(tip)}">${discordIconSvg()}</span>`}
 function discordLinkFor(tag){return discordLinks.find(x=>(x.playerTag||'').toUpperCase()===(tag||'').toUpperCase())||null}
@@ -12408,19 +12533,8 @@ function publicEventRow(e){return `<div class="public-feed-row"><div class="when
 async function loadPublicClanFeed(clanTag){
   const box=$('publicClanFeed');if(!box)return;
   try{
-    let rows=null;
-    if(ascStaticFrontend&&!isManager()){
-      try{
-        const snapshot=await ascLoadPublicSnapshot();
-        const all=Array.isArray(snapshot?.publicEvents)?snapshot.publicEvents:[];
-        const wanted=String(clanTag||'').toUpperCase();
-        rows=all.filter(e=>!wanted||String(e.clanFromTag||'').toUpperCase()===wanted||String(e.clanToTag||'').toUpperCase()===wanted).slice(0,30);
-      }catch{}
-    }
-    if(rows===null){
-      const r=await fetch('/api/public-events?limit=30&clan='+encodeURIComponent(clanTag||''));rows=await r.json();
-      if(!r.ok)throw new Error(rows.error||'Could not load clan activity.');
-    }
+    const r=await fetch('/api/public-events?limit=30&clan='+encodeURIComponent(clanTag||'')),rows=await r.json();
+    if(!r.ok)throw new Error(rows.error||'Could not load clan activity.');
     box.innerHTML=`<section class="panel public-clan-feed"><div class="bar"><h3>Clan Activity</h3><span class="right">Members / Elders view • 5-line scroll • joins, leaves, transfers, changes & battles</span></div><div class="public-feed-body">${rows.length?rows.map(publicEventRow).join(''):'<div class="empty">No recent clan activity yet.</div>'}</div></section>`;
   }catch(e){box.innerHTML=''}
 }
@@ -13204,16 +13318,28 @@ function ascIsPhoneDevice(){
   const iPadLike=/iPad/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
   return !!(uaMobile||iPadLike);
 }
+function ascHonorViewportSize(){
+  const vv=window.visualViewport;
+  const width=Math.max(1,Math.round(Number(vv?.width||0)||Number(document.documentElement.clientWidth||0)||Number(window.innerWidth||0)||1));
+  const height=Math.max(1,Math.round(Number(vv?.height||0)||Number(document.documentElement.clientHeight||0)||Number(window.innerHeight||0)||1));
+  return {width,height};
+}
 function ascHonorViewMode(){
-  const mobile=ascIsPhoneDevice();
-  const portrait=window.innerHeight>=window.innerWidth;
-  if(mobile)return portrait?'mobile-portrait':'mobile-landscape';
-  return window.innerWidth>=1280?'pc-full':'pc-window';
+  const {width,height}=ascHonorViewportSize();
+  const portrait=height>width;
+
+  // Scene layout is driven by the viewport SHAPE first, not the physical device.
+  // A tall/narrow Windows browser therefore uses the same portrait artwork/layout
+  // as a phone, while rotating either one back to landscape restores landscape art.
+  if(portrait)return 'mobile-portrait';
+
+  if(ascIsPhoneDevice())return 'mobile-landscape';
+  return width>=1280?'pc-full':'pc-window';
 }
 function ascHonorSceneAsset(mode){
-  if(mode==='pc-full'||mode==='mobile-landscape')return 'assets/clan_honor_landscape_backdrop.png?v=3';
-  if(mode==='mobile-portrait')return 'assets/clan_honor_portrait_backdrop.png?v=3';
-  return 'assets/clan_honor_stage_top.png?v=3';
+  if(mode==='pc-full'||mode==='mobile-landscape')return '/assets/clan_honor_landscape_backdrop.png?v=3';
+  if(mode==='mobile-portrait')return '/assets/clan_honor_portrait_backdrop.png?v=3';
+  return '/assets/clan_honor_stage_top.png?v=3';
 }
 function syncAscHonorSceneAssets(mode){
   const src=ascHonorSceneAsset(mode);
@@ -13233,7 +13359,7 @@ function sizeClanHonorScene(){
   if(!frame)return;
   // Width includes neither the desktop scrollbar nor the app shell's padding.
   // Both native canvases share this single scale and reserve their full height.
-  const width=document.documentElement.clientWidth||window.innerWidth;
+  const {width}=ascHonorViewportSize();
   const portrait=mode==='mobile-portrait';
   const wide=mode==='pc-full'||mode==='mobile-landscape';
   const designWidth=portrait?470.5:(wide?1916:1672);
@@ -13303,7 +13429,7 @@ function clanHonorCinematicStage(){
   }
 
   return `<div class="honor-scene-frame"><div class="clan-honor-cinematic-stage">
-    <img class="asc-honor-scene-art clan-honor-cinematic-art" src="assets/clan_honor_stage_top.png" alt="" aria-hidden="true">
+    <img class="asc-honor-scene-art clan-honor-cinematic-art" src="/assets/clan_honor_stage_top.png" alt="" aria-hidden="true">
     <div class="clan-honor-cinematic-content">
       <div class="clan-honor-cinematic-title">
         <div class="clan-honor-cinematic-kicker">ALL STARS FAMILY COMPARISON</div>
@@ -13324,21 +13450,68 @@ function clanHonorCinematicStage(){
   </div></div>`;
 }
 
+
+const clanHonorPodiumLeaderAvatarCache=new Map();
+function clanHonorPodiumLeaderForClan(x){
+  const members=Array.isArray(x?.c?.members)?x.c.members:[];
+  return members.find(m=>String(m?.role||'').toLowerCase()==='leader')
+    ||members.find(m=>String(m?.role||'').toLowerCase()==='coleader')
+    ||null;
+}
+function clanHonorPodiumLeaderAvatarHtml(x){
+  const leader=clanHonorPodiumLeaderForClan(x);
+  if(!leader){
+    return `<span class="clan-honor-podium-leader-avatar empty" title="Clan leader profile image unavailable"><span class="clan-honor-podium-leader-initial">★</span></span>`;
+  }
+  const tag=String(leader.tag||'').trim();
+  const name=String(leader.name||'Leader').trim()||'Leader';
+  const discord=clanHonorTop3DiscordAvatar(tag);
+  const fallback=clanHonorTop3FallbackAvatar(tag);
+  const src=discord||fallback;
+  const artClass=discord?'portrait-art':'unit-art';
+  const initial=(name.charAt(0)||'?').toUpperCase();
+  return `<span class="clan-honor-podium-leader-avatar" title="Leader: ${esc(name)}">
+    <span class="clan-honor-podium-leader-initial">${esc(initial)}</span>
+    <img class="clan-honor-podium-leader-img ${artClass}" src="${esc(src)}" alt="${esc(name)}" loading="lazy" referrerpolicy="no-referrer" data-player-tag="${esc(tag)}" data-fallback="${esc(fallback)}" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;this.classList.remove('portrait-art');this.classList.add('unit-art')}else{this.style.display='none'}">
+  </span>`;
+}
+async function refreshClanHonorPodiumLeaderAvatars(rows){
+  if(currentPage!=='rankings')return;
+  const leaders=(Array.isArray(rows)?rows:[])
+    .map(x=>({x,leader:clanHonorPodiumLeaderForClan(x)}))
+    .filter(v=>v.leader?.tag);
+  await Promise.all(leaders.map(async({leader})=>{
+    const tag=String(leader.tag||'').trim();
+    const key=tag.toUpperCase();
+    if(!key)return;
+    let resolved=clanHonorPodiumLeaderAvatarCache.get(key);
+    if(!resolved){
+      try{resolved=await clanHonorTop3ResolveAvatar({m:leader})}catch{resolved=null}
+      if(resolved?.src)clanHonorPodiumLeaderAvatarCache.set(key,resolved);
+    }
+    if(currentPage!=='rankings'||!resolved?.src)return;
+    const img=[...document.querySelectorAll('.clan-honor-podium-leader-img[data-player-tag]')]
+      .find(el=>String(el.dataset.playerTag||'').toUpperCase()===key);
+    if(img)clanHonorTop3ApplyAvatar(img,resolved);
+  }));
+}
+
 function renderClanHonorBoard(players,clans,avgT,totalD,linked){
   const host=$('familySummary'),details=$('familySummaryDetails');if(!host||!details)return;
   const rows=clanHonorRows(),ranked=rows.slice().sort((a,b)=>a.honorRank-b.honorRank);
   const arenaReady=!!clanHonorArenaRatings;
   const byRank=n=>ranked.find(x=>x.honorRank===n)||ranked[Math.max(0,n-1)]||null;
   const totalBattlesThisWeek=rows.reduce((sum,x)=>sum+Number(x?.m?.currentWar?.decksUsed||0),0);
-  const podiumAsset={1:'assets/clan-honor/05_podium_rank_1.png',2:'assets/clan-honor/06_podium_rank_2.png',3:'assets/clan-honor/07_podium_rank_3.png'};
+  const podiumAsset={1:'/assets/clan-honor/05_podium_rank_1.png',2:'/assets/clan-honor/06_podium_rank_2.png',3:'/assets/clan-honor/07_podium_rank_3.png'};
   const podiumHtml=(x,rank)=>{
     if(!x)return'';
     const selected=clanHonorSelectedClanIndex===x.index?' selected':'';
     return `<button type="button" class="clan-honor-asset-podium rank-${rank}${selected}" onclick="selectClanHonorAssetPodium(event,${x.index})" title="Open ${esc(x.c.name||x.shortName)} clan stats and recent war history">
       <img src="${podiumAsset[rank]}" alt="Rank ${rank} clan podium">
-      <span class="clan-honor-asset-marker">${esc(x.shortName)}</span>
+      ${clanHonorPodiumLeaderAvatarHtml(x)}
       <span class="clan-honor-asset-name">${esc(x.c.name||x.shortName)}</span>
       <span class="clan-honor-asset-meta"><b>${Number(x.honorScore||0).toLocaleString()}</b><small>HONOR • ${x.members} MEMBERS</small></span>
+      <span class="clan-honor-asset-marker">${esc(x.shortName)}</span>
     </button>`;
   };
   const fourth=byRank(4);
@@ -13367,12 +13540,12 @@ function renderClanHonorBoard(players,clans,avgT,totalD,linked){
     <section class="clan-honor-asset-showcase" aria-label="Clan Honor top clans">
       <div class="clan-honor-podium-frame">
       <div class="clan-honor-asset-arena">
-        <img class="asc-honor-scene-art clan-honor-asset-art" src="assets/clan_honor_stage_top.png" alt="" aria-hidden="true">
+        <img class="asc-honor-scene-art clan-honor-asset-art" src="/assets/clan_honor_stage_top.png" alt="" aria-hidden="true">
         ${podiumHtml(byRank(2),2)}
         ${podiumHtml(byRank(1),1)}
         ${podiumHtml(byRank(3),3)}
         <div class="clan-honor-asset-console">
-          <img src="assets/clan-honor/04_stats_console_gold_frame_transparent.png" alt="Family Clan Honor statistics console">
+          <img src="/assets/clan-honor/04_stats_console_gold_frame_transparent.png" alt="Family Clan Honor statistics console">
           <div class="clan-honor-console-stat s1"><span>Family Players</span><b>${Number(players).toLocaleString()}</b></div>
           <div class="clan-honor-console-stat s2"><span>Tracked Clans</span><b>${Number(clans).toLocaleString()}</b></div>
           <div class="clan-honor-console-stat s3"><span>Average Trophies</span><b>${Number(avgT).toLocaleString()}</b></div>
@@ -13389,6 +13562,7 @@ function renderClanHonorBoard(players,clans,avgT,totalD,linked){
     </section>
   </section>`;
   observeClanHonorScene();
+  refreshClanHonorPodiumLeaderAvatars(rows);
   if(!arenaReady&&!clanHonorArenaLoading)ensureClanHonorArenaRatings();
   if(!clanHonorHistory&&!clanHonorHistoryLoading)ensureClanHonorHistory();
 }
@@ -13406,26 +13580,26 @@ function setFamilyRankingMode(mode){familyRankingMode=mode;renderFamilyRankings(
 
 const clanHonorTop3CharacterLibrary={
   witch:[
-    'assets/arena-characters/top3/witch_12.png',
-    'assets/arena-characters/top3/witch_02.png',
-    'assets/arena-characters/top3/witch_25.png',
-    'assets/arena-characters/top3/witch_18.png',
-    'assets/arena-characters/top3/witch.png'
+    '/assets/arena-characters/top3/witch_12.png',
+    '/assets/arena-characters/top3/witch_02.png',
+    '/assets/arena-characters/top3/witch_25.png',
+    '/assets/arena-characters/top3/witch_18.png',
+    '/assets/arena-characters/top3/witch.png'
   ],
-  firecracker:['assets/arena-characters/top3/firecracker.png'],
-  giant:['assets/arena-characters/top3/giant.png'],
-  goblinbarrel:['assets/arena-characters/top3/goblin_barrel.png'],
-  goblingang:['assets/arena-characters/top3/goblin_gang.png'],
-  hogrider:['assets/arena-characters/top3/hog_rider.png'],
-  magicarcher:['assets/arena-characters/top3/magic_archer.png'],
-  megaknight:['assets/arena-characters/top3/mega_knight.png'],
-  minionhorde:['assets/arena-characters/top3/minion_horde.png'],
-  musketeer:['assets/arena-characters/top3/musketeer.png'],
-  prince:['assets/arena-characters/top3/prince.png'],
-  skeletonarmy:['assets/arena-characters/top3/skeleton_army.png'],
-  archers:['assets/arena-characters/top3/archers.png'],
-  babydragon:['assets/arena-characters/top3/baby_dragon.png'],
-  barbarians:['assets/arena-characters/top3/barbarians.png']
+  firecracker:['/assets/arena-characters/top3/firecracker.png'],
+  giant:['/assets/arena-characters/top3/giant.png'],
+  goblinbarrel:['/assets/arena-characters/top3/goblin_barrel.png'],
+  goblingang:['/assets/arena-characters/top3/goblin_gang.png'],
+  hogrider:['/assets/arena-characters/top3/hog_rider.png'],
+  magicarcher:['/assets/arena-characters/top3/magic_archer.png'],
+  megaknight:['/assets/arena-characters/top3/mega_knight.png'],
+  minionhorde:['/assets/arena-characters/top3/minion_horde.png'],
+  musketeer:['/assets/arena-characters/top3/musketeer.png'],
+  prince:['/assets/arena-characters/top3/prince.png'],
+  skeletonarmy:['/assets/arena-characters/top3/skeleton_army.png'],
+  archers:['/assets/arena-characters/top3/archers.png'],
+  babydragon:['/assets/arena-characters/top3/baby_dragon.png'],
+  barbarians:['/assets/arena-characters/top3/barbarians.png']
 };
 
 function clanHonorTop3NormalizeCardName(name){
@@ -13453,18 +13627,18 @@ function clanHonorTop3LibraryArt(cardName,playerTag){
 }
 
 const clanHonorTop3StaticFallbacks=[
-  'assets/arena-characters/Wizard_21.png',
-  'assets/arena-characters/Mega_Knight_03.png',
-  'assets/arena-characters/Knight.png',
-  'assets/arena-characters/Baby_Dragon_01.png',
-  'assets/arena-characters/Dart_Goblin.png',
-  'assets/arena-characters/Archer_02.png',
-  'assets/arena-characters/dark_prince_01.png',
-  'assets/arena-characters/Electro_Wizard_01.png',
-  'assets/arena-characters/Prince_01.png',
-  'assets/arena-characters/Princess_01.png',
-  'assets/arena-characters/Ram_Rider.png',
-  'assets/arena-characters/Hog_Rider_18.png'
+  '/assets/arena-characters/Wizard_21.png',
+  '/assets/arena-characters/Mega_Knight_03.png',
+  '/assets/arena-characters/Knight.png',
+  '/assets/arena-characters/Baby_Dragon_01.png',
+  '/assets/arena-characters/Dart_Goblin.png',
+  '/assets/arena-characters/Archer_02.png',
+  '/assets/arena-characters/dark_prince_01.png',
+  '/assets/arena-characters/Electro_Wizard_01.png',
+  '/assets/arena-characters/Prince_01.png',
+  '/assets/arena-characters/Princess_01.png',
+  '/assets/arena-characters/Ram_Rider.png',
+  '/assets/arena-characters/Hog_Rider_18.png'
 ];
 
 function clanHonorTop3StaticUrl(url,{discord=false}={}){
@@ -13485,7 +13659,7 @@ function clanHonorTop3FallbackAvatar(tag){
   let hash=0;
   for(const ch of key)hash=(hash*31+ch.charCodeAt(0))>>>0;
   return clanHonorTop3StaticFallbacks[hash%clanHonorTop3StaticFallbacks.length]
-    ||'assets/arena-characters/Knight.png';
+    ||'/assets/arena-characters/Knight.png';
 }
 function clanHonorTop3StyleSelectedArt(style){
   if(!style)return'';
@@ -13642,7 +13816,7 @@ function renderClanHonorTop3(rows){
   const host=$('clanHonorTop3');
   if(!host)return;
   const top=(Array.isArray(rows)?rows:[]).slice(0,3);
-  host.innerHTML=`<img class="clan-honor-top3-art" src="assets/family_top3_overlay.png" alt="" aria-hidden="true">
+  host.innerHTML=`<img class="clan-honor-top3-art" src="/assets/family_top3_overlay.png" alt="" aria-hidden="true">
     <div class="clan-honor-top3-title">FAMILY LEADERBOARD <span>${esc(familyModeLabel(familyRankingMode))}</span></div>
     <div class="clan-honor-top3-players">
       ${top.map((x,i)=>clanHonorTop3PlayerHtml(x,i)).join('')}
@@ -13724,7 +13898,7 @@ function memberClanBattleRows(){
   return result;
 }
 let liveArenaConnection=null,liveArenaSnapshot=null,liveArenaMatch=null,liveArenaBusy=false,liveArenaReconnectTimer=null,liveArenaAuthBlocked=false;
-const liveArenaLoadingVideos=['assets/arena/loading_screen_season_84.mp4','assets/arena/April%20Loading%20Screen.mp4'];const liveArenaSearchTips=[
+const liveArenaLoadingVideos=['/assets/arena/loading_screen_season_84.mp4','/assets/arena/April%20Loading%20Screen.mp4'];const liveArenaSearchTips=[
   {kind:'CLASH TIP',text:'Look for positive Elixir trades: defend efficiently so you spend less Elixir than the opponent committed.'},
   {kind:'CLASH TIP',text:'After you play a card, four more cards must be played before it cycles back into your hand.'},
   {kind:'CLASH TIP',text:'Building a push from behind your King Tower gives you time to recover Elixir before the troops reach the bridge.'},
@@ -13743,7 +13917,7 @@ function currentLiveArenaSearchTip(){return liveArenaSearchTips[liveArenaSearchT
 function updateLiveArenaSearchTipText(){const tip=currentLiveArenaSearchTip(),box=document.querySelector('.live-arena-search-tip');if(!box)return;const kind=box.querySelector('.kind'),copy=box.querySelector('.text');if(kind)kind.textContent=tip.kind||'TIP';if(copy)copy.textContent=tip.text||''}
 function ensureLiveArenaSearchTipCycle(){if(liveArenaSearchTipTimer)return;liveArenaSearchTipTimer=setInterval(()=>{liveArenaSearchTipIndex=(liveArenaSearchTipIndex+1)%liveArenaSearchTips.length;updateLiveArenaSearchTipText()},6000)}
 function stopLiveArenaSearchTipCycle(){clearInterval(liveArenaSearchTipTimer);liveArenaSearchTipTimer=null}
-const memberArenaMascotAssets=['assets/arena-characters/Minion_02.gif','assets/arena-characters/Wizard_21.png','assets/arena-characters/Mega_Knight_03.png','assets/arena-characters/Knight.png','assets/arena-characters/Baby_Dragon_01.png','assets/arena-characters/Knight_09.png','assets/arena-characters/Dart_Goblin.png','assets/arena-characters/barbarian_15.png','assets/arena-characters/Archer_Evolution_Pose02_purple.png','assets/arena-characters/Archer_Evolution_Pose01_Purple.png','assets/arena-characters/dark_prince_01.png','assets/arena-characters/Archer_02.png','assets/arena-characters/KnightHeroes_Pose3_4K_FX_White.png','assets/arena-characters/DarkPrinceHero_Pose1_4K_FX_blue.png','assets/arena-characters/Baby_Dragon.png','assets/arena-characters/Electro_Wizard_01.png','assets/arena-characters/Dart_Goblin_Evolution_01.png','assets/arena-characters/Barbarian_06.png','assets/arena-characters/barbarianEvo_Pose01_4K_FX.png','assets/arena-characters/Barbarian_22.png','assets/arena-characters/barbarianEvo_Pose02_4K_FX.png','assets/arena-characters/Hog_Rider_18.png','assets/arena-characters/IceWizardHero_Pose1_4k_FX.png','assets/arena-characters/MegaMinion_Hero_Pose01_4K_FX_eyes.png','assets/arena-characters/Prince_01.png','assets/arena-characters/Ram_Rider.png','assets/arena-characters/Princess_01.png'];let liveArenaLoadingVideoIndex=-1,liveArenaWasSearching=false,memberArenaMascotTimer=null;function currentArenaMascotIndex(tag){const key='arenaMascotIndex:'+(tag||'guest');try{let idx=Number(sessionStorage.getItem(key));if(Number.isInteger(idx)&&idx>=0&&idx<memberArenaMascotAssets.length)return idx;idx=Math.floor(Math.random()*Math.max(memberArenaMascotAssets.length,1));sessionStorage.setItem(key,String(idx));return idx}catch{return Math.floor(Math.random()*Math.max(memberArenaMascotAssets.length,1))}}function currentArenaMascot(tag){const idx=currentArenaMascotIndex(tag);return memberArenaMascotAssets[idx]||memberArenaMascotAssets[0]||''}function advanceArenaMascot(tag){if(!memberArenaMascotAssets.length)return'';const key='arenaMascotIndex:'+(tag||'guest');let idx=(currentArenaMascotIndex(tag)+1)%memberArenaMascotAssets.length;try{sessionStorage.setItem(key,String(idx))}catch{}return memberArenaMascotAssets[idx]||memberArenaMascotAssets[0]||''}function refreshArenaMascotImage(){const img=document.querySelector('.member-run-complete-mascot');if(!img)return;const tag=img.getAttribute('data-player-tag')||'guest';const next=advanceArenaMascot(tag);if(next)img.src=next}function ensureArenaMascotCycle(){clearInterval(memberArenaMascotTimer);if(!document.querySelector('.member-run-complete-mascot'))return;memberArenaMascotTimer=setInterval(refreshArenaMascotImage,10000)}function memberRunMascotHtml(tag){const src=currentArenaMascot(tag);return src?`<div class="member-run-complete-mascot-wrap"><img class="member-run-complete-mascot" src="${src}" alt="Arena mascot" data-player-tag="${esc(tag||'guest')}"></div>`:''}
+const memberArenaMascotAssets=['/assets/arena-characters/Minion_02.gif','/assets/arena-characters/Wizard_21.png','/assets/arena-characters/Mega_Knight_03.png','/assets/arena-characters/Knight.png','/assets/arena-characters/Baby_Dragon_01.png','/assets/arena-characters/Knight_09.png','/assets/arena-characters/Dart_Goblin.png','/assets/arena-characters/barbarian_15.png','/assets/arena-characters/Archer_Evolution_Pose02_purple.png','/assets/arena-characters/Archer_Evolution_Pose01_Purple.png','/assets/arena-characters/dark_prince_01.png','/assets/arena-characters/Archer_02.png','/assets/arena-characters/KnightHeroes_Pose3_4K_FX_White.png','/assets/arena-characters/DarkPrinceHero_Pose1_4K_FX_blue.png','/assets/arena-characters/Baby_Dragon.png','/assets/arena-characters/Electro_Wizard_01.png','/assets/arena-characters/Dart_Goblin_Evolution_01.png','/assets/arena-characters/Barbarian_06.png','/assets/arena-characters/barbarianEvo_Pose01_4K_FX.png','/assets/arena-characters/Barbarian_22.png','/assets/arena-characters/barbarianEvo_Pose02_4K_FX.png','/assets/arena-characters/Hog_Rider_18.png','/assets/arena-characters/IceWizardHero_Pose1_4k_FX.png','/assets/arena-characters/MegaMinion_Hero_Pose01_4K_FX_eyes.png','/assets/arena-characters/Prince_01.png','/assets/arena-characters/Ram_Rider.png','/assets/arena-characters/Princess_01.png'];let liveArenaLoadingVideoIndex=-1,liveArenaWasSearching=false,memberArenaMascotTimer=null;function currentArenaMascotIndex(tag){const key='arenaMascotIndex:'+(tag||'guest');try{let idx=Number(sessionStorage.getItem(key));if(Number.isInteger(idx)&&idx>=0&&idx<memberArenaMascotAssets.length)return idx;idx=Math.floor(Math.random()*Math.max(memberArenaMascotAssets.length,1));sessionStorage.setItem(key,String(idx));return idx}catch{return Math.floor(Math.random()*Math.max(memberArenaMascotAssets.length,1))}}function currentArenaMascot(tag){const idx=currentArenaMascotIndex(tag);return memberArenaMascotAssets[idx]||memberArenaMascotAssets[0]||''}function advanceArenaMascot(tag){if(!memberArenaMascotAssets.length)return'';const key='arenaMascotIndex:'+(tag||'guest');let idx=(currentArenaMascotIndex(tag)+1)%memberArenaMascotAssets.length;try{sessionStorage.setItem(key,String(idx))}catch{}return memberArenaMascotAssets[idx]||memberArenaMascotAssets[0]||''}function refreshArenaMascotImage(){const img=document.querySelector('.member-run-complete-mascot');if(!img)return;const tag=img.getAttribute('data-player-tag')||'guest';const next=advanceArenaMascot(tag);if(next)img.src=next}function ensureArenaMascotCycle(){clearInterval(memberArenaMascotTimer);if(!document.querySelector('.member-run-complete-mascot'))return;memberArenaMascotTimer=setInterval(refreshArenaMascotImage,10000)}function memberRunMascotHtml(tag){const src=currentArenaMascot(tag);return src?`<div class="member-run-complete-mascot-wrap"><img class="member-run-complete-mascot" src="${src}" alt="Arena mascot" data-player-tag="${esc(tag||'guest')}"></div>`:''}
 let liveArenaRoundAnimation=null,liveArenaRoundAnimationTimer=null,liveArenaAnimatedRoundKey='',liveArenaRoundAnimationEnding=false;
 let liveArenaSceneTransition=false,liveArenaSceneTransitionTimer=null,liveArenaSceneTransitionVideo='',liveArenaSceneTransitionEnding=false;
 let liveArenaChoiceTimer=null,liveArenaChoiceTimerKey='',liveArenaChoiceTimerStarted=0,liveArenaAutoLockKey='';
@@ -13751,24 +13925,24 @@ let liveArenaSelectedTactic='',liveArenaSelectedAbility='none',liveArenaChoiceRo
 let liveArenaInviteTimer=null,liveArenaInviteTag='';const liveArenaNotifiedSearchers=new Set();
 const liveArenaFavoriteCardCache=Object.create(null);
 const liveArenaFavoriteCardAssetMap={
-  knight:'assets/arena-characters/Knight.png',
-  babydragon:'assets/arena-characters/Baby_Dragon_01.png',
-  megaknight:'assets/arena-characters/Mega_Knight_03.png',
-  wizard:'assets/arena-characters/Wizard_21.png',
-  electrowizard:'assets/arena-characters/Electro%20Wizard.png',
-  ewizard:'assets/arena-characters/Electro%20Wizard.png',
-  dartgoblin:'assets/arena-characters/Dart_Goblin.png',
-  archers:'assets/arena-characters/Archer_02.png',
-  archer:'assets/arena-characters/Archer_02.png',
-  barbarian:'assets/arena-characters/Barbarian_06.png',
-  barbarians:'assets/arena-characters/Barbarian_06.png',
-  darkprince:'assets/arena-characters/dark_prince_01.png',
-  hogrider:'assets/arena-characters/Hog_Rider_18.png',
-  icewizard:'assets/arena-characters/IceWizardHero_Pose1_4k_FX.png',
-  megaminion:'assets/arena-characters/MegaMinion_Hero_Pose01_4K_FX_eyes.png',
-  prince:'assets/arena-characters/Prince_01.png',
-  ramrider:'assets/arena-characters/Ram_Rider.png',
-  princess:'assets/arena-characters/Princess_01.png'
+  knight:'/assets/arena-characters/Knight.png',
+  babydragon:'/assets/arena-characters/Baby_Dragon_01.png',
+  megaknight:'/assets/arena-characters/Mega_Knight_03.png',
+  wizard:'/assets/arena-characters/Wizard_21.png',
+  electrowizard:'/assets/arena-characters/Electro%20Wizard.png',
+  ewizard:'/assets/arena-characters/Electro%20Wizard.png',
+  dartgoblin:'/assets/arena-characters/Dart_Goblin.png',
+  archers:'/assets/arena-characters/Archer_02.png',
+  archer:'/assets/arena-characters/Archer_02.png',
+  barbarian:'/assets/arena-characters/Barbarian_06.png',
+  barbarians:'/assets/arena-characters/Barbarian_06.png',
+  darkprince:'/assets/arena-characters/dark_prince_01.png',
+  hogrider:'/assets/arena-characters/Hog_Rider_18.png',
+  icewizard:'/assets/arena-characters/IceWizardHero_Pose1_4k_FX.png',
+  megaminion:'/assets/arena-characters/MegaMinion_Hero_Pose01_4K_FX_eyes.png',
+  prince:'/assets/arena-characters/Prince_01.png',
+  ramrider:'/assets/arena-characters/Ram_Rider.png',
+  princess:'/assets/arena-characters/Princess_01.png'
 };
 function liveArenaNormalizeCardName(name){return String(name||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
 function liveArenaResolveLocalFavoriteCard(name){const key=liveArenaNormalizeCardName(name);if(!key)return'';return liveArenaFavoriteCardAssetMap[key]||''}
@@ -13788,10 +13962,10 @@ function loadLiveArenaFavoriteCard(playerTag){
   liveArenaFavoriteCardCache[tag]={state:'pending'};
   if(isTrackerAdminTag(tag)){
     nativeFetch('/api/tracker-bot-profile',{cache:'no-store'}).then(async r=>{
-      const x=r.ok?await r.json():null,bot=x?.bot||{},src=bot.avatarUrl||bot.fallbackAvatarUrl||'asc-crest.svg';
+      const x=r.ok?await r.json():null,bot=x?.bot||{},src=bot.avatarUrl||bot.fallbackAvatarUrl||'/asc-crest.svg';
       liveArenaFavoriteCardCache[tag]={state:'ready',data:{name:'ALL STARS Tracker',src,source:'bot'}};
       liveArenaMaybeRefreshFavoriteCards(tag);
-    }).catch(()=>{liveArenaFavoriteCardCache[tag]={state:'ready',data:{name:'ALL STARS Tracker',src:'asc-crest.svg',source:'bot'}};liveArenaMaybeRefreshFavoriteCards(tag)});
+    }).catch(()=>{liveArenaFavoriteCardCache[tag]={state:'ready',data:{name:'ALL STARS Tracker',src:'/asc-crest.svg',source:'bot'}};liveArenaMaybeRefreshFavoriteCards(tag)});
     return null;
   }
   Promise.allSettled([
@@ -14042,9 +14216,7 @@ async function ensureLiveArenaConnection(){
     return;
   }
 
-  const liveArenaHubUrl=ascApiUrl('/live-arena-hub?clientId='+encodeURIComponent(ascClientInstanceId));
-  const liveArenaHubOptions=ascStaticFrontend?{withCredentials:false,accessTokenFactory:()=>ascSessionToken()}:{};
-  liveArenaConnection=new signalR.HubConnectionBuilder().withUrl(liveArenaHubUrl,liveArenaHubOptions).withAutomaticReconnect([0,2000,5000,10000]).build();
+  liveArenaConnection=new signalR.HubConnectionBuilder().withUrl('/live-arena-hub?clientId='+encodeURIComponent(ascClientInstanceId)).withAutomaticReconnect([0,2000,5000,10000]).build();
   liveArenaConnection.on('LiveArenaState',state=>{liveArenaSnapshot=state;if(state?.match)liveArenaMatch=state.match;checkLiveArenaInvite(state);syncLiveArenaLocalChoice();renderLiveArenaLobby()});
   liveArenaConnection.on('LiveArenaSnapshot',state=>{
     if(liveArenaSnapshot)liveArenaSnapshot={...liveArenaSnapshot,onlineCount:state?.onlineCount??0,searchingCount:state?.searchingCount??0,onlinePlayers:state?.onlinePlayers||[]};else liveArenaSnapshot=state;
@@ -14305,7 +14477,7 @@ function renderLiveArenaChoosing(match){
   const tactic=(id,icon,name,desc)=>`<button class="live-tactic ${liveArenaSelectedTactic===id?'selected':''}" onclick="chooseLiveArenaTactic('${id}')" ${tacticDisabled?'disabled':''}><div class="icon">${icon}</div><div class="name">${name}</div><div class="desc">${desc}</div></button>`;
   return `${renderLiveArenaSelectionPreview()}<div class="live-choice-hud live-scene-in"><div class="live-round-head"><span class="live-round-pill">${roundLabel}</span><span class="live-round-pill">⚡ ${myEnergy} ENERGY</span><span class="live-round-pill">🔥 ${myMomentum} MOMENTUM</span></div>
     <div class="live-choice-scene-clock"><div id="liveChoiceClock" class="live-choice-clock"><span id="liveChoiceClockNumber" class="live-choice-clock-number">30</span><span id="liveChoiceClockLabel" class="live-choice-clock-label">SECONDS TO CHOOSE</span></div></div>
-    <div class="live-choice-king-stage"><div class="live-choice-king-card"><div class="live-choice-king-frame"><img src="assets/arena-characters/clean/prince.png" alt="Opponent Prince thinking" onerror="this.style.display='none';this.parentElement.classList.add('emoji-fallback');"><div class="live-choice-king-emoji" aria-hidden="true">👑🤔</div></div><div class="live-choice-king-thought">YOUR OPPONENT IS THINKING...<span class="live-choice-king-tip">Watch the clock, study the matchup, and choose your tactic before the reveal.</span></div></div></div>
+    <div class="live-choice-king-stage"><div class="live-choice-king-card"><div class="live-choice-king-frame"><img src="/assets/arena-characters/clean/prince.png" alt="Opponent Prince thinking" onerror="this.style.display='none';this.parentElement.classList.add('emoji-fallback');"><div class="live-choice-king-emoji" aria-hidden="true">👑🤔</div></div><div class="live-choice-king-thought">YOUR OPPONENT IS THINKING...<span class="live-choice-king-tip">Watch the clock, study the matchup, and choose your tactic before the reveal.</span></div></div></div>
     <div class="live-choice-title">CHOOSE YOUR TACTIC</div>
     <div class="live-choice-sub">Pressure beats Control • Control beats Counter • Counter beats Pressure. Your opponent cannot see your choice until both players lock in.</div>
     <div class="live-tactics">
@@ -14996,7 +15168,7 @@ async function renderMyPublicProfileView(){
   if(identity.admin){
     try{
       const r=await nativeFetch('/api/tracker-bot-profile',{cache:'no-store'}),x=await r.json();if(!r.ok)throw new Error(x.error||'Tracker bot profile unavailable.');
-      const bot=x.bot||{},arena=x.arena||{},avatar=bot.avatarUrl||bot.fallbackAvatarUrl||'asc-crest.svg',commands=Array.isArray(bot.commands)?bot.commands:[];
+      const bot=x.bot||{},arena=x.arena||{},avatar=bot.avatarUrl||bot.fallbackAvatarUrl||'/asc-crest.svg',commands=Array.isArray(bot.commands)?bot.commands:[];
       box.innerHTML=`<div class="tracker-admin-profile"><div class="tracker-admin-dp"><img src="${esc(avatar)}" alt="ALL STARS Tracker Bot"></div><div><div class="tracker-admin-title">ALL STARS Tracker</div><div class="tracker-admin-stars">★★★★★</div><div class="tracker-admin-pill">5-STAR HARD LIVE ARENA OPPONENT</div><div class="tracker-admin-desc">${esc(bot.description||'Official ALL STARS Tracker stat bot and Owner Arena account.')}</div></div></div><div class="profilegrid" style="margin-top:13px"><div class="mini"><div class="n">Arena Rating</div><div class="v">${Number(arena.arenaRating||1650)}</div></div><div class="mini"><div class="n">Live Arena Record</div><div class="v">${Number(arena.wins||0)}-${Number(arena.losses||0)}</div></div><div class="mini"><div class="n">Difficulty</div><div class="v">★★★★★</div></div><div class="mini"><div class="n">Daily Five</div><div class="v">Excluded</div></div></div><div class="panel"><div class="bar"><h3>Discord Stat Bot Commands</h3></div><div class="modalbody"><div class="tracker-command-grid">${commands.map(c=>{const parts=String(c).split(' — ');return `<div class="tracker-command"><code>${esc(parts[0]||c)}</code>${parts.length>1?`<div>${esc(parts.slice(1).join(' — '))}</div>`:''}</div>`}).join('')}</div></div></div>`;
     }catch(e){box.innerHTML=`<div class="member-auth-note">${esc(e.message)}</div>`}
     return;
@@ -15117,14 +15289,14 @@ function warBattleHistoryHtml(rows){if(!Array.isArray(rows)||!rows.length)return
 function isTrackerAdminTag(tag){return String(tag||'').trim().toUpperCase()==='#ASCTRACKER'}
 function trackerBotDeckCards(){
   return [
-    {name:'Prince',icon:'assets/arena-characters/Prince.png',rarity:'epic'},
-    {name:'Hog Rider',icon:'assets/arena-characters/Hog_Rider_25.png',rarity:'rare'},
-    {name:'Witch',icon:'assets/arena-characters/Witch_18.png',rarity:'epic'},
-    {name:'Baby Dragon',icon:'assets/arena-characters/Baby_Dragon_01.png',rarity:'epic'},
-    {name:'Electro Wizard',icon:'assets/arena-characters/Electro_Wizard_01.png',rarity:'legendary'},
-    {name:'Dart Goblin',icon:'assets/arena-characters/Dart_Goblin_Evolution_01.png',rarity:'rare'},
-    {name:'Mega Knight',icon:'assets/arena-characters/Mega_Knight_03.png',rarity:'legendary'},
-    {name:'Archers',icon:'assets/arena-characters/Archer_Evolution_Pose01_Purple.png',rarity:'common'}
+    {name:'Prince',icon:'/assets/arena-characters/Prince.png',rarity:'epic'},
+    {name:'Hog Rider',icon:'/assets/arena-characters/Hog_Rider_25.png',rarity:'rare'},
+    {name:'Witch',icon:'/assets/arena-characters/Witch_18.png',rarity:'epic'},
+    {name:'Baby Dragon',icon:'/assets/arena-characters/Baby_Dragon_01.png',rarity:'epic'},
+    {name:'Electro Wizard',icon:'/assets/arena-characters/Electro_Wizard_01.png',rarity:'legendary'},
+    {name:'Dart Goblin',icon:'/assets/arena-characters/Dart_Goblin_Evolution_01.png',rarity:'rare'},
+    {name:'Mega Knight',icon:'/assets/arena-characters/Mega_Knight_03.png',rarity:'legendary'},
+    {name:'Archers',icon:'/assets/arena-characters/Archer_Evolution_Pose01_Purple.png',rarity:'common'}
   ];
 }
 function trackerBotProfileModels(bot,arena){
@@ -15148,7 +15320,7 @@ function trackerBotProfileModels(bot,arena){
     liveProfile:{
       currentDeck:deck,
       favouriteCardName:'Prince',
-      favouriteCardIcon:'assets/arena-characters/Prince.png',
+      favouriteCardIcon:'/assets/arena-characters/Prince.png',
       favouriteCardRarity:'epic',
       battleCount:battles,
       wins:wins,
@@ -15190,7 +15362,7 @@ async function openTrackerAdminProfile(){
   try{
     const r=await nativeFetch('/api/tracker-bot-profile',{cache:'no-store'}),x=await r.json();
     if(!r.ok)throw new Error(x.error||'Tracker bot profile unavailable.');
-    const bot=x.bot||{},arena=x.arena||{},avatar=bot.avatarUrl||bot.fallbackAvatarUrl||'asc-crest.svg';
+    const bot=x.bot||{},arena=x.arena||{},avatar=bot.avatarUrl||bot.fallbackAvatarUrl||'/asc-crest.svg';
     const commands=Array.isArray(bot.commands)?bot.commands:[];
     const models=trackerBotProfileModels(bot,arena);
     $('playerTitle').textContent='ALL STARS Tracker #ASCTRACKER';
@@ -15279,12 +15451,12 @@ function closePlayer(){playerProfileLoadToken++;const modal=$('playerModal');mod
 </script><script src="community.js"></script><script>
 /* Daily 5 header character rotation */
 const dailyArenaRightCharacterPool=[
-  'assets/arena-characters/Dart_Goblin_Evolution_01.png',
-  'assets/arena-characters/Mega_Knight_03.png',
-  'assets/arena-characters/Electro_Wizard_01.png',
-  'assets/arena-characters/Baby_Dragon_01.png',
-  'assets/arena-characters/dark_prince_01.png',
-  'assets/arena-characters/Barbarian_22.png'
+  '/assets/arena-characters/Dart_Goblin_Evolution_01.png',
+  '/assets/arena-characters/Mega_Knight_03.png',
+  '/assets/arena-characters/Electro_Wizard_01.png',
+  '/assets/arena-characters/Baby_Dragon_01.png',
+  '/assets/arena-characters/dark_prince_01.png',
+  '/assets/arena-characters/Barbarian_22.png'
 ];
 let dailyArenaRightCharacterIndex=0;
 let dailyArenaRightCharacterTimer=null;
@@ -15366,8 +15538,11 @@ function updateBackToTopVisibility(){
   const scrollableDistance=Math.max(0,pageHeight-window.innerHeight);
   const pageIsScrollable=scrollableDistance>220;
   const scrollProgress=scrollableDistance>0?scrollTop/scrollableDistance:0;
-  // Past two-thirds: show while travelling down, fade away as soon as the user heads back up.
-  const show=pageIsScrollable&&scrollProgress>=2/3&&ascBackToTopDirection==='down';
+  // Mobile Rankings is intentionally long, so surface the control much earlier there.
+  // Other pages keep the original two-thirds threshold.
+  const mobileRankings=currentPage==='rankings'&&((typeof ascIsPhoneDevice==='function'&&ascIsPhoneDevice())||window.matchMedia('(max-width:700px) and (pointer:coarse)').matches);
+  const revealAt=mobileRankings?0.25:(2/3);
+  const show=pageIsScrollable&&scrollProgress>=revealAt&&ascBackToTopDirection==='down';
   button.classList.toggle('visible',show);
   button.setAttribute('aria-hidden',show?'false':'true');
 }
