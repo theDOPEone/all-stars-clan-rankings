@@ -10945,6 +10945,11 @@ function openClanHonorInfo(event){
   if(content)content.innerHTML=clanHonorInfoPopupHtml();
   const popup=$('clanHonorInfoPopup');
   if(popup){
+    if(popup.parentElement!==document.body){
+      popup._ascHomeParent=popup.parentElement;
+      popup._ascHomeNext=popup.nextSibling;
+      document.body.appendChild(popup);
+    }
     if(!popup.dataset.autoDismissBound){
       popup.dataset.autoDismissBound='true';
       const dismissWhenOutside=target=>{
@@ -10969,6 +10974,9 @@ function closeClanHonorInfo(event){
   if(popup){
     popup.classList.add('hidden');
     popup.setAttribute('aria-hidden','true');
+    if(popup._ascHomeParent?.isConnected){
+      popup._ascHomeParent.insertBefore(popup,popup._ascHomeNext?.parentNode===popup._ascHomeParent?popup._ascHomeNext:null);
+    }
   }
 }
 function updateClanHonorGraphView(){
