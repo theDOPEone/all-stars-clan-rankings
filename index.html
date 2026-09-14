@@ -9862,8 +9862,8 @@ main.shell>.nav.asc-nav-fixed::before{
   --honor-period-y:594px; --honor-period-w:650px; --honor-period-h:48px;
   --honor-metric-y:652px; --honor-metric-w:860px; --honor-metric-h:54px;
   --honor-info-y:710px; --honor-leaders-y:748px; --honor-leaders-w:860px; --honor-leaders-h:174px;
-  --honor-podium-one-w:320px; --honor-podium-one-y:185px;
-  --honor-podium-side-w:270px; --honor-podium-side-y:252px; --honor-podium-spread:375px;
+  --honor-podium-one-w:368px; --honor-podium-one-y:121px;
+  --honor-podium-side-w:270px; --honor-podium-side-y:252px; --honor-podium-spread:305px;
   --honor-console-w:680px; --honor-console-h:510px; --honor-console-y:460px;
 }
 html[data-asc-honor-view="pc-full"],html[data-asc-honor-view="mobile-landscape"] {
@@ -9872,8 +9872,8 @@ html[data-asc-honor-view="pc-full"],html[data-asc-honor-view="mobile-landscape"]
   --honor-period-y:488px; --honor-period-w:650px; --honor-period-h:44px;
   --honor-metric-y:544px; --honor-metric-w:860px; --honor-metric-h:48px;
   --honor-info-y:596px; --honor-leaders-y:634px; --honor-leaders-w:780px; --honor-leaders-h:158px;
-  --honor-podium-one-w:260px; --honor-podium-one-y:156px;
-  --honor-podium-side-w:230px; --honor-podium-side-y:196px; --honor-podium-spread:335px;
+  --honor-podium-one-w:300px; --honor-podium-one-y:103px;
+  --honor-podium-side-w:230px; --honor-podium-side-y:196px; --honor-podium-spread:260px;
   --honor-console-w:670px; --honor-console-h:502.5px; --honor-console-y:322px;
 }
 html[data-asc-honor-view="mobile-portrait"] {
@@ -9882,15 +9882,16 @@ html[data-asc-honor-view="mobile-portrait"] {
   --honor-period-y:533px; --honor-period-w:420px; --honor-period-h:40px;
   --honor-metric-y:585px; --honor-metric-w:420px; --honor-metric-h:52px;
   --honor-info-y:646px; --honor-leaders-y:682px; --honor-leaders-w:440px; --honor-leaders-h:116px;
-  --honor-podium-one-w:146px; --honor-podium-one-y:407px;
-  --honor-podium-side-w:121px; --honor-podium-side-y:440px; --honor-podium-spread:139px;
+  --honor-podium-one-w:170px; --honor-podium-one-y:375px;
+  --honor-podium-side-w:121px; --honor-podium-side-y:440px; --honor-podium-spread:130px;
   --honor-console-w:420px; --honor-console-h:315px; --honor-console-y:516px;
 }
 
 /* Scene ancestors must not paint or clip the transparent edges of the PNGs. */
-.asc-gold-shimmer{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;pointer-events:none!important;opacity:.06;animation:ascGoldGlow 6s ease-in-out infinite;z-index:1}
+.asc-gold-shimmer{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;pointer-events:none!important;opacity:.45;-webkit-mask-image:linear-gradient(110deg,transparent 25%,#000 48%,transparent 70%);mask-image:linear-gradient(110deg,transparent 25%,#000 48%,transparent 70%);-webkit-mask-size:300% 100%;mask-size:300% 100%;animation:ascGoldGlow 5s ease-in-out infinite;z-index:1}
 .asc-gold-shimmer.asc-gold-backdrop{z-index:0}
-@keyframes ascGoldGlow{0%,100%{opacity:.025}35%{opacity:.19}57%{opacity:.07}74%{opacity:.13}}
+@keyframes ascGoldGlow{0%{-webkit-mask-position:150% 0;mask-position:150% 0;opacity:.15}50%{opacity:.65}100%{-webkit-mask-position:-50% 0;mask-position:-50% 0;opacity:.15}}
+#familySummaryDetails .clan-honor-asset-podium.selected::after{display:none!important}
 html[data-asc-honor-view="mobile-portrait"] .asc-gold-backdrop{left:-2%;top:-2%;width:104%;height:104%;object-fit:fill}
 @media(prefers-reduced-motion:reduce){.asc-gold-shimmer{display:none;animation:none}}
 #familySummary .clan-honor-clan-pill{cursor:default}
