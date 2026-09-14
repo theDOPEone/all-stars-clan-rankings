@@ -10005,6 +10005,17 @@ html #familySummaryDetails .clan-honor-asset-console{z-index:4!important}
 #familySummaryDetails .rank-2 .clan-honor-asset-marker{animation-delay:-.8s}
 #familySummaryDetails .rank-3 .clan-honor-asset-marker{animation-delay:-1.6s}
 @keyframes ascPodiumBadgeFloat{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-7px)}}
+.clan-honor-floating-label{position:absolute;left:50%;top:calc(var(--honor-podium-side-y) - 42px);transform:translateX(-50%);z-index:5;pointer-events:none;text-align:center;white-space:nowrap}
+.clan-honor-floating-label.label-rank-1{top:calc(var(--honor-podium-one-y) - 42px)}
+.clan-honor-floating-label.label-rank-2{left:calc(50% - var(--honor-podium-spread))}
+.clan-honor-floating-label.label-rank-3{left:calc(50% + var(--honor-podium-spread))}
+.clan-honor-floating-label>span{display:block;min-width:44px;padding:6px 12px;border:1px solid #8bc4e8;border-radius:20px;background:linear-gradient(#235575,#092238);color:#e1f5ff;font-size:14px;line-height:1.1;letter-spacing:.035em;box-shadow:0 4px 12px #0009;animation:ascDetachedBadgeBounce 2.2s ease-in-out infinite}
+.label-rank-1>span{border-color:#ffda67;background:linear-gradient(#755414,#352409);color:#ffeb9d}
+.label-rank-2>span{animation-delay:-.7s}
+.label-rank-3>span{border-color:#dfaa76;animation-delay:-1.4s}
+@keyframes ascDetachedBadgeBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+html[data-asc-honor-view="mobile-portrait"] .clan-honor-floating-label>span{font-size:11px;min-width:32px;padding:5px 9px}
+@media(prefers-reduced-motion:reduce){.clan-honor-floating-label>span{animation:none}}
 @media(prefers-reduced-motion:reduce){#familySummaryDetails .clan-honor-asset-marker{animation:none}}
 #familySummaryDetails .clan-honor-asset-name {font-size:10px!important;letter-spacing:0!important;line-height:1.2!important;width:68%!important}
 #familySummaryDetails .clan-honor-asset-meta b {font-size:16px!important}
@@ -11292,8 +11303,7 @@ function renderClanHonorBoard(players,clans,avgT,totalD,linked){
       ${clanHonorPodiumLeaderAvatarHtml(x)}
       <span class="clan-honor-asset-name">${esc(x.c.name||x.shortName)}</span>
       <span class="clan-honor-asset-meta"><b>${Number(x.honorScore||0).toLocaleString()}</b><small>HONOR • ${x.members} MEMBERS</small></span>
-      <span class="clan-honor-asset-marker">${esc(x.shortName)}</span>
-    </button>`;
+    </button><span class="clan-honor-floating-label label-rank-${rank}" aria-hidden="true"><span>${esc(x.shortName)}</span></span>`;
   };
   const fourth=byRank(4);
   host.innerHTML=`<section class="clan-honor-scene-shell" aria-label="Clan Honor family comparison">
