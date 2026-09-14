@@ -10463,6 +10463,48 @@ html[data-asc-honor-view="mobile-portrait"] .clan-honor-asset-podium.rank-3 .cla
 #coLeaderBoard .co-trend{font-size:11px}
 #coLeaderBoard .co-review-details{font-size:10px;gap:4px}
 #coLeaderBoard .co-history-note{font-size:9px}
+
+/* Clan and player sheets behave as contained portrait cards on every screen. */
+html.profile-popup-open{overflow:hidden!important;overscroll-behavior:none}
+body.profile-popup-open{overflow:hidden!important;overscroll-behavior:none;touch-action:none}
+#playerModal,#clanStatsModal{padding:16px!important;align-items:center!important;justify-content:center!important;overscroll-behavior:none!important;touch-action:none}
+#playerModal .modalcard,#clanStatsModal .clan-stats-card{
+  width:min(760px,calc(100vw - 32px))!important;
+  max-width:760px!important;
+  height:auto!important;
+  max-height:calc(100vh - 32px)!important;
+  max-height:calc(100dvh - 32px)!important;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain!important;
+  -webkit-overflow-scrolling:touch!important;
+  touch-action:pan-y pinch-zoom!important;
+}
+#clanStatsModal .clan-stats-card{
+  padding:5px!important;
+  border:1px solid rgba(246,205,77,.88)!important;
+  border-radius:16px!important;
+  background:linear-gradient(155deg,#124f79,#061e34)!important;
+}
+#clanStatsModal .clan-stats-head{
+  display:flex!important;
+  position:sticky!important;
+  top:0!important;
+  z-index:30!important;
+  min-height:56px!important;
+  padding:8px 10px!important;
+  border-radius:11px 11px 0 0!important;
+}
+#clanStatsModal .clan-stats-crest{width:38px!important;height:42px!important;font-size:21px!important}
+#clanStatsModal .clan-stats-title h2{font-size:17px!important}
+@media(max-width:700px){
+  #playerModal,#clanStatsModal{padding:14px 11px!important}
+  #playerModal .modalcard,#clanStatsModal .clan-stats-card{
+    width:calc(100vw - 22px)!important;
+    max-height:calc(100vh - 28px)!important;
+    max-height:calc(100dvh - 28px)!important;
+  }
+}
 #dashboardPage,#dashboardPage #dashboard{width:100%;min-width:0;max-width:100%;box-sizing:border-box}
 #dashboardPage .dashboard-welcome-shell{width:100%!important;max-width:1480px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box}
 #dashboardPage .dashboard-welcome-copy,#dashboardPage .dashboard-cta>span,#dashboardPage .dashboard-step>div,#dashboardPage .dashboard-feature-card>div{min-width:0;overflow-wrap:anywhere}
