@@ -11238,6 +11238,8 @@ async function refreshClanHonorPodiumLeaderAvatars(rows){
 }
 function renderClanHonorBoard(players,clans,avgT,totalD,linked){
   const host=$('familySummary'),details=$('familySummaryDetails');if(!host||!details)return;
+  const floatingInfo=$('clanHonorInfoPopup');
+  if(floatingInfo?.parentElement===document.body)closeClanHonorInfo();
   const rows=clanHonorRows(),ranked=rows.slice().sort((a,b)=>a.honorRank-b.honorRank);
   const arenaReady=!!clanHonorArenaRatings;
   const byRank=n=>ranked.find(x=>x.honorRank===n)||ranked[Math.max(0,n-1)]||null;
