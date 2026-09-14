@@ -10505,6 +10505,48 @@ body.profile-popup-open{overflow:hidden!important;overscroll-behavior:none;touch
     max-height:calc(100dvh - 28px)!important;
   }
 }
+
+/* Metric help is a compact portrait sheet rather than a wide banner. */
+#clanHonorInfoPopup.clan-honor-info-popup{
+  position:fixed!important;
+  z-index:26000!important;
+  left:50%!important;
+  right:auto!important;
+  top:50%!important;
+  bottom:auto!important;
+  transform:translate(-50%,-50%)!important;
+  box-sizing:border-box!important;
+  width:min(520px,calc(100vw - 32px))!important;
+  min-width:0!important;
+  max-width:520px!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:calc(100vh - 48px)!important;
+  max-height:calc(100dvh - 48px)!important;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain!important;
+  -webkit-overflow-scrolling:touch!important;
+  padding:24px 25px 22px!important;
+  border:2px solid rgba(246,207,83,.9)!important;
+  border-radius:18px!important;
+  background:linear-gradient(180deg,#0b4a73,#061f37)!important;
+  box-shadow:0 30px 90px rgba(0,0,0,.8),inset 0 1px rgba(255,255,255,.1)!important;
+}
+#clanHonorInfoPopup .clan-honor-info-title{font-size:18px!important;line-height:1.2!important}
+#clanHonorInfoPopup .clan-honor-info-copy{font-size:13px!important;line-height:1.5!important}
+#clanHonorInfoPopup .clan-honor-info-body{grid-template-columns:82px minmax(0,1fr)!important;gap:18px!important;margin-top:17px!important}
+@media(max-width:520px){
+  #clanHonorInfoPopup.clan-honor-info-popup{
+    width:calc(100vw - 28px)!important;
+    max-height:calc(100vh - 40px)!important;
+    max-height:calc(100dvh - 40px)!important;
+    padding:20px 18px 18px!important;
+  }
+  #clanHonorInfoPopup .clan-honor-info-title{font-size:16px!important;padding-right:38px!important}
+  #clanHonorInfoPopup .clan-honor-info-copy{font-size:12px!important}
+  #clanHonorInfoPopup .clan-honor-info-body{grid-template-columns:64px minmax(0,1fr)!important;gap:13px!important}
+}
 #dashboardPage,#dashboardPage #dashboard{width:100%;min-width:0;max-width:100%;box-sizing:border-box}
 #dashboardPage .dashboard-welcome-shell{width:100%!important;max-width:1480px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box}
 #dashboardPage .dashboard-welcome-copy,#dashboardPage .dashboard-cta>span,#dashboardPage .dashboard-step>div,#dashboardPage .dashboard-feature-card>div{min-width:0;overflow-wrap:anywhere}
@@ -10902,6 +10944,18 @@ function openClanHonorInfo(event){
   if(content)content.innerHTML=clanHonorInfoPopupHtml();
   const popup=$('clanHonorInfoPopup');
   if(popup){
+    if(!popup.dataset.autoDismissBound){
+      popup.dataset.autoDismissBound='true';
+      const dismissWhenOutside=target=>{
+        if(!popup.isConnected||popup.classList.contains('hidden'))return;
+        if(popup.contains(target)||target?.closest?.('.clan-honor-desktop-info-button,.honor-info-button'))return;
+        closeClanHonorInfo();
+      };
+      document.addEventListener('pointerdown',e=>dismissWhenOutside(e.target),true);
+      document.addEventListener('touchmove',e=>dismissWhenOutside(e.target),{passive:true,capture:true});
+      document.addEventListener('wheel',e=>dismissWhenOutside(e.target),{passive:true,capture:true});
+      window.addEventListener('scroll',()=>{if(popup.isConnected&&!popup.classList.contains('hidden'))closeClanHonorInfo()},{passive:true});
+    }
     popup.classList.remove('hidden');
     popup.setAttribute('aria-hidden','false');
     requestAnimationFrame(()=>popup.querySelector('.clan-honor-info-close')?.focus({preventScroll:true}));
