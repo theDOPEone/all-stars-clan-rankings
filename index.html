@@ -10613,7 +10613,7 @@ function clanHonorRows(){
   const rows=clans.map((c,index)=>{
     const members=c.members||[];
     const warFallback=members.reduce((sum,m)=>sum+Number(m.currentWar?.fame||0),0);
-    const warPoints=c.currentWarFame==null?warFallback:Number(c.currentWarFame||0);
+    const warPoints=warFallback;
     const donations=members.reduce((sum,m)=>sum+Number(m.donations||0),0);
     let arenaRatings=[];
     if(clanHonorArenaRatings){
@@ -10729,23 +10729,24 @@ function clanHonorWeekRows(week){
   const infoRows=Array.isArray(week?.clans)?week.clans:[];
   const markers=['MAIN','A1','A2','A3'];
   return markers.map((marker,index)=>{
-    const found=infoRows.find(x=>clanHonorShortName(x,index)===marker) || infoRows[index] || {label:marker,warPoints:0,donations:0,arenaScore:0};
+    const clan=(dash?.clans||[]).find((c,i)=>clanHonorShortName(c,i)===marker);
+    const found=infoRows.find(x=>clan?.tag&&String(x.tag).toUpperCase()===String(clan.tag).toUpperCase()) || {};
     return {
       marker,
       clanClass:clanHonorClanClass(marker),
       shortName:marker,
       label:found.label||marker,
       members:Number(found.members||0),
-      warPoints:Number(found.warPoints||0),
-      donations:Number(found.donations||0),
-      arenaScore:Number(found.arenaScore||1000)
+      warPoints:found.warPoints==null?null:Number(found.warPoints),
+      donations:found.donations==null?null:Number(found.donations),
+      arenaScore:found.arenaScore==null?null:Number(found.arenaScore)
     };
   });
 }
 function clanHonorWeekHonorRows(week){
   return clanHonorWeekRows(week).map(r=>({
     ...r,
-    value:clanHonorComponentScores(r.warPoints,r.donations,r.arenaScore).honor
+    value:[r.warPoints,r.donations,r.arenaScore].some(v=>v==null)?null:clanHonorComponentScores(r.warPoints,r.donations,r.arenaScore).honor
   }));
 }
 function clanHonorSelectionData(){
@@ -10763,12 +10764,13 @@ function clanHonorSelectionData(){
         ...r,
         value:metric==='war'?r.warPoints:metric==='donations'?r.donations:r.arenaScore
       }));
-  const start=week?.weekStart?new Date(week.weekStart+'T00:00:00'):null;
+  const startDate=metric==='war'?week?.warStart:week?.weekStart;
+  const start=startDate?new Date(startDate+'T00:00:00'):null;
   const end=week?.weekEnd?new Date(week.weekEnd+'T00:00:00'):null;
   const span=start&&!isNaN(start)&&end&&!isNaN(end)
     ?`${start.toLocaleDateString([],{month:'short',day:'numeric'})} – ${end.toLocaleDateString([],{month:'short',day:'numeric'})}`
     :'Tracked history';
-  return {rows,label:`WEEK ${weekIndex+1}`,subLabel:span};
+  return {rows,label:`${weekIndex+1} WEEK${weekIndex?'S':''} AGO`,subLabel:span};
 }
 function clanHonorMetricRange(metric,rows){
   const rawMax=Math.max(0,...rows.map(r=>Number(r.value||0)));
@@ -10933,7 +10935,8 @@ function updateClanHonorGraphView(){
     const fill=bar.querySelector('.clan-honor-spotlight-fill');
 
     if(value){
-      value.textContent=info.value(row.value);
+      value.textContent=row.value==null?'N/A':info.value(row.value);
+      value.title=row.value==null?'No saved record for this clan and week':selection.subLabel;
       value.style.setProperty('--bar-height',`${pct.toFixed(1)}%`);
       value.style.bottom=`calc(${pct.toFixed(1)}% + 26px)`;
     }
@@ -11052,7 +11055,7 @@ function clanHonorCinematicStage(){
       const pct=Math.max(raw>range.min?8:0,Math.min(100,((raw-range.min)/span)*100));
       return `<div class="clan-honor-spotlight-bar ${row.clanClass}" data-honor-clan="${row.marker}">
         <div class="clan-honor-spotlight-well">
-          <div class="clan-honor-spotlight-value" style="--bar-height:${pct.toFixed(1)}%;bottom:calc(${pct.toFixed(1)}% + 26px)">${esc(info.value(row.value))}</div>
+          <div class="clan-honor-spotlight-value" title="${row.value==null?'No saved record for this clan and week':esc(selection.subLabel)}" style="--bar-height:${pct.toFixed(1)}%;bottom:calc(${pct.toFixed(1)}% + 26px)">${row.value==null?'N/A':esc(info.value(row.value))}</div>
           <div class="clan-honor-spotlight-fill" style="--bar-height:${pct.toFixed(1)}%;height:${pct.toFixed(1)}%"></div>
         </div>
         <div class="clan-honor-spotlight-plinth"></div>
