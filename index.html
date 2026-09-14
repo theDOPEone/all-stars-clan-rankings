@@ -10011,8 +10011,8 @@ html #familySummaryDetails .clan-honor-asset-console{z-index:4!important}
 .clan-honor-floating-label.label-rank-3{left:calc(50% + var(--honor-podium-spread))}
 .clan-honor-floating-label>span{display:block;min-width:44px;padding:6px 12px;border:1px solid #8bc4e8;border-radius:20px;background:linear-gradient(#235575,#092238);color:#e1f5ff;font-size:14px;line-height:1.1;letter-spacing:.035em;box-shadow:0 4px 12px #0009;animation:ascDetachedBadgeBounce 1.7s ease-in-out infinite}
 .label-rank-1>span{border-color:#ffda67;background:linear-gradient(#755414,#352409);color:#ffeb9d}
-.label-rank-2>span{animation-delay:-.7s}
-.label-rank-3>span{border-color:#dfaa76;animation-delay:-1.4s}
+.clan-honor-floating-label>span{animation-delay:0s}
+.label-rank-3>span{border-color:#dfaa76}
 @keyframes ascDetachedBadgeBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
 html[data-asc-honor-view="mobile-portrait"] .clan-honor-floating-label>span{font-size:11px;min-width:32px;padding:5px 9px}
 /* These small badge bounces are explicitly requested; keep them active even
@@ -11306,7 +11306,7 @@ function renderClanHonorBoard(players,clans,avgT,totalD,linked){
       ${clanHonorPodiumLeaderAvatarHtml(x)}
       <span class="clan-honor-asset-name">${esc(x.c.name||x.shortName)}</span>
       <span class="clan-honor-asset-meta"><b>${Number(x.honorScore||0).toLocaleString()}</b><small>HONOR • ${x.members} MEMBERS</small></span>
-    </button><span class="clan-honor-floating-label label-rank-${rank}" aria-hidden="true"><span>${esc(x.shortName)}</span></span>`;
+    </button><span class="clan-honor-floating-label label-rank-${rank}" aria-hidden="true"><span>${esc(/^A[123]$/.test(x.shortName)?`Academy #${x.shortName.slice(1)}`:x.shortName)}</span></span>`;
   };
   const fourth=byRank(4);
   host.innerHTML=`<section class="clan-honor-scene-shell" aria-label="Clan Honor family comparison">
