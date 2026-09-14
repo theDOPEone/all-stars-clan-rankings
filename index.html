@@ -10689,7 +10689,7 @@ function clanHonorHistoryMetricInfo(metric){
     title:'War',
     titleCaps:'WAR',
     icon:'⚔',
-    subtitle:'Clan war fame / points',
+    subtitle:'Total player war points · Thursday–Sunday',
     short:'Adaptive war scale',
     value:v=>Number(v||0).toLocaleString(),
     ceiling:null,
@@ -10810,7 +10810,8 @@ function clanHonorInfoPopupHtml(){
       <div class="clan-honor-info-body single">
         <div class="clan-info-metric-icon">⚔</div>
         <div class="clan-honor-info-copy">
-          <p><b>War</b> compares the clan's tracked River Race fame / war points.</p>
+          <p><b>War</b> adds every participant's war points from the completed Thursday–Sunday race, including players who have since left. Boat movement points are a different measure.</p>
+          <p><b>1 Week Ago</b> is the last completed week. The dates above the graph identify the selected race. N/A means no saved result for that clan and week.</p>
           <p><b>75,000 points = 100 benchmark Honor contribution.</b> Exceptional weeks can continue above 100, up to the 150 component cap.</p>
           <p>The graph scale adapts so differences between clans remain visible instead of pinning every strong clan against the top.</p>
         </div>
@@ -10823,7 +10824,7 @@ function clanHonorInfoPopupHtml(){
         <div class="clan-honor-info-copy">
           <p><b>Donations</b> compare the total tracked weekly donations from each clan's members.</p>
           <p><b>8,000 donations = 100 benchmark Honor contribution.</b> Exceptional donation weeks can continue above 100, up to the 150 component cap.</p>
-          <p>The historical buttons let you compare the current week against the three most recently tracked weeks.</p>
+          <p>The historical buttons select the last three completed Monday–Sunday weeks. Totals use each player's last saved donation count within that week. Tracking gaps can undercount donations; N/A means no snapshots were saved.</p>
         </div>
       </div>`;
   }
@@ -10834,7 +10835,7 @@ function clanHonorInfoPopupHtml(){
         <div class="clan-honor-info-copy">
           <p><b>Live Arena</b> uses the average Arena Rating of tracked members in each clan.</p>
           <p>The visual scale runs from <b>750 to 1,600</b> so differences between clans stay meaningful. For Honor scoring, 750 begins at 0 and 1,600 reaches the 150 component cap.</p>
-          <p>As more members establish an Arena Rating, the clan average becomes a stronger representation of the clan's Arena performance.</p>
+          <p>History uses the members observed that week and their recorded ratings at its end. Members with no battles start at 1,000. N/A means historical membership was not recorded.</p>
         </div>
       </div>`;
   }
