@@ -9862,8 +9862,8 @@ main.shell>.nav.asc-nav-fixed::before{
   --honor-period-y:594px; --honor-period-w:650px; --honor-period-h:48px;
   --honor-metric-y:652px; --honor-metric-w:860px; --honor-metric-h:54px;
   --honor-info-y:710px; --honor-leaders-y:748px; --honor-leaders-w:860px; --honor-leaders-h:174px;
-  --honor-podium-one-w:320px; --honor-podium-one-y:150px;
-  --honor-podium-side-w:270px; --honor-podium-side-y:217px; --honor-podium-spread:375px;
+  --honor-podium-one-w:320px; --honor-podium-one-y:185px;
+  --honor-podium-side-w:270px; --honor-podium-side-y:252px; --honor-podium-spread:375px;
   --honor-console-w:680px; --honor-console-h:510px; --honor-console-y:460px;
 }
 html[data-asc-honor-view="pc-full"],html[data-asc-honor-view="mobile-landscape"] {
@@ -9882,8 +9882,8 @@ html[data-asc-honor-view="mobile-portrait"] {
   --honor-period-y:533px; --honor-period-w:420px; --honor-period-h:40px;
   --honor-metric-y:585px; --honor-metric-w:420px; --honor-metric-h:52px;
   --honor-info-y:646px; --honor-leaders-y:682px; --honor-leaders-w:440px; --honor-leaders-h:116px;
-  --honor-podium-one-w:146px; --honor-podium-one-y:208px;
-  --honor-podium-side-w:121px; --honor-podium-side-y:288px; --honor-podium-spread:139px;
+  --honor-podium-one-w:146px; --honor-podium-one-y:365px;
+  --honor-podium-side-w:121px; --honor-podium-side-y:398px; --honor-podium-spread:139px;
   --honor-console-w:420px; --honor-console-h:315px; --honor-console-y:474px;
 }
 
@@ -10548,6 +10548,14 @@ html body #clanHonorInfoPopup .honor-split-shield.large,html body #clanHonorInfo
   html body #clanHonorInfoPopup .clan-honor-info-copy{font-size:12px!important}
   html body #clanHonorInfoPopup .clan-honor-info-body{grid-template-columns:1fr!important;gap:11px!important}
 }
+#simpleClanInfo{position:fixed;inset:0;top:0;left:0;right:0;bottom:0;z-index:12000;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box;background:rgba(0,12,25,.78)}
+#simpleClanInfo .simple-clan-card{box-sizing:border-box;width:100%;max-width:400px;max-height:calc(100vh - 40px);max-height:calc(100dvh - 40px);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:22px;border:2px solid #dfba4c;border-radius:18px;background:#0c3049;color:#e5f1fb;box-shadow:0 18px 50px #0008}
+#simpleClanInfo h2{font-size:22px;color:#ffe18a;margin:12px 0;overflow-wrap:break-word}
+#simpleClanInfo h3{font-size:15px;color:#ffe18a;margin:18px 0 8px}
+#simpleClanInfo p{font-size:13px;line-height:1.5;overflow-wrap:break-word}
+#simpleClanInfo button{display:block;margin-left:auto;min-width:44px;min-height:44px}
+#simpleClanInfo dl{margin:20px 0}#simpleClanInfo dl div{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #426177;font-size:13px}#simpleClanInfo dd{margin:0;color:#ffe18a;font-weight:bold}
+.developer-credit{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px;padding:18px;font-size:12px;color:#c5dbea}.developer-credit a{display:inline-flex;align-items:center;gap:7px;color:#ddd9ff;text-decoration:none;min-height:44px}
 #dashboardPage,#dashboardPage #dashboard{width:100%;min-width:0;max-width:100%;box-sizing:border-box}
 #dashboardPage .dashboard-welcome-shell{width:100%!important;max-width:1480px!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box}
 #dashboardPage .dashboard-welcome-copy,#dashboardPage .dashboard-cta>span,#dashboardPage .dashboard-step>div,#dashboardPage .dashboard-feature-card>div{min-width:0;overflow-wrap:anywhere}
@@ -10581,7 +10589,7 @@ body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;
     <div id="familyControls" class="family-controls"></div>
     <div class="scroll"><table><thead><tr><th>Family Rank</th><th>Player</th><th>Clan</th><th>Clan Perf. Rank</th><th>Rating</th><th>War Avg</th><th>Donations</th><th>Last Seen</th><th>Trophies</th></tr></thead><tbody id="familyRows"></tbody></table></div>
   </div>
-</section></main><div id="playerModal" class="modal hidden" onclick="if(event.target===this)closePlayer()"><div class="modalcard"><div class="modalhead"><h2 id="playerTitle"></h2><button class="btn close" onclick="closePlayer()">Close</button></div><div id="playerBody" class="modalbody"></div></div><script>// Public-only runtime: no credentials, local sessions, or administration APIs.
+</section></main><div class="developer-credit">Developed by: Dope1one <a href="https://discord.gg/gnCerCB6t" target="_blank" rel="noopener noreferrer" aria-label="Join our Discord"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19.7 5.3a18 18 0 0 0-4.5-1.4l-.6 1.2a17 17 0 0 0-5.2 0l-.6-1.2a18 18 0 0 0-4.5 1.4C1.5 9.4.7 13.4 1.1 17.3a18 18 0 0 0 5.5 2.8l1.1-1.8-1.7-.8.4-.3a15 15 0 0 0 11.2 0l.4.3-1.7.8 1.1 1.8a18 18 0 0 0 5.5-2.8c.5-4.5-.8-8.4-3.2-12ZM8.4 14.9c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm7.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg> Join Discord</a></div><div id="playerModal" class="modal hidden" onclick="if(event.target===this)closePlayer()"><div class="modalcard"><div class="modalhead"><h2 id="playerTitle"></h2><button class="btn close" onclick="closePlayer()">Close</button></div><div id="playerBody" class="modalbody"></div></div><script>// Public-only runtime: no credentials, local sessions, or administration APIs.
 const MANAGEMENT_URL='https://ion-kebab-muster.ngrok-free.dev/';
 const $=id=>document.getElementById(id);
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -11439,4 +11447,21 @@ function hoursSince(iso){if(!iso)return null;const d=new Date(iso);if(isNaN(d))r
 function fmtHours(h){if(h==null)return'Unknown';if(h<24)return`${Math.round(h)}h`;const d=h/24;return`${d<10?d.toFixed(1):Math.round(d)}d`}
 function starLevel(value){return Math.max(0,Math.min(5,Math.round(Number(value)||0)))}
 function starsHtml(value){const n=starLevel(value);return `<span class="rating-stars" title="${n?`${n} of 5 stars`:'Not enough data'}">${[1,2,3,4,5].map(i=>`<span class="${i<=n?'on':'off'}">★</span>`).join('')}</span>`}
+function openSimpleClanInfo(index){
+  const c=dash?.clans?.[index];if(!c)return;
+  closeSimpleClanInfo();
+  const row=clanHonorRows().find(x=>x.index===index), members=c.members||[];
+  const overlay=document.createElement('div');overlay.id='simpleClanInfo';
+  const stats=[['Members',members.length],['Honor',row?.honorScore??'—'],['Current war fame',c.currentWarFame??'—'],['Donations',members.reduce((n,m)=>n+Number(m.donations||0),0)]];
+  overlay.innerHTML=`<section class="simple-clan-card" role="dialog" aria-modal="true" aria-labelledby="simpleClanTitle"><button class="btn" onclick="closeSimpleClanInfo()" aria-label="Close clan info">✕</button><h2 id="simpleClanTitle">${esc(c.name)}</h2><p>${esc(c.tag||'')}</p><dl>${stats.map(([label,value])=>`<div><dt>${esc(label)}</dt><dd>${typeof value==='number'?value.toLocaleString():esc(value)}</dd></div>`).join('')}</dl><h3>Leadership</h3><p>${esc(members.filter(m=>['leader','coleader','co-leader'].includes(String(m.role).toLowerCase())).map(m=>m.name).join(', ')||'Not available')}</p><p>${esc(c.description||'')}</p></section>`;
+  overlay._scroll=window.scrollY;overlay._bodyStyle={position:document.body.style.position,top:document.body.style.top,width:document.body.style.width,overflow:document.body.style.overflow};overlay._focus=document.activeElement;
+  document.body.appendChild(overlay);
+  Object.assign(document.body.style,{position:'fixed',top:`-${overlay._scroll}px`,width:'100%',overflow:'hidden'});
+  overlay.addEventListener('click',e=>{if(e.target===overlay)closeSimpleClanInfo()});
+  overlay.addEventListener('touchmove',e=>{if(e.target===overlay)e.preventDefault()},{passive:false});
+  overlay.addEventListener('wheel',e=>{if(e.target===overlay)e.preventDefault()},{passive:false});
+  overlay.addEventListener('keydown',e=>{if(e.key==='Escape')closeSimpleClanInfo();if(e.key==='Tab'){e.preventDefault();overlay.querySelector('button').focus()}});
+  overlay.querySelector('button').focus();
+}
+function closeSimpleClanInfo(){const el=document.getElementById('simpleClanInfo');if(!el)return;Object.assign(document.body.style,el._bodyStyle);el.remove();window.scrollTo(0,el._scroll);el._focus?.focus({preventScroll:true})}
 startPublicSite();</script></body></html>
