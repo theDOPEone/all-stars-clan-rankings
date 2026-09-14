@@ -10009,13 +10009,16 @@ html #familySummaryDetails .clan-honor-asset-console{z-index:4!important}
 .clan-honor-floating-label.label-rank-1{top:calc(var(--honor-podium-one-y) - 42px)}
 .clan-honor-floating-label.label-rank-2{left:calc(50% - var(--honor-podium-spread))}
 .clan-honor-floating-label.label-rank-3{left:calc(50% + var(--honor-podium-spread))}
-.clan-honor-floating-label>span{display:block;min-width:44px;padding:6px 12px;border:1px solid #8bc4e8;border-radius:20px;background:linear-gradient(#235575,#092238);color:#e1f5ff;font-size:14px;line-height:1.1;letter-spacing:.035em;box-shadow:0 4px 12px #0009;animation:ascDetachedBadgeBounce 2.2s ease-in-out infinite}
+.clan-honor-floating-label>span{display:block;min-width:44px;padding:6px 12px;border:1px solid #8bc4e8;border-radius:20px;background:linear-gradient(#235575,#092238);color:#e1f5ff;font-size:14px;line-height:1.1;letter-spacing:.035em;box-shadow:0 4px 12px #0009;animation:ascDetachedBadgeBounce 1.7s ease-in-out infinite}
 .label-rank-1>span{border-color:#ffda67;background:linear-gradient(#755414,#352409);color:#ffeb9d}
 .label-rank-2>span{animation-delay:-.7s}
 .label-rank-3>span{border-color:#dfaa76;animation-delay:-1.4s}
-@keyframes ascDetachedBadgeBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes ascDetachedBadgeBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
 html[data-asc-honor-view="mobile-portrait"] .clan-honor-floating-label>span{font-size:11px;min-width:32px;padding:5px 9px}
-@media(prefers-reduced-motion:reduce){.clan-honor-floating-label>span{animation:none}}
+/* These small badge bounces are explicitly requested; keep them active even
+   when system motion reduction disables the larger scene shimmer. */
+html #familySummaryDetails .clan-honor-asset-podium .clan-honor-podium-leader-avatar{width:34%!important;top:28.5%!important;aspect-ratio:auto!important;height:25.5%!important}
+html #familySummaryDetails .clan-honor-podium-leader-img.unit-art{padding:0!important;transform:scale(1.12);transform-origin:center center;object-position:center!important}
 @media(prefers-reduced-motion:reduce){#familySummaryDetails .clan-honor-asset-marker{animation:none}}
 #familySummaryDetails .clan-honor-asset-name {font-size:10px!important;letter-spacing:0!important;line-height:1.2!important;width:68%!important}
 #familySummaryDetails .clan-honor-asset-meta b {font-size:16px!important}
