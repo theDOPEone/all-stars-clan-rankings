@@ -149,73 +149,67 @@ body:before{
 }
 
 /* MAIN PAGE SWIPE NAVIGATION
-   On touch layouts, Dashboard / Rankings / Member Zone behave like a
-   Clash Royale-style page strip: the target lights gold while dragging
-   and the selected page remains gold after the page changes. */
+   Clash Royale-style horizontal page movement across the six primary pages.
+   The active page stays in normal document flow; only the adjacent page is
+   temporarily layered beside it during a drag/transition. This keeps the
+   existing window scroll, sticky UI, popups and Live Arena positioning intact. */
+.main-page-viewport{
+  position:relative;
+  width:100%;
+  min-width:0;
+  overflow-x:clip;
+  overflow-y:visible;
+  touch-action:pan-y pinch-zoom;
+}
+.main-page-viewport.main-page-dragging{
+  cursor:grabbing;
+  -webkit-user-select:none;
+  user-select:none;
+}
+.main-page-viewport.main-page-animating .main-page-slide{pointer-events:none!important}
+.main-page-slide{
+  width:100%;
+  min-width:0;
+  margin:0;
+  transform:none;
+  opacity:1;
+}
+.main-page-slide.main-page-current{
+  position:relative;
+  z-index:2;
+  visibility:visible;
+  pointer-events:auto;
+}
+.main-page-slide:not(.main-page-current){
+  position:absolute;
+  z-index:1;
+  top:0;
+  left:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+.main-page-slide.main-page-drag-target,
+.main-page-slide.main-page-transitioning{
+  visibility:visible;
+  will-change:transform;
+}
+.main-page-slide.main-page-transitioning{
+  transition:transform .27s cubic-bezier(.2,.82,.2,1),opacity .27s ease;
+}
+.main-page-slide.main-page-unavailable{display:none!important}
+main.shell>.nav button.main-swipe-preview{
+  background:linear-gradient(180deg,#ffe985 0%,#efc85e 42%,#c88c17 100%)!important;
+  color:#392600!important;
+  border-color:#fff0a7!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.75),inset 0 -3px rgba(112,68,0,.42),0 0 0 1px rgba(239,200,94,.22),0 4px 11px rgba(75,45,0,.25),0 0 18px rgba(239,200,94,.20)!important;
+  text-shadow:0 1px rgba(255,255,255,.38)!important;
+}
 @media(max-width:900px){
-  main.shell>.nav{
-    position:relative;
-    user-select:none;
-    -webkit-user-select:none;
-  }
-
-  main.shell>.nav #navDash.active,
-  main.shell>.nav #navRankings.active,
-  main.shell>.nav #navMember.active,
-  main.shell>.nav #navDash.main-swipe-preview,
-  main.shell>.nav #navRankings.main-swipe-preview,
-  main.shell>.nav #navMember.main-swipe-preview{
-    background:
-      linear-gradient(180deg,#ffe985 0%,#efc85e 42%,#c88c17 100%)!important;
-    color:#392600!important;
-    border-color:#fff0a7!important;
-    box-shadow:
-      inset 0 1px rgba(255,255,255,.75),
-      inset 0 -3px rgba(112,68,0,.42),
-      0 0 0 1px rgba(239,200,94,.22),
-      0 4px 11px rgba(75,45,0,.25),
-      0 0 18px rgba(239,200,94,.20)!important;
-    text-shadow:0 1px rgba(255,255,255,.38)!important;
-    transform:translateY(-1px) scale(1.018);
-  }
-
-  main.shell>.nav #navDash.main-swipe-preview,
-  main.shell>.nav #navRankings.main-swipe-preview,
-  main.shell>.nav #navMember.main-swipe-preview{
-    filter:brightness(calc(.94 + var(--main-swipe-progress,0) * .12));
-  }
-
-  main.shell>.nav #navDash.main-swipe-preview::after,
-  main.shell>.nav #navRankings.main-swipe-preview::after,
-  main.shell>.nav #navMember.main-swipe-preview::after{
-    content:'';
-    position:absolute;
-    z-index:2;
-    top:-55%;
-    bottom:-55%;
-    left:-48%;
-    width:38%;
-    pointer-events:none;
-    transform:skewX(-22deg);
-    background:linear-gradient(90deg,transparent,rgba(255,255,230,.72),transparent);
-    animation:ascSwipeGoldShimmer 1.25s ease-in-out infinite;
-  }
-
-  @keyframes ascSwipeGoldShimmer{
-    from{left:-48%}
-    to{left:128%}
-  }
-
-  main.shell.main-page-swipe-tracking > section:not(.hidden){
-    transform:translateX(var(--main-swipe-drag,0px));
-    transition:transform .08s linear;
-    will-change:transform;
-  }
-
-  main.shell.main-page-swipe-releasing > section:not(.hidden){
-    transform:translateX(0);
-    transition:transform .18s cubic-bezier(.2,.85,.2,1);
-  }
+  main.shell>.nav{position:relative;user-select:none;-webkit-user-select:none}
+  main.shell>.nav button.main-swipe-preview{transform:translateY(-1px) scale(1.018)}
+}
+@media(prefers-reduced-motion:reduce){
+  .main-page-slide.main-page-transitioning{transition-duration:.11s!important}
 }
 .btn.secondary{background:linear-gradient(180deg,#124f7c,#0b3558);border-color:rgba(239,200,94,.31);color:#cae6f5}
 .setup>.bar:hover{background:linear-gradient(180deg,#196498,#10446f)}
