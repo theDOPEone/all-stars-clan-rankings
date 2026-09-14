@@ -10611,6 +10611,24 @@ html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-cinematic
 html[data-asc-honor-view="mobile-portrait"] .asc-honor-scene-art{left:-2%!important;top:-2%!important;right:auto!important;bottom:auto!important;width:104%!important;height:104%!important;object-fit:fill!important}
 @media(max-width:600px){main.shell{padding-left:8px!important;padding-right:8px!important}#dashboardPage .dashboard-welcome-shell{padding-bottom:60px!important}}
 
+
+/* ===== RESPONSIVE STICKY NAV CORRECTION =====
+   On phone/narrow portrait layouts the five-button app navigation owns the
+   sticky top position. Member Zone profile/account/arena tabs remain normal
+   page content and scroll away with the Members page. */
+@media (max-width:900px){
+  main.shell>.nav:not(.asc-nav-fixed){
+    position:sticky!important;
+    top:var(--asc-sticky-nav-top,8px)!important;
+    z-index:89!important;
+  }
+  #memberPage .member-zone-tabs-wrap{
+    position:relative!important;
+    top:auto!important;
+    z-index:5!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
