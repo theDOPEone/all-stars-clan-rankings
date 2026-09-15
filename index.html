@@ -1583,21 +1583,39 @@ body.sim-arena-focus-mode .battle-animation.battle-animation-portal{
   backdrop-filter:blur(3px);
   animation:battleOverlayIn .2s ease both;
 }
-.battle-animation-stage{position:relative;width:min(1120px,100vw);height:100dvh;min-height:420px;overflow:hidden}
+.battle-animation-stage{
+  position:relative;
+  width:min(1120px,100vw);
+  height:100dvh;
+  min-height:420px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  grid-template-rows:1fr;
+  align-items:center;
+  justify-items:center;
+  gap:clamp(8px,2vw,28px);
+  padding:0 clamp(18px,5vw,70px);
+  box-sizing:border-box;
+  overflow:hidden;
+}
 .battle-animation-card{
-  position:absolute;
-  top:50%;
-  width:clamp(190px,25vw,310px);
-  height:clamp(250px,46vh,390px);
+  position:relative;
+  top:auto;
+  left:auto;
+  right:auto;
+  width:min(100%,clamp(220px,25vw,330px));
+  height:clamp(280px,48vh,420px);
   object-fit:contain;
-  filter:drop-shadow(0 20px 20px rgba(0,0,0,.55)) drop-shadow(0 0 22px rgba(70,184,238,.16));
+  filter:drop-shadow(0 20px 20px rgba(0,0,0,.55)) drop-shadow(0 0 26px rgba(70,184,238,.20));
   z-index:3;
   transform-origin:center;
+  align-self:center;
+  justify-self:center;
 }
-.battle-animation-card img{width:100%;height:100%;object-fit:contain;object-position:center;filter:drop-shadow(0 18px 18px rgba(0,0,0,.34))}
-.battle-animation-card.left{left:clamp(22px,8vw,120px);animation:battleAvatarLeft 1s ease-in-out infinite alternate}
-.battle-animation-card.right{right:clamp(22px,8vw,120px);animation:battleAvatarRight 1s ease-in-out infinite alternate}
-.battle-animation-card.right[data-art-kind="unit"] img{transform:scaleX(-1)}
+.battle-animation-card img{width:100%;height:100%;object-fit:contain;object-position:center;filter:drop-shadow(0 18px 18px rgba(0,0,0,.34));transform:scale(1.12)}
+.battle-animation-card.left{grid-column:1;grid-row:1;animation:battleAvatarLeft 1s ease-in-out infinite alternate}
+.battle-animation-card.right{grid-column:3;grid-row:1;animation:battleAvatarRight 1s ease-in-out infinite alternate}
+.battle-animation-card.right[data-art-kind="unit"] img{transform:scaleX(-1) scale(1.12)}
 .battle-animation-card::after{
   content:attr(data-name);
   position:absolute;
@@ -1621,10 +1639,14 @@ body.sim-arena-focus-mode .battle-animation.battle-animation-portal{
 }
 .battle-animation-card.fallback{display:grid;place-items:center;border:2px solid #ca9e39;border-radius:18px;background:#0b395d;color:#f2cf61;font-size:clamp(74px,10vw,122px)}
 .battle-clash{
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
+  position:relative;
+  left:auto;
+  top:auto;
+  grid-column:2;
+  grid-row:1;
+  align-self:center;
+  justify-self:center;
+  transform:none;
   z-index:5;
   width:clamp(126px,16vw,190px);
   height:clamp(126px,16vw,190px);
@@ -1640,23 +1662,22 @@ body.sim-arena-focus-mode .battle-animation.battle-animation-portal{
 .battle-spark{position:absolute;left:50%;top:50%;width:4px;height:4px;border-radius:50%;background:#ffe789;box-shadow:-64px -38px #4ec6ff,62px -48px #ffe789,-76px 35px #ffe789,72px 43px #4ec6ff,0 -86px #fff,0 82px #f4bd42;animation:battleSpark .75s linear infinite;z-index:4}
 .battle-animation-label{position:absolute;left:0;right:0;bottom:clamp(34px,7vh,74px);text-align:center;color:#ffe48c;font-family:'Arial Black','Segoe UI';font-size:clamp(15px,2vw,24px);letter-spacing:.10em;text-shadow:0 3px 5px #000,0 0 16px rgba(239,200,94,.28)}
 @keyframes battleOverlayIn{from{opacity:0;filter:blur(4px)}to{opacity:1;filter:none}}
-@keyframes battleAvatarLeft{from{transform:translateY(-50%) translateX(-8px) rotate(-3deg) scale(.97)}to{transform:translateY(-50%) translateX(12px) rotate(2deg) scale(1.025)}}
-@keyframes battleAvatarRight{from{transform:translateY(-50%) translateX(8px) rotate(3deg) scale(.97)}to{transform:translateY(-50%) translateX(-12px) rotate(-2deg) scale(1.025)}}
-@keyframes battleSwordsPulse{from{transform:translate(-50%,-50%) scale(.94) rotate(-4deg)}to{transform:translate(-50%,-50%) scale(1.08) rotate(4deg)}}
+@keyframes battleAvatarLeft{from{transform:translateX(-8px) rotate(-3deg) scale(.97)}to{transform:translateX(12px) rotate(2deg) scale(1.025)}}
+@keyframes battleAvatarRight{from{transform:translateX(8px) rotate(3deg) scale(.97)}to{transform:translateX(-12px) rotate(-2deg) scale(1.025)}}
+@keyframes battleSwordsPulse{from{transform:scale(.94) rotate(-4deg)}to{transform:scale(1.08) rotate(4deg)}}
 @keyframes battleSpark{to{transform:rotate(180deg) scale(1.45);opacity:.35}}
 @media(max-width:700px){
-  .battle-animation-stage{width:100vw;height:100dvh;min-height:420px}
-  .battle-animation-card{width:clamp(132px,37vw,180px);height:clamp(205px,38vh,285px)}
-  .battle-animation-card.left{left:clamp(6px,4vw,24px)}
-  .battle-animation-card.right{right:clamp(6px,4vw,24px)}
+  .battle-animation-stage{width:100vw;height:100dvh;min-height:420px;gap:4px;padding:0 8px}
+  .battle-animation-card{width:min(100%,180px);height:clamp(220px,40vh,300px)}
   .battle-animation-card::after{min-width:80%;padding:5px 8px;font-size:9px}
+  .battle-animation-card img{transform:scale(1.16)}
+  .battle-animation-card.right[data-art-kind="unit"] img{transform:scaleX(-1) scale(1.16)}
   .battle-clash{width:104px;height:104px;font-size:64px}
   .battle-animation-label{bottom:7vh;font-size:14px}
 }
 @media(max-width:390px){
-  .battle-animation-card{width:136px;height:220px}
-  .battle-animation-card.left{left:2px}
-  .battle-animation-card.right{right:2px}
+  .battle-animation-stage{gap:2px;padding:0 4px}
+  .battle-animation-card{width:min(100%,136px);height:230px}
   .battle-clash{width:88px;height:88px;font-size:54px}
 }
 @media(prefers-reduced-motion:reduce){.battle-animation-card,.battle-clash,.battle-spark{animation:none!important}}
