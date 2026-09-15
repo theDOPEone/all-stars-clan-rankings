@@ -11292,6 +11292,41 @@ body>main.shell{padding-bottom:12px!important}
 .honor-thirds-crest{display:block;width:154px;height:auto;max-width:100%;margin:0 auto;filter:drop-shadow(0 7px 5px rgba(0,0,0,.5))}
 .honor-thirds-crest text{font-family:"Segoe UI",Arial,sans-serif!important;text-anchor:middle;font-weight:800;letter-spacing:.4px;fill:#fff6d4;paint-order:stroke;stroke:rgba(0,0,0,.3);stroke-width:1px}
 
+/* Compact, keyboard-accessible player summaries; stats only occupy space open. */
+#rankingsPage .family-table-panel{border:1px solid #b3964b;border-radius:14px;box-shadow:inset 0 1px #ffe29c33;background:#092b44}
+#rankingsPage .family-compact-table,#rankingsPage .family-compact-table tbody{display:block!important;width:100%!important}
+#rankingsPage .family-compact-table thead{display:none!important}
+#rankingsPage .family-compact-table #familyRows{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px;padding:12px;align-items:start}
+#familyRows tr.family-compact-row{display:block!important;padding:0!important;margin:0!important;border:1px solid #41627b;border-radius:10px;background:linear-gradient(115deg,#143e5c,#09283f);overflow:hidden}
+#familyRows tr.family-compact-row>td{display:block!important;padding:0!important;border:0!important}
+#familyRows tr.family-compact-row>td::before{content:none!important}
+#familyRows .family-player-details summary{display:flex;align-items:center;gap:11px;cursor:pointer;list-style:none;padding:13px 12px;min-height:90px;color:#eff8fd}
+#familyRows .family-player-details summary::-webkit-details-marker{display:none}
+#familyRows .family-player-details summary:focus-visible{outline:2px solid #ffdf72;outline-offset:-3px}
+#familyRows .family-rank-medal{flex:0 0 42px;min-height:40px;display:flex;align-items:center;justify-content:center;color:#ffe195;border:1px solid #b29248;border-radius:9px;background:linear-gradient(#67511d,#322a16);font-size:14px}
+#familyRows .family-compact-identity{min-width:0;flex:1}
+#familyRows .family-compact-name{display:flex;align-items:center;gap:5px;font-size:15px;line-height:1.25;overflow-wrap:anywhere}
+#familyRows .family-compact-tag{display:block;font:10px/1.5 Arial,sans-serif;color:#95b5cd;margin-top:3px}
+#familyRows .family-compact-clan{display:block;font:11px/1.4 Arial,sans-serif;color:#c2d6e4;margin-top:4px}
+#familyRows .family-compact-clan>span{display:block;color:#a2bed1;font-size:10px}
+#familyRows .family-expand-chevron{font-size:20px;color:#eccd7a;transition:transform .15s}
+#familyRows details[open] .family-expand-chevron{transform:rotate(180deg)}
+#familyRows details[open] summary{background:#ffffff06;border-bottom:1px solid #41627b}
+#familyRows .family-expanded-stats{display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:12px}
+#familyRows .family-detail-stat{border:1px solid #31516a;border-radius:7px;padding:9px;background:#061f33}
+#familyRows .family-detail-stat>span{display:block;font:10px/1.3 Arial,sans-serif;color:#aac5d8}
+#familyRows .family-detail-stat>strong{display:block;font-size:14px;margin-top:5px;color:#e4f3ff}
+#familyRows .family-detail-stat.selected{border-color:#ba9949;background:#493d202e}
+#familyRows .family-open-profile{grid-column:1/-1;min-height:36px;font-size:11px}
+@media(max-width:650px){#rankingsPage .family-compact-table #familyRows{grid-template-columns:1fr!important;padding:8px;gap:7px}}
+
+/* Members navigation sticks directly below the main navigation. */
+html body #memberPage>.member-zone-tabs-wrap{position:sticky!important;top:var(--member-zone-sticky-top,56px)!important;z-index:80!important;margin:0 0 12px;padding:6px 0 4px;perspective:none!important;background:#0b3658;border:1px solid #47718e;border-radius:9px;box-shadow:none!important}
+html body #memberPage>.member-zone-tabs-wrap::before,html body #memberPage>.member-zone-tabs-wrap::after{content:none!important}
+html body #memberPage>.member-zone-tabs-wrap .member-zone-tabs{box-shadow:none!important;background:transparent!important;border:0!important;margin:0!important}
+html body #memberPage>.member-zone-tabs-wrap .member-zone-tabs::before,html body #memberPage>.member-zone-tabs-wrap .member-zone-tabs::after{content:none!important}
+#memberPage>.member-zone-hero{margin-top:0!important}
+
 
 /* ===== RESPONSIVE STICKY NAV CORRECTION =====
    On phone/narrow portrait layouts the five-button app navigation owns the
@@ -12173,8 +12208,10 @@ function renderFamilyRankings(){
   $('familyControls').innerHTML=`<span class="label">Ranking by:</span><div class="family-filter-options">${modes.map(m=>`<button class="family-filter ${m===familyRankingMode?'active':''}" aria-pressed="${m===familyRankingMode}" onclick="setFamilyRankingMode('${m}')">${familyModeLabel(m)}</button>`).join('')}</div><div class="family-sort-summary" role="status">${esc(familyModeLabel(familyRankingMode))} · ${esc(descriptions[familyRankingMode])} · ${players} players</div>`;
   const fields=[{key:'performance',label:'Rating',value:x=>starsHtml(x.score.overall)},{key:'war',label:'War average',value:x=>x.score.avgFame==null?'—':Math.round(x.score.avgFame).toLocaleString()},{key:'donations',label:'Donations · week',value:x=>Number(x.m.donations||0).toLocaleString()},{key:'trophies',label:'Trophies',value:x=>Number(x.m.trophies||0).toLocaleString()},{key:'activity',label:'Last seen',value:x=>hoursSince(x.m.lastSeen)==null?'Unknown':fmtHours(hoursSince(x.m.lastSeen))+' ago'},{key:'consistency',label:'Productive weeks',value:x=>x.score.known?`${x.score.solid||0} / ${x.score.known}`:'—'}];
   fields.sort((a,b)=>Number(b.key===familyRankingMode)-Number(a.key===familyRankingMode));
-  $('familyRows').closest('table').querySelector('thead').innerHTML=`<tr><th scope="col">Rank</th><th scope="col">Player / clan</th>${fields.map(f=>`<th scope="col" class="${f.key===familyRankingMode?'family-selected-stat':''}" ${f.key===familyRankingMode?`aria-sort="${f.key==='activity'?'ascending':'descending'}"`:''}>${esc(f.label)}${f.key===familyRankingMode?' ↓':''}</th>`).join('')}</tr>`;
-  $('familyRows').innerHTML=rows.map(x=>`<tr class="family-row" data-player-tag="${esc(x.m.tag)}" onclick="openPlayer('${encodeURIComponent(x.m.tag)}')"><td class="family-position" data-label="Rank"><span class="family-rank-num">#${x.familyRank}</span></td><td class="family-identity"><button class="family-player-name" onclick="event.stopPropagation();openPlayer('${encodeURIComponent(x.m.tag)}')">${esc(x.m.name)}${discordBadgeForTag(x.m.tag)}</button><div class="family-player-sub">${esc(x.m.tag)}</div><div class="family-clan-name">${esc(x.c.name)} · Clan rank ${x.clanRank?`#${x.clanRank}`:'—'} / ${(x.c.members||[]).length}</div></td>${fields.map(f=>`<td data-label="${f.label}" class="family-stat ${f.key==='performance'?'family-stars':''} ${f.key===familyRankingMode?'family-selected-stat':''}"><span>${f.value(x)}</span></td>`).join('')}</tr>`).join('')||'<tr><td colspan="8">No tracked players yet.</td></tr>';
+  const expanded=new Set([...document.querySelectorAll('#familyRows details[open]')].map(d=>d.closest('tr').dataset.playerTag));
+  $('familyRows').closest('table').classList.add('family-compact-table');
+  $('familyRows').closest('table').querySelector('thead').innerHTML='<tr><th scope="col">Players — expand to view stats</th></tr>';
+  $('familyRows').innerHTML=rows.map(x=>`<tr class="family-row family-compact-row" data-player-tag="${esc(x.m.tag)}"><td colspan="8"><details class="family-player-details" ${expanded.has(x.m.tag)?'open':''}><summary><span class="family-rank-medal">#${x.familyRank}</span><span class="family-compact-identity"><span class="family-compact-name">${esc(x.m.name)}${discordBadgeForTag(x.m.tag)}</span><span class="family-compact-tag">${esc(x.m.tag)}</span><span class="family-compact-clan">${esc(x.c.name)} <span>Clan rank ${x.clanRank?`#${x.clanRank}`:'—'} / ${(x.c.members||[]).length}</span></span></span><span class="family-expand-chevron" aria-hidden="true">⌄</span></summary><div class="family-expanded-stats">${fields.map(f=>`<div class="family-detail-stat ${f.key===familyRankingMode?'selected':''}"><span>${esc(f.label)}</span><strong>${f.value(x)}</strong></div>`).join('')}<button class="btn family-open-profile" onclick="openPlayer('${encodeURIComponent(x.m.tag)}')">Open full profile →</button></div></details></td></tr>`).join('')||'<tr><td>No tracked players yet.</td></tr>';
 }
 function familyBaseRows(){
   const rows=[];
