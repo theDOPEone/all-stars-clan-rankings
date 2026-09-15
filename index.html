@@ -11321,7 +11321,9 @@ body>main.shell{padding-bottom:12px!important}
 @media(max-width:650px){#rankingsPage .family-compact-table #familyRows{grid-template-columns:1fr!important;padding:8px;gap:7px}}
 
 /* Members navigation sticks directly below the main navigation. */
-html body #memberPage>.member-zone-tabs-wrap{position:sticky!important;top:var(--member-zone-sticky-top,56px)!important;z-index:80!important;margin:0 0 12px;padding:6px 0 4px;perspective:none!important;background:#0b3658;border:1px solid #47718e;border-radius:9px;box-shadow:none!important}
+html body #memberPage>.member-zone-tabs-wrap{position:relative!important;top:auto!important;z-index:80!important;margin:0 0 12px;padding:6px 0 4px;perspective:none!important;background:#0b3658;border:1px solid #47718e;border-radius:9px;box-shadow:none!important}
+html body #memberPage>.member-zone-tabs-wrap.member-tabs-fixed{position:fixed!important;top:var(--member-zone-sticky-top,56px)!important}
+#memberTabsAnchor,#memberTabsSpacer{margin:0;padding:0;border:0;pointer-events:none}
 html body #memberPage>.member-zone-tabs-wrap::before,html body #memberPage>.member-zone-tabs-wrap::after{content:none!important}
 html body #memberPage>.member-zone-tabs-wrap .member-zone-tabs{box-shadow:none!important;background:transparent!important;border:0!important;margin:0!important}
 html body #memberPage>.member-zone-tabs-wrap .member-zone-tabs::before,html body #memberPage>.member-zone-tabs-wrap .member-zone-tabs::after{content:none!important}
