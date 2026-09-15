@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="face" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#126cb5"/><stop offset=".48" stop-color="#0b5598"/><stop offset="1" stop-color="#063b73"/>
+    </linearGradient>
+    <linearGradient id="light" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#60b5ec" stop-opacity=".32"/><stop offset="1" stop-color="#298ad0" stop-opacity=".03"/>
+    </linearGradient>
+    <g id="diamond">
+      <path d="M0-96 96 0 0 96-96 0Z" fill="#032f60"/>
+      <path d="M0-94 94 0 0 94-94 0Z" fill="url(#face)"/>
+      <path d="M0-94 94 0 87 0 0-87-87 0-94 0Z" fill="url(#light)"/>
+      <path d="M-94 0 0 94 94 0 87 0 0 87-87 0Z" fill="#001f49" opacity=".32"/>
+      <path d="M-93 0 0-93 93 0" fill="none" stroke="#72c6f5" stroke-opacity=".25" stroke-width=".8"/>
+      <path d="M-92 1 0 93 92 1" fill="none" stroke="#001d40" stroke-opacity=".45" stroke-width="1"/>
+    </g>
+  </defs>
+  <path fill="#04396e" d="M0 0h192v192H0z"/>
+  <use href="#diamond" x="0" y="0"/><use href="#diamond" x="192" y="0"/>
+  <use href="#diamond" x="96" y="96"/>
+  <use href="#diamond" x="0" y="192"/><use href="#diamond" x="192" y="192"/>
+</svg>
