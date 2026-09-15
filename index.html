@@ -3677,19 +3677,62 @@ html.asc-custom-background body:not(.live-game-mode):before{
   font-size:7.8px;
 }
 .daily-arena-section .battle-ability-grid{
-  grid-template-columns:repeat(2,minmax(186px,228px));
+  grid-template-columns:repeat(2,minmax(205px,245px));
   justify-content:center;
-  gap:10px;
-  max-width:500px;
+  gap:10px 12px;
+  max-width:520px;
   margin:9px auto 0;
 }
 .daily-arena-section .battle-ability-btn{
-  min-height:62px;
-  padding:10px 12px;
-  border-radius:10px;
+  min-height:78px;
+  padding:7px 10px;
+  border-radius:11px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  overflow:hidden;
+  text-align:left;
 }
-.daily-arena-section .battle-ability-btn b{font-size:10px;line-height:1.1}
-.daily-arena-section .battle-ability-btn span{font-size:7.5px;line-height:1.15}
+.daily-arena-section .battle-ability-btn:nth-child(even){
+  flex-direction:row-reverse;
+  text-align:right;
+}
+.daily-arena-section .battle-ability-btn .ability-icon{
+  flex:0 0 58px;
+  width:58px;
+  height:64px;
+  display:grid;
+  place-items:center;
+  font-size:44px;
+  line-height:1;
+  filter:drop-shadow(0 5px 5px rgba(0,0,0,.38)) drop-shadow(0 0 8px rgba(102,196,255,.18));
+  transform:translateZ(10px);
+}
+.daily-arena-section .battle-ability-btn:nth-child(even) .ability-icon{
+  filter:drop-shadow(0 5px 5px rgba(0,0,0,.38)) drop-shadow(0 0 8px rgba(255,196,88,.18));
+}
+.daily-arena-section .battle-ability-btn .ability-copy{
+  min-width:0;
+  flex:1 1 auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-self:stretch;
+}
+.daily-arena-section .battle-ability-btn b{
+  display:block;
+  font-size:12.2px;
+  line-height:1.05;
+  letter-spacing:.025em;
+  white-space:normal;
+}
+.daily-arena-section .battle-ability-btn .ability-copy>span{
+  display:block;
+  margin-top:5px;
+  font-size:8.3px;
+  line-height:1.15;
+  white-space:normal;
+}
 .daily-arena-section .battle-ability-hint{
   margin-top:6px;
   font-size:7.2px;
@@ -3982,10 +4025,11 @@ html.asc-custom-background body:not(.live-game-mode):before{
   .daily-arena-section .battle-title{font-size:27px}
   .daily-arena-section .battle-strategy-grid{grid-template-columns:repeat(3,minmax(92px,1fr));max-width:100%;gap:6px}
   .daily-arena-section .battle-strategy-btn{min-height:46px;padding:8px 6px;font-size:10.3px;border-radius:9px}
-  .daily-arena-section .battle-ability-grid{grid-template-columns:repeat(2,minmax(126px,1fr));max-width:100%;gap:6px}
-  .daily-arena-section .battle-ability-btn{min-height:54px;padding:8px 7px;border-radius:9px}
-  .daily-arena-section .battle-ability-btn b{font-size:8.5px}
-  .daily-arena-section .battle-ability-btn span{font-size:6.3px}
+  .daily-arena-section .battle-ability-grid{grid-template-columns:repeat(2,minmax(130px,1fr));max-width:100%;gap:7px}
+  .daily-arena-section .battle-ability-btn{min-height:70px;padding:6px 7px;border-radius:9px;gap:5px}
+  .daily-arena-section .battle-ability-btn .ability-icon{flex-basis:43px;width:43px;height:56px;font-size:35px}
+  .daily-arena-section .battle-ability-btn b{font-size:9.2px;line-height:1.02}
+  .daily-arena-section .battle-ability-btn .ability-copy>span{margin-top:4px;font-size:6.6px;line-height:1.12}
   .daily-arena-section .battle-btn{min-width:0;width:min(100%,300px)}
   .daily-current-match-name strong{font-size:12px}
   .daily-choice-float{width:min(100%,380px);max-width:380px;grid-template-columns:repeat(2,minmax(132px,1fr));gap:clamp(10px,4vw,22px);padding:0 4px}
