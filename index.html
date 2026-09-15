@@ -1566,15 +1566,15 @@ html{scrollbar-color:#176d9f #041a2b;scrollbar-width:thin}
 .battle-animation{position:absolute;inset:0;display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity .18s ease;pointer-events:none;background:radial-gradient(circle at center,rgba(33,123,177,.5),rgba(3,20,35,.94) 66%)}
 .battle-arena.is-battling .battle-animation{opacity:1;visibility:visible}
 body.sim-arena-focus-mode{overflow:hidden}
-body.sim-arena-focus-mode .battle-animation.battle-animation-portal{
-  position:fixed;
-  z-index:520;
-  inset:0;
-  width:100vw;
-  height:100dvh;
-  opacity:1;
-  visibility:visible;
-  display:grid;
+.battle-animation.battle-animation-portal{
+  position:fixed!important;
+  z-index:520!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100dvh!important;
+  opacity:1!important;
+  visibility:visible!important;
+  display:grid!important;
   place-items:center;
   background:
     radial-gradient(circle at 50% 48%,rgba(41,145,201,.36),transparent 30%),
