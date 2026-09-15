@@ -11267,6 +11267,11 @@ html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-cinematic
 html[data-asc-honor-view="mobile-portrait"] .asc-honor-scene-art{left:-2%!important;top:-2%!important;right:auto!important;bottom:auto!important;width:104%!important;height:104%!important;object-fit:fill!important}
 @media(max-width:600px){main.shell{padding-left:8px!important;padding-right:8px!important}#dashboardPage .dashboard-welcome-shell{padding-bottom:60px!important}}
 
+/* The page carousel moves sideways by gesture/transform. Keep normal vertical
+   page scrolling, but do not draw a second themed vertical rail beside it. */
+html,body{scrollbar-width:none!important}
+html::-webkit-scrollbar,body::-webkit-scrollbar{width:0!important;background:transparent!important}
+
 
 /* ===== RESPONSIVE STICKY NAV CORRECTION =====
    On phone/narrow portrait layouts the five-button app navigation owns the
