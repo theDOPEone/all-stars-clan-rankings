@@ -11272,6 +11272,25 @@ html[data-asc-honor-view="mobile-portrait"] .asc-honor-scene-art{left:-2%!import
 html,body{scrollbar-width:none!important}
 html::-webkit-scrollbar,body::-webkit-scrollbar{width:0!important;background:transparent!important}
 
+/* Only the current page contributes to the document's height. */
+.main-page-slide:not(.main-page-current):not(.main-page-drag-target):not(.main-page-transitioning){display:none!important}
+.main-page-viewport.main-page-dragging,.main-page-viewport.main-page-animating{overflow:hidden;overflow-anchor:none}
+.main-page-slide.main-page-entering{animation:ascPageEnter .22s ease-out}
+@keyframes ascPageEnter{from{opacity:.15}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.main-page-slide.main-page-entering{animation-duration:.1s}}
+
+/* One compact area for the arrow, followed by the legal/developer footer. */
+#dashboardPage::after,#rankingsPage::after,#memberPage::after,#eventsPage::after,#coLeadersPage::after,#settingsPage::after{content:none!important;display:none!important}
+html body #dashboardPage .dashboard-welcome-shell{padding-bottom:0!important}
+body>main.shell{padding-bottom:12px!important}
+#pageBackToTopDock{position:relative;height:112px;margin:0 auto 8px;width:100%;max-width:1660px}
+#pageBackToTopDock #pageBackToTop.docked{position:absolute;bottom:4px;height:100px}
+.fan-content-notice{padding:0 16px!important;margin:0 auto 6px!important}
+.developer-credit{margin-bottom:12px;padding-top:4px;padding-bottom:4px}
+
+.honor-thirds-crest{display:block;width:154px;height:auto;max-width:100%;margin:0 auto;filter:drop-shadow(0 7px 5px rgba(0,0,0,.5))}
+.honor-thirds-crest text{font-family:"Segoe UI",Arial,sans-serif!important;text-anchor:middle;font-weight:800;letter-spacing:.4px;fill:#fff6d4;paint-order:stroke;stroke:rgba(0,0,0,.3);stroke-width:1px}
+
 
 /* ===== RESPONSIVE STICKY NAV CORRECTION =====
    On phone/narrow portrait layouts the five-button app navigation owns the
