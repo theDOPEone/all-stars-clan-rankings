@@ -11675,10 +11675,29 @@ function clanHonorInfoPopupHtml(){
   }
   return `<div class="clan-honor-info-title">HOW CLAN HONOR IS CALCULATED</div>
     <div class="clan-honor-info-body">
-      <div class="honor-split-shield large" aria-hidden="true">
-        <span class="seg war">W</span><span class="seg donations">D</span><span class="seg arena">A</span>
-        <b>HONOR</b>
-      </div>
+      <svg class="honor-thirds-crest" viewBox="0 0 200 222" role="img" aria-label="Honor shield: equal thirds for War, Donations, and Live Arena">
+        <defs>
+          <linearGradient id="honor3Gold" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fff3b1"/><stop offset=".22" stop-color="#ffd965"/><stop offset=".48" stop-color="#a56b16"/><stop offset=".7" stop-color="#ffe79a"/><stop offset="1" stop-color="#a26913"/></linearGradient>
+          <linearGradient id="honor3War" x2=".8" y2="1"><stop stop-color="#ffe296"/><stop offset=".4" stop-color="#c4962d"/><stop offset="1" stop-color="#6f490e"/></linearGradient>
+          <linearGradient id="honor3Donate" x2=".7" y2="1"><stop stop-color="#75d4ff"/><stop offset=".45" stop-color="#2089c5"/><stop offset="1" stop-color="#07496f"/></linearGradient>
+          <linearGradient id="honor3Arena" x2=".4" y2="1"><stop stop-color="#64d8b1"/><stop offset=".55" stop-color="#228966"/><stop offset="1" stop-color="#084f41"/></linearGradient>
+        </defs>
+        <path d="M100 12 186 33 174 157 100 212 26 157 14 33Z" fill="#593709" stroke="#221b10" stroke-width="5"/>
+        <path d="M100 6 186 27 174 151 100 206 26 151 14 27Z" fill="url(#honor3Gold)" stroke="#fff0a7" stroke-width="2"/>
+        <path d="M100 19 177 38 166 144 100 193 34 144 23 38Z" fill="#211d13"/>
+        <!-- Each colored polygon has area 6,138 2/3 square viewBox units. -->
+        <path class="honor-third war" d="M100 22 26 40 36 142 100 93.0833333333Z" fill="url(#honor3War)"/>
+        <path class="honor-third donations" d="M100 22 174 40 164 142 100 93.0833333333Z" fill="url(#honor3Donate)"/>
+        <path class="honor-third arena" d="M100 93.0833333333 164 142 100 189 36 142Z" fill="url(#honor3Arena)"/>
+        <path d="M100 22V93.0833333333L36 142M100 93.0833333333 164 142" fill="none" stroke="#ffe095" stroke-width="2.5"/>
+        <path d="M29 42 100 25 171 42M29 43 39 139" fill="none" stroke="#fff8cf" stroke-opacity=".5" stroke-width="2"/>
+        <path d="M100 6 186 27 177 35 100 17 23 35 14 27Z" fill="#fff4c4" opacity=".28"/>
+        <g font-size="11"><text x="64" y="61">WAR</text><text x="136" y="61">DONATE</text><text x="100" y="144">ARENA</text></g>
+        <g font-size="22"><text x="64" y="86">⅓</text><text x="136" y="86">⅓</text><text x="100" y="167">⅓</text></g>
+        <path d="M64 96 136 96 142 107 136 119 64 119 58 107Z" fill="#062b43" stroke="url(#honor3Gold)" stroke-width="2"/>
+        <text x="100" y="112" font-size="12">HONOR</text>
+        <g fill="#fff0a0" stroke="#9c6713" stroke-width="1"><circle cx="22" cy="31" r="3"/><circle cx="178" cy="31" r="3"/><circle cx="100" cy="198" r="3"/></g>
+      </svg>
       <div class="clan-honor-info-copy">
         <p><b>Honor is split evenly:</b> ⅓ War + ⅓ Donations + ⅓ Live Arena.</p>
         <p><b>War benchmark:</b> 75,000 = 100. <b>Donations:</b> 8,000 = 100. <b>Live Arena:</b> 750 = 0 and 1,600 = 150.</p>
