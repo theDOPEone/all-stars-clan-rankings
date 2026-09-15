@@ -1743,17 +1743,22 @@ body.live-game-ui-entering .live-choice-hud{animation:liveControlsArrive .48s .2
    transform: mobile Safari would replace that centering transform and leave
    the entire tray starting at the middle of the phone. */
 @keyframes liveSceneTwoIn{from{opacity:0;filter:blur(4px)}to{opacity:1;filter:none}}
-.live-selection-preview{display:none;position:absolute;z-index:11;left:9%;right:9%;top:34%;grid-template-columns:1fr 1fr;align-items:center;pointer-events:none}
-.live-selection-slot{min-width:0;min-height:92px;display:flex;align-items:center}
+.live-selection-preview{display:none;position:absolute;z-index:11;left:7%;right:7%;top:26%;grid-template-columns:1fr 1fr;align-items:center;pointer-events:none}
+.live-selection-slot{min-width:0;min-height:190px;display:flex;align-items:center;animation:liveSelectionSlotIn .38s cubic-bezier(.2,.9,.2,1) both}
+.live-selection-slot:nth-child(2){animation-delay:.08s}
 .live-selection-slot:first-child{justify-content:flex-start}.live-selection-slot:last-child{justify-content:flex-end}
-.live-selection-card{width:142px;padding:14px 10px;border:1px solid #4b7895;border-radius:12px;background:linear-gradient(180deg,rgba(11,62,96,.96),rgba(5,31,52,.98));box-shadow:0 13px 24px rgba(0,0,0,.36),inset 0 0 16px rgba(88,190,233,.1);text-align:center;animation:liveSelectionFloat 2.2s ease-in-out infinite}
-.live-selection-card .icon{font-size:34px;line-height:1}.live-selection-card .kind{margin-top:6px;color:#87b7d2;font-size:7px;font-weight:900;letter-spacing:1.2px}.live-selection-card .name{margin-top:3px;color:#fff0a2;font-size:13px;font-weight:950}
-.live-selection-card.tactic.counter{border-color:#69bdec;box-shadow:0 0 25px rgba(68,176,235,.34),0 13px 24px rgba(0,0,0,.36),inset 0 0 18px rgba(88,190,233,.15)}
-.live-selection-card.ability{animation-delay:-.65s}.live-selection-card.ability.rage{border-color:#c57cff;background:linear-gradient(180deg,rgba(92,36,127,.97),rgba(40,16,66,.98));box-shadow:0 0 30px rgba(183,83,255,.62),0 13px 24px rgba(0,0,0,.4),inset 0 0 24px rgba(229,179,255,.18)}
+.live-selection-card{width:clamp(210px,22vw,260px);min-height:170px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:17px 14px;border:2px solid #4b7895;border-radius:16px;background:linear-gradient(180deg,rgba(13,72,110,.98),rgba(5,31,52,.99));box-shadow:0 18px 34px rgba(0,0,0,.42),0 0 28px rgba(68,176,235,.22),inset 0 1px rgba(255,255,255,.08),inset 0 0 24px rgba(88,190,233,.12);text-align:center;transform-style:preserve-3d;animation:liveSelectionFloat 2.2s ease-in-out infinite}
+.live-selection-card .icon{font-size:clamp(96px,10vw,126px);line-height:.9;filter:drop-shadow(0 10px 10px rgba(0,0,0,.36)) drop-shadow(0 0 14px rgba(116,205,255,.28));transform:translateZ(18px)}.live-selection-card .kind{margin-top:10px;color:#9bd0eb;font-size:8px;font-weight:900;letter-spacing:1.35px}.live-selection-card .name{margin-top:4px;color:#fff0a2;font-size:18px;font-weight:950;text-shadow:0 2px 0 rgba(75,48,5,.5)}
+.live-selection-card.tactic.counter{border-color:#69bdec;box-shadow:0 0 34px rgba(68,176,235,.4),0 18px 34px rgba(0,0,0,.42),inset 0 0 22px rgba(88,190,233,.16)}
+.live-selection-card.tactic.control{border-color:#6eb8e8;box-shadow:0 0 34px rgba(68,176,235,.36),0 18px 34px rgba(0,0,0,.42),inset 0 0 22px rgba(88,190,233,.14)}
+.live-selection-card.tactic.pressure{border-color:#e1ad55;box-shadow:0 0 34px rgba(240,167,65,.34),0 18px 34px rgba(0,0,0,.42),inset 0 0 22px rgba(255,195,97,.12)}
+.live-selection-card.ability{animation-delay:-.65s}.live-selection-card.ability.rage{border-color:#c57cff;background:linear-gradient(180deg,rgba(92,36,127,.97),rgba(40,16,66,.98));box-shadow:0 0 38px rgba(183,83,255,.62),0 18px 34px rgba(0,0,0,.44),inset 0 0 26px rgba(229,179,255,.18)}
+.live-selection-card.ability.fortify{border-color:#71b9f2}.live-selection-card.ability.scout{border-color:#d4d9e1}.live-selection-card.ability.feint{border-color:#b48aff}.live-selection-card.ability.overcharge{border-color:#ffb353}.live-selection-card.ability.none{border-color:#e4c45d}
 .live-selection-preview.departing{animation:liveSelectionDepart .52s ease both}
-@keyframes liveSelectionFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-9px) rotate(1deg)}}
+@keyframes liveSelectionSlotIn{from{opacity:0;transform:translateY(18px) scale(.72);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+@keyframes liveSelectionFloat{0%,100%{transform:perspective(700px) translateY(0) rotateX(3deg) rotateZ(-1deg)}50%{transform:perspective(700px) translateY(-13px) rotateX(-2deg) rotateZ(1deg)}}
 @keyframes liveSelectionDepart{to{opacity:0;filter:blur(5px);transform:scale(.78)}}
-@media(max-width:900px){body.live-game-mobile .live-selection-preview{display:grid;left:5%;right:5%;top:19%}.live-selection-slot{min-height:86px}.live-selection-card{width:106px;padding:10px 7px;border-radius:10px}.live-selection-card .icon{font-size:28px}.live-selection-card .kind{font-size:5px}.live-selection-card .name{font-size:10px}}
+@media(max-width:900px){body.live-game-mobile .live-selection-preview{display:grid;left:5%;right:5%;top:15%}.live-selection-slot{min-height:155px}.live-selection-card{width:clamp(124px,40vw,152px);min-height:140px;padding:12px 8px;border-radius:13px}.live-selection-card .icon{font-size:clamp(72px,25vw,92px)}.live-selection-card .kind{margin-top:7px;font-size:6px;letter-spacing:.8px}.live-selection-card .name{font-size:12px}}
 
 /* Larger desktop choices; denser phone choices with labels that remain readable. */
 @media(min-width:901px){
@@ -3636,8 +3641,10 @@ html.asc-custom-background body:not(.live-game-mode):before{
   min-height:100%;
 }
 .daily-arena-section .battle-title{
-  font-size:19px;
-  letter-spacing:.055em;
+  font-size:27px;
+  line-height:1;
+  letter-spacing:.06em;
+  text-shadow:0 3px 0 rgba(88,54,5,.56),0 0 18px rgba(255,202,47,.18);
 }
 .daily-arena-section .battle-sub{
   margin-bottom:8px;
@@ -3685,51 +3692,37 @@ html.asc-custom-background body:not(.live-game-mode):before{
   align-self:center;
   min-width:200px;
 }
+.daily-current-match-name{
+  min-height:34px;
+  margin:2px auto 3px;
+  text-align:center;
+}
+.daily-current-match-name small{display:block;color:#79abc7;font-size:6px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.daily-current-match-name strong{display:block;margin-top:3px;color:#ffe078;font-size:13px;font-weight:950;text-shadow:0 2px 0 rgba(79,52,4,.5),0 0 10px rgba(255,214,91,.14)}
 .daily-choice-float{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:10px;
-  max-width:470px;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  width:min(100%,620px);
   margin:0 auto;
   max-height:0;
-  overflow:hidden;
+  min-height:0;
+  overflow:visible;
   opacity:0;
-  transform:translateY(-6px);
-  transition:max-height .28s ease,margin .28s ease,opacity .22s ease,transform .22s ease;
+  pointer-events:none;
+  transition:max-height .28s ease,min-height .28s ease,margin .28s ease,opacity .18s ease;
 }
 .daily-choice-float.active{
-  max-height:120px;
-  margin:10px auto 8px;
+  max-height:205px;
+  min-height:190px;
+  margin:4px auto 8px;
   opacity:1;
-  transform:translateY(0);
 }
-.daily-choice-chip{
-  min-width:0;
-  padding:8px 10px;
-  border:1px solid rgba(239,200,94,.42);
-  border-radius:10px;
-  background:linear-gradient(180deg,rgba(10,56,88,.96),rgba(6,35,59,.96));
-  box-shadow:0 10px 18px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.05);
-  text-align:left;
-}
-.daily-choice-chip .label{
-  display:block;
-  color:#82b5d1;
-  font-size:6px;
-  font-weight:900;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-.daily-choice-chip .value{
-  display:block;
-  margin-top:3px;
-  color:#fff0a6;
-  font-size:10px;
-  font-weight:950;
-}
-.daily-choice-chip.pending .value{color:#c9dfeb}
-.daily-choice-chip.tactic{box-shadow:0 10px 18px rgba(0,0,0,.18),0 0 14px rgba(95,181,232,.18), inset 0 1px rgba(255,255,255,.05)}
-.daily-choice-chip.ability{box-shadow:0 10px 18px rgba(0,0,0,.18),0 0 14px rgba(239,200,94,.16), inset 0 1px rgba(255,255,255,.05)}
+.daily-choice-float .live-selection-slot{min-height:190px}
+.daily-choice-float .live-selection-card{width:clamp(180px,21vw,225px);min-height:168px}
+.daily-choice-float .live-selection-card .icon{font-size:clamp(92px,9vw,116px)}
+.daily-choice-float .live-selection-card .kind{font-size:7px}
+.daily-choice-float .live-selection-card .name{font-size:16px}
 .daily-arena-section .daily-opponent-stage{
   transition:max-height .28s ease,opacity .2s ease,padding .28s ease,margin .28s ease,background .28s ease,border-color .28s ease,box-shadow .28s ease;
   max-height:240px;
@@ -3971,7 +3964,7 @@ html.asc-custom-background body:not(.live-game-mode):before{
   .daily-arena-banner-art.right{right:-13px;opacity:.66;transform:scaleX(-1) rotate(2deg)}
   .daily-arena-section .member-arena{padding:8px}
   .daily-arena-section .battle-arena{min-height:300px}
-  .daily-arena-section .battle-title{font-size:17px}
+  .daily-arena-section .battle-title{font-size:23px}
   .daily-arena-section .battle-strategy-grid{grid-template-columns:repeat(3,minmax(88px,1fr));max-width:100%;gap:6px}
   .daily-arena-section .battle-strategy-btn{min-height:44px;padding:8px 6px;font-size:9px}
   .daily-arena-section .battle-ability-grid{grid-template-columns:repeat(2,minmax(122px,1fr));max-width:100%;gap:6px}
@@ -3979,9 +3972,14 @@ html.asc-custom-background body:not(.live-game-mode):before{
   .daily-arena-section .battle-ability-btn b{font-size:8px}
   .daily-arena-section .battle-ability-btn span{font-size:6px}
   .daily-arena-section .battle-btn{min-width:0;width:min(100%,300px)}
-  .daily-choice-float{gap:6px;max-width:none}
-  .daily-choice-chip{padding:7px 8px}
-  .daily-choice-chip .value{font-size:8.5px}
+  .daily-current-match-name strong{font-size:12px}
+  .daily-choice-float{width:100%;max-width:none}
+  .daily-choice-float.active{max-height:170px;min-height:155px;margin:2px auto 6px}
+  .daily-choice-float .live-selection-slot{min-height:150px}
+  .daily-choice-float .live-selection-card{width:clamp(124px,39vw,150px);min-height:138px;padding:10px 7px}
+  .daily-choice-float .live-selection-card .icon{font-size:clamp(72px,24vw,90px)}
+  .daily-choice-float .live-selection-card .kind{font-size:5.8px}
+  .daily-choice-float .live-selection-card .name{font-size:11px}
   .daily-opponent-stage .member-opponent-run{grid-template-columns:1fr 1fr}
   .daily-opponent-stage .member-opponent-slot:last-of-type{grid-column:1/-1}
   .daily-opponent-stage .member-opponent-summary{flex-direction:column;gap:2px}
