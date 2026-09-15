@@ -10523,14 +10523,9 @@ main.shell>.nav.asc-nav-fixed::before{
   --honor-console-w:680px; --honor-console-h:510px; --honor-console-y:460px;
 }
 html[data-asc-honor-view="pc-full"],html[data-asc-honor-view="mobile-landscape"] {
-  --honor-title-y:172px; --honor-subline-y:240px;
-  --honor-chart-y:263px; --honor-chart-h:213px; --honor-chart-w:840px;
-  --honor-period-y:488px; --honor-period-w:650px; --honor-period-h:44px;
-  --honor-metric-y:544px; --honor-metric-w:860px; --honor-metric-h:48px;
-  --honor-info-y:596px; --honor-leaders-y:634px; --honor-leaders-w:780px; --honor-leaders-h:158px;
-  --honor-podium-one-w:324px; --honor-podium-one-y:71px;
-  --honor-podium-side-w:248px; --honor-podium-side-y:172px; --honor-podium-spread:260px;
-  --honor-console-w:670px; --honor-console-h:502.5px; --honor-console-y:322px;
+  --honor-podium-one-w:330px; --honor-podium-one-y:230px;
+  --honor-podium-side-w:252px; --honor-podium-side-y:334px; --honor-podium-spread:275px;
+  --honor-console-w:540px; --honor-console-h:405px; --honor-console-y:535px;
 }
 html[data-asc-honor-view="mobile-portrait"] {
   --honor-title-y:116px; --honor-subline-y:174px;
@@ -11887,7 +11882,6 @@ function ascHonorViewMode(){
   return width>=1280?'pc-full':'pc-window';
 }
 function ascHonorSceneAsset(mode){
-  if(mode==='pc-full'||mode==='mobile-landscape')return './assets/clan_honor_landscape_backdrop.png?v=3';
   if(mode==='mobile-portrait')return './assets/clan_honor_portrait_backdrop.png?v=3';
   return './assets/clan_honor_stage_top.png?v=3';
 }
@@ -11913,17 +11907,19 @@ function sizeClanHonorScene(){
   if(!frame)return;
   // Width includes neither the desktop scrollbar nor the app shell's padding.
   // Both native canvases share this single scale and reserve their full height.
-  const {width}=ascHonorViewportSize();
+  const {width,height}=ascHonorViewportSize();
   const portrait=mode==='mobile-portrait';
-  const wide=mode==='pc-full'||mode==='mobile-landscape';
-  const designWidth=portrait?470.5:(wide?1916:1672);
-  const designHeight=portrait?836:(wide?821:941);
+  const designWidth=portrait?470.5:1672;
+  const designHeight=portrait?836:941;
+  // Full desktop uses the complete regular frame at a restrained size.
+  // Leave breathing room around the artwork instead of cropping to fill the page.
+  const sceneWidth=mode==='pc-full'?Math.min(width-48,1320,Math.max(760,height-120)*designWidth/designHeight):mode==='mobile-landscape'?Math.max(1,width-24):width;
   const sceneStyle=document.documentElement.style;
-  sceneStyle.setProperty('--asc-honor-width',`${width}px`);
+  sceneStyle.setProperty('--asc-honor-width',`${sceneWidth}px`);
   sceneStyle.setProperty('--asc-honor-design-width',`${designWidth}px`);
   sceneStyle.setProperty('--asc-honor-design-height',`${designHeight}px`);
-  sceneStyle.setProperty('--asc-honor-scale',String(width/designWidth));
-  sceneStyle.setProperty('--asc-honor-height',`${width*designHeight/designWidth}px`);
+  sceneStyle.setProperty('--asc-honor-scale',String(sceneWidth/designWidth));
+  sceneStyle.setProperty('--asc-honor-height',`${sceneWidth*designHeight/designWidth}px`);
   frame.dataset.layout=mode;
   frame.style.removeProperty('--honor-scene-scale');
 }
