@@ -1481,24 +1481,185 @@ html{scrollbar-color:#176d9f #041a2b;scrollbar-width:thin}
 .member-fighter-card .favorite-card-plaque{left:7px;right:7px;bottom:6px;font-size:5.5px;padding-left:4px;padding-right:4px}
 .member-fighter-card-placeholder{min-height:220px;border:1px dashed #315a77;border-radius:8px;display:grid;place-items:center;color:#648aa3;font-size:8px;text-align:center;padding:8px;background:rgba(4,29,49,.5)}
 .member-run-complete{padding:13px 15px;border:1px solid #3b8a69;border-radius:8px;background:radial-gradient(circle at 50% -35%,rgba(90,215,146,.14),transparent 52%),linear-gradient(180deg,#0a413c,#062d32);text-align:center}.member-run-complete-mascot-wrap{display:flex;justify-content:center;align-items:center;margin:4px 0 8px}.member-run-complete-mascot{width:min(132px,32vw);max-height:118px;object-fit:contain;filter:drop-shadow(0 10px 18px rgba(0,0,0,.28)) drop-shadow(0 0 14px rgba(255,219,112,.12));animation:memberRunMascotFloat 4.8s ease-in-out infinite}.member-run-complete-head{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:4px}.member-run-complete .crown{font-size:22px}.member-run-complete h3{margin:0;color:#ffe397;font-size:15px}.member-run-complete p{margin:3px 0 10px;color:#9bcbbb;font-size:9px}.member-run-complete-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.member-run-complete-stat{padding:8px 5px;border:1px solid rgba(115,216,165,.25);border-radius:6px;background:rgba(3,31,37,.48)}.member-run-complete-stat .k{color:#78aa9a;font-size:7px;text-transform:uppercase}.member-run-complete-stat .v{margin-top:3px;color:#e9fff4;font-size:11px;font-weight:900}.member-run-complete-opponents{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin-top:9px}.member-run-complete .member-opponent-summary{margin-top:7px}.member-arena.run-complete{grid-template-columns:1fr}.member-arena.run-complete .battle-arena,.member-arena.run-complete .member-fighter.right{display:none}@keyframes memberRunMascotFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* ===== DAILY 5 — post-battle result popup ===== */
+.daily-battle-result-modal{z-index:610;padding:18px}
+.daily-battle-result-card{
+  width:min(540px,94vw);
+  max-height:min(82vh,650px);
+  overflow:auto;
+  border-color:rgba(239,200,94,.62);
+  border-radius:13px;
+  background:
+    radial-gradient(circle at 50% -20%,rgba(239,200,94,.14),transparent 42%),
+    linear-gradient(180deg,#0b2f4d,#071f35 72%);
+  box-shadow:0 26px 75px rgba(0,0,0,.7),0 0 28px rgba(239,200,94,.12),inset 0 1px rgba(255,255,255,.05);
+}
+.daily-battle-result-card .modalhead{
+  height:48px;
+  border-bottom-color:rgba(239,200,94,.28);
+  background:linear-gradient(180deg,rgba(18,68,101,.98),rgba(8,42,68,.98));
+}
+.daily-battle-result-card .modalhead h2{
+  color:#ffe17d;
+  font-size:12px;
+  letter-spacing:.07em;
+  text-shadow:0 2px 0 rgba(73,46,0,.5);
+}
+.daily-battle-result-body{padding:17px 18px 18px;text-align:center}
+.daily-battle-result-winner{
+  color:#ffe27a;
+  font-size:clamp(21px,4vw,30px);
+  font-weight:1000;
+  line-height:1.08;
+  text-shadow:0 3px 0 rgba(80,51,2,.55),0 0 18px rgba(255,214,78,.2);
+}
+.daily-battle-result-matchup{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:12px auto 11px;
+  color:#cce6f5;
+  font-size:11px;
+  font-weight:900;
+}
+.daily-battle-result-matchup .winner-name{color:#ffe27a}
+.daily-battle-result-matchup .vs{color:#719db8;font-size:8px;letter-spacing:.12em}
+.daily-battle-result-story{
+  margin:0 auto;
+  padding:13px 14px;
+  border:1px solid rgba(75,127,161,.62);
+  border-radius:9px;
+  background:rgba(3,28,48,.66);
+  color:#dcecf5;
+  font-size:10px;
+  line-height:1.55;
+  text-align:left;
+  box-shadow:inset 0 1px rgba(255,255,255,.03);
+}
+.daily-battle-result-next{
+  display:flex;
+  justify-content:center;
+  margin-top:15px;
+}
+.daily-battle-result-next .battle-btn{
+  min-width:210px;
+  min-height:45px;
+  padding:9px 18px;
+  font-size:11px;
+  letter-spacing:.06em;
+}
+@media(max-width:520px){
+  .daily-battle-result-modal{padding:11px}
+  .daily-battle-result-card{width:min(96vw,460px)}
+  .daily-battle-result-body{padding:14px 12px 15px}
+  .daily-battle-result-winner{font-size:22px}
+  .daily-battle-result-matchup{gap:7px;font-size:9.5px}
+  .daily-battle-result-story{padding:11px;font-size:9px;line-height:1.5}
+  .daily-battle-result-next .battle-btn{width:min(100%,260px);min-width:0}
+}
+
 .battle-arena{position:relative;overflow:hidden;min-height:236px}
 .battle-arena-ui{display:flex;flex-direction:column;justify-content:center;height:100%;transition:opacity .2s ease,transform .2s ease,filter .2s ease}
 .battle-arena.is-battling .battle-arena-ui{opacity:0;transform:scale(.94);filter:blur(2px);pointer-events:none}
 .battle-animation{position:absolute;inset:0;display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity .18s ease;pointer-events:none;background:radial-gradient(circle at center,rgba(33,123,177,.5),rgba(3,20,35,.94) 66%)}
 .battle-arena.is-battling .battle-animation{opacity:1;visibility:visible}
-.battle-animation-stage{position:relative;width:100%;height:100%;min-height:224px;overflow:hidden}
-.battle-animation-card{position:absolute;top:44px;width:68px;height:92px;object-fit:contain;filter:drop-shadow(0 8px 7px rgba(0,0,0,.52));z-index:3}
-.battle-animation-card img{width:100%;height:100%;object-fit:contain}
-.battle-animation-card.left{left:18px;animation:battleCardLeft .68s ease-in-out infinite alternate}.battle-animation-card.right{right:18px;animation:battleCardRight .68s ease-in-out infinite alternate}
-.battle-animation-card.fallback{display:grid;place-items:center;border:1px solid #ca9e39;border-radius:8px;background:#0b395d;color:#f2cf61;font-size:24px}
-.battle-clash{position:absolute;left:50%;top:50%;transform:translate(-50%,-56%);z-index:4;width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-size:32px;background:radial-gradient(circle,#f6d568 0 11%,#197ab0 13% 29%,#082d4a 31% 60%,transparent 62%);filter:drop-shadow(0 0 13px rgba(244,199,73,.55));animation:battlePulse .48s ease-in-out infinite alternate}
-.battle-spark{position:absolute;left:50%;top:48%;width:3px;height:3px;border-radius:50%;background:#ffe789;box-shadow:-30px -18px #4ec6ff,28px -24px #ffe789,-37px 18px #ffe789,35px 20px #4ec6ff,0 -41px #fff,0 39px #f4bd42;animation:battleSpark .55s linear infinite}
-.battle-animation-label{position:absolute;left:0;right:0;bottom:24px;text-align:center;color:#ffe48c;font-family:'Arial Black','Segoe UI';font-size:11px;letter-spacing:.08em;text-shadow:0 2px 4px #000}
-@keyframes battleCardLeft{from{transform:translate(-8px,3px) rotate(-8deg)}to{transform:translate(17px,-3px) rotate(7deg)}}
-@keyframes battleCardRight{from{transform:translate(8px,3px) rotate(8deg)}to{transform:translate(-17px,-3px) rotate(-7deg)}}
-@keyframes battlePulse{from{transform:translate(-50%,-56%) scale(.92) rotate(-5deg)}to{transform:translate(-50%,-56%) scale(1.06) rotate(5deg)}}
-@keyframes battleSpark{to{transform:rotate(180deg) scale(1.4);opacity:.35}}
-@media(prefers-reduced-motion:reduce){.battle-animation-card,.battle-clash,.battle-spark{animation:none}}
+body.sim-arena-focus-mode{overflow:hidden}
+body.sim-arena-focus-mode .battle-animation.battle-animation-portal{
+  position:fixed;
+  z-index:520;
+  inset:0;
+  width:100vw;
+  height:100dvh;
+  opacity:1;
+  visibility:visible;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 50% 48%,rgba(41,145,201,.36),transparent 30%),
+    radial-gradient(circle at 50% 52%,rgba(239,200,94,.13),transparent 46%),
+    rgba(2,15,27,.94);
+  backdrop-filter:blur(3px);
+  animation:battleOverlayIn .2s ease both;
+}
+.battle-animation-stage{position:relative;width:min(1120px,100vw);height:100dvh;min-height:420px;overflow:hidden}
+.battle-animation-card{
+  position:absolute;
+  top:50%;
+  width:clamp(190px,25vw,310px);
+  height:clamp(250px,46vh,390px);
+  object-fit:contain;
+  filter:drop-shadow(0 20px 20px rgba(0,0,0,.55)) drop-shadow(0 0 22px rgba(70,184,238,.16));
+  z-index:3;
+  transform-origin:center;
+}
+.battle-animation-card img{width:100%;height:100%;object-fit:contain;object-position:center;filter:drop-shadow(0 18px 18px rgba(0,0,0,.34))}
+.battle-animation-card.left{left:clamp(22px,8vw,120px);animation:battleAvatarLeft 1s ease-in-out infinite alternate}
+.battle-animation-card.right{right:clamp(22px,8vw,120px);animation:battleAvatarRight 1s ease-in-out infinite alternate}
+.battle-animation-card.right[data-art-kind="unit"] img{transform:scaleX(-1)}
+.battle-animation-card::after{
+  content:attr(data-name);
+  position:absolute;
+  left:50%;
+  bottom:-4px;
+  transform:translateX(-50%);
+  min-width:70%;
+  max-width:100%;
+  padding:7px 12px;
+  border:1px solid rgba(239,200,94,.58);
+  border-radius:999px;
+  background:rgba(4,31,52,.88);
+  color:#ffe27a;
+  font-size:clamp(10px,1.15vw,14px);
+  font-weight:950;
+  text-align:center;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  box-shadow:0 8px 18px rgba(0,0,0,.3),0 0 14px rgba(239,200,94,.12);
+}
+.battle-animation-card.fallback{display:grid;place-items:center;border:2px solid #ca9e39;border-radius:18px;background:#0b395d;color:#f2cf61;font-size:clamp(74px,10vw,122px)}
+.battle-clash{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:5;
+  width:clamp(126px,16vw,190px);
+  height:clamp(126px,16vw,190px);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:clamp(74px,10vw,122px);
+  background:radial-gradient(circle,rgba(255,230,119,.24) 0 16%,rgba(23,122,176,.18) 38%,rgba(8,45,74,.06) 62%,transparent 68%);
+  text-shadow:0 4px 0 rgba(71,43,0,.48);
+  filter:drop-shadow(0 0 15px rgba(244,199,73,.7)) drop-shadow(0 0 34px rgba(68,183,236,.26));
+  animation:battleSwordsPulse .62s ease-in-out infinite alternate;
+}
+.battle-spark{position:absolute;left:50%;top:50%;width:4px;height:4px;border-radius:50%;background:#ffe789;box-shadow:-64px -38px #4ec6ff,62px -48px #ffe789,-76px 35px #ffe789,72px 43px #4ec6ff,0 -86px #fff,0 82px #f4bd42;animation:battleSpark .75s linear infinite;z-index:4}
+.battle-animation-label{position:absolute;left:0;right:0;bottom:clamp(34px,7vh,74px);text-align:center;color:#ffe48c;font-family:'Arial Black','Segoe UI';font-size:clamp(15px,2vw,24px);letter-spacing:.10em;text-shadow:0 3px 5px #000,0 0 16px rgba(239,200,94,.28)}
+@keyframes battleOverlayIn{from{opacity:0;filter:blur(4px)}to{opacity:1;filter:none}}
+@keyframes battleAvatarLeft{from{transform:translateY(-50%) translateX(-8px) rotate(-3deg) scale(.97)}to{transform:translateY(-50%) translateX(12px) rotate(2deg) scale(1.025)}}
+@keyframes battleAvatarRight{from{transform:translateY(-50%) translateX(8px) rotate(3deg) scale(.97)}to{transform:translateY(-50%) translateX(-12px) rotate(-2deg) scale(1.025)}}
+@keyframes battleSwordsPulse{from{transform:translate(-50%,-50%) scale(.94) rotate(-4deg)}to{transform:translate(-50%,-50%) scale(1.08) rotate(4deg)}}
+@keyframes battleSpark{to{transform:rotate(180deg) scale(1.45);opacity:.35}}
+@media(max-width:700px){
+  .battle-animation-stage{width:100vw;height:100dvh;min-height:420px}
+  .battle-animation-card{width:clamp(132px,37vw,180px);height:clamp(205px,38vh,285px)}
+  .battle-animation-card.left{left:clamp(6px,4vw,24px)}
+  .battle-animation-card.right{right:clamp(6px,4vw,24px)}
+  .battle-animation-card::after{min-width:80%;padding:5px 8px;font-size:9px}
+  .battle-clash{width:104px;height:104px;font-size:64px}
+  .battle-animation-label{bottom:7vh;font-size:14px}
+}
+@media(max-width:390px){
+  .battle-animation-card{width:136px;height:220px}
+  .battle-animation-card.left{left:2px}
+  .battle-animation-card.right{right:2px}
+  .battle-clash{width:88px;height:88px;font-size:54px}
+}
+@media(prefers-reduced-motion:reduce){.battle-animation-card,.battle-clash,.battle-spark{animation:none!important}}
 @media(max-width:1150px){.member-fighter-info,.member-fighter.right .member-fighter-info{grid-template-columns:minmax(240px,1fr) minmax(250px,310px) 150px}.member-fighter-card,.member-fighter-card-placeholder{min-height:205px}.member-fighter-card .favorite-card-image{max-width:116px;max-height:138px}}
 @media(max-width:900px){.member-spotlight-artbox .favorite-card-image{max-width:88px;max-height:86px}}
 @media(max-width:620px){.member-spotlight-artbox .favorite-card-image{max-width:68px;max-height:66px}}
