@@ -10514,10 +10514,10 @@ main.shell>.nav.asc-nav-fixed::before{
    Device mode selects the composition; viewport width only sets its scale. */
 :root {
   --honor-title-y:148px; --honor-subline-y:216px;
-  --honor-chart-y:241px; --honor-chart-h:340px; --honor-chart-w:800px;
-  --honor-period-y:594px; --honor-period-w:650px; --honor-period-h:48px;
-  --honor-metric-y:652px; --honor-metric-w:860px; --honor-metric-h:54px;
-  --honor-info-y:710px; --honor-leaders-y:748px; --honor-leaders-w:860px; --honor-leaders-h:174px;
+  --honor-chart-y:241px; --honor-chart-h:330px; --honor-chart-w:480px;
+  --honor-period-y:582px; --honor-period-w:650px; --honor-period-h:40px;
+  --honor-metric-y:632px; --honor-metric-w:860px; --honor-metric-h:46px;
+  --honor-info-y:682px; --honor-leaders-y:712px; --honor-leaders-w:860px; --honor-leaders-h:210px;
   --honor-podium-one-w:400px; --honor-podium-one-y:78px;
   --honor-podium-side-w:292px; --honor-podium-side-y:223px; --honor-podium-spread:305px;
   --honor-console-w:680px; --honor-console-h:510px; --honor-console-y:460px;
@@ -10529,10 +10529,10 @@ html[data-asc-honor-view="pc-full"],html[data-asc-honor-view="mobile-landscape"]
 }
 html[data-asc-honor-view="mobile-portrait"] {
   --honor-title-y:116px; --honor-subline-y:174px;
-  --honor-chart-y:198px; --honor-chart-h:322px; --honor-chart-w:350px;
-  --honor-period-y:533px; --honor-period-w:420px; --honor-period-h:40px;
-  --honor-metric-y:585px; --honor-metric-w:420px; --honor-metric-h:52px;
-  --honor-info-y:646px; --honor-leaders-y:682px; --honor-leaders-w:440px; --honor-leaders-h:116px;
+  --honor-chart-y:198px; --honor-chart-h:310px; --honor-chart-w:264px;
+  --honor-period-y:516px; --honor-period-w:420px; --honor-period-h:34px;
+  --honor-metric-y:558px; --honor-metric-w:420px; --honor-metric-h:46px;
+  --honor-info-y:608px; --honor-leaders-y:638px; --honor-leaders-w:440px; --honor-leaders-h:160px;
   --honor-podium-one-w:184px; --honor-podium-one-y:356px;
   --honor-podium-side-w:132px; --honor-podium-side-y:425px; --honor-podium-spread:130px;
   --honor-console-w:420px; --honor-console-h:315px; --honor-console-y:516px;
@@ -10601,7 +10601,7 @@ html[data-asc-honor-view="mobile-portrait"] .asc-gold-backdrop{left:-2%;top:-2%;
 #familySummary .clan-honor-cinematic-subline {top:var(--honor-subline-y)!important;width:800px!important;font-size:10px!important;line-height:1.2!important}
 #familySummary .clan-honor-cinematic-chart {
   top:var(--honor-chart-y)!important;width:var(--honor-chart-w)!important;height:var(--honor-chart-h)!important;
-  display:flex!important;gap:32px!important;padding:32px 0 0!important;animation:none!important;
+  display:flex!important;gap:16px!important;padding:32px 0 0!important;animation:none!important;
 }
 #familySummary .clan-honor-spotlight-bar {flex:1 1 0!important;min-width:0!important;width:auto!important;max-width:none!important;height:100%!important;display:grid!important;grid-template-rows:minmax(0,1fr) 12px 30px!important;gap:5px!important}
 #familySummary .clan-honor-spotlight-well {width:100%!important;height:auto!important;min-height:0!important;align-self:stretch!important}
@@ -10617,7 +10617,7 @@ html[data-asc-honor-view="mobile-portrait"] .asc-gold-backdrop{left:-2%;top:-2%;
 #familySummary #clanHonorDesktopInfoRow {display:none!important}
 #familySummary #clanHonorMobileInfoRow {
   display:flex!important;visibility:visible!important;pointer-events:auto!important;align-items:center!important;justify-content:center!important;
-  top:var(--honor-info-y)!important;width:100px!important;height:34px!important;min-height:0!important;padding:0!important;overflow:visible!important;
+  top:var(--honor-info-y)!important;width:100px!important;height:26px!important;min-height:0!important;padding:0!important;overflow:visible!important;
 }
 #familySummary .honor-info-button.honor-info-only {min-width:64px!important;height:26px!important;padding:0 12px!important;font-size:10px!important}
 #familySummary .clan-honor-top3-live {top:var(--honor-leaders-y)!important;width:var(--honor-leaders-w)!important;height:var(--honor-leaders-h)!important;aspect-ratio:auto!important;overflow:hidden!important}
@@ -10695,7 +10695,7 @@ html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-cinematic
 html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-cinematic-title h4 {font-size:20px!important}
 html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-cinematic-title p {font-size:10px!important}
 html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-cinematic-subline {font-size:8px!important}
-html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-cinematic-chart {gap:12px!important}
+html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-cinematic-chart {gap:8px!important}
 html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-spotlight-fill {width:40px!important}
 html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-spotlight-value {min-width:46px!important;font-size:10px!important;padding:4px 5px!important}
 html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-spotlight-plinth {width:48px!important}
@@ -10707,9 +10707,9 @@ html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-metric-co
 html[data-asc-honor-view="mobile-portrait"] #familySummary .honor-control-text {font-size:11px!important}
 html[data-asc-honor-view="mobile-portrait"] #familySummary .honor-control-icon {font-size:20px!important;width:22px!important}
 html[data-asc-honor-view="mobile-portrait"] #familySummary .top3-rank {font-size:10px!important}
-html[data-asc-honor-view="mobile-portrait"] #familySummary .top3-copy strong {font-size:8px!important}
+html[data-asc-honor-view="mobile-portrait"] #familySummary .top3-copy strong {font-size:10px!important;white-space:normal!important;overflow-wrap:anywhere}
 html[data-asc-honor-view="mobile-portrait"] #familySummary .top3-clan,
-html[data-asc-honor-view="mobile-portrait"] #familySummary .top3-score {font-size:5px!important}
+html[data-asc-honor-view="mobile-portrait"] #familySummary .top3-score {font-size:6px!important}
 html[data-asc-honor-view="mobile-portrait"] #familySummary .top3-stars {display:none!important}
 html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-top3-title {font-size:6px!important}
 html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-top3-title span {font-size:4px!important}
@@ -10720,6 +10720,22 @@ html[data-asc-honor-view="mobile-portrait"] #familySummaryDetails .clan-honor-as
 html[data-asc-honor-view="mobile-portrait"] #familySummaryDetails .clan-honor-console-stat span {font-size:10px!important}
 html[data-asc-honor-view="mobile-portrait"] #familySummaryDetails .clan-honor-console-stat b {font-size:18px!important}
 @media(prefers-reduced-motion:reduce){#familySummaryDetails .clan-honor-asset-podium{transition:none!important}}
+
+/* Keep all four period buttons on one baseline; legacy curved-row offsets
+   otherwise lift weeks one and two independently of the surrounding row. */
+#familySummary .clan-honor-period-controls button{transform:none!important;translate:none!important;top:auto!important;margin:0!important;align-self:stretch!important}
+#familySummary .clan-honor-period-controls button[data-honor-period="current"]{font-size:19px!important}
+html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-period-controls button[data-honor-period="current"]{font-size:14px!important}
+html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-spotlight-bar .clan-honor-clan-pill{min-width:52px!important;width:52px!important;padding:4px!important}
+/* The bar shine moves a small layer with transform instead of repainting
+   the full bar's gradient on every animation frame. */
+#familySummary .clan-honor-spotlight-fill::after{background-size:100% 100%!important;mix-blend-mode:normal!important;animation:honorBarSweep 4s linear infinite!important}
+@keyframes honorBarSweep{from{transform:translateX(-120%)}to{transform:translateX(120%)}}
+@media(max-width:900px),(pointer:coarse){
+  .asc-gold-shimmer{display:none!important}
+  #familySummary .clan-honor-spotlight-fill::after{animation:none!important;opacity:.2}
+}
+@media(prefers-reduced-motion:reduce){#familySummary .clan-honor-spotlight-fill::after{animation:none!important}}
 
 /* Rankings own their responsive layout; no off-screen table or filter strip. */
 #rankingsPage .family-table-panel{max-width:1240px;margin-left:auto;margin-right:auto;border-radius:10px;border-color:#977733}
