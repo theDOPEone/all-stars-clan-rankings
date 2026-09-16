@@ -12085,10 +12085,9 @@ function renderClanHonorBoard(players,clans,avgT,totalD,linked){
     </button><span class="clan-honor-floating-label label-rank-${rank}" aria-hidden="true"><span>${esc(/^A[123]$/.test(x.shortName)?`Academy #${x.shortName.slice(1)}`:x.shortName)}</span></span>`;
   };
   const fourth=byRank(4);
-  if(!host.querySelector('.clan-honor-cinematic-stage'))host.innerHTML=`<section class="clan-honor-scene-shell" aria-label="Clan Honor family comparison">
+  if(!host.querySelector('.clan-honor-cinematic-stage')||!updateClanHonorGraphView())host.innerHTML=`<section class="clan-honor-scene-shell" aria-label="Clan Honor family comparison">
     ${clanHonorCinematicStage()}
   </section>`;
-  else updateClanHonorGraphView();
   const detailsHtml=`<section class="clan-honor-details-shell clan-honor-rankings-redesign">
     <div class="clan-honor-rankings-hero">
       <div class="clan-honor-rankings-bg" aria-hidden="true"></div>
