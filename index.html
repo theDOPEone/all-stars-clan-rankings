@@ -10668,8 +10668,9 @@ html #familySummaryDetails .clan-honor-asset-console{z-index:4!important}
 html[data-asc-honor-view="mobile-portrait"] .clan-honor-floating-label>span{font-size:11px;min-width:32px;padding:5px 9px}
 /* These small badge bounces are explicitly requested; keep them active even
    when system motion reduction disables the larger scene shimmer. */
-html #familySummaryDetails .clan-honor-asset-podium .clan-honor-podium-leader-avatar{width:34%!important;top:28.5%!important;aspect-ratio:auto!important;height:25.5%!important}
-html #familySummaryDetails .clan-honor-podium-leader-img.unit-art{padding:0!important;transform:scale(1.12);transform-origin:center center;object-position:center!important}
+html #familySummaryDetails .clan-honor-asset-podium .clan-honor-podium-leader-avatar{width:40%!important;top:27%!important;aspect-ratio:1!important;height:30%!important;clip-path:circle(50%)!important;border-radius:50%!important}
+html #familySummaryDetails .clan-honor-podium-leader-img.unit-art,
+html #familySummaryDetails .clan-honor-podium-leader-img.portrait-art{padding:8%!important;transform:none!important;object-fit:contain!important;object-position:center center!important}
 @media(prefers-reduced-motion:reduce){#familySummaryDetails .clan-honor-asset-marker{animation:none}}
 #familySummaryDetails .clan-honor-asset-name {font-size:10px!important;letter-spacing:0!important;line-height:1.2!important;width:68%!important}
 #familySummaryDetails .clan-honor-asset-meta b {font-size:16px!important}
@@ -11338,6 +11339,27 @@ html body #memberPage>.member-zone-tabs-wrap::before,html body #memberPage>.memb
 html body #memberPage>.member-zone-tabs-wrap .member-zone-tabs{box-shadow:none!important;background:transparent!important;border:0!important;margin:0!important}
 html body #memberPage>.member-zone-tabs-wrap .member-zone-tabs::before,html body #memberPage>.member-zone-tabs-wrap .member-zone-tabs::after{content:none!important}
 #memberPage>.member-zone-hero{margin-top:0!important}
+
+/* Supplied wallpapers rotate with the viewport, preserving the original art. */
+html[data-asc-diamond-background="blue"]{--asc-diamond-image:url('./assets/arena/blue_background.png')}
+html[data-asc-diamond-background="red"]{--asc-diamond-image:url('./assets/arena/red_background.png')}
+html[data-asc-diamond-background="blue"] body:not(.live-game-mode),
+html[data-asc-diamond-background="red"] body:not(.live-game-mode){background:transparent!important}
+html[data-asc-diamond-background="blue"] body:not(.live-game-mode)::before,
+html[data-asc-diamond-background="red"] body:not(.live-game-mode)::before{
+  content:"";display:block;position:fixed!important;inset:0!important;z-index:-1;pointer-events:none;
+  width:100vw;height:100vh;background:var(--asc-diamond-image) center center / cover no-repeat!important;transform:none;
+}
+@media(orientation:portrait){
+  html[data-asc-diamond-background="blue"] body:not(.live-game-mode)::before{
+    inset:50% auto auto 50%!important;width:100vh;height:100vw;transform:translate(-50%,-50%) rotate(90deg);
+  }
+}
+@media(orientation:landscape){
+  html[data-asc-diamond-background="red"] body:not(.live-game-mode)::before{
+    inset:50% auto auto 50%!important;width:100vh;height:100vw;transform:translate(-50%,-50%) rotate(90deg);
+  }
+}
 
 /* Mobile Safari scrolls body backgrounds even with background-attachment:fixed.
    Paint the diamonds on a viewport-fixed layer behind the scrolling pages. */
