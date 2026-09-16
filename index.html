@@ -11638,6 +11638,85 @@ html body .main-page-viewport > .main-page-slide:not(.main-page-current) *::afte
   html::-webkit-scrollbar-corner{background:#041a2b!important}
 }
 
+
+/* Mobile Player Spotlight: compact collapsed plaque with large DP extending beyond the plaque. */
+@media(max-width:700px){
+  .member-zone-spotlight-embedded{
+    overflow:visible!important;
+    margin-top:10px!important;
+  }
+  .member-zone-spotlight-embedded::after{display:none!important}
+  .member-spotlight-summary{
+    overflow:visible!important;
+    padding:5px 7px!important;
+  }
+  .member-spotlight-summary-main{
+    position:relative!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 34px!important;
+    align-items:center!important;
+    gap:6px!important;
+    min-height:56px!important;
+    padding:7px 7px 7px 82px!important;
+    border-radius:12px!important;
+    overflow:visible!important;
+  }
+  .member-spotlight-summary-main::before{content:none!important}
+  .member-spotlight-summary-avatar{
+    position:absolute!important;
+    z-index:4!important;
+    left:8px!important;
+    top:50%!important;
+    width:74px!important;
+    height:74px!important;
+    margin:0!important;
+    transform:translateY(-50%)!important;
+    font-size:22px!important;
+    border-width:2px!important;
+    box-shadow:0 6px 15px rgba(0,0,0,.42),0 0 13px rgba(239,200,94,.18),inset 0 1px 0 rgba(255,240,164,.22)!important;
+  }
+  .member-spotlight-summary-avatar svg{width:31px!important;height:31px!important}
+  .member-spotlight-summary-player{
+    grid-column:1!important;
+    min-width:0!important;
+    padding:0!important;
+  }
+  .member-spotlight-summary-player .name{
+    font-size:18px!important;
+    line-height:1.02!important;
+    letter-spacing:.025em!important;
+  }
+  .member-spotlight-summary-player .clan{
+    display:block!important;
+    margin-top:4px!important;
+    color:#f3dda0!important;
+    font-size:8.5px!important;
+    line-height:1.05!important;
+    letter-spacing:.055em!important;
+  }
+  .member-spotlight-summary-player .clan-extra{display:none!important}
+  .member-spotlight-summary-engraved,
+  .member-spotlight-summary-activity{display:none!important}
+  .member-spotlight-summary-toggle{
+    grid-column:2!important;
+    align-self:stretch!important;
+    min-width:0!important;
+    width:34px!important;
+    padding:0!important;
+    border-left:1px solid rgba(233,191,81,.22)!important;
+    font-size:0!important;
+  }
+  .member-spotlight-summary-toggle span{display:none!important}
+  .member-spotlight-summary-toggle b{
+    margin:0!important;
+    font-size:20px!important;
+    line-height:1!important;
+  }
+  .member-zone-spotlight-embedded.open .member-spotlight-inline-details{
+    margin-top:8px!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
