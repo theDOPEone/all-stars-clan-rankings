@@ -10632,6 +10632,20 @@ html[data-asc-honor-view="mobile-portrait"] .asc-gold-backdrop{left:-2%;top:-2%;
 #familySummary .clan-honor-top3-title {font-size:9px!important;top:11%!important;left:10%!important}
 #familySummary .clan-honor-top3-title span {display:inline!important;font-size:5px!important}
 #familySummary .clan-honor-stage-loading {top:var(--honor-chart-y)!important;width:var(--honor-chart-w)!important;height:var(--honor-chart-h)!important}
+#familySummary .clan-honor-war-starts-soon{
+  top:calc(var(--honor-chart-y) + 105px)!important;width:430px!important;min-height:78px!important;
+  display:flex!important;align-items:center;justify-content:center;flex-direction:column;gap:5px;
+  padding:12px 20px!important;border:1px solid #d6b65d;border-radius:14px;
+  color:#ffe39a;background:linear-gradient(155deg,rgba(8,44,73,.95),rgba(3,27,49,.92));
+  box-shadow:0 8px 26px #001426aa,inset 0 1px #fff4b83d;pointer-events:none;z-index:5;
+}
+#familySummary .clan-honor-war-starts-soon.hidden{display:none!important}
+#familySummary .clan-honor-war-starts-soon .icon{font-size:18px;line-height:1}
+#familySummary .clan-honor-war-starts-soon strong{font-size:15px;letter-spacing:.04em}
+#familySummary .clan-honor-war-starts-soon>span:last-child{font-size:11px;color:#d6e7f4;text-align:center}
+html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-war-starts-soon{
+  top:calc(var(--honor-chart-y) + 92px)!important;width:300px!important;min-height:76px!important;padding:10px!important;
+}
 
 /* Keep Info outside the scaled canvas, so it opens in the browser viewport. */
 #familySummary #clanHonorInfoPopup.clan-honor-info-popup {
@@ -11856,6 +11870,9 @@ function updateClanHonorGraphView(){
   const infoContent=$('clanHonorInfoContent');
   if(infoContent)infoContent.innerHTML=clanHonorInfoPopupHtml();
 
+  const warNotice=$('clanHonorWarStartsSoon');
+  if(warNotice)warNotice.classList.toggle('hidden',!clanHonorWarStartsSoon(selection));
+
   const bars=[...stage.querySelectorAll('.clan-honor-spotlight-bar[data-honor-clan]')];
   if(!bars.length)return false;
 
@@ -12034,6 +12051,10 @@ function clanHonorCinematicStage(){
       </div>
       <div id="clanHonorGraphSubline" class="clan-honor-cinematic-subline">${selection?`${selection.label} • ${esc(selection.subLabel)}`:'Waiting for comparison data'}</div>
       ${chartHtml}
+      <div id="clanHonorWarStartsSoon" class="clan-honor-war-starts-soon${clanHonorWarStartsSoon(selection)?'':' hidden'}" role="status">
+        <span class="icon" aria-hidden="true">⚔️</span><strong>WAR STARTS SOON</strong>
+        <span>Check back on Thursday for this week's stats.</span>
+      </div>
       ${weekControls}
       ${metricControls}
       ${clanHonorMetricHelpHtml()}
@@ -12341,5 +12362,10 @@ function ascAddGoldShimmer(img){
   canvas.className='asc-gold-shimmer'+(img.classList.contains('asc-honor-scene-art')?' asc-gold-backdrop':'');
   canvas.setAttribute('aria-hidden','true');canvas.style.animationDelay=`-${Math.random()*6}s`;
   img.insertAdjacentElement('afterend',canvas);img._goldSource=img.currentSrc;img._goldCanvas=canvas;
+}
+function clanHonorWarStartsSoon(selection){
+  return clanHonorHistoryPeriod==='current'&&clanHonorHistoryMetric==='war'
+    &&!!selection?.rows?.length
+    &&selection.rows.every(row=>Number(row.value||0)<=0);
 }
 startPublicSite();</script></body></html>
