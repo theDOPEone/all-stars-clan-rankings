@@ -714,6 +714,18 @@ tr:hover td{background:rgba(37,117,169,.22)}
 
 .event-compact-body{max-height:245px;overflow-y:auto;overflow-x:hidden;scrollbar-gutter:stable;padding-right:7px}
 .event-compact-body.event-expanded{max-height:none;overflow-y:visible;padding-right:0}
+/* Events/history logs no longer steal wheel/touch scrolling from the page by default.
+   Tap/click a compact log once to arm its own scrolling; clicking elsewhere returns
+   wheel/touch control to the main page. Expanded logs remain normal page content. */
+#eventsPage .event-compact-body:not(.event-expanded):not(.event-scroll-active){
+  overflow-y:hidden;
+  cursor:pointer;
+}
+#eventsPage .event-compact-body:not(.event-expanded).event-scroll-active{
+  overflow-y:auto;
+  cursor:auto;
+  box-shadow:inset 0 0 0 1px rgba(239,200,94,.20);
+}
 #eventsPage{width:min(1080px,78vw);margin-left:auto;margin-right:auto}
 #eventsPage>.panel{width:100%}
 @media(max-width:1100px){#eventsPage{width:100%}}
@@ -11440,7 +11452,7 @@ body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;
     <div id="familyControls" class="family-controls"></div>
     <div class="scroll"><table><thead><tr><th>Family Rank</th><th>Player</th><th>Clan</th><th>Clan Perf. Rank</th><th>Rating</th><th>War Avg</th><th>Donations</th><th>Last Seen</th><th>Trophies</th></tr></thead><tbody id="familyRows"></tbody></table></div>
   </div>
-</section></main><div class="developer-credit">Developed by: Dope1one <a href="https://discord.gg/gnCerCB6t" target="_blank" rel="noopener noreferrer" aria-label="Join our Discord"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19.7 5.3a18 18 0 0 0-4.5-1.4l-.6 1.2a17 17 0 0 0-5.2 0l-.6-1.2a18 18 0 0 0-4.5 1.4C1.5 9.4.7 13.4 1.1 17.3a18 18 0 0 0 5.5 2.8l1.1-1.8-1.7-.8.4-.3a15 15 0 0 0 11.2 0l.4.3-1.7.8 1.1 1.8a18 18 0 0 0 5.5-2.8c.5-4.5-.8-8.4-3.2-12ZM8.4 14.9c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm7.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg> Join Discord</a></div><div id="playerModal" class="modal hidden" onclick="if(event.target===this)closePlayer()"><div class="modalcard"><div class="modalhead"><h2 id="playerTitle"></h2><button class="btn close" onclick="closePlayer()">Close</button></div><div id="playerBody" class="modalbody"></div></div><script>// Public-only runtime: no credentials, local sessions, or administration APIs.
+</section></main><div class="developer-credit">Developed by: DOPE1one <a href="https://discord.gg/gnCerCB6t" target="_blank" rel="noopener noreferrer" aria-label="Join our Discord"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19.7 5.3a18 18 0 0 0-4.5-1.4l-.6 1.2a17 17 0 0 0-5.2 0l-.6-1.2a18 18 0 0 0-4.5 1.4C1.5 9.4.7 13.4 1.1 17.3a18 18 0 0 0 5.5 2.8l1.1-1.8-1.7-.8.4-.3a15 15 0 0 0 11.2 0l.4.3-1.7.8 1.1 1.8a18 18 0 0 0 5.5-2.8c.5-4.5-.8-8.4-3.2-12ZM8.4 14.9c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm7.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg> Join Discord</a></div><div id="playerModal" class="modal hidden" onclick="if(event.target===this)closePlayer()"><div class="modalcard"><div class="modalhead"><h2 id="playerTitle"></h2><button class="btn close" onclick="closePlayer()">Close</button></div><div id="playerBody" class="modalbody"></div></div><script>// Public-only runtime: no credentials, local sessions, or administration APIs.
 const MANAGEMENT_URL='https://ion-kebab-muster.ngrok-free.dev/';
 const $=id=>document.getElementById(id);
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
