@@ -11656,12 +11656,11 @@ function clanHonorMetricRange(metric,rows){
   if(metric==='honor'){
     // Honor may reach 150, but the visual scale adapts so lower-scoring weeks
     // still show meaningful differences instead of four tiny bars.
-    const adaptive=Math.ceil(Math.max(50,rawMax*1.28)/10)*10;
-    return{min:0,max:Math.min(160,adaptive)};
+    return{min:0,max:Math.max(1,rawMax*1.08)};
   }
-  if(metric==='donations')return{min:0,max:Math.max(12000,rawMax>12000?Math.ceil(rawMax*1.10/1000)*1000:12000)};
+  if(metric==='donations')return{min:0,max:Math.max(1,rawMax*1.08)};
   if(metric==='arena')return{min:750,max:1600};
-  return{min:0,max:Math.max(5000,Math.ceil(Math.max(5000,rawMax*1.10)/500)*500)};
+  return{min:0,max:Math.max(1,rawMax*1.08)};
 }
 function clanHonorControlLabel(label){
   const parts=String(label||'').trim().split(/\s+/);
@@ -12054,8 +12053,6 @@ async function refreshClanHonorPodiumLeaderAvatars(rows){
 }
 function renderClanHonorBoard(players,clans,avgT,totalD,linked){
   const host=$('familySummary'),details=$('familySummaryDetails');if(!host||!details)return;
-  const floatingInfo=$('clanHonorInfoPopup');
-  if(floatingInfo?.parentElement===document.body)closeClanHonorInfo();
   const rows=clanHonorRows(),ranked=rows.slice().sort((a,b)=>a.honorRank-b.honorRank);
   const arenaReady=!!clanHonorArenaRatings;
   const byRank=n=>ranked.find(x=>x.honorRank===n)||ranked[Math.max(0,n-1)]||null;
@@ -12072,10 +12069,11 @@ function renderClanHonorBoard(players,clans,avgT,totalD,linked){
     </button><span class="clan-honor-floating-label label-rank-${rank}" aria-hidden="true"><span>${esc(/^A[123]$/.test(x.shortName)?`Academy #${x.shortName.slice(1)}`:x.shortName)}</span></span>`;
   };
   const fourth=byRank(4);
-  host.innerHTML=`<section class="clan-honor-scene-shell" aria-label="Clan Honor family comparison">
+  if(!host.querySelector('.clan-honor-cinematic-stage'))host.innerHTML=`<section class="clan-honor-scene-shell" aria-label="Clan Honor family comparison">
     ${clanHonorCinematicStage()}
   </section>`;
-  details.innerHTML=`<section class="clan-honor-details-shell clan-honor-rankings-redesign">
+  else updateClanHonorGraphView();
+  const detailsHtml=`<section class="clan-honor-details-shell clan-honor-rankings-redesign">
     <div class="clan-honor-rankings-hero">
       <div class="clan-honor-rankings-bg" aria-hidden="true"></div>
       <div class="clan-honor-rankings-header">
@@ -12118,6 +12116,7 @@ function renderClanHonorBoard(players,clans,avgT,totalD,linked){
       <div class="clan-honor-showcase-hint">Select a podium to open that clan's live stats and recent war history.</div>
     </section>
   </section>`;
+  if(details._honorMarkup!==detailsHtml){details.innerHTML=detailsHtml;details._honorMarkup=detailsHtml}
   observeClanHonorScene();
   refreshClanHonorPodiumLeaderAvatars(rows);
   if(!arenaReady&&!clanHonorArenaLoading)ensureClanHonorArenaRatings();
@@ -12199,12 +12198,14 @@ function renderClanHonorTop3(rows){
   const host=$('clanHonorTop3');
   if(!host)return;
   const top=(Array.isArray(rows)?rows:[]).slice(0,3);
-  host.innerHTML=`<img class="clan-honor-top3-art" src="./assets/family_top3_overlay.png" alt="" aria-hidden="true">
+  const markup=`<img class="clan-honor-top3-art" src="./assets/family_top3_overlay.png" alt="" aria-hidden="true">
     <div class="clan-honor-top3-title">FAMILY LEADERBOARD <span>${esc(familyModeLabel(familyRankingMode))}</span></div>
     <div class="clan-honor-top3-players">
       ${top.map((x,i)=>clanHonorTop3PlayerHtml(x,i)).join('')}
     </div>`;
 
+  if(host._top3Markup===markup)return;
+  host.innerHTML=markup;host._top3Markup=markup;
   refreshClanHonorTop3Avatars(top);
 }
 function renderFamilyRankings(){
@@ -12286,6 +12287,8 @@ function openSimpleClanInfo(index){
 }
 function closeSimpleClanInfo(){const el=document.getElementById('simpleClanInfo');if(!el)return;document.removeEventListener('click',el._outside);document.removeEventListener('keydown',el._escape);window.removeEventListener('resize',el._position);el.remove()}
 function ascAddGoldShimmer(img){
+  // Avoid image readback and large animated masks on phones, especially older iPhones.
+  if(ascIsPhoneDevice())return;
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   if(img._goldSource===img.currentSrc&&img._goldCanvas?.isConnected)return;
   img._goldCanvas?.remove();
