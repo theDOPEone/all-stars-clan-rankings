@@ -11476,6 +11476,111 @@ html[data-asc-diamond-background="red"] body:not(.live-game-mode)::before{
 }
 
 
+/* ===== MEMBER ZONE COMPACT THREE-BUTTON DIAL =====
+   Keep the sub-nav pinned beneath the main app nav, but remove the large
+   surrounding panel. Only the three Clash-style buttons remain visible. */
+#memberPage .member-zone-tabs-wrap{
+  padding:5px 0 3px!important;
+  margin:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  perspective:900px;
+}
+#memberPage .member-zone-tabs{
+  --dial-drag:0px;
+  --dial-side-drag:0px;
+  width:min(610px,calc(100% - 14px))!important;
+  max-width:610px!important;
+  margin:0 auto!important;
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(110px,.74fr) minmax(205px,1.34fr) minmax(110px,.74fr)!important;
+  align-items:center!important;
+  gap:8px!important;
+  overflow:visible!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  scrollbar-width:none!important;
+  isolation:isolate;
+  touch-action:pan-y;
+}
+#memberPage .member-zone-tabs::-webkit-scrollbar{display:none!important}
+#memberPage .member-zone-tab{
+  min-width:0!important;
+  width:100%!important;
+  min-height:39px!important;
+  padding:7px 8px!important;
+  border-radius:5px!important;
+  font-size:8px!important;
+  line-height:1.12!important;
+  white-space:normal!important;
+  transform-origin:center center;
+  transition:transform .30s cubic-bezier(.2,.78,.2,1),opacity .28s ease,filter .28s ease,border-color .28s ease,box-shadow .28s ease!important;
+}
+#memberPage .member-zone-tab .member-zone-tab-icon{
+  display:inline-block!important;
+  width:1.08em!important;
+  margin:0 2px 0 0!important;
+  font-size:1em!important;
+  vertical-align:-.04em!important;
+}
+#memberPage .member-zone-tab.dial-left{
+  order:1!important;
+  opacity:.43!important;
+  filter:saturate(.56) brightness(.76)!important;
+  transform:translateX(var(--dial-side-drag)) perspective(500px) rotateY(12deg) scale(.84)!important;
+  transform-origin:right center!important;
+}
+#memberPage .member-zone-tab.dial-center{
+  order:2!important;
+  z-index:3!important;
+  opacity:1!important;
+  filter:none!important;
+  transform:translateX(var(--dial-drag)) translateY(-1px) scale(1)!important;
+  box-shadow:inset 0 -2px var(--asc-accent,#e8ba3f),0 5px 13px rgba(0,0,0,.28),0 0 13px var(--asc-glow,rgba(239,200,94,.12))!important;
+}
+#memberPage .member-zone-tab.dial-right{
+  order:3!important;
+  opacity:.43!important;
+  filter:saturate(.56) brightness(.76)!important;
+  transform:translateX(var(--dial-side-drag)) perspective(500px) rotateY(-12deg) scale(.84)!important;
+  transform-origin:left center!important;
+}
+#memberPage .member-zone-tab.dial-left:hover,#memberPage .member-zone-tab.dial-right:hover{
+  opacity:.68!important;
+  filter:saturate(.82) brightness(.94)!important;
+}
+#memberPage .member-zone-tab.dial-left:active,#memberPage .member-zone-tab.dial-right:active{
+  opacity:.92!important;
+  filter:saturate(1) brightness(1.04)!important;
+}
+#memberPage .member-zone-dial-hint{display:none!important}
+#memberPage .member-zone-tab-panel.member-zone-panel-enter-left{animation:ascMemberZonePanelFromLeft .28s cubic-bezier(.2,.78,.2,1)}
+#memberPage .member-zone-tab-panel.member-zone-panel-enter-right{animation:ascMemberZonePanelFromRight .28s cubic-bezier(.2,.78,.2,1)}
+@keyframes ascMemberZonePanelFromLeft{from{opacity:.35;transform:translateX(-26px)}to{opacity:1;transform:translateX(0)}}
+@keyframes ascMemberZonePanelFromRight{from{opacity:.35;transform:translateX(26px)}to{opacity:1;transform:translateX(0)}}
+@media(max-width:700px){
+  #memberPage .member-zone-tabs-wrap{padding:4px 0 2px!important}
+  #memberPage .member-zone-tabs{
+    width:min(430px,calc(100% - 6px))!important;
+    grid-template-columns:minmax(74px,.66fr) minmax(164px,1.48fr) minmax(74px,.66fr)!important;
+    gap:4px!important;
+  }
+  #memberPage .member-zone-tab{min-height:35px!important;padding:6px 3px!important;font-size:7px!important;border-radius:5px!important}
+  #memberPage .member-zone-tab.dial-left{transform:translateX(var(--dial-side-drag)) scale(.82)!important}
+  #memberPage .member-zone-tab.dial-center{transform:translateX(var(--dial-drag)) translateY(-1px) scale(1)!important}
+  #memberPage .member-zone-tab.dial-right{transform:translateX(var(--dial-side-drag)) scale(.82)!important}
+}
+
+
 /* ===== RESPONSIVE STICKY NAV CORRECTION =====
    On phone/narrow portrait layouts the five-button app navigation owns the
    sticky top position. Member Zone profile/account/arena tabs remain normal
