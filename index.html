@@ -11689,6 +11689,7 @@ function clanHonorSelectionData(){
   return {rows,label:`${weekIndex+1} WEEK${weekIndex?'S':''} AGO`,subLabel:span};
 }
 function clanHonorMetricRange(metric,rows){
+  
   const rawMax=Math.max(0,...rows.map(r=>Number(r.value||0)));
   if(metric==='honor'){
     // Honor may reach 150, but the visual scale adapts so lower-scoring weeks
