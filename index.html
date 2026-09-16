@@ -3875,6 +3875,70 @@ html.asc-custom-background body:not(.live-game-mode):before{
 
 
 /* ===== DAILY 5 BATTLE ARENA — dedicated mode redesign ===== */
+/* Compact entry scene: keep the heavy Daily 5 controls out of view until the player chooses to battle. */
+.daily-arena-intro{
+  position:relative;
+  min-height:156px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding:18px 132px;
+  border-top:1px solid rgba(255,255,255,.025);
+  background:
+    radial-gradient(circle at 50% 34%,rgba(255,214,91,.16),transparent 34%),
+    linear-gradient(180deg,rgba(7,42,69,.97),rgba(4,27,48,.99));
+  opacity:1;
+  transform:translateY(0) scale(1);
+  transition:opacity .22s ease,transform .22s ease;
+}
+.daily-arena-intro:before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(3,20,37,.76),transparent 31%,transparent 69%,rgba(3,20,37,.76));
+}
+.daily-arena-intro-center{position:relative;z-index:3;width:min(470px,100%);text-align:center}
+.daily-arena-intro-kicker{color:#8fc8e8;font-size:7px;font-weight:950;letter-spacing:.15em}
+.daily-arena-intro-title{margin-top:4px;color:#ffd75d;font-size:27px;font-weight:1000;letter-spacing:.07em;text-shadow:0 3px 0 rgba(84,52,5,.55),0 0 18px rgba(255,203,57,.18)}
+.daily-arena-intro-copy{max-width:430px;margin:5px auto 10px;color:#bcd7e7;font-size:8px;line-height:1.45}
+.daily-arena-begin{
+  min-width:178px;
+  min-height:42px;
+  padding:8px 24px;
+  border:2px solid #f2cc59;
+  border-radius:8px;
+  background:linear-gradient(180deg,#f7d96c 0%,#d49b23 46%,#8b5a0c 100%);
+  color:#17304a;
+  font-size:13px;
+  font-weight:1000;
+  letter-spacing:.12em;
+  cursor:pointer;
+  box-shadow:inset 0 1px rgba(255,255,255,.58),inset 0 -3px rgba(91,54,4,.32),0 6px 14px rgba(0,0,0,.28),0 0 18px rgba(255,205,64,.15);
+  text-shadow:0 1px rgba(255,255,255,.35);
+}
+.daily-arena-begin:hover{filter:brightness(1.08)}
+.daily-arena-begin:active{transform:translateY(2px)}
+.daily-arena-begin:disabled{cursor:default;filter:none}
+.daily-arena-intro-art{
+  position:absolute;z-index:1;bottom:-23px;height:176px;width:auto;object-fit:contain;pointer-events:none;
+  filter:drop-shadow(0 10px 16px rgba(0,0,0,.52));opacity:.72
+}
+.daily-arena-intro-art.left{left:-4px;transform:rotate(-3deg)}
+.daily-arena-intro-art.right{right:-12px;transform:scaleX(-1) rotate(3deg);opacity:.66}
+.daily-arena-section.daily-battle-opening .daily-arena-intro{opacity:0;transform:translateY(-4px) scale(.985);pointer-events:none}
+.daily-arena-section.daily-battle-collapsed .member-arena,
+.daily-arena-section.daily-battle-opening .member-arena{display:none!important}
+.daily-arena-section.daily-battle-open .daily-arena-intro{display:none!important}
+.daily-arena-section.daily-battle-open .member-arena{animation:dailyBattlePanelReveal .32s ease both}
+@keyframes dailyBattlePanelReveal{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){
+  .daily-arena-intro{min-height:132px;padding:14px 64px}
+  .daily-arena-intro-title{font-size:22px}
+  .daily-arena-intro-copy{font-size:7.4px;margin-bottom:8px}
+  .daily-arena-begin{min-width:150px;min-height:40px;font-size:11px}
+  .daily-arena-intro-art{height:138px;bottom:-17px;opacity:.55}
+  .daily-arena-intro-art.left{left:-32px}.daily-arena-intro-art.right{right:-38px}
+}
+
 .daily-arena-mode-divider{
   display:grid;
   grid-template-columns:minmax(24px,1fr) auto minmax(24px,1fr);
@@ -5058,6 +5122,18 @@ html.asc-custom-background body:not(.live-game-mode):before{
   font-size:16px;
   font-weight:950;
 }
+
+.daily-arena-section #memberBattleOdds>.battle-sub{
+  margin:7px auto 9px;
+  padding:7px 10px;
+  color:#c6e2f1;
+  font-size:12px!important;
+  line-height:1.35!important;
+  font-weight:700;
+  letter-spacing:.01em;
+  text-align:center;
+}
+@media(max-width:760px){.daily-arena-section #memberBattleOdds>.battle-sub{font-size:10.5px!important;padding:6px 7px}}
 
 /* With the obsolete fighter profile gone, keep the main battle area compact. */
 .daily-arena-section #memberBattleOdds{
