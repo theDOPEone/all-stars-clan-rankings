@@ -11458,6 +11458,13 @@ html body #memberPage>.member-zone-tabs-wrap .member-zone-tabs::before,html body
 #memberPage>.member-zone-hero{margin-top:0!important}
 
 /* Member landing: two focused activity launchers, one active game section. */
+html body,html body *{-webkit-user-select:none!important;user-select:none!important}
+html body :is(#eventCenterRows,.events,.security-events-grid,.owner-log-stream,.battle-log-wrap,.console,.community-list),html body :is(#eventCenterRows,.events,.security-events-grid,.owner-log-stream,.battle-log-wrap,.console,.community-list) *{-webkit-user-select:text!important;user-select:text!important}
+html body input,html body textarea,html body [contenteditable="true"],html body [contenteditable="true"] *{-webkit-user-select:text!important;user-select:text!important}
+html body img{-webkit-user-drag:none;user-drag:none}
+html body #memberPage .member-zone-tabs{touch-action:pan-y!important;overflow:visible!important}
+.main-page-viewport.main-page-dragging>.main-page-current,.main-page-viewport.main-page-dragging>.main-page-drag-target{will-change:transform,opacity}
+.main-page-viewport.main-page-dragging *,.main-page-viewport.main-page-animating *{animation-play-state:paused!important}
 #eventCenter .event-center-tools{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;padding:12px}
 #eventCenter .event-center-tools>input,#eventCenter .event-center-tools>select{width:100%;min-width:0;box-sizing:border-box;margin:0;font-size:13px!important}
 #eventCenter #unifiedEventFilters{grid-column:1;grid-row:1}
