@@ -11970,7 +11970,73 @@ body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;
     <div id="familyControls" class="family-controls"></div>
     <div class="scroll"><table><thead><tr><th>Family Rank</th><th>Player</th><th>Clan</th><th>Clan Perf. Rank</th><th>Rating</th><th>War Avg</th><th>Donations</th><th>Last Seen</th><th>Trophies</th></tr></thead><tbody id="familyRows"></tbody></table></div>
   </div>
-</section></main><div class="developer-credit">Developed by: DOPE1one <a href="https://discord.gg/gnCerCB6t" target="_blank" rel="noopener noreferrer" aria-label="Join our Discord"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19.7 5.3a18 18 0 0 0-4.5-1.4l-.6 1.2a17 17 0 0 0-5.2 0l-.6-1.2a18 18 0 0 0-4.5 1.4C1.5 9.4.7 13.4 1.1 17.3a18 18 0 0 0 5.5 2.8l1.1-1.8-1.7-.8.4-.3a15 15 0 0 0 11.2 0l.4.3-1.7.8 1.1 1.8a18 18 0 0 0 5.5-2.8c.5-4.5-.8-8.4-3.2-12ZM8.4 14.9c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm7.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg> Join Discord</a></div><div id="playerModal" class="modal hidden" onclick="if(event.target===this)closePlayer()"><div class="modalcard"><div class="modalhead"><h2 id="playerTitle"></h2><button class="btn close" onclick="closePlayer()">Close</button></div><div id="playerBody" class="modalbody"></div></div><script>// Public-only runtime: no credentials, local sessions, or administration APIs.
+</section></main><div class="developer-credit">Developed by: DOPE1one <a href="https://discord.gg/gnCerCB6t" target="_blank" rel="noopener noreferrer" aria-label="Join our Discord"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19.7 5.3a18 18 0 0 0-4.5-1.4l-.6 1.2a17 17 0 0 0-5.2 0l-.6-1.2a18 18 0 0 0-4.5 1.4C1.5 9.4.7 13.4 1.1 17.3a18 18 0 0 0 5.5 2.8l1.1-1.8-1.7-.8.4-.3a15 15 0 0 0 11.2 0l.4.3-1.7.8 1.1 1.8a18 18 0 0 0 5.5-2.8c.5-4.5-.8-8.4-3.2-12ZM8.4 14.9c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm7.2 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg> Join Discord</a></div><div id="playerModal" class="modal hidden" onclick="if(event.target===this)closePlayer()"><div class="modalcard"><div class="modalhead"><h2 id="playerTitle"></h2><button class="btn close" onclick="closePlayer()">Close</button></div><div id="playerBody" class="modalbody"></div></div><script>const clanHonorTop3StaticFallbacks=[
+  "./assets/arena-characters/Archer_02.png",
+  "./assets/arena-characters/Archer_Evolution_Pose01_Purple.png",
+  "./assets/arena-characters/Archer_Evolution_Pose02_purple.png",
+  "./assets/arena-characters/Baby_Dragon.png",
+  "./assets/arena-characters/Baby_Dragon_01.png",
+  "./assets/arena-characters/Barbarian_06.png",
+  "./assets/arena-characters/Barbarian_22.png",
+  "./assets/arena-characters/DarkPrinceHero_Pose1_4K_FX_blue.png",
+  "./assets/arena-characters/Dart_Goblin.png",
+  "./assets/arena-characters/Dart_Goblin_Evolution_01.png",
+  "./assets/arena-characters/Electro%20Wizard.png",
+  "./assets/arena-characters/Electro_Wizard_01.png",
+  "./assets/arena-characters/Golem_02.png",
+  "./assets/arena-characters/Hog_Rider_18.png",
+  "./assets/arena-characters/Hog_Rider_22.png",
+  "./assets/arena-characters/Hog_Rider_24.png",
+  "./assets/arena-characters/Hog_Rider_25.png",
+  "./assets/arena-characters/Hog_Rider_26.png",
+  "./assets/arena-characters/Hog_Rider_30.png",
+  "./assets/arena-characters/IceWizardHero_Pose03_4K_B_FX.png",
+  "./assets/arena-characters/IceWizardHero_Pose1_4k_FX.png",
+  "./assets/arena-characters/Ice_Wizard_01.png",
+  "./assets/arena-characters/Ice_Wizard_02.png",
+  "./assets/arena-characters/Ice_Wizard_03.png",
+  "./assets/arena-characters/Knight.png",
+  "./assets/arena-characters/KnightHeroes_Pose3_4K_FX_White.png",
+  "./assets/arena-characters/Knight_09.png",
+  "./assets/arena-characters/MegaMinion_Hero_Pose01_4K_FX_eyes.png",
+  "./assets/arena-characters/MegaMinion_Pose02_4k_FX.png",
+  "./assets/arena-characters/Mega_Knight_03.png",
+  "./assets/arena-characters/Mega_Minion.png",
+  "./assets/arena-characters/Prince.png",
+  "./assets/arena-characters/Prince_01.png",
+  "./assets/arena-characters/Prince_03.png",
+  "./assets/arena-characters/Princess_01.png",
+  "./assets/arena-characters/Princess_02.png",
+  "./assets/arena-characters/Princess_03.png",
+  "./assets/arena-characters/Ram_Rider.png",
+  "./assets/arena-characters/Ram_Rider_02.png",
+  "./assets/arena-characters/Ram_Rider_03.png",
+  "./assets/arena-characters/Ram_Rider_05.png",
+  "./assets/arena-characters/Witch_02.png",
+  "./assets/arena-characters/Witch_12.png",
+  "./assets/arena-characters/Witch_18.png",
+  "./assets/arena-characters/Witch_25.png",
+  "./assets/arena-characters/Wizard_21.png",
+  "./assets/arena-characters/archers.png",
+  "./assets/arena-characters/barbarianEvo_Pose01_4K_FX.png",
+  "./assets/arena-characters/barbarianEvo_Pose02_4K_FX.png",
+  "./assets/arena-characters/barbarian_15.png",
+  "./assets/arena-characters/barbarians.png",
+  "./assets/arena-characters/dark_prince_01.png",
+  "./assets/arena-characters/firecracker.png",
+  "./assets/arena-characters/giant.png",
+  "./assets/arena-characters/goblin_barrel.png",
+  "./assets/arena-characters/goblins_gang.png",
+  "./assets/arena-characters/hog_rider.png",
+  "./assets/arena-characters/magic_archer.png",
+  "./assets/arena-characters/mega_knight.png",
+  "./assets/arena-characters/minions_horde.png",
+  "./assets/arena-characters/musketeer.png",
+  "./assets/arena-characters/princess.png",
+  "./assets/arena-characters/skeleton_army.png",
+  "./assets/arena-characters/witch.png"
+];
+// Public-only runtime: no credentials, local sessions, or administration APIs.
 const MANAGEMENT_URL='https://ion-kebab-muster.ngrok-free.dev/';
 const $=id=>document.getElementById(id);
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -11997,7 +12063,7 @@ function discordLinkFor(tag){return publicLinks.find(x=>String(x.playerTag||x.ta
 function publicDiscordLinkFor(tag){return discordLinkFor(tag)}
 function discordBadgeForTag(tag){return discordLinkFor(tag)?'<span title="Discord linked">●</span>':''}
 function clanHonorTop3DiscordAvatar(tag){const x=discordLinkFor(tag);return x?.discordAvatarUrl||x?.avatarUrl||''}
-function clanHonorTop3FallbackAvatar(){return './assets/arena-characters/Prince.png'}
+function clanHonorTop3FallbackAvatar(tag=''){let hash=0;for(const ch of String(tag))hash=(hash*31+ch.charCodeAt(0))>>>0;return clanHonorTop3StaticFallbacks[hash%clanHonorTop3StaticFallbacks.length]}
 function clanHonorTop3StaticUrl(url){return /^https:\/\//.test(url)||/^\.?\/assets\//.test(url)?url:''}
 async function clanHonorTop3ResolveAvatar(x){try{const r=await publicFetch('/api/public-player-style/'+encodeURIComponent(x.m.tag));if(r.ok){const p=await r.json(),src=p.avatarUrl||p.profileIconUrl||p.favoriteCard?.icon;if(src&&clanHonorTop3StaticUrl(src))return{src,kind:'profile'}}}catch{}return{src:clanHonorTop3DiscordAvatar(x.m.tag)||clanHonorTop3FallbackAvatar(),kind:'unit'}}
 async function ensureClanHonorHistory(){if(clanHonorHistoryLoading)return;clanHonorHistoryLoading=true;try{const r=await publicFetch('/api/family-clan-honor-history');if(r.ok)clanHonorHistory=await r.json()}catch{}finally{clanHonorHistoryLoading=false;clanHonorHistory||={weeks:[]};if(currentPage==='rankings')updateClanHonorGraphView()}}
