@@ -11458,6 +11458,20 @@ html body #memberPage>.member-zone-tabs-wrap .member-zone-tabs::before,html body
 #memberPage>.member-zone-hero{margin-top:0!important}
 
 /* Member landing: two focused activity launchers, one active game section. */
+#memberPage .member-achievement-avatar{position:static!important;flex:0 0 62px;width:62px;height:62px;border:2px solid #d9b85e;border-radius:50%;overflow:hidden;background:#173e5c;display:grid;place-items:center}
+#memberPage .member-achievement-avatar img{width:100%;height:100%;object-fit:contain;object-position:center}
+#communityPointsOverlay{display:none;position:fixed;inset:0;z-index:2500;background:#03111cbb;padding:24px 18px;align-items:center;justify-content:center}
+#communityPointsOverlay.show{display:flex}
+#communityPointsOverlay .community-points-help{position:relative!important;inset:auto!important;transform:none!important;width:min(390px,100%)!important;max-height:calc(100vh - 80px);overflow:auto;overscroll-behavior:contain;box-sizing:border-box;font-size:14px;line-height:1.5}
+#communityPointsOverlay .community-points-help:before{display:none!important}
+#communityPointsOverlay .points-help-close{float:right;min-width:40px;min-height:40px;border:1px solid #bda75c;background:#143f5b;color:#fff1b9;border-radius:8px;font-size:24px;cursor:pointer}
+.recent-battle-filters{display:flex;flex-wrap:wrap;gap:6px;padding:12px}
+.recent-battle-filters button{padding:8px 12px;border:1px solid #416780;border-radius:7px;background:#123650;color:#d5eaf7;cursor:pointer;font:600 12px 'Segoe UI',sans-serif}
+.recent-battle-filters button.active{background:#85631d;color:#fff1bf;border-color:#e0bf65}
+.recent-battle-list{padding:0 12px 12px;max-height:480px;overflow:auto}
+.recent-battle-row{display:grid;grid-template-columns:minmax(90px,.8fr) minmax(0,2fr) auto;gap:12px;padding:12px 0;border-bottom:1px solid #35536b;font:13px/1.5 'Segoe UI',sans-serif;color:#cee2f1}
+.recent-battle-row small{display:block;color:#9bb9ce}.recent-battle-row strong{color:#ffe297}
+@media(max-width:600px){.recent-battle-row{grid-template-columns:1fr auto}.recent-battle-row time{grid-column:1/-1}.recent-battle-filters button{flex:1 0 auto}}
 html body main.shell>.nav{justify-content:center!important}
 html body #memberPage>.member-zone-tabs-wrap{width:100%!important;margin:0 auto 12px!important}
 html body #memberPage>.member-zone-tabs-wrap .member-zone-tabs{margin:0 auto!important}
