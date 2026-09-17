@@ -11538,6 +11538,9 @@ html body main.shell>.nav>button,html body #memberPage>.member-zone-tabs-wrap .m
 @media(max-width:700px){html body main.shell>.nav>button,html body #memberPage>.member-zone-tabs-wrap .member-zone-tab{font-size:12px!important}}
 #memberPage .member-play-intro{font:400 15px/1.5 'Segoe UI',Arial,sans-serif;color:#c8deed;margin:20px 0}
 #memberPage .member-achievement{display:flex;align-items:center;gap:20px;padding:20px;border:1px solid #537c98;border-left:4px solid #efc86a;border-radius:14px;background:linear-gradient(115deg,#163e59,#0c2238);min-width:0}
+#memberPage .member-achievement{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(95deg,#0a2941f5 0%,#123d5dde 48%,#0a2139f2 100%),url('./assets/arena/CR_Furnace_LS_Final.jpg') center 48%/cover no-repeat!important;box-shadow:inset 0 0 32px #071524aa,0 7px 16px #020c1666}
+#memberPage .member-achievement::before{content:'';position:absolute;z-index:-1;inset:0;background:radial-gradient(circle at 14% 48%,#ffe39d24,transparent 20%),linear-gradient(90deg,transparent 10%,#57c4ff16 45%,transparent 78%);pointer-events:none}
+#memberPage .member-achievement-stats{display:flex;align-items:center;justify-content:center;gap:25px;margin-left:auto}
 #memberPage .member-achievement-player{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
 #memberPage .member-achievement-player>div:last-child{min-width:0}
 #memberPage .member-achievement-label{display:block;font:600 10px/1.4 'Segoe UI',Arial,sans-serif;letter-spacing:1.5px;color:#efd28a;margin-bottom:5px}
@@ -11549,7 +11552,7 @@ html body main.shell>.nav>button,html body #memberPage>.member-zone-tabs-wrap .m
 #memberPage .member-achievement-stat div>span{display:block;font:400 12px/1.4 'Segoe UI',Arial,sans-serif;color:#b6d1e3;max-width:180px}
 #memberPage .member-achievement-open{border:1px solid #688da6;border-radius:8px;padding:12px;color:#daefff;background:#183f5b;font:600 12px 'Segoe UI',Arial,sans-serif;cursor:pointer}
 #memberPage .member-achievement>p{color:#c8deed;font:400 14px/1.5 'Segoe UI',Arial,sans-serif}
-@media(max-width:600px){#memberPage .member-achievement{flex-wrap:wrap;gap:14px;padding:14px}#memberPage .member-achievement-player{flex-basis:100%}#memberPage .member-achievement-stat{flex:1}#memberPage .member-achievement-player strong{font-size:18px}#memberPage .member-achievement-stat strong{font-size:20px}}
+@media(max-width:600px){#memberPage .member-achievement{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;padding:14px}#memberPage .member-achievement-player{grid-column:1/-1}.member-achievement-stats{grid-column:1/-1;width:100%;margin:0!important;justify-content:space-between!important;gap:10px!important}#memberPage .member-achievement-stat{flex:1}#memberPage .member-achievement-player strong{font-size:18px}#memberPage .member-achievement-stat strong{font-size:20px}#memberPage .member-achievement-open{grid-column:2}}
 #memberPage .member-command-center{max-width:1040px;margin:0 auto 18px;padding:26px;border:1px solid #b89b53;border-radius:22px;background:radial-gradient(ellipse at 85% 0,#26699a66,transparent 55%),linear-gradient(145deg,#102f4e,#071c32);box-shadow:inset 0 1px #ffe6a43d,0 12px 25px #03142266;scroll-margin-top:150px}
 #memberPage>.member-zone-tabs-wrap .member-zone-tabs{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:0!important;height:auto!important;perspective:none!important}
 #memberPage>.member-zone-tabs-wrap .member-zone-tab{position:relative!important;inset:auto!important;width:100%!important;min-width:0!important;transform:none!important;opacity:1!important;filter:none!important;min-height:44px!important;font-size:12px!important;padding:8px!important;white-space:normal!important}
