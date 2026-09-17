@@ -11458,6 +11458,23 @@ html body #memberPage>.member-zone-tabs-wrap .member-zone-tabs::before,html body
 #memberPage>.member-zone-hero{margin-top:0!important}
 
 /* Member landing: two focused activity launchers, one active game section. */
+#eventCenter .event-center-tools{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;padding:12px}
+#eventCenter .event-center-tools>input,#eventCenter .event-center-tools>select{width:100%;min-width:0;box-sizing:border-box;margin:0;font-size:13px!important}
+#eventCenter #unifiedEventFilters{grid-column:1;grid-row:1}
+#eventCenter #eventClan{grid-column:2;grid-row:1}
+#eventCenter #eventSearch{grid-column:1;grid-row:2}
+#eventCenter #eventSort{grid-column:2;grid-row:2}
+#eventCenter .event-compact-row{display:grid;grid-template-columns:minmax(0,1fr) 78px 100px;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #35536b;color:#d1e4ef;font-size:12px;line-height:1.4}
+#eventCenter .event-compact-person{min-width:0;overflow-wrap:anywhere}
+#eventCenter .event-compact-person>div{color:#f9dfa0}
+#eventCenter .event-compact-person small{display:block;margin-top:3px;color:#a4c3d6;font-size:11px;line-height:1.4}
+#eventCenter .event-compact-person .activity-player-link{font-size:inherit!important}
+#eventCenter .event-compact-result{text-align:center;font-size:11px;color:#ffe29a}
+#eventCenter .event-compact-result small{display:block;margin-top:3px;color:#a4c3d6;font-size:11px}
+#eventCenter .event-compact-date{text-align:right;white-space:nowrap}
+#eventCenter .event-compact-date,#eventCenter .event-compact-date *{font-family:'Segoe UI',Arial,sans-serif!important;font-weight:400!important;font-size:12px!important;letter-spacing:0!important}
+#eventCenter .event-compact-date small{display:block;margin-top:3px;color:#9cbbcf}
+@media(max-width:600px){#eventCenterRows{padding-left:12px;padding-right:12px}#eventCenter .event-compact-row{grid-template-columns:minmax(0,1fr) 51px 73px;gap:7px;padding:10px 0;font-size:11px}#eventCenter .event-compact-person small,#eventCenter .event-compact-result,#eventCenter .event-compact-result small{font-size:10px}#eventCenter .event-compact-date,#eventCenter .event-compact-date *{font-size:10px!important}#eventCenter .event-center-tools>input,#eventCenter .event-center-tools>select{font-size:12px!important}}
 body.events-log-mode #pageBackToTopDock,body.events-log-mode #pageBackToTop{display:none!important}
 body.events-log-mode #eventCenter{height:calc(100svh - 240px)}
 #eventCenter .event-center-head{position:relative;isolation:isolate;min-height:142px;box-sizing:border-box;overflow:hidden;padding:24px}
