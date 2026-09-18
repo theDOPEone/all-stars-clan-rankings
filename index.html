@@ -195,7 +195,7 @@ body:before{
   will-change:transform;
 }
 .main-page-slide.main-page-transitioning{
-  transition:transform .27s cubic-bezier(.2,.82,.2,1),opacity .27s ease;
+  transition:transform .27s cubic-bezier(.2,.82,.2,1);
 }
 .main-page-slide.main-page-unavailable{display:none!important}
 main.shell>.nav button.main-swipe-preview{
@@ -11843,7 +11843,19 @@ html body .main-page-viewport > .main-page-slide:not(.main-page-current)::before
 html body .main-page-viewport > .main-page-slide:not(.main-page-current)::after,
 html body .main-page-viewport > .main-page-slide:not(.main-page-current) *,
 html body .main-page-viewport > .main-page-slide:not(.main-page-current) *::before,
-html body .main-page-viewport > .main-page-slide:not(.main-page-current) *::after{
+html body .main-page-viewport > .main-page-slide:not(.main-page-current) *::after,
+html body .main-page-viewport.main-page-dragging > .main-page-slide,
+html body .main-page-viewport.main-page-dragging > .main-page-slide::before,
+html body .main-page-viewport.main-page-dragging > .main-page-slide::after,
+html body .main-page-viewport.main-page-dragging > .main-page-slide *,
+html body .main-page-viewport.main-page-dragging > .main-page-slide *::before,
+html body .main-page-viewport.main-page-dragging > .main-page-slide *::after,
+html body .main-page-viewport.main-page-animating > .main-page-slide,
+html body .main-page-viewport.main-page-animating > .main-page-slide::before,
+html body .main-page-viewport.main-page-animating > .main-page-slide::after,
+html body .main-page-viewport.main-page-animating > .main-page-slide *,
+html body .main-page-viewport.main-page-animating > .main-page-slide *::before,
+html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   -webkit-animation-play-state:paused!important;
   animation-play-state:paused!important;
 }
