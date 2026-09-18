@@ -12203,6 +12203,65 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   .brand h1{font-size:19px!important}
 }
 
+
+/* ===== OWNER SETTINGS — COMMAND CENTER / ALWAYS-OPEN LAYOUT ===== */
+#settingsPage .owner-dev-hero{
+  display:grid!important;
+  grid-template-columns:minmax(300px,1fr) minmax(390px,.95fr) auto!important;
+  align-items:stretch!important;
+  gap:14px!important;
+}
+#settingsPage .owner-dev-hero-copy{align-self:center;min-width:0}
+#settingsPage .owner-dev-badge{align-self:start;justify-self:end}
+.owner-settings-log-panel{
+  min-width:0;
+  border:1px solid rgba(239,200,94,.34);
+  border-radius:8px;
+  overflow:hidden;
+  background:linear-gradient(180deg,rgba(2,25,44,.82),rgba(2,18,33,.88));
+  box-shadow:inset 0 1px rgba(255,255,255,.035);
+}
+.owner-settings-log-head{
+  display:flex;align-items:center;gap:9px;padding:7px 9px;
+  border-bottom:1px solid rgba(239,200,94,.22);
+  background:linear-gradient(180deg,rgba(15,70,108,.74),rgba(7,43,72,.78));
+}
+.owner-settings-log-head>div{min-width:0;flex:1}
+.owner-settings-log-head b{display:block;color:#ffe58a;font-size:8px;letter-spacing:.11em}
+.owner-settings-log-head span{display:block;margin-top:2px;color:#8fb8d0;font-size:6.5px}
+.owner-settings-log-head .btn{padding:4px 7px;font-size:6.5px;white-space:nowrap}
+.owner-settings-log-stream{height:78px;overflow:auto;padding:5px 7px;background:rgba(2,17,29,.46);scrollbar-width:thin}
+.owner-settings-log-row{display:grid;grid-template-columns:54px 46px minmax(0,1fr);gap:6px;align-items:start;padding:3px 2px;border-bottom:1px solid rgba(135,184,215,.10);font:500 7px/1.35 Consolas,"Courier New",monospace;color:#b7d4e6}
+.owner-settings-log-row:last-child{border-bottom:0}.owner-settings-log-row .time{color:#7294aa}.owner-settings-log-row .kind{font-weight:900;color:#70dbff}.owner-settings-log-row.success .kind{color:#70e2a7}.owner-settings-log-row.error .kind{color:#ff8e95}.owner-settings-log-row.warn .kind{color:#ffe079}.owner-settings-log-row .message{min-width:0;overflow-wrap:anywhere}.owner-settings-log-empty{padding:20px 8px;text-align:center;color:#7898ad;font-size:7px}
+.owner-settings-save-center{
+  display:grid;grid-template-columns:minmax(230px,.75fr) minmax(420px,1.25fr);gap:12px;align-items:center;
+  margin:-2px 0 12px;padding:10px 12px;border:1px solid rgba(239,200,94,.38);border-radius:9px;
+  background:linear-gradient(90deg,rgba(7,43,71,.80),rgba(9,60,94,.72));
+  box-shadow:0 6px 18px rgba(0,18,40,.18),inset 0 1px rgba(255,255,255,.04);
+}
+.owner-settings-save-copy span{display:block;color:#84d9ff;font-size:6.5px;font-weight:950;letter-spacing:.12em}.owner-settings-save-copy b{display:block;margin-top:2px;color:#ffe397;font-size:10px}.owner-settings-save-copy small{display:block;margin-top:3px;color:#91b4c9;font-size:7px;line-height:1.35}.owner-settings-save-actions{display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end}.owner-settings-save-actions .btn{min-height:31px;font-size:7.5px;white-space:nowrap}.owner-settings-save-actions .owner-save-all{border-color:#f2ce62;background:linear-gradient(180deg,#a77713,#664508);color:#fff0ac;font-weight:950;box-shadow:inset 0 1px rgba(255,247,198,.18),0 3px 8px rgba(0,0,0,.22)}
+.owner-settings-toast{
+  position:fixed;z-index:10020;left:50%;top:50%;width:min(320px,calc(100vw - 30px));min-height:168px;
+  transform:translate(-50%,-46%) scale(.96);opacity:0;visibility:hidden;pointer-events:none;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  padding:24px 25px 20px;border:2px solid rgba(105,231,166,.82);border-radius:18px;
+  background:radial-gradient(circle at 50% -10%,rgba(65,178,222,.20),transparent 42%),linear-gradient(180deg,rgba(8,56,88,.98),rgba(3,25,44,.99));
+  box-shadow:0 24px 80px rgba(0,0,0,.72),0 0 28px rgba(74,208,148,.18),inset 0 1px rgba(255,255,255,.06);
+  transition:opacity .20s ease,transform .20s ease,visibility 0s linear .20s;
+}
+.owner-settings-toast.show{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,-50%) scale(1);transition:opacity .20s ease,transform .20s ease}
+.owner-settings-toast.error{border-color:rgba(255,102,112,.92);box-shadow:0 24px 80px rgba(0,0,0,.76),0 0 30px rgba(255,85,95,.20),inset 0 1px rgba(255,255,255,.05)}
+.owner-settings-toast-icon{width:46px;height:46px;display:grid;place-items:center;border-radius:50%;background:#174f46;border:1px solid #6ee4a9;color:#cffff0;font-size:24px;font-weight:950}.owner-settings-toast.error .owner-settings-toast-icon{background:#5b242b;border-color:#ff8d94;color:#ffe0e2}.owner-settings-toast-title{margin-top:9px;color:#ffe49a;font-size:15px;font-weight:950}.owner-settings-toast-text{margin-top:6px;color:#d8edf8;font-size:9.5px;line-height:1.45}.owner-settings-toast-hint{margin-top:10px;color:#789cb3;font-size:7px}.owner-settings-toast.error .owner-settings-toast-hint{color:#ffb8bd}.owner-settings-toast-close{position:absolute;right:8px;top:7px;width:28px;height:28px;border:0;border-radius:50%;background:rgba(0,0,0,.18);color:#a9cadd;font-size:18px;cursor:pointer}
+/* Settings cards stay open. Any legacy accordion code is overridden here. */
+#settingsPage .owner-dev-card>.owner-dev-card-body,#settingsPage .owner-member-access-card .member-admin-body,#settingsPage #discordProtectionSection .discord-body{display:block!important;max-height:none!important;height:auto!important;opacity:1!important;visibility:visible!important}
+#settingsPage .owner-dev-card.collapsed>.owner-dev-card-body,#settingsPage .owner-dev-card.is-collapsed>.owner-dev-card-body,#settingsPage .owner-dev-card.settings-collapsed>.owner-dev-card-body{display:block!important}
+#settingsPage .owner-settings-discord-linking{margin:0!important;border-color:rgba(239,200,94,.34)!important;background:linear-gradient(180deg,rgba(9,54,88,.56),rgba(5,35,61,.64))!important;box-shadow:0 8px 24px rgba(37,3,5,.25),inset 0 1px rgba(255,255,255,.03)!important}
+#settingsPage .owner-settings-discord-linking .discord-head{cursor:default!important;background:linear-gradient(180deg,rgba(20,83,126,.68),rgba(10,54,88,.72))!important;border-bottom-color:rgba(245,174,56,.30)!important}
+#settingsPage .owner-settings-discord-linking .discord-head h3{color:#ffe695!important}
+#settingsPage .owner-settings-discord-linking .discord-collapsed-teaser,#settingsPage .owner-settings-discord-linking .discord-collapse-text,#settingsPage .owner-settings-discord-linking .discord-collapse-toggle{display:none!important}
+@media(max-width:1180px){#settingsPage .owner-dev-hero{grid-template-columns:minmax(260px,1fr) minmax(330px,1fr)!important}.owner-dev-badge{grid-column:1/-1;justify-self:start!important}.owner-settings-save-center{grid-template-columns:1fr}.owner-settings-save-actions{justify-content:flex-start}}
+@media(max-width:760px){#settingsPage .owner-dev-hero{grid-template-columns:1fr!important}.owner-settings-log-stream{height:92px}.owner-settings-save-actions .btn{flex:1 1 145px}.owner-settings-save-actions .owner-save-all{flex-basis:100%}.owner-settings-toast{min-height:154px}}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
