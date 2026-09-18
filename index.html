@@ -12663,6 +12663,174 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
 }
 
 @media(max-width:430px){main.shell>.nav>button{font-size:7.7px!important}.nav-label-mobile[aria-hidden="true"]{font-size:13px!important;line-height:1!important}}
+
+/* ===== PLAYER + TRACKER BOT PROFILE TYPOGRAPHY POLISH =====
+   Profile reading copy uses Clash Light; headings use Clash Regular.
+   This deliberately avoids Bold/Heavy inside profile modals while increasing
+   desktop sizes so the information is readable at normal browser zoom. */
+#playerModal,
+#playerModal .modalcard,
+#playerModal .modalbody,
+#playerModal .tracker-premium-sheet{
+  font-family:"Clash UI","Segoe UI Emoji","Segoe UI Symbol","Segoe UI",Arial,sans-serif!important;
+  font-weight:300!important;
+}
+
+/* Modal title bar */
+#playerModal .modalhead{min-height:58px!important;height:auto!important;padding:10px 18px!important}
+#playerModal .modalhead h2{
+  font-size:19px!important;
+  line-height:1.15!important;
+  font-weight:400!important;
+  letter-spacing:.015em!important;
+}
+#playerModal .modalhead .btn{font-size:11px!important;font-weight:400!important;padding:8px 13px!important}
+
+/* Shared display headings */
+#playerModal .rating-kicker,
+#playerModal .community-profile-fact .k,
+#playerModal .career-stat .k,
+#playerModal .mini .n,
+#playerModal .rating-card .label,
+#playerModal .community-profile-deck-title,
+#playerModal .rank-label,
+#playerModal th{
+  font-family:"Clash UI",sans-serif!important;
+  font-weight:400!important;
+}
+#playerModal .rating-kicker{font-size:10.5px!important;line-height:1.3!important;letter-spacing:.11em!important}
+#playerModal .rating-title{font-size:23px!important;line-height:1.12!important;font-weight:400!important;letter-spacing:.01em!important}
+#playerModal .rating-sub{font-size:11.5px!important;line-height:1.55!important;font-weight:300!important}
+#playerModal .rating-rank-box .rank-number,
+#playerModal .rating-rank .rank-number{font-size:25px!important;font-weight:400!important;line-height:1.08!important}
+#playerModal .rating-rank-box .rank-label,
+#playerModal .rating-rank .rank-label{font-size:9px!important;line-height:1.45!important;font-weight:300!important}
+
+/* Player identity hero from player-profile.css */
+#playerModal .player-identity-copy h2{font-size:25px!important;line-height:1.08!important;font-weight:400!important;letter-spacing:.01em!important}
+#playerModal .player-identity-tag{font-size:11px!important;line-height:1.35!important;font-weight:300!important}
+#playerModal .player-identity-clan{font-size:12px!important;line-height:1.45!important;font-weight:300!important}
+#playerModal .player-identity-copy .community-profile-handle,
+#playerModal .player-identity-copy .community-profile-status,
+#playerModal .player-identity-copy .community-profile-about{font-weight:300!important}
+
+/* Profile summary boxes */
+#playerModal .profilegrid{gap:10px!important}
+#playerModal .profilegrid .mini{padding:11px 12px!important}
+#playerModal .profilegrid .mini .n{font-size:9.5px!important;line-height:1.3!important;letter-spacing:.045em!important}
+#playerModal .profilegrid .mini .v{font-size:14px!important;line-height:1.3!important;font-weight:400!important;margin-top:5px!important}
+#playerModal .profilegrid .mini .muted{font-size:10px!important;line-height:1.45!important;font-weight:300!important}
+
+/* Public/community profile */
+#playerModal .community-profile-hero{padding:18px!important;gap:18px!important}
+#playerModal .community-profile-name{font-size:20px!important;line-height:1.12!important;font-weight:400!important}
+#playerModal .community-profile-handle{font-size:10.5px!important;line-height:1.4!important;font-weight:300!important}
+#playerModal .community-profile-status{font-size:10px!important;line-height:1.35!important;font-weight:400!important;padding:6px 10px!important}
+#playerModal .community-profile-about{font-size:12px!important;line-height:1.62!important;font-weight:300!important;padding:12px 13px!important}
+#playerModal .community-profile-facts{gap:9px!important;padding-top:13px!important}
+#playerModal .community-profile-fact{padding:10px 11px!important}
+#playerModal .community-profile-fact .k{font-size:9px!important;line-height:1.3!important}
+#playerModal .community-profile-fact .v{font-size:12.5px!important;line-height:1.4!important;font-weight:400!important;margin-top:4px!important}
+#playerModal .community-profile-since{font-size:9.5px!important;line-height:1.45!important;font-weight:300!important}
+#playerModal .community-profile-deck{padding:11px 12px!important}
+#playerModal .community-profile-deck-title{font-size:9.5px!important;line-height:1.35!important}
+#playerModal .community-profile-deck-title span{font-size:9.5px!important;font-weight:300!important}
+#playerModal .community-profile-deck-card .n{font-size:8px!important;line-height:1.3!important;font-weight:300!important}
+#playerModal .community-profile-deck-empty{font-size:10.5px!important;line-height:1.45!important;font-weight:300!important}
+
+/* Section bars and all panel headings */
+#playerModal .bar{min-height:47px!important;height:auto!important;padding:8px 13px!important}
+#playerModal .bar h2,
+#playerModal .bar h3{font-size:15px!important;line-height:1.2!important;font-weight:400!important}
+#playerModal .bar .right{font-size:10.5px!important;line-height:1.35!important;font-weight:300!important}
+
+/* Career stats */
+#playerModal .career-grid{gap:9px!important;padding:12px!important}
+#playerModal .career-stat{padding:10px 11px!important}
+#playerModal .career-stat .k{font-size:9px!important;line-height:1.3!important;letter-spacing:.04em!important}
+#playerModal .career-stat .v{font-size:15px!important;line-height:1.25!important;font-weight:400!important;margin-top:5px!important}
+#playerModal .career-stat .sub{font-size:9.5px!important;line-height:1.45!important;font-weight:300!important;margin-top:4px!important}
+#playerModal .career-note{font-size:10.5px!important;line-height:1.55!important;font-weight:300!important;padding:0 12px 12px!important}
+
+/* Performance cards + histories */
+#playerModal .rating-grid{gap:9px!important}
+#playerModal .rating-card{padding:12px!important}
+#playerModal .rating-card .label{font-size:9.5px!important;line-height:1.3!important}
+#playerModal .rating-card .value{font-size:11.5px!important;line-height:1.4!important;font-weight:300!important;margin-top:7px!important}
+#playerModal .rating-card .rating-stars{font-size:16px!important}
+#playerModal .historytable th{font-size:9.5px!important;line-height:1.35!important;font-weight:400!important;padding:9px!important}
+#playerModal .historytable td{font-size:10.5px!important;line-height:1.45!important;font-weight:300!important;padding:9px!important}
+#playerModal .muted{font-size:10px!important;line-height:1.45!important;font-weight:300!important}
+
+/* Tracker Bot premium header: same lighter hierarchy as player profiles. */
+#playerModal .tracker-premium-hero::before{font-size:8px!important;line-height:1.2!important;font-weight:400!important;letter-spacing:.16em!important}
+#playerModal .tracker-premium-title{font-size:26px!important;line-height:1.08!important;font-weight:400!important;letter-spacing:.01em!important}
+#playerModal .tracker-premium-stars{font-size:20px!important}
+#playerModal .tracker-premium-pill{font-size:10px!important;line-height:1.25!important;font-weight:400!important;letter-spacing:.055em!important;padding:6px 10px!important}
+#playerModal .tracker-premium-desc{font-size:13px!important;line-height:1.58!important;font-weight:300!important;max-width:820px!important}
+#playerModal .tracker-premium-chip{padding:10px 11px!important}
+#playerModal .tracker-premium-chip .k{font-size:8.5px!important;line-height:1.3!important;font-weight:400!important;letter-spacing:.09em!important}
+#playerModal .tracker-premium-chip .v{font-size:12px!important;line-height:1.35!important;font-weight:400!important;margin-top:5px!important}
+
+/* Tracker Bot lower sections */
+#playerModal .tracker-premium-shop-card{padding:12px!important;min-height:96px!important}
+#playerModal .tracker-premium-shop-card .name{font-size:12.5px!important;line-height:1.3!important;font-weight:400!important}
+#playerModal .tracker-premium-shop-card .tag{font-size:8px!important;line-height:1.25!important;font-weight:400!important}
+#playerModal .tracker-premium-shop-card .desc{font-size:10.5px!important;line-height:1.5!important;font-weight:300!important}
+#playerModal .tracker-premium-list li{font-size:10.5px!important;line-height:1.55!important;font-weight:300!important;padding:10px 11px!important}
+#playerModal .tracker-premium-list b{font-weight:400!important}
+#playerModal .tracker-premium-note{font-size:10.5px!important;line-height:1.58!important;font-weight:300!important;padding:10px 11px!important}
+#playerModal .tracker-command{font-size:10.5px!important;line-height:1.5!important;font-weight:300!important;padding:10px!important}
+#playerModal .tracker-command code{font-size:10.5px!important;font-weight:400!important}
+
+/* Bot/player body copy that may arrive from external player-profile.css. */
+#playerModal p,
+#playerModal li,
+#playerModal .info,
+#playerModal .reason,
+#playerModal .battle-history-note,
+#playerModal .event .detail{
+  font-weight:300!important;
+}
+
+/* Phone: keep the same hierarchy, but make it genuinely readable instead of shrinking back down. */
+@media(max-width:700px){
+  #playerModal .modalhead h2{font-size:18px!important}
+  #playerModal .rating-kicker{font-size:11px!important}
+  #playerModal .rating-title{font-size:22px!important}
+  #playerModal .rating-sub{font-size:12px!important}
+  #playerModal .player-identity-copy h2{font-size:23px!important}
+  #playerModal .player-identity-tag{font-size:11.5px!important}
+  #playerModal .player-identity-clan{font-size:12.5px!important}
+  #playerModal .community-profile-name{font-size:19px!important}
+  #playerModal .community-profile-handle{font-size:11px!important}
+  #playerModal .community-profile-status{font-size:10.5px!important}
+  #playerModal .community-profile-about{font-size:12.5px!important}
+  #playerModal .profilegrid .mini .n,
+  #playerModal .community-profile-fact .k,
+  #playerModal .career-stat .k,
+  #playerModal .rating-card .label{font-size:10px!important}
+  #playerModal .profilegrid .mini .v{font-size:14.5px!important}
+  #playerModal .community-profile-fact .v{font-size:13px!important}
+  #playerModal .career-stat .v{font-size:15px!important}
+  #playerModal .career-stat .sub{font-size:10px!important}
+  #playerModal .bar h2,#playerModal .bar h3{font-size:15.5px!important}
+  #playerModal .bar .right{font-size:10.5px!important}
+  #playerModal .historytable th{font-size:10px!important}
+  #playerModal .historytable td{font-size:11px!important}
+  #playerModal .tracker-premium-hero::before{font-size:8px!important}
+  #playerModal .tracker-premium-title{font-size:23px!important}
+  #playerModal .tracker-premium-pill{font-size:10px!important}
+  #playerModal .tracker-premium-desc{font-size:12.5px!important}
+  #playerModal .tracker-premium-chip .k{font-size:9px!important}
+  #playerModal .tracker-premium-chip .v{font-size:12px!important}
+  #playerModal .tracker-premium-shop-card .name{font-size:12px!important}
+  #playerModal .tracker-premium-shop-card .desc,
+  #playerModal .tracker-premium-list li,
+  #playerModal .tracker-premium-note,
+  #playerModal .tracker-command{font-size:11px!important}
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
