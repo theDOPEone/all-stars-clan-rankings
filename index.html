@@ -11652,6 +11652,15 @@ html[data-asc-diamond-background="red"] body:not(.live-game-mode)::before{
 }
 
 /* One persistent frame; only these three content panels switch. */
+.rankings-character-distance{position:absolute;inset:36% 17% 30%;overflow:hidden;pointer-events:none;z-index:0;contain:layout paint}
+.rankings-character-travel{position:absolute;left:0;top:12%;width:100%;height:60%;opacity:0;animation:rankingsDistantCrossing 24s linear infinite;animation-play-state:paused}
+.rankings-character-travel img{display:block;width:21%;height:100%;object-fit:contain;filter:saturate(.65) brightness(.8);opacity:.8}
+.rankings-character-travel.traveler-1{top:35%;height:65%;animation-duration:29s;animation-delay:-12s;animation-direction:reverse}
+.rankings-character-travel.traveler-2{top:0;height:42%;animation-duration:34s;animation-delay:-22s}
+.rankings-character-travel.traveler-2 img{width:15%;filter:saturate(.5) brightness(.75);opacity:.6}
+.rankings-character-distance.motion-running .rankings-character-travel{animation-play-state:running}
+@keyframes rankingsDistantCrossing{0%{transform:translate3d(-24%,0,0);opacity:0}15%{opacity:.55}72%{opacity:.55}92%,100%{transform:translate3d(103%,0,0);opacity:0}}
+@media(prefers-reduced-motion:reduce){.rankings-character-travel{animation:none!important;transform:translateX(22%);opacity:.25}.rankings-character-travel.traveler-1{transform:translateX(65%)}.rankings-character-travel.traveler-2{display:none}}
 #familySummary .rankings-unified-scene #rankingsWelcome{inset:0!important;width:100%!important;height:100%!important;max-height:none!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;overflow:visible!important;pointer-events:none}
 .rankings-scene-heading{position:absolute;top:15%;left:24%;width:52%;text-align:center;color:#eef7ff;z-index:5;pointer-events:none;text-shadow:0 2px 4px #001428}
 #familySummary .rankings-scene-heading h2{font-size:clamp(22px,2.1vw,34px)!important;line-height:1.12!important;color:#ffe294;margin:6px 0!important}
@@ -13138,6 +13147,7 @@ function setRankingsSceneView(view,closePopups=true){
   frame.querySelectorAll('[data-scene-button]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.sceneButton===view)));
   const graph=frame.querySelector('.clan-honor-cinematic-content'),trophies=$('familySummaryDetails'),hub=$('rankingsWelcome');
   [[graph,'graphs'],[trophies,'trophies'],[hub,'welcome']].forEach(([el,key])=>{if(el){el.setAttribute('aria-hidden',String(key!==view));el.inert=key!==view}});
+  syncRankingsCharacterMotion();
 }
 function syncRankingsSceneHub(){
   const frame=document.querySelector('#familySummary .honor-scene-frame'),details=$('familySummaryDetails');if(!frame||!details)return;
@@ -13151,6 +13161,10 @@ function syncRankingsSceneHub(){
     const hub=document.createElement('section');hub.id='rankingsWelcome';hub.className='rankings-welcome';
     hub.innerHTML='<header class="rankings-scene-heading"><div class="rankings-hub-kicker">ALL STARS • RANKINGS</div><h2>Find your place<br>among the stars.</h2><p>Your family. Your competition.<br>Choose a gold icon to explore.</p></header><div class="rankings-search-inset"><div id="rankingsHubFind"></div><a class="rankings-global-link" href="https://royaleapi.com/players/leaderboard" target="_blank" rel="noopener">Global leaderboard ↗</a></div>';
     frame.append(hub);
+    const atmosphere=document.createElement('div');atmosphere.className='rankings-character-distance';atmosphere.setAttribute('aria-hidden','true');
+    const characters=['./assets/arena-characters/musketeer.png','./assets/arena-characters/magic_archer.png','./assets/arena-characters/Witch_02.png'];
+    atmosphere.innerHTML=characters.map((src,i)=>`<div class="rankings-character-travel traveler-${i}"><img src="${src}" alt="" decoding="async" draggable="false"></div>`).join('');hub.prepend(atmosphere);
+    if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{atmosphere.dataset.inView=String(entries[0].isIntersecting);syncRankingsCharacterMotion()});observer.observe(atmosphere)}else atmosphere.dataset.inView='true';
   }
   const find=document.querySelector('.family-table-find-dock'),dock=$('rankingsHubFind');
   if(find&&dock&&find.parentElement!==dock)dock.append(find);
@@ -13159,6 +13173,11 @@ function syncRankingsSceneHub(){
   }
   setRankingsSceneView(rankingsSceneView,false);
 }
+function syncRankingsCharacterMotion(){
+  const layer=document.querySelector('.rankings-character-distance');if(!layer)return;
+  layer.classList.toggle('motion-running',currentPage==='rankings'&&rankingsSceneView==='welcome'&&!document.hidden&&layer.dataset.inView==='true');
+}
+document.addEventListener('visibilitychange',syncRankingsCharacterMotion);
 function rankingsGoldIcon(key){
   const shape=key==='graphs'?'<path d="M17 68V47h13v21zm22 0V33h13v35zm22 0V18h13v50z"/><path d="M15 76h62" fill="none" stroke-width="5"/>':'<path d="M12 72V44h22v28zm22 0V29h25v43zm25 0V49h22v23z"/><path d="m47 12 4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z"/>';
   return `<svg class="rankings-gold-icon" viewBox="0 0 94 94" aria-hidden="true"><defs><linearGradient id="iconGold-${key}" x2=".4" y2="1"><stop stop-color="#fff6bf"/><stop offset=".3" stop-color="#ffe374"/><stop offset=".55" stop-color="#df9e18"/><stop offset=".8" stop-color="#fff19e"/><stop offset="1" stop-color="#b66e08"/></linearGradient></defs><circle cx="47" cy="47" r="46" fill="#064290"/><g class="rankings-icon-gold" fill="url(#iconGold-${key})" stroke="#ffdf72" stroke-width="2" stroke-linejoin="round">${shape}</g></svg>`;
