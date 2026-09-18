@@ -12365,6 +12365,17 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
 .leadership-action-button p{margin:7px 0 0;color:#7fa5bd;font-size:6.4px;line-height:1.4}
 .leadership-action-button.promote strong{color:#74e2aa}.leadership-action-button.watch strong{color:#74d8ff}.leadership-action-button.demote strong{color:#ffda70}.leadership-action-button.kick strong{color:#ff858d}
 
+.leadership-side-stack{display:grid;gap:12px;align-content:start}
+.leadership-perfect-panel{border-color:rgba(255,211,91,.48);background:linear-gradient(180deg,rgba(16,55,82,.98),rgba(5,31,54,.99))}
+.leadership-perfect-panel .leadership-panel-head{background:linear-gradient(180deg,#756018,#3b4c2b 52%,#0b3d63);border-bottom-color:rgba(255,224,117,.30)}
+.leadership-perfect-list{display:grid;gap:7px}
+.leadership-perfect-entry{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:9px;align-items:center;padding:9px 10px;border:1px solid rgba(239,200,94,.26);border-radius:8px;background:linear-gradient(180deg,rgba(13,57,87,.92),rgba(6,35,59,.96));cursor:pointer}
+.leadership-perfect-entry:hover{border-color:#efc85e;filter:brightness(1.05)}
+.leadership-perfect-medal{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(145deg,#fff1a0,#d89a1a 58%,#865407);border:1px solid #ffe282;color:#173148;font-size:17px;box-shadow:inset 0 1px #fff8c9,0 3px 8px rgba(0,0,0,.28)}
+.leadership-perfect-copy{min-width:0}.leadership-perfect-copy b{display:block;color:#ffe69a;font-size:10px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.leadership-perfect-copy span{display:block;margin-top:2px;color:#8fb7cd;font-size:7px;line-height:1.35}
+.leadership-perfect-score{text-align:right}.leadership-perfect-score strong{display:block;color:#ffe074;font-size:15px;font-weight:700}.leadership-perfect-score span{display:block;margin-top:2px;color:#8fdcb4;font-size:7px;white-space:nowrap}
+.leadership-perfect-empty{padding:18px 10px;text-align:center;color:#8aadc2;font-size:8px;line-height:1.45}.leadership-perfect-empty b{display:block;color:#ffe39a;font-size:11px;margin-bottom:4px}
+
 .leadership-review-card{margin:0;border:1px solid rgba(118,166,196,.30);border-radius:9px;background:linear-gradient(180deg,rgba(8,50,81,.97),rgba(5,33,57,.985));overflow:hidden;cursor:pointer}
 .leadership-review-card+.leadership-review-card{margin-top:8px}
 .leadership-review-card:hover{border-color:rgba(239,200,94,.50)}
@@ -12532,14 +12543,60 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   #coLeadersPage .leadership-action-button{min-height:88px!important}
 }
 @media(max-width:650px){
-  #coLeadersPage .leadership-command-copy h2{font-size:21px!important}
-  #coLeadersPage .leadership-command-copy p{font-size:10px!important}
-  #coLeadersPage .leadership-command-counter .copy b{font-size:10.5px!important}
-  #coLeadersPage .leadership-command-counter strong{font-size:20px!important}
-  #coLeadersPage .leadership-review-name{font-size:15px!important}
+  #coLeadersPage{font-size:16px!important}
+  #coLeadersPage .leadership-command-hero{padding:16px 14px!important}
+  #coLeadersPage .leadership-command-kicker{font-size:12px!important}
+  #coLeadersPage .leadership-command-copy h2{font-size:27px!important;line-height:1.08!important}
+  #coLeadersPage .leadership-command-copy p{font-size:14px!important;line-height:1.5!important}
+  #coLeadersPage .leadership-command-session .leadership-command-role{font-size:11px!important}
+  #coLeadersPage .leadership-command-session b{font-size:15px!important}
+  #coLeadersPage .leadership-command-session #leadershipCommandScope{font-size:12px!important}
+  #coLeadersPage .leadership-command-session .btn{font-size:12px!important}
+  #coLeadersPage .leadership-command-status{font-size:12px!important}
+  #coLeadersPage .leadership-command-counter{padding:12px 10px!important}
+  #coLeadersPage .leadership-command-counter .copy b{font-size:14px!important}
+  #coLeadersPage .leadership-command-counter .copy span{display:block!important;font-size:11px!important;white-space:normal!important}
+  #coLeadersPage .leadership-command-counter strong{font-size:26px!important}
+  #coLeadersPage .leadership-filter label{font-size:12px!important}
+  #coLeadersPage .leadership-filter select{font-size:15px!important;padding:11px!important}
+  #coLeadersPage .leadership-toolbar-note{font-size:12px!important}
+  #coLeadersPage .leadership-command-toolbar .btn{font-size:13px!important;padding:10px 12px!important}
+  #coLeadersPage .leadership-honor-board .dream-title{font-size:19px!important}
+  #coLeadersPage .leadership-honor-board .dream-sub{font-size:12px!important}
+  #coLeadersPage .dream-team-preview-copy b{font-size:13px!important}
+  #coLeadersPage .dream-team-preview-copy span{font-size:11px!important}
+  #coLeadersPage .leadership-panel-head-copy b{font-size:18px!important}
+  #coLeadersPage .leadership-panel-head-copy span{font-size:12px!important}
+  #coLeadersPage .leadership-action-top b{font-size:14px!important}
+  #coLeadersPage .leadership-action-top strong{font-size:24px!important}
+  #coLeadersPage .leadership-review-avatar{width:54px!important;height:54px!important;font-size:21px!important}
+  #coLeadersPage .leadership-review-name{font-size:19px!important}
+  #coLeadersPage .leadership-review-meta{font-size:12px!important;white-space:normal!important}
+  #coLeadersPage .leadership-review-status{font-size:11px!important}
+  #coLeadersPage .leadership-recommendation{font-size:13.5px!important;line-height:1.55!important}
   #coLeadersPage .leadership-stat-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-  #coLeadersPage .leadership-current-war{flex-wrap:wrap!important}
+  #coLeadersPage .leadership-stat .k{font-size:10.5px!important}
+  #coLeadersPage .leadership-stat .v{font-size:14px!important}
+  #coLeadersPage .leadership-current-war{font-size:13px!important;line-height:1.45!important;flex-wrap:wrap!important}
   #coLeadersPage .leadership-current-war>span:last-child{margin-left:0!important;width:100%!important}
+  #coLeadersPage .leadership-war-bar b{font-size:11px!important}
+  #coLeadersPage .leadership-war-bar span{font-size:10px!important}
+  #coLeadersPage .leadership-review-card .co-trend{font-size:14px!important}
+  #coLeadersPage .leadership-review-card .co-review-details>div{font-size:12.5px!important;line-height:1.5!important}
+  #coLeadersPage .leadership-review-card .co-history-note{font-size:11.5px!important}
+  #coLeadersPage .leadership-review-card .week-chip{font-size:11.5px!important;padding:5px 7px!important}
+  #coLeadersPage .leadership-review-actions .btn{font-size:12.5px!important;padding:9px 11px!important}
+  #coLeadersPage .leadership-review-actions .hint{font-size:11px!important}
+  #coLeadersPage .leadership-queue-head h3{font-size:18px!important}
+  #coLeadersPage .leadership-queue-head .count{font-size:12px!important}
+  #coLeadersPage .leadership-queue-copy{font-size:12.5px!important}
+  #coLeadersPage .leadership-queue-empty{font-size:13px!important}
+  #coLeadersPage .leadership-perfect-copy b{font-size:14px!important}
+  #coLeadersPage .leadership-perfect-copy span{font-size:11.5px!important}
+  #coLeadersPage .leadership-perfect-score strong{font-size:19px!important}
+  #coLeadersPage .leadership-perfect-score span{font-size:11px!important}
+  #coLeadersPage .leadership-perfect-empty{font-size:12.5px!important}
+  #coLeadersPage .leadership-perfect-empty b{font-size:16px!important}
 }
 
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
