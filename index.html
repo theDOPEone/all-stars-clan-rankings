@@ -13120,10 +13120,10 @@ function syncRankingsSceneHub(){
   frame.classList.add('rankings-unified-scene');
   if(details.parentElement!==frame)frame.append(details);
   // Only the original scene owns backdrop artwork and shimmer.
-  details.querySelectorAll('.asc-honor-scene-art,.asc-gold-backdrop').forEach(el=>el.remove());
+  details.querySelectorAll('.asc-honor-scene-art,.asc-gold-backdrop,.clan-honor-floating-label,.clan-honor-fourth-button').forEach(el=>el.remove());
   if(!frame.querySelector('.rankings-star-nav')){
     const nav=document.createElement('nav');nav.className='rankings-star-nav';nav.setAttribute('aria-label','Rankings scene');
-    nav.innerHTML=[['graphs','Graphs','left'],['welcome','Welcome','center'],['trophies','Trophies','right']].map(([key,label,side])=>`<button type="button" class="rankings-star ${side}" data-scene-button="${key}" aria-label="${label}" onclick="setRankingsSceneView('${key}')"><span>${label}</span></button>`).join('');frame.append(nav);
+    nav.innerHTML=[['graphs','Graphs','left'],['welcome','Welcome','center'],['trophies','Trophies','right']].map(([key,label,side])=>`<button type="button" class="rankings-star ${side}" data-scene-button="${key}" aria-label="${label}" title="${label}" onclick="setRankingsSceneView('${key}')">${key==='welcome'?'<span>Welcome</span>':rankingsGoldIcon(key)}</button>`).join('');frame.append(nav);
     const hub=document.createElement('section');hub.id='rankingsWelcome';hub.className='rankings-welcome';
     hub.innerHTML='<div class="rankings-hub-kicker">ALL STARS • RANKINGS</div><h2>Find your place<br>among the stars.</h2><p>Your family. Your competition.<br>Choose a star above to explore.</p><div class="rankings-hub-menu"><button onclick="setRankingsSceneView(\'graphs\')"><b>▥ Clan performance</b><span>Honor, war, donations &amp; Live Arena →</span></button><button onclick="setRankingsSceneView(\'trophies\')"><b>🏆 The trophy hall</b><span>Meet the leading clans →</span></button><a href="https://royaleapi.com/players/leaderboard" target="_blank" rel="noopener"><b>🌍 Global rankings</b><span>Explore the worldwide leaderboard on RoyaleAPI ↗</span></a></div><div id="rankingsHubFind"></div>';
     frame.append(hub);
@@ -13131,6 +13131,10 @@ function syncRankingsSceneHub(){
   const find=document.querySelector('.family-table-find-dock'),dock=$('rankingsHubFind');
   if(find&&dock&&find.parentElement!==dock)dock.append(find);
   setRankingsSceneView(rankingsSceneView,false);
+}
+function rankingsGoldIcon(key){
+  const shape=key==='graphs'?'<path d="M17 68V47h13v21zm22 0V33h13v35zm22 0V18h13v50z"/><path d="M15 76h62" fill="none" stroke-width="5"/>':'<path d="M12 72V44h22v28zm22 0V29h25v43zm25 0V49h22v23z"/><path d="m47 12 4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z"/>';
+  return `<svg class="rankings-gold-icon" viewBox="0 0 94 94" aria-hidden="true"><defs><linearGradient id="iconGold-${key}" x2=".4" y2="1"><stop stop-color="#fff6bf"/><stop offset=".3" stop-color="#ffe374"/><stop offset=".55" stop-color="#df9e18"/><stop offset=".8" stop-color="#fff19e"/><stop offset="1" stop-color="#b66e08"/></linearGradient></defs><circle cx="47" cy="47" r="46" fill="#064290"/><g class="rankings-icon-gold" fill="url(#iconGold-${key})" stroke="#ffdf72" stroke-width="2" stroke-linejoin="round">${shape}</g></svg>`;
 }
 
 startPublicSite();</script></body></html>
