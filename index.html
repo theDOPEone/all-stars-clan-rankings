@@ -11204,6 +11204,29 @@ samp,
 
 .dashboard-welcome-page #dashboardInfo,.dashboard-welcome-page #tabs,.dashboard-welcome-page #publicClanFeed{display:none!important}
 .dashboard-welcome-page{overflow:visible!important}
+
+.dashboard-music-controls-mobile{display:none}
+@media(max-width:600px){
+  .dashboard-music-controls{display:none!important}
+  .dashboard-music-controls-mobile{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:8px;
+    margin:10px 0 2px;
+    padding:0 2px;
+  }
+  .dashboard-music-controls-mobile .dashboard-music-toggle,
+  .dashboard-music-controls-mobile .dashboard-music-next,
+  .dashboard-music-controls-mobile .dashboard-music-shuffle{
+    width:43px;
+    height:43px;
+    flex:0 0 43px;
+    font-size:19px;
+  }
+  .dashboard-music-controls-mobile .dashboard-music-toggle{font-size:21px}
+}
+
 .dashboard-welcome-shell{width:min(1480px,calc(100vw - 34px));margin:14px auto 0;padding-bottom:140px}
 .dashboard-welcome-hero{position:relative;min-height:420px;overflow:hidden;border:1px solid rgba(239,200,94,.58);border-radius:18px;background:linear-gradient(90deg,rgba(3,25,45,.98) 0%,rgba(5,43,72,.94) 48%,rgba(5,37,62,.82) 100%),url('./assets/arena/CR_LS_April26_Final.jpg') center 45%/cover no-repeat;box-shadow:0 18px 42px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.06)}
 .dashboard-welcome-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(2,18,31,.18)),radial-gradient(circle at 28% 32%,rgba(31,142,208,.18),transparent 35%);pointer-events:none}
@@ -13174,6 +13197,11 @@ function renderDashboardWelcome(){
           <p class="dashboard-welcome-lead">Your home for ALL STARS clan activity, player profiles, rankings, Live Arena and community tools.</p>
           <div class="dashboard-session-pill"><span class="dashboard-session-dot ${me.signedIn?'online':''}"></span><b>${signedLabel}</b><small>${roleLabel}</small></div>
           <div class="dashboard-welcome-actions">${primaryActions}</div>
+          <div class="dashboard-music-controls-mobile" aria-label="App music controls">
+            <button id="dashboardMusicToggleMobile" class="dashboard-music-toggle" type="button" aria-pressed="false" aria-label="Turn app music on" title="App music: OFF — click to play" onclick="toggleAppMusic()">🔇</button>
+            <button id="dashboardMusicNextMobile" class="dashboard-music-next" type="button" aria-label="Next song" title="Turn music on to use Next" onclick="nextAppMusic()" disabled>⏭</button>
+            <button id="dashboardMusicShuffleMobile" class="dashboard-music-shuffle" type="button" aria-pressed="false" aria-label="Toggle shuffle" title="Shuffle: OFF — current song repeats" onclick="toggleAppMusicShuffle()">🔀</button>
+          </div>
           ${!me.signedIn?`<p class="dashboard-login-note">Leaders and Co-Leaders use the same <b>Sign In</b> button as Members. Your tracked clan role is detected automatically.</p>`:''}
         </div>
       </section>
