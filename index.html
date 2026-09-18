@@ -10285,6 +10285,31 @@ body.owner-settings-mode .owner-community-settings-body textarea:focus{
 .battle-log-row .result{color:#e1f1fa!important}
 #eventsPage .event-panel-controls{flex-wrap:wrap;justify-content:flex-end}
 
+
+/* Progressive event-log rendering: only a small visible batch is inserted at first.
+   New rows cascade in after the page has fully settled, rather than forcing Safari
+   to build hundreds of log nodes during a page swipe. */
+#eventsPage .asc-log-row-enter{
+  opacity:0;
+  transform:translate3d(0,7px,0);
+  animation:ascLogRowReveal .24s cubic-bezier(.2,.78,.2,1) both;
+  animation-delay:var(--asc-log-delay,0ms);
+  will-change:transform,opacity;
+}
+@keyframes ascLogRowReveal{
+  from{opacity:0;transform:translate3d(0,7px,0)}
+  to{opacity:1;transform:translate3d(0,0,0)}
+}
+#eventsPage .asc-log-loading{
+  padding:12px 10px!important;
+  color:#88acc3!important;
+  font-size:8px!important;
+  text-align:center!important;
+}
+@media(prefers-reduced-motion:reduce){
+  #eventsPage .asc-log-row-enter{animation:none!important;opacity:1!important;transform:none!important}
+}
+
 /* All player-name links use one obvious, touch-friendly interaction. */
 .activity-player-link,
 .battle-player-link,
