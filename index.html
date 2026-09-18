@@ -12498,10 +12498,10 @@ function clanHonorInfoPopupHtml(){
         <path d="M100 22V93.0833333333L36 142M100 93.0833333333 164 142" fill="none" stroke="#ffe095" stroke-width="2.5"/>
         <path d="M29 42 100 25 171 42M29 43 39 139" fill="none" stroke="#fff8cf" stroke-opacity=".5" stroke-width="2"/>
         <path d="M100 6 186 27 177 35 100 17 23 35 14 27Z" fill="#fff4c4" opacity=".28"/>
-        <g font-size="11"><text x="64" y="61">WAR</text><text x="136" y="61">DONATE</text><text x="100" y="144">ARENA</text></g>
-        <g font-size="22"><text x="64" y="86">⅓</text><text x="136" y="86">⅓</text><text x="100" y="167">⅓</text></g>
+        <g font-size="15"><text x="64" y="61">WAR</text><text x="136" y="61">DONATE</text><text x="100" y="144">ARENA</text></g>
+        <g font-size="27"><text x="64" y="87">⅓</text><text x="136" y="87">⅓</text><text x="100" y="173">⅓</text></g>
         <path d="M64 96 136 96 142 107 136 119 64 119 58 107Z" fill="#062b43" stroke="url(#honor3Gold)" stroke-width="2"/>
-        <text x="100" y="112" font-size="12">HONOR</text>
+        <text x="100" y="113" font-size="17">HONOR</text>
         <g fill="#fff0a0" stroke="#9c6713" stroke-width="1"><circle cx="22" cy="31" r="3"/><circle cx="178" cy="31" r="3"/><circle cx="100" cy="198" r="3"/></g>
       </svg>
       <div class="clan-honor-info-copy">
@@ -12884,6 +12884,7 @@ function renderClanHonorBoard(players,clans,avgT,totalD,linked){
     </section>
   </section>`;
   if(details._honorMarkup!==detailsHtml){details.innerHTML=detailsHtml;details._honorMarkup=detailsHtml}
+  syncRankingsSceneHub();
   observeClanHonorScene();
   refreshClanHonorPodiumLeaderAvatars(rows);
   if(!arenaReady&&!clanHonorArenaLoading)ensureClanHonorArenaRatings();
