@@ -11734,6 +11734,28 @@ html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-cinematic
 .rankings-star.left,.rankings-star.right{top:23%;width:8%;height:14%}.rankings-star.left{left:3%}.rankings-star.right{right:3%}
 html[data-asc-honor-view="mobile-portrait"] .rankings-star.left,html[data-asc-honor-view="mobile-portrait"] .rankings-star.right{top:16%;width:14%;height:8%}html[data-asc-honor-view="mobile-portrait"] .rankings-star.left{left:6.3%}html[data-asc-honor-view="mobile-portrait"] .rankings-star.right{right:6.3%}
 
+/* ===== MOBILE PORTRAIT — VERTICAL SCENE FIT =====
+   Keep the Rankings scene full-width, but compress only its Y axis when the
+   viewport is short (iPhone 7 / compact portrait windows).  The JS calculates
+   the smallest useful compression from the live viewport + sticky nav height.
+   Desktop and landscape are untouched. */
+html[data-asc-honor-view="mobile-portrait"] #familySummary .honor-scene-frame.rankings-unified-scene{
+  --rankings-mobile-y-scale:1;
+  --rankings-mobile-y-offset:0px;
+  --rankings-mobile-y-reclaim:0px;
+  transform:translate3d(0,var(--rankings-mobile-y-offset),0) scaleY(var(--rankings-mobile-y-scale))!important;
+  transform-origin:50% 0!important;
+  margin-bottom:var(--rankings-mobile-y-reclaim)!important;
+  will-change:transform;
+}
+
+/* Leave a little extra visual clearance below the app navigation after the
+   scene has been compressed.  All scene views (Welcome / Graphs / Trophies)
+   inherit the same Y transform, so their internal alignment remains intact. */
+html[data-asc-honor-view="mobile-portrait"] #familySummary .honor-scene-frame.rankings-unified-scene.main-page-current{
+  isolation:isolate;
+}
+
 
 /* ===== MEMBER ZONE COMPACT THREE-BUTTON DIAL =====
    Keep the sub-nav pinned beneath the main app nav, but remove the large
@@ -13245,6 +13267,7 @@ function syncRankingsSceneHub(){
     const heading=document.createElement('header');heading.className='rankings-scene-heading';heading.innerHTML='<div class="rankings-hub-kicker">ALL STARS FAMILY</div><h2>Family Rank</h2><p>Our leading clans.<br>United by Honor.</p>';details.append(heading);
   }
   setRankingsSceneView(rankingsSceneView,false);
+  if(typeof scheduleRankingsMobileSceneFit==='function')scheduleRankingsMobileSceneFit();
 }
 function syncRankingsCharacterMotion(){
   const layer=document.querySelector('.rankings-character-distance');if(!layer)return;
@@ -13255,5 +13278,46 @@ function rankingsGoldIcon(key){
   const shape=key==='graphs'?'<path d="M17 68V47h13v21zm22 0V33h13v35zm22 0V18h13v50z"/><path d="M15 76h62" fill="none" stroke-width="5"/>':'<path d="M12 72V44h22v28zm22 0V29h25v43zm25 0V49h22v23z"/><path d="m47 12 4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z"/>';
   return `<svg class="rankings-gold-icon" viewBox="0 0 94 94" aria-hidden="true"><defs><linearGradient id="iconGold-${key}" x2=".4" y2="1"><stop stop-color="#fff6bf"/><stop offset=".3" stop-color="#ffe374"/><stop offset=".55" stop-color="#df9e18"/><stop offset=".8" stop-color="#fff19e"/><stop offset="1" stop-color="#b66e08"/></linearGradient></defs><circle cx="47" cy="47" r="46" fill="#064290"/><g class="rankings-icon-gold" fill="url(#iconGold-${key})" stroke="#ffdf72" stroke-width="2" stroke-linejoin="round">${shape}</g></svg>`;
 }
+
+/* Mobile portrait scene fit.
+   The native portrait artwork is 470.5 x 836, which is almost exactly a full
+   iPhone-7 viewport once scaled to phone width.  When the app nav is present,
+   that leaves too little usable vertical room.  Compress the unified Rankings
+   frame on Y only, move it slightly down below the nav, and reclaim the unused
+   layout height so the page does not gain a large blank tail. */
+function syncRankingsMobileSceneFit(){
+  const root=document.documentElement;
+  const frame=document.querySelector('#familySummary .honor-scene-frame.rankings-unified-scene');
+  if(!frame)return;
+
+  if(root.dataset.ascHonorView!=='mobile-portrait'){
+    frame.style.removeProperty('--rankings-mobile-y-scale');
+    frame.style.removeProperty('--rankings-mobile-y-offset');
+    frame.style.removeProperty('--rankings-mobile-y-reclaim');
+    return;
+  }
+
+  const viewportHeight=Math.max(1,Number(window.visualViewport?.height||window.innerHeight||0));
+  const nav=document.querySelector('main.shell>.nav');
+  const navHeight=Math.max(0,Number(nav?.getBoundingClientRect?.().height||0));
+  const frameHeight=Math.max(1,Number(frame.offsetHeight||parseFloat(getComputedStyle(root).getPropertyValue('--asc-honor-height'))||0));
+
+  /* Reserve the nav plus a small breathing gap.  Clamp the result so short
+     phones get meaningful relief without making artwork/text look crushed. */
+  const topOffset=Math.max(10,Math.min(18,navHeight*.32||12));
+  const available=Math.max(430,viewportHeight-navHeight-18);
+  const yScale=Math.max(.84,Math.min(.94,available/frameHeight));
+  const reclaimed=Math.max(0,frameHeight*(1-yScale)-topOffset);
+
+  frame.style.setProperty('--rankings-mobile-y-scale',yScale.toFixed(3));
+  frame.style.setProperty('--rankings-mobile-y-offset',`${topOffset.toFixed(1)}px`);
+  frame.style.setProperty('--rankings-mobile-y-reclaim',`${(-reclaimed).toFixed(1)}px`);
+}
+
+function scheduleRankingsMobileSceneFit(){requestAnimationFrame(()=>requestAnimationFrame(syncRankingsMobileSceneFit))}
+window.addEventListener('resize',scheduleRankingsMobileSceneFit,{passive:true});
+window.addEventListener('orientationchange',()=>setTimeout(syncRankingsMobileSceneFit,100),{passive:true});
+window.visualViewport?.addEventListener('resize',scheduleRankingsMobileSceneFit,{passive:true});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)scheduleRankingsMobileSceneFit()});
 
 startPublicSite();</script></body></html>
