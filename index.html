@@ -11144,11 +11144,19 @@ samp,
 
 
 /* ascDashboardMusicV1 */
-.dashboard-music-toggle{
+.dashboard-music-controls{
   position:absolute;
   z-index:7;
   top:16px;
   right:16px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.dashboard-music-toggle,
+.dashboard-music-next,
+.dashboard-music-shuffle{
+  position:relative;
   width:46px;
   height:46px;
   display:grid;
@@ -11158,26 +11166,39 @@ samp,
   border-radius:50%;
   background:linear-gradient(180deg,rgba(18,76,113,.96),rgba(5,38,64,.98));
   color:#ffe58d;
-  font-size:23px;
+  font-size:21px;
   line-height:1;
   cursor:pointer;
   box-shadow:0 7px 18px rgba(0,0,0,.34),inset 0 1px rgba(255,255,255,.10);
-  transition:transform .15s ease,filter .15s ease,box-shadow .15s ease;
+  transition:transform .15s ease,filter .15s ease,box-shadow .15s ease,opacity .15s ease;
 }
-.dashboard-music-toggle:hover{transform:translateY(-1px);filter:brightness(1.1)}
-.dashboard-music-toggle[aria-pressed="true"]{
+.dashboard-music-toggle{font-size:23px}
+.dashboard-music-toggle:hover,
+.dashboard-music-next:hover,
+.dashboard-music-shuffle:hover{transform:translateY(-1px);filter:brightness(1.1)}
+.dashboard-music-toggle[aria-pressed="true"],
+.dashboard-music-shuffle[aria-pressed="true"]{
   background:linear-gradient(180deg,#b88618,#725006);
   box-shadow:0 7px 18px rgba(0,0,0,.34),0 0 17px rgba(239,200,94,.24),inset 0 1px rgba(255,244,182,.28);
 }
-.dashboard-music-toggle:focus-visible{outline:2px solid #fff1a9;outline-offset:3px}
+.dashboard-music-toggle:focus-visible,
+.dashboard-music-next:focus-visible,
+.dashboard-music-shuffle:focus-visible{outline:2px solid #fff1a9;outline-offset:3px}
+.dashboard-music-next[disabled]{opacity:.45;cursor:default;filter:none;transform:none}
 @media(max-width:600px){
-  .dashboard-music-toggle{
+  .dashboard-music-controls{
     top:10px;
     right:10px;
-    width:41px;
-    height:41px;
-    font-size:20px;
+    gap:5px;
   }
+  .dashboard-music-toggle,
+  .dashboard-music-next,
+  .dashboard-music-shuffle{
+    width:39px;
+    height:39px;
+    font-size:18px;
+  }
+  .dashboard-music-toggle{font-size:20px}
 }
 
 
@@ -13141,7 +13162,11 @@ function renderDashboardWelcome(){
     <div class="dashboard-welcome-shell">
       <section class="dashboard-welcome-hero">
         <div class="dashboard-welcome-light"></div>
-        <button id="dashboardMusicToggle" class="dashboard-music-toggle" type="button" aria-pressed="false" aria-label="Turn app music on" title="App music: OFF — click to play" onclick="toggleAppMusic()">🔇</button>
+        <div class="dashboard-music-controls" aria-label="App music controls">
+          <button id="dashboardMusicToggle" class="dashboard-music-toggle" type="button" aria-pressed="false" aria-label="Turn app music on" title="App music: OFF — click to play" onclick="toggleAppMusic()">🔇</button>
+          <button id="dashboardMusicNext" class="dashboard-music-next" type="button" aria-label="Next song" title="Turn music on to use Next" onclick="nextAppMusic()" disabled>⏭</button>
+          <button id="dashboardMusicShuffle" class="dashboard-music-shuffle" type="button" aria-pressed="false" aria-label="Toggle shuffle" title="Shuffle: OFF — current song repeats" onclick="toggleAppMusicShuffle()">🔀</button>
+        </div>
         <img class="dashboard-welcome-prince" src="./assets/arena-characters/Prince.png" alt="" aria-hidden="true">
         <img class="dashboard-welcome-archer" src="./assets/arena-characters/Archer_Evolution_Pose01_Purple.png" alt="" aria-hidden="true">
         <div class="dashboard-welcome-copy">
