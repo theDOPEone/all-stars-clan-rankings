@@ -12662,6 +12662,28 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   #coLeadersPage .leadership-perfect-empty b{font-size:16px!important}
 }
 
+
+/* Mobile order: Dashboard ★, Shop, Rank, Members, Events, Leadership, Settings.
+   Desktop keeps the existing navigation order. */
+@media(max-width:700px){
+  #navDash{order:1}
+  #navShop{order:2}
+  #navRankings{order:3}
+  #navMember{order:4}
+  #navEvents{order:5}
+  #navCoLeaders{order:6}
+  #navSettings{order:7}
+  #navShop .nav-label-mobile{
+    font-size:18px!important;
+    line-height:1!important;
+    letter-spacing:0!important;
+    overflow:visible!important;
+  }
+}
+@media(max-width:430px){
+  #navShop .nav-label-mobile{font-size:17px!important}
+}
+
 @media(max-width:430px){main.shell>.nav>button{font-size:7.7px!important}.nav-label-mobile[aria-hidden="true"]{font-size:13px!important;line-height:1!important}}
 
 /* ===== PLAYER + TRACKER BOT PROFILE TYPOGRAPHY POLISH =====
