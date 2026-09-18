@@ -11652,6 +11652,19 @@ html[data-asc-diamond-background="red"] body:not(.live-game-mode)::before{
 }
 
 /* One persistent frame; only these three content panels switch. */
+#familySummary .rankings-unified-scene #rankingsWelcome{inset:0!important;width:100%!important;height:100%!important;max-height:none!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;overflow:visible!important;pointer-events:none}
+.rankings-scene-heading{position:absolute;top:15%;left:24%;width:52%;text-align:center;color:#eef7ff;z-index:5;pointer-events:none;text-shadow:0 2px 4px #001428}
+#familySummary .rankings-scene-heading h2{font-size:clamp(22px,2.1vw,34px)!important;line-height:1.12!important;color:#ffe294;margin:6px 0!important}
+#familySummary .rankings-scene-heading p{font:500 clamp(11px,1vw,15px)/1.4 'Segoe UI',Arial,sans-serif!important;margin:7px 0!important}
+.rankings-search-inset{position:absolute;bottom:7%;left:21%;width:58%;box-sizing:border-box;padding:15px 20px;background:linear-gradient(135deg,#123e58ed,#071f34ed);border:1px solid #d6b565;border-radius:14px;pointer-events:auto;text-align:left;box-shadow:inset 0 1px #fff3,0 5px 15px #0006}
+.rankings-global-link{display:block;text-align:right;font:500 12px 'Segoe UI',Arial,sans-serif!important;color:#badff3;margin-top:8px}
+#rankingsHubFind .family-table-find-sub,#rankingsHubFind .family-table-find-kicker{display:none}
+#rankingsHubFind .family-table-find-title{font-size:18px!important;line-height:1.2!important}
+#rankingsHubFind .suggestions{display:flex;flex-wrap:wrap;gap:5px}#rankingsHubFind .suggestion{white-space:normal;font:500 11px/1.3 'Segoe UI',Arial,sans-serif!important;padding:6px!important}
+html[data-asc-honor-view="mobile-portrait"] .rankings-scene-heading{top:14%;left:24%;width:52%}
+html[data-asc-honor-view="mobile-portrait"] #familySummary .rankings-scene-heading h2{font-size:clamp(18px,5vw,28px)!important}
+html[data-asc-honor-view="mobile-portrait"] .rankings-scene-heading .rankings-hub-kicker{font-size:9px!important;letter-spacing:1px!important}
+html[data-asc-honor-view="mobile-portrait"] .rankings-search-inset{bottom:7%;left:9%;width:82%;padding:12px}
 .rankings-star.left,.rankings-star.right{top:25%;width:8%;height:14%}.rankings-star.left{left:3%}.rankings-star.right{right:3%}
 .rankings-gold-icon{display:block;width:100%;height:100%;overflow:visible}.rankings-icon-gold{filter:drop-shadow(0 3px 1px #764300);animation:rankingsIconShimmer 2.2s ease-in-out infinite}
 @keyframes rankingsIconShimmer{0%,100%{filter:drop-shadow(0 3px 1px #764300) brightness(1)}45%{filter:drop-shadow(0 0 2px #ffe383) brightness(1.12)}}
@@ -13136,11 +13149,14 @@ function syncRankingsSceneHub(){
     const nav=document.createElement('nav');nav.className='rankings-star-nav';nav.setAttribute('aria-label','Rankings scene');
     nav.innerHTML=[['graphs','Graphs','left'],['welcome','Welcome','center'],['trophies','Trophies','right']].map(([key,label,side])=>`<button type="button" class="rankings-star ${side}" data-scene-button="${key}" aria-label="${label}" title="${label}" onclick="setRankingsSceneView('${key}')">${key==='welcome'?'<span>Welcome</span>':rankingsGoldIcon(key)}</button>`).join('');frame.append(nav);
     const hub=document.createElement('section');hub.id='rankingsWelcome';hub.className='rankings-welcome';
-    hub.innerHTML='<div class="rankings-hub-kicker">ALL STARS • RANKINGS</div><h2>Find your place<br>among the stars.</h2><p>Your family. Your competition.<br>Choose a star above to explore.</p><div class="rankings-hub-menu"><button onclick="setRankingsSceneView(\'graphs\')"><b>▥ Clan performance</b><span>Honor, war, donations &amp; Live Arena →</span></button><button onclick="setRankingsSceneView(\'trophies\')"><b>🏆 The trophy hall</b><span>Meet the leading clans →</span></button><a href="https://royaleapi.com/players/leaderboard" target="_blank" rel="noopener"><b>🌍 Global rankings</b><span>Explore the worldwide leaderboard on RoyaleAPI ↗</span></a></div><div id="rankingsHubFind"></div>';
+    hub.innerHTML='<header class="rankings-scene-heading"><div class="rankings-hub-kicker">ALL STARS • RANKINGS</div><h2>Find your place<br>among the stars.</h2><p>Your family. Your competition.<br>Choose a gold icon to explore.</p></header><div class="rankings-search-inset"><div id="rankingsHubFind"></div><a class="rankings-global-link" href="https://royaleapi.com/players/leaderboard" target="_blank" rel="noopener">Global leaderboard ↗</a></div>';
     frame.append(hub);
   }
   const find=document.querySelector('.family-table-find-dock'),dock=$('rankingsHubFind');
   if(find&&dock&&find.parentElement!==dock)dock.append(find);
+  if(!details.querySelector('.rankings-scene-heading')){
+    const heading=document.createElement('header');heading.className='rankings-scene-heading';heading.innerHTML='<div class="rankings-hub-kicker">ALL STARS FAMILY</div><h2>Family Rank</h2><p>Our leading clans.<br>United by Honor.</p>';details.append(heading);
+  }
   setRankingsSceneView(rankingsSceneView,false);
 }
 function rankingsGoldIcon(key){
