@@ -13345,6 +13345,162 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   #playerModal .tracker-command{font-size:11px!important}
 }
 
+
+/* ===== RANKINGS — FIND ME / PLAYER SEARCH REDESIGN =====
+   The middle gold-frame scene is now the dedicated Find Me scene.
+   Graphs and Trophies may hide the search scene, but the family ranking list
+   always keeps a compact search launcher directly under the frame. */
+
+#rankingsPage .rankings-list-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  min-height:64px;
+  margin:0 0 9px;
+  padding:10px 12px 10px 14px;
+  border:1px solid rgba(239,200,94,.38);
+  border-radius:9px;
+  background:
+    radial-gradient(circle at 92% 35%,rgba(58,174,232,.13),transparent 28%),
+    linear-gradient(90deg,rgba(13,77,118,.96),rgba(7,45,76,.96));
+  box-shadow:inset 0 1px rgba(255,255,255,.05),0 6px 16px rgba(0,18,39,.18);
+}
+#rankingsPage .rankings-list-head-copy{
+  min-width:0;
+}
+#rankingsPage .rankings-list-head-copy>span{
+  display:block;
+  color:#8fd6ff;
+  font-size:7px;
+  line-height:1;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:600;
+}
+#rankingsPage .rankings-list-head-copy>b{
+  display:block;
+  margin-top:4px;
+  color:#ffe28a;
+  font-family:"Clash","Clash Regular","Segoe UI",Arial,sans-serif;
+  font-size:15px;
+  line-height:1.05;
+  font-weight:500;
+  letter-spacing:.01em;
+  text-shadow:0 2px 0 rgba(91,57,0,.72),0 4px 8px rgba(0,0,0,.42);
+}
+#rankingsPage .rankings-list-head-copy>small{
+  display:block;
+  margin-top:4px;
+  color:#9ec4da;
+  font-size:8px;
+  line-height:1.3;
+  font-weight:400;
+}
+
+#rankingsPage .rankings-list-find-button{
+  flex:0 0 auto;
+  min-width:148px;
+  min-height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:7px 12px;
+  border:1px solid rgba(255,220,111,.70);
+  border-radius:8px;
+  background:linear-gradient(180deg,#2379aa,#0f507d);
+  color:#fff2b2;
+  cursor:pointer;
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.12),
+    0 4px 10px rgba(0,0,0,.22),
+    0 0 14px rgba(239,200,94,.08);
+  transition:transform .14s ease,filter .14s ease,box-shadow .14s ease;
+}
+#rankingsPage .rankings-list-find-button:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.09);
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.16),
+    0 6px 14px rgba(0,0,0,.27),
+    0 0 17px rgba(239,200,94,.13);
+}
+#rankingsPage .rankings-list-find-button:active{
+  transform:translateY(0);
+}
+#rankingsPage .rankings-list-find-icon{
+  display:grid;
+  place-items:center;
+  width:28px;
+  height:28px;
+  color:#ffe477;
+  font-family:"Segoe UI Symbol","Segoe UI",sans-serif;
+  font-size:28px;
+  line-height:1;
+  transform:rotate(-18deg);
+  filter:drop-shadow(0 2px 2px rgba(0,0,0,.36));
+}
+#rankingsPage .rankings-list-find-label{
+  font-family:"Clash","Clash Regular","Segoe UI",Arial,sans-serif;
+  font-size:10px;
+  line-height:1;
+  font-weight:500;
+}
+
+/* The center crest badge is a utility scene now, not a welcome/loading scene. */
+#rankingsPage .rankings-star.center span{
+  min-width:70px;
+  padding-left:10px!important;
+  padding-right:10px!important;
+  white-space:nowrap;
+  letter-spacing:.035em!important;
+}
+
+/* Make the search scene language read like an intentional utility page. */
+#rankingsPage #rankingsWelcome .rankings-hub-kicker{
+  color:#d9efff!important;
+}
+#rankingsPage #rankingsWelcome .rankings-search-inset{
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.15),
+    0 8px 22px rgba(0,0,0,.38),
+    0 0 18px rgba(239,200,94,.08)!important;
+}
+
+@media(max-width:700px){
+  #rankingsPage .rankings-list-head{
+    min-height:58px;
+    padding:9px 9px 9px 11px;
+    gap:8px;
+  }
+  #rankingsPage .rankings-list-head-copy>b{
+    font-size:14px;
+  }
+  #rankingsPage .rankings-list-head-copy>small{
+    display:none;
+  }
+  #rankingsPage .rankings-list-find-button{
+    min-width:0;
+    width:48px;
+    height:42px;
+    padding:5px;
+    border-radius:9px;
+  }
+  #rankingsPage .rankings-list-find-icon{
+    width:32px;
+    height:32px;
+    font-size:31px;
+  }
+  #rankingsPage .rankings-list-find-label{
+    display:none;
+  }
+  #rankingsPage .rankings-star.center span{
+    min-width:62px;
+    font-size:9px!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
@@ -13355,11 +13511,23 @@ body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;
     <div class="family-table-find-dock">
       <div class="family-table-find-copy">
         <div class="family-table-find-kicker">ALL STARS FAMILY RANKINGS</div>
-        <div class="family-table-find-title">★ Find Your Place in the Family</div>
+        <div class="family-table-find-title">🔎 Find Your Player</div>
         <div class="family-table-find-sub">Search by Clash name or player tag and jump directly to your current clan roster.</div>
       </div>
-      <div class="family-find family-find-table"><input id="familyFindInput" placeholder="Find yourself by Clash name or player tag..." onkeydown="if(event.key==='Enter')findMeInFamily()"><button class="btn" onclick="findMeInFamily()">Find Me</button></div>
+      <div class="family-find family-find-table"><input id="familyFindInput" placeholder="Clash name or #PLAYER_TAG..." onkeydown="if(event.key==='Enter')findMeInFamily()"><button class="btn" onclick="findMeInFamily()">Find Me</button></div>
       <div id="familyFindResult" class="family-find-result family-find-result-table">Enter your Clash Royale name or tag and we will jump to your current clan roster.</div>
+    </div>
+
+    <div class="rankings-list-head">
+      <div class="rankings-list-head-copy">
+        <span>ALL STARS FAMILY</span>
+        <b>Player Rankings</b>
+        <small>Browse the complete family list across every clan.</small>
+      </div>
+      <button class="rankings-list-find-button" type="button" onclick="openRankingsFindMe()" aria-label="Find a player in the rankings">
+        <span class="rankings-list-find-icon" aria-hidden="true">⌕</span>
+        <span class="rankings-list-find-label">Find Player</span>
+      </button>
     </div>
     <div id="familyControls" class="family-controls"></div>
     <div class="scroll"><table><thead><tr><th>Family Rank</th><th>Player</th><th>Clan</th><th>Clan Perf. Rank</th><th>Rating</th><th>War Avg</th><th>Donations</th><th>Last Seen</th><th>Trophies</th></tr></thead><tbody id="familyRows"></tbody></table></div>
