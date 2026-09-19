@@ -14566,6 +14566,362 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   }
 }
 
+
+/* ==========================================================
+   PROFILE PASS 1 — LAYOUT + TYPOGRAPHY ONLY
+   Fonts intentionally restricted to:
+   Clash Light   = 300
+   Clash Regular = 400
+   ========================================================== */
+
+/* Profile-only font policy: no Bold/Heavy synthesis. */
+#playerModal,
+#myProfileModal,
+#myPublicProfileView,
+#playerModal *,
+#myProfileModal *,
+#myPublicProfileView *{
+  font-family:"Clash UI","Segoe UI Emoji","Segoe UI Symbol","Segoe UI",Arial,sans-serif!important;
+  font-synthesis:none!important;
+}
+#playerModal,
+#myProfileModal,
+#myPublicProfileView,
+#playerModal p,
+#myProfileModal p,
+#myPublicProfileView p,
+#playerModal .muted,
+#myProfileModal .muted,
+#myPublicProfileView .muted,
+#playerModal .community-profile-about,
+#myProfileModal .community-profile-about,
+#myPublicProfileView .community-profile-about{
+  font-weight:300!important;
+}
+#playerModal h1,#playerModal h2,#playerModal h3,#playerModal h4,
+#myProfileModal h1,#myProfileModal h2,#myProfileModal h3,#myProfileModal h4,
+#myPublicProfileView h1,#myPublicProfileView h2,#myPublicProfileView h3,#myPublicProfileView h4,
+#playerModal button,#myProfileModal button,#myPublicProfileView button,
+#playerModal .rating-title,#myProfileModal .rating-title,#myPublicProfileView .rating-title,
+#playerModal .community-profile-name,#myProfileModal .community-profile-name,#myPublicProfileView .community-profile-name{
+  font-weight:400!important;
+}
+
+/* Data labels = Regular. Data values = Light/Regular, never heavy. */
+#playerModal .player-profile-kicker,
+#myProfileModal .community-profile-kicker,
+#myPublicProfileView .community-profile-kicker,
+#playerModal .player-profile-quickstat>span,
+#myProfileModal .community-profile-fact .k,
+#myPublicProfileView .community-profile-fact .k,
+#playerModal .community-profile-fact .k,
+#playerModal .rating-kicker,
+#myProfileModal label,
+#playerModal label{
+  font-weight:400!important;
+}
+#playerModal .player-profile-quickstat>b,
+#playerModal .rank-number,
+#myProfileModal .community-profile-fact .v,
+#myPublicProfileView .community-profile-fact .v,
+#playerModal .community-profile-fact .v,
+#myProfileModal input,#myProfileModal select,#myProfileModal textarea,
+#playerModal td,#playerModal .career-stat .v{
+  font-weight:300!important;
+}
+
+/* ---------------- PUBLIC PROFILE IDENTITY ---------------- */
+.player-profile-name-section{
+  grid-template-columns:116px minmax(0,1fr) auto!important;
+  gap:14px 17px!important;
+  padding:17px 18px!important;
+}
+.player-profile-avatar{
+  width:108px!important;
+  height:108px!important;
+  font-size:39px!important;
+  font-weight:400!important;
+  border-width:2px!important;
+}
+.player-profile-name-copy h2{
+  margin-top:4px!important;
+  font-size:30px!important;
+  line-height:1.04!important;
+  font-weight:400!important;
+}
+.player-profile-kicker{
+  font-size:9px!important;
+  font-weight:400!important;
+}
+.player-profile-identity-line{
+  margin-top:5px!important;
+  font-size:10px!important;
+  font-weight:300!important;
+}
+.player-profile-clan-line{
+  margin-top:3px!important;
+  font-size:11px!important;
+  font-weight:300!important;
+}
+.player-profile-status{
+  font-size:8.5px!important;
+  font-weight:300!important;
+}
+.player-profile-quickstats{
+  grid-column:1/-1!important;
+}
+
+/* Points now belong to identity, not the editor heading. */
+.player-profile-points{
+  align-self:start;
+  justify-self:end;
+  min-width:128px;
+  padding:9px 12px 8px;
+  border:1px solid rgba(239,200,94,.72);
+  border-radius:999px;
+  background:linear-gradient(180deg,#8a6510,#5b3c06);
+  color:#ffe58e;
+  cursor:pointer;
+  box-shadow:inset 0 1px rgba(255,255,255,.14),0 4px 12px rgba(0,0,0,.22);
+  text-align:center;
+}
+.player-profile-points:hover{
+  filter:brightness(1.10);
+  transform:translateY(-1px);
+}
+.player-profile-points span{
+  display:block;
+  font-size:14px!important;
+  line-height:1!important;
+  font-weight:400!important;
+  white-space:nowrap;
+}
+.player-profile-points small{
+  display:block;
+  margin-top:4px;
+  color:#f1d97d;
+  font-size:6.5px!important;
+  line-height:1!important;
+  font-weight:300!important;
+  letter-spacing:.08em;
+}
+
+/* ---------------- MY PROFILE PREVIEW IDENTITY ---------------- */
+.community-profile-preview-identity{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  gap:14px!important;
+  align-items:start!important;
+  padding:16px 16px 14px!important;
+  border-bottom:1px solid rgba(239,200,94,.18)!important;
+}
+.community-profile-preview-identity .community-profile-id{
+  display:grid!important;
+  grid-template-columns:108px minmax(0,1fr)!important;
+  gap:15px!important;
+  align-items:center!important;
+  min-width:0!important;
+}
+.community-profile-preview-identity .avatar{
+  width:108px!important;
+  height:108px!important;
+  min-width:108px!important;
+  display:grid!important;
+  place-items:center!important;
+  border:2px solid #e0b747!important;
+  border-radius:50%!important;
+  background:radial-gradient(circle at 35% 30%,#2482b6,#0a3b61 62%,#061f35)!important;
+  color:#ffe990!important;
+  font-size:39px!important;
+  font-weight:400!important;
+  box-shadow:0 8px 18px rgba(0,0,0,.30),0 0 16px rgba(239,200,94,.10)!important;
+}
+.community-profile-id-copy{min-width:0}
+.community-profile-kicker{
+  color:#84c8ec;
+  font-size:8px!important;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.community-profile-preview-identity .community-profile-name{
+  margin-top:3px!important;
+  color:#ffe795!important;
+  font-size:27px!important;
+  line-height:1.05!important;
+  font-weight:400!important;
+  text-shadow:0 2px 0 #6a4204,0 4px 9px rgba(0,0,0,.32);
+}
+.community-profile-preview-identity .community-profile-handle{
+  margin-top:5px!important;
+  font-size:9.5px!important;
+  line-height:1.4!important;
+  font-weight:300!important;
+}
+.community-profile-preview-identity .community-profile-status{
+  display:inline-flex!important;
+  margin-top:8px!important;
+  font-size:8px!important;
+  font-weight:300!important;
+}
+.community-profile-points{
+  margin-top:1px!important;
+}
+
+/* Two lower facts after points moved to the identity header. */
+.community-profile-facts{
+  grid-template-columns:minmax(0,1.7fr) minmax(180px,.8fr)!important;
+}
+
+/* ---------------- EDITOR ---------------- */
+.my-profile-editor-head{
+  justify-content:flex-start!important;
+}
+.my-profile-editor-head h3{
+  font-size:21px!important;
+  font-weight:400!important;
+}
+.my-profile-wallet{
+  display:none!important;
+}
+.my-profile-upgrades.compact{
+  margin-top:10px!important;
+  padding:9px 11px!important;
+  border:1px solid rgba(239,200,94,.24)!important;
+  border-radius:6px!important;
+  background:rgba(4,32,53,.40)!important;
+  color:#9fbfd1!important;
+  font-size:9px!important;
+  line-height:1.45!important;
+  font-weight:300!important;
+}
+.member-auth-note{
+  font-weight:300!important;
+}
+
+/* Reduce remaining heavy profile data treatment. */
+.player-profile-quickstat>b{
+  font-size:10.5px!important;
+}
+.player-profile-rating-section .rating-title{
+  font-weight:400!important;
+}
+.player-profile-rating-section .rank-number{
+  font-weight:400!important;
+}
+.community-profile-section-head b,
+.community-profile-showcase-head b,
+.community-profile-fact .v,
+.community-profile-deck-title{
+  font-weight:400!important;
+}
+.community-profile-deck-card .n,
+.community-profile-since{
+  font-weight:300!important;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media(max-width:700px){
+  .player-profile-name-section{
+    grid-template-columns:82px minmax(0,1fr) 88px!important;
+    gap:8px 9px!important;
+    padding:11px!important;
+  }
+  .player-profile-avatar{
+    width:78px!important;
+    height:78px!important;
+    font-size:29px!important;
+  }
+  .player-profile-name-copy h2{
+    font-size:23px!important;
+  }
+  .player-profile-identity-line{
+    font-size:7.8px!important;
+  }
+  .player-profile-clan-line{
+    font-size:8.5px!important;
+  }
+  .player-profile-points{
+    min-width:86px!important;
+    padding:7px 7px 6px!important;
+  }
+  .player-profile-points span{
+    font-size:10px!important;
+  }
+  .player-profile-points small{
+    font-size:5.2px!important;
+    margin-top:3px!important;
+  }
+
+  .community-profile-preview-identity{
+    grid-template-columns:minmax(0,1fr) 86px!important;
+    gap:8px!important;
+    padding:11px!important;
+  }
+  .community-profile-preview-identity .community-profile-id{
+    grid-template-columns:80px minmax(0,1fr)!important;
+    gap:9px!important;
+  }
+  .community-profile-preview-identity .avatar{
+    width:76px!important;
+    height:76px!important;
+    min-width:76px!important;
+    font-size:28px!important;
+  }
+  .community-profile-preview-identity .community-profile-name{
+    font-size:21px!important;
+  }
+  .community-profile-preview-identity .community-profile-handle{
+    font-size:7.5px!important;
+  }
+  .community-profile-preview-identity .community-profile-status{
+    font-size:7px!important;
+    padding:4px 6px!important;
+  }
+
+  .community-profile-facts{
+    grid-template-columns:1fr!important;
+  }
+}
+
+@media(max-width:390px){
+  .player-profile-name-section{
+    grid-template-columns:72px minmax(0,1fr) 78px!important;
+    gap:7px!important;
+  }
+  .player-profile-avatar{
+    width:68px!important;
+    height:68px!important;
+    font-size:25px!important;
+  }
+  .player-profile-name-copy h2{
+    font-size:20px!important;
+  }
+  .player-profile-points{
+    min-width:76px!important;
+    padding:6px 5px!important;
+  }
+  .player-profile-points span{
+    font-size:9px!important;
+  }
+
+  .community-profile-preview-identity{
+    grid-template-columns:minmax(0,1fr) 78px!important;
+  }
+  .community-profile-preview-identity .community-profile-id{
+    grid-template-columns:70px minmax(0,1fr)!important;
+  }
+  .community-profile-preview-identity .avatar{
+    width:66px!important;
+    height:66px!important;
+    min-width:66px!important;
+    font-size:24px!important;
+  }
+  .community-profile-preview-identity .community-profile-name{
+    font-size:19px!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
