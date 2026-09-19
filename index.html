@@ -17191,6 +17191,246 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   }
 }
 
+
+/* ----- Readability ----- */
+.favorite-card-mode-button{
+  min-height:38px!important;
+  font-size:12px!important;
+  line-height:1!important;
+}
+.favorite-card-filter-button{
+  min-height:30px!important;
+  padding:5px 8px!important;
+  font-size:9px!important;
+}
+.favorite-card-picker-tools select{
+  font-size:10px!important;
+}
+.favorite-card-picker-count,
+#favoriteCardPickerCount{
+  font-size:9px!important;
+}
+
+/* Elixir number is a primary card cue — make it readable. */
+.favorite-card-meta-elixir{
+  width:24px!important;
+  height:24px!important;
+  left:-2px!important;
+  top:-2px!important;
+  font-size:10px!important;
+  line-height:1!important;
+}
+.favorite-card-meta-special{
+  font-size:6px!important;
+  padding:3px 5px!important;
+}
+
+/* The currently-selected Favorite Card was visually sitting low. */
+.favorite-card-picker-preview{
+  align-items:start!important;
+  padding-top:0!important;
+}
+.favorite-card-picker-preview img{
+  height:78px!important;
+  transform:translateY(-6px)!important;
+}
+
+/* ----- Special deck slots ----- */
+.favorite-deck-builder-slots{
+  gap:7px!important;
+}
+.favorite-deck-slot{
+  position:relative!important;
+  overflow:visible!important;
+  transition:
+    transform .12s ease,
+    border-color .12s ease,
+    box-shadow .12s ease,
+    background .12s ease!important;
+}
+.favorite-deck-slot:hover{
+  transform:translateY(-2px);
+}
+.favorite-deck-slot.selected{
+  transform:translateY(-3px);
+  border-color:#ffe26e!important;
+  box-shadow:
+    0 0 0 2px rgba(255,220,90,.19),
+    0 6px 13px rgba(0,0,0,.32)!important;
+}
+
+.favorite-deck-special-label{
+  position:absolute;
+  z-index:6;
+  top:-7px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:3px 5px;
+  border-radius:999px;
+  color:#fff;
+  font-size:5.5px!important;
+  line-height:1;
+  font-weight:400!important;
+  white-space:nowrap;
+  box-shadow:0 2px 5px rgba(0,0,0,.35);
+  pointer-events:none;
+}
+.favorite-deck-slot.special-evo{
+  border-color:#9255d2!important;
+  background:
+    radial-gradient(circle at 50% 0,rgba(165,85,223,.22),transparent 46%),
+    #08233a!important;
+}
+.favorite-deck-slot.special-evo .favorite-deck-special-label{
+  background:#7b3eb8;
+  border:1px solid #bd86ec;
+}
+.favorite-deck-slot.special-hero{
+  border-color:#d9aa3f!important;
+  background:
+    radial-gradient(circle at 50% 0,rgba(229,178,62,.20),transparent 46%),
+    #08233a!important;
+}
+.favorite-deck-slot.special-hero .favorite-deck-special-label{
+  background:#9b721c;
+  border:1px solid #efcb67;
+}
+.favorite-deck-slot.special-hybrid{
+  border-color:#d0a04b!important;
+  background:
+    linear-gradient(135deg,rgba(125,59,182,.23),rgba(157,112,23,.22)),
+    #08233a!important;
+}
+.favorite-deck-slot.special-hybrid .favorite-deck-special-label{
+  background:linear-gradient(90deg,#743bab,#9b721c);
+  border:1px solid #d8a8e9;
+}
+.favorite-deck-slot.evo-active{
+  box-shadow:
+    inset 0 0 14px rgba(159,76,221,.19),
+    0 0 10px rgba(145,73,203,.12)!important;
+}
+.favorite-deck-slot.hero-active{
+  box-shadow:
+    inset 0 0 14px rgba(229,177,57,.16),
+    0 0 10px rgba(229,177,57,.11)!important;
+}
+
+/* Slot elixir badge. */
+.favorite-deck-slot.filled small{
+  width:20px!important;
+  height:20px!important;
+  left:-3px!important;
+  bottom:-3px!important;
+  font-size:8px!important;
+  z-index:7!important;
+}
+.favorite-deck-slot-number{
+  position:absolute!important;
+  top:4px!important;
+  left:5px!important;
+  font-size:6px!important;
+}
+
+/* A special slot swaps to evolutionIcon when the card supports Evolution.
+   Keep the complete artwork visible and slightly larger. */
+.favorite-deck-slot.filled img{
+  width:108%!important;
+  height:108%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  pointer-events:none;
+}
+
+/* ----- Cursor action menu ----- */
+.favorite-deck-cursor-menu{
+  position:fixed;
+  z-index:10150;
+  min-width:118px;
+  padding:6px;
+  border:1px solid rgba(239,200,94,.64);
+  border-radius:7px;
+  background:rgba(3,29,49,.98);
+  box-shadow:0 9px 24px rgba(0,0,0,.46);
+  backdrop-filter:blur(5px);
+}
+.favorite-deck-cursor-menu.hidden{
+  display:none!important;
+}
+.favorite-deck-cursor-name{
+  max-width:150px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  color:#bad8e7;
+  font-size:7px;
+  font-weight:300!important;
+}
+.favorite-deck-cursor-menu button{
+  width:100%;
+  min-height:29px;
+  margin-top:4px;
+  padding:4px 8px;
+  border:1px solid #d05a5e;
+  border-radius:5px;
+  background:#7e292d;
+  color:#fff3dd;
+  font-family:"Clash UI","Segoe UI",sans-serif!important;
+  font-size:10px;
+  font-weight:400!important;
+  cursor:pointer;
+}
+.favorite-deck-cursor-menu button:hover{
+  filter:brightness(1.12);
+}
+.favorite-deck-cursor-menu small{
+  display:block;
+  margin-top:5px;
+  color:#7f9fb2;
+  font-size:6px;
+  line-height:1.25;
+  font-weight:300!important;
+}
+
+/* Larger picker card names on PC. */
+.favorite-card-picker-item span{
+  font-size:8px!important;
+}
+
+/* Mobile remains finger-friendly. */
+@media(max-width:700px){
+  .favorite-card-mode-button{
+    min-height:36px!important;
+    font-size:10.5px!important;
+  }
+  .favorite-card-filter-button{
+    min-height:29px!important;
+    font-size:8px!important;
+  }
+  .favorite-card-meta-elixir{
+    width:22px!important;
+    height:22px!important;
+    font-size:9px!important;
+  }
+  .favorite-deck-builder-slots{
+    gap:8px 6px!important;
+    padding-top:4px;
+  }
+  .favorite-deck-special-label{
+    font-size:5px!important;
+    top:-6px;
+  }
+  .favorite-deck-slot.filled small{
+    width:19px!important;
+    height:19px!important;
+    font-size:7px!important;
+  }
+  .favorite-deck-cursor-menu{
+    min-width:126px;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
