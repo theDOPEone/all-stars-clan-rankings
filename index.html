@@ -11804,16 +11804,16 @@ html[data-asc-diamond-background="red"] body:not(.live-game-mode)::before{
 
 /* One persistent frame; only these three content panels switch. */
 .rankings-character-distance{position:absolute;inset:36% 17% 30%;overflow:hidden;pointer-events:none;z-index:0;contain:layout paint}
-.rankings-character-travel{position:absolute;left:0;top:12%;width:100%;height:60%;opacity:0;animation:rankingsDistantCrossing 9s linear infinite;animation-play-state:paused}
+.rankings-character-travel{position:absolute;left:0;top:12%;width:100%;height:60%;opacity:0;animation:rankingsDistantCrossing 12s linear infinite;animation-play-state:paused}
 .rankings-character-travel img{display:block;width:21%;height:100%;object-fit:contain;filter:saturate(.65) brightness(.8);opacity:.8}
-.rankings-character-travel.traveler-1{top:35%;height:65%;animation-duration:9s;animation-delay:-3s;animation-direction:reverse}
-.rankings-character-travel.traveler-2{top:0;height:42%;animation-duration:9s;animation-delay:-6s}
-.rankings-character-travel.traveler-3{top:20%;height:52%;animation-duration:9s;animation-delay:-7.5s;animation-direction:reverse}
+.rankings-character-travel.traveler-1{top:35%;height:65%;animation-duration:12s;animation-delay:-3s;animation-direction:reverse}
+.rankings-character-travel.traveler-2{top:0;height:42%;animation-duration:12s;animation-delay:-6s}
+.rankings-character-travel.traveler-3{top:20%;height:52%;animation-duration:12s;animation-delay:-9s;animation-direction:reverse}
 .rankings-character-travel.traveler-2 img{width:15%;filter:saturate(.5) brightness(.75);opacity:.6}
 .rankings-character-travel.traveler-3 img{width:18%;filter:saturate(.58) brightness(.78);opacity:.68}
 .rankings-character-distance.motion-running .rankings-character-travel{animation-play-state:running}
 @keyframes rankingsDistantCrossing{0%{transform:translate3d(-24%,0,0);opacity:0}15%{opacity:.55}72%{opacity:.55}92%,100%{transform:translate3d(103%,0,0);opacity:0}}
-/* Each crossing takes nine seconds, with staggered starts in both motion modes. */
+/* Each crossing takes twelve seconds, with staggered starts in both motion modes. */
 #familySummary .rankings-unified-scene #rankingsWelcome{inset:0!important;width:100%!important;height:100%!important;max-height:none!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;overflow:visible!important;pointer-events:none}
 .rankings-scene-heading{position:absolute;top:15%;left:24%;width:52%;text-align:center;color:#eef7ff;z-index:5;pointer-events:none;text-shadow:0 2px 4px #001428}
 #familySummary .rankings-scene-heading h2{font-size:clamp(22px,2.1vw,34px)!important;line-height:1.12!important;color:#ffe294;margin:6px 0!important}
