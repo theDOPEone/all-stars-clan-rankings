@@ -14416,6 +14416,156 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   }
 }
 
+
+/* Current Deck cleanup:
+   - no individual card boxes/borders
+   - deck fills the available width
+   - card art itself becomes the visual item
+   - reduced dead space inside the deck panel */
+
+.community-profile-deck-wrap .community-profile-deck{
+  min-height:0!important;
+  padding:8px 10px 9px!important;
+}
+
+.community-profile-deck-cards{
+  display:grid!important;
+  grid-template-columns:repeat(8,minmax(0,1fr))!important;
+  width:100%!important;
+  gap:8px!important;
+  align-items:end!important;
+  justify-content:stretch!important;
+}
+
+.community-profile-deck-card{
+  width:auto!important;
+  min-width:0!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+}
+
+.community-profile-deck-card:hover{
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:translateY(-2px);
+}
+
+.community-profile-deck-card img{
+  display:block!important;
+  width:min(100%,78px)!important;
+  max-width:78px!important;
+  height:auto!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+  margin:0 auto!important;
+  filter:drop-shadow(0 3px 5px rgba(0,0,0,.34));
+}
+
+.community-profile-deck-card .n{
+  margin-top:3px!important;
+  min-height:0!important;
+  font-size:5.8px!important;
+  line-height:1.1!important;
+  color:#a9c9da!important;
+  text-align:center!important;
+  border:0!important;
+  background:transparent!important;
+}
+
+/* Let the deck consume more of the favorite-card/deck row instead of
+   wasting width around tiny thumbnails. */
+.community-profile-showcase{
+  grid-template-columns:154px minmax(0,1fr)!important;
+}
+.community-profile-deck-wrap{
+  align-self:stretch!important;
+}
+.community-profile-deck-wrap .community-profile-deck{
+  height:100%!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+}
+.community-profile-deck-title{
+  flex:0 0 auto!important;
+}
+.community-profile-deck-cards{
+  flex:0 0 auto!important;
+}
+
+/* Tablet */
+@media(max-width:900px){
+  .community-profile-deck-cards{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:7px 9px!important;
+  }
+  .community-profile-deck-card img{
+    width:min(100%,68px)!important;
+    max-width:68px!important;
+  }
+}
+
+/* Mobile: keep Favorite Card on the left, use all remaining deck width.
+   The cards spread across the panel instead of forming a tiny centered block. */
+@media(max-width:700px){
+  .community-profile-showcase{
+    grid-template-columns:104px minmax(0,1fr)!important;
+    gap:8px!important;
+  }
+
+  .community-profile-deck-wrap .community-profile-deck{
+    padding:6px 5px!important;
+    min-height:132px!important;
+  }
+
+  .community-profile-deck-cards{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    width:100%!important;
+    gap:5px 6px!important;
+    justify-content:stretch!important;
+  }
+
+  .community-profile-deck-card img{
+    width:min(100%,58px)!important;
+    max-width:58px!important;
+  }
+
+  .community-profile-deck-card .n{
+    display:none!important;
+  }
+}
+
+@media(max-width:390px){
+  .community-profile-showcase{
+    grid-template-columns:94px minmax(0,1fr)!important;
+    gap:6px!important;
+  }
+
+  .community-profile-deck-wrap .community-profile-deck{
+    padding:5px 4px!important;
+    min-height:124px!important;
+  }
+
+  .community-profile-deck-cards{
+    gap:4px!important;
+  }
+
+  .community-profile-deck-card img{
+    width:min(100%,54px)!important;
+    max-width:54px!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
