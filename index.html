@@ -11811,7 +11811,9 @@ html[data-asc-diamond-background="red"] body:not(.live-game-mode)::before{
 .rankings-character-travel.traveler-2 img{width:15%;filter:saturate(.5) brightness(.75);opacity:.6}
 .rankings-character-distance.motion-running .rankings-character-travel{animation-play-state:running}
 @keyframes rankingsDistantCrossing{0%{transform:translate3d(-24%,0,0);opacity:0}15%{opacity:.55}72%{opacity:.55}92%,100%{transform:translate3d(103%,0,0);opacity:0}}
-@media(prefers-reduced-motion:reduce){.rankings-character-travel{animation:none!important;transform:translateX(22%);opacity:.25}.rankings-character-travel.traveler-1{transform:translateX(65%)}.rankings-character-travel.traveler-2{display:none}}
+/* Keep the requested background crossing on desktop even when OS motion is
+   reduced; slow it down instead of freezing characters in the scene. */
+@media(prefers-reduced-motion:reduce){.rankings-character-travel{animation-duration:48s!important}.rankings-character-travel.traveler-1{animation-duration:58s!important}.rankings-character-travel.traveler-2{animation-duration:68s!important}}
 #familySummary .rankings-unified-scene #rankingsWelcome{inset:0!important;width:100%!important;height:100%!important;max-height:none!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;overflow:visible!important;pointer-events:none}
 .rankings-scene-heading{position:absolute;top:15%;left:24%;width:52%;text-align:center;color:#eef7ff;z-index:5;pointer-events:none;text-shadow:0 2px 4px #001428}
 #familySummary .rankings-scene-heading h2{font-size:clamp(22px,2.1vw,34px)!important;line-height:1.12!important;color:#ffe294;margin:6px 0!important}
