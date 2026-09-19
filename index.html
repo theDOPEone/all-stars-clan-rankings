@@ -11887,7 +11887,10 @@ html[data-asc-honor-view="mobile-portrait"] #familySummary .honor-scene-frame.ra
    Keep them behind the scene copy/buttons and resume them only while Rankings is active. */
 .rankings-character-distance{
   inset:24% 5% 18%!important;
-  overflow:visible!important;
+  /* Clip only the moving artwork, not scene buttons or information popups. */
+  overflow:hidden!important;
+  clip-path:inset(0);
+  contain:layout paint;
 }
 .rankings-character-travel img{
   width:34%!important;
@@ -11915,7 +11918,7 @@ html[data-asc-honor-view="mobile-portrait"] #familySummary .honor-scene-frame.ra
 }
 @media(max-width:700px){
   .rankings-character-distance{
-    inset:22% -5% 15%!important;
+    inset:22% 5% 15%!important;
   }
   .rankings-character-travel{
     height:72%!important;
