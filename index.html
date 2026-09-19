@@ -13194,7 +13194,7 @@ function renderDashboardWelcome(){
       <section class="dashboard-welcome-hero dashboard-welcome-hero--${hero.state}">
         <div class="dashboard-welcome-light"></div>
         <div class="dashboard-music-controls" aria-label="App music controls">
-          <button id="dashboardMusicToggle" class="dashboard-music-toggle" type="button" aria-pressed="false" aria-label="Turn app music on" title="App music: OFF — click to play" onclick="toggleAppMusic()">🔇</button>
+          <button id="dashboardMusicToggle" class="dashboard-music-toggle" type="button" aria-pressed="false" aria-label="Turn app music on" title="App music: OFF — click to play" onpointerdown="primeAscAppMusic()" onclick="toggleAppMusic()">🔇</button>
           <button id="dashboardMusicNext" class="dashboard-music-next" type="button" aria-label="Next song" title="Turn music on to use Next" onclick="nextAppMusic()" disabled>⏭</button>
           <button id="dashboardMusicShuffle" class="dashboard-music-shuffle" type="button" aria-pressed="false" aria-label="Toggle shuffle" title="Shuffle: OFF — current song repeats" onclick="toggleAppMusicShuffle()">🔀</button>
         </div>
@@ -13206,7 +13206,7 @@ function renderDashboardWelcome(){
           <div class="dashboard-session-pill"><span class="dashboard-session-dot ${me.signedIn?'online':''}"></span><b>${signedLabel}</b><small>${roleLabel}</small></div>
           <div class="dashboard-welcome-actions">${primaryActions}</div>
           <div class="dashboard-music-controls-mobile" aria-label="App music controls">
-            <button id="dashboardMusicToggleMobile" class="dashboard-music-toggle" type="button" aria-pressed="false" aria-label="Turn app music on" title="App music: OFF — click to play" onclick="toggleAppMusic()">🔇</button>
+            <button id="dashboardMusicToggleMobile" class="dashboard-music-toggle" type="button" aria-pressed="false" aria-label="Turn app music on" title="App music: OFF — click to play" onpointerdown="primeAscAppMusic()" onclick="toggleAppMusic()">🔇</button>
             <button id="dashboardMusicNextMobile" class="dashboard-music-next" type="button" aria-label="Next song" title="Turn music on to use Next" onclick="nextAppMusic()" disabled>⏭</button>
             <button id="dashboardMusicShuffleMobile" class="dashboard-music-shuffle" type="button" aria-pressed="false" aria-label="Toggle shuffle" title="Shuffle: OFF — current song repeats" onclick="toggleAppMusicShuffle()">🔀</button>
           </div>
