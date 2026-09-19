@@ -11808,7 +11808,9 @@ html[data-asc-diamond-background="red"] body:not(.live-game-mode)::before{
 .rankings-character-travel img{display:block;width:21%;height:100%;object-fit:contain;filter:saturate(.65) brightness(.8);opacity:.8}
 .rankings-character-travel.traveler-1{top:35%;height:65%;animation-duration:9s;animation-delay:-3s;animation-direction:reverse}
 .rankings-character-travel.traveler-2{top:0;height:42%;animation-duration:9s;animation-delay:-6s}
+.rankings-character-travel.traveler-3{top:20%;height:52%;animation-duration:9s;animation-delay:-7.5s;animation-direction:reverse}
 .rankings-character-travel.traveler-2 img{width:15%;filter:saturate(.5) brightness(.75);opacity:.6}
+.rankings-character-travel.traveler-3 img{width:18%;filter:saturate(.58) brightness(.78);opacity:.68}
 .rankings-character-distance.motion-running .rankings-character-travel{animation-play-state:running}
 @keyframes rankingsDistantCrossing{0%{transform:translate3d(-24%,0,0);opacity:0}15%{opacity:.55}72%{opacity:.55}92%,100%{transform:translate3d(103%,0,0);opacity:0}}
 /* Each crossing takes nine seconds, with staggered starts in both motion modes. */
@@ -14354,8 +14356,32 @@ function syncRankingsSceneHub(){
     hub.innerHTML='<header class="rankings-scene-heading"><div class="rankings-hub-kicker">ALL STARS • RANKINGS</div><h2>Find your place<br>among the stars.</h2><p>Your family. Your competition.<br>Choose a gold icon to explore.</p></header><div class="rankings-search-inset"><div id="rankingsHubFind"></div><a class="rankings-global-link" href="https://royaleapi.com/players/leaderboard" target="_blank" rel="noopener">Global leaderboard ↗</a></div>';
     frame.append(hub);
     const atmosphere=document.createElement('div');atmosphere.className='rankings-character-distance';atmosphere.setAttribute('aria-hidden','true');
-    const characters=['./assets/arena-characters/musketeer.png','./assets/arena-characters/magic_archer.png','./assets/arena-characters/Witch_02.png'];
-    atmosphere.innerHTML=characters.map((src,i)=>`<div class="rankings-character-travel traveler-${i}"><img src="${src}" alt="" decoding="async" draggable="false"></div>`).join('');hub.prepend(atmosphere);
+    const characters=[
+      './assets/arena-characters/Musketeer_Hero_Pose03_4K_FX.png',
+      './assets/arena-characters/Magicarcher_Hero_Pose01_4K_FX.png',
+      './assets/arena-characters/Witch_25.png',
+      './assets/arena-characters/DarkPrinceHero_Pose1_4K_FX_blue.png',
+      './assets/arena-characters/Firecracker_Evolution_02.png',
+      './assets/arena-characters/Electro_Dragon_Evolution_02.png',
+      './assets/arena-characters/ExecutionerEvolution_Pose02_4k_FX.png',
+      './assets/arena-characters/IceWizardHero_Pose03_4K_B_FX.png',
+      './assets/arena-characters/Mini_Pekka_Hero_Pose01_4k_FX_Blue_Pancakes.png',
+      './assets/arena-characters/Princess_03.png',
+      './assets/arena-characters/Ram_Rider_05.png',
+      './assets/arena-characters/Ronin_Pose03_4k_FX.png',
+      './assets/arena-characters/Valkyrie_Evolution.png',
+      './assets/arena-characters/Wizard_Pose03_4K_FX_eyes.png',
+      './assets/arena-characters/Giant_Hero_Pose01_4K_FX.png',
+      './assets/arena-characters/InfernoDragon-Evolution-Pose1---Green.png'
+    ];
+    const startingCharacters=[0,4,8,12];
+    atmosphere.innerHTML=startingCharacters.map((characterIndex,i)=>`<div class="rankings-character-travel traveler-${i}" data-character-index="${characterIndex}"><img src="${characters[characterIndex]}" alt="" decoding="async" draggable="false"></div>`).join('');hub.prepend(atmosphere);
+    atmosphere.querySelectorAll('.rankings-character-travel').forEach((traveler,lane)=>traveler.addEventListener('animationiteration',()=>{
+      const previous=Number(traveler.dataset.characterIndex||lane),step=3+lane*2;
+      const next=(previous+step)%characters.length;
+      traveler.dataset.characterIndex=String(next);
+      const image=traveler.querySelector('img');if(image)image.src=characters[next];
+    }));
     if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{atmosphere.dataset.inView=String(entries[0].isIntersecting);syncRankingsCharacterMotion()});observer.observe(atmosphere)}else atmosphere.dataset.inView='true';
   }
   const find=document.querySelector('.family-table-find-dock'),dock=$('rankingsHubFind');
