@@ -15790,6 +15790,301 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   }
 }
 
+
+.favorite-card-profile-trigger{
+  position:relative;
+}
+.favorite-card-profile-trigger.editable{
+  cursor:pointer;
+  border-radius:9px;
+  outline:none;
+}
+.favorite-card-profile-trigger.editable:hover .community-profile-cardart{
+  filter:brightness(1.08);
+}
+.favorite-card-profile-trigger.editable:focus-visible{
+  outline:2px solid #ffe06d;
+  outline-offset:4px;
+}
+.favorite-card-edit-badge{
+  position:absolute;
+  right:3px;
+  bottom:4px;
+  z-index:4;
+  padding:4px 6px;
+  border:1px solid #f0cb59;
+  border-radius:5px;
+  background:rgba(7,66,103,.96);
+  color:#ffe896;
+  font-size:6.5px;
+  line-height:1;
+  font-weight:400!important;
+  box-shadow:0 3px 8px rgba(0,0,0,.30);
+  pointer-events:none;
+}
+
+/* Favorite card picker */
+.favorite-card-picker-modal{
+  position:fixed;
+  inset:0;
+  z-index:10060;
+  display:grid;
+  place-items:center;
+  padding:16px;
+  background:rgba(1,13,25,.80);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+}
+.favorite-card-picker-modal.hidden{display:none!important}
+.favorite-card-picker-window{
+  width:min(590px,96vw);
+  max-height:92vh;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid rgba(239,200,94,.72);
+  border-radius:12px;
+  background:
+    radial-gradient(circle at 50% -12%,rgba(58,166,221,.18),transparent 33%),
+    linear-gradient(180deg,#0a4168,#062944 42%,#05233b);
+  box-shadow:0 24px 72px rgba(0,0,0,.64),inset 0 1px rgba(255,255,255,.06);
+}
+.favorite-card-picker-head{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:11px 13px;
+  border-bottom:1px solid rgba(239,200,94,.30);
+  background:rgba(8,57,93,.96);
+}
+.favorite-card-picker-kicker{
+  color:#83c7ea;
+  font-size:9px;
+  letter-spacing:.12em;
+  font-weight:400!important;
+}
+.favorite-card-picker-head h3{
+  margin:2px 0 0;
+  color:#ffe798;
+  font-size:24px;
+  line-height:1;
+  font-weight:400!important;
+}
+.favorite-card-picker-close{
+  width:38px;
+  height:38px;
+  border:1px solid rgba(239,200,94,.46);
+  border-radius:7px;
+  background:#0d507a;
+  color:#fff;
+  font-family:"Clash UI","Segoe UI",sans-serif!important;
+  font-size:23px;
+  font-weight:300!important;
+  cursor:pointer;
+}
+.favorite-card-picker-body{
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  padding:10px 11px 11px;
+}
+.favorite-card-picker-selected{
+  flex:0 0 auto;
+  display:grid;
+  grid-template-columns:78px minmax(0,1fr);
+  gap:11px;
+  align-items:center;
+  padding:8px 9px;
+  border:1px solid rgba(92,159,198,.28);
+  border-radius:8px;
+  background:rgba(3,30,51,.48);
+}
+.favorite-card-picker-preview{
+  width:72px;
+  height:82px;
+  display:grid;
+  place-items:center;
+}
+.favorite-card-picker-preview img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  filter:drop-shadow(0 4px 6px rgba(0,0,0,.32));
+}
+.favorite-card-picker-preview>span{
+  color:#ffe071;
+  font-size:36px;
+}
+.favorite-card-picker-selected-copy>span{
+  display:block;
+  color:#81aac1;
+  font-size:7.5px;
+  letter-spacing:.09em;
+}
+.favorite-card-picker-selected-copy>b{
+  display:block;
+  margin-top:2px;
+  color:#ffe797;
+  font-size:14px;
+  font-weight:400!important;
+}
+.favorite-card-picker-clash{
+  margin-top:6px;
+  padding:4px 7px;
+  border:1px solid #376f90;
+  border-radius:5px;
+  background:#0b456b;
+  color:#cfe7f3;
+  font-family:"Clash UI","Segoe UI",sans-serif!important;
+  font-size:8px;
+  font-weight:400!important;
+  cursor:pointer;
+}
+.favorite-card-picker-tools{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:9px;
+}
+.favorite-card-picker-tools input{
+  min-width:0;
+  flex:1;
+  height:34px;
+  padding:5px 9px;
+  border:1px solid #356e91;
+  border-radius:6px;
+  background:#041f35;
+  color:#eaf7ff;
+  font-family:"Clash UI","Segoe UI",sans-serif!important;
+  font-size:11px;
+  font-weight:300!important;
+}
+.favorite-card-picker-tools>span{
+  flex:0 0 auto;
+  color:#84adc3;
+  font-size:8px;
+}
+.favorite-card-picker-grid{
+  min-height:180px;
+  flex:1 1 auto;
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  align-content:start;
+  gap:7px;
+  margin-top:9px;
+  padding:8px;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  border:1px solid rgba(87,151,190,.23);
+  border-radius:8px;
+  background:rgba(2,23,39,.52);
+}
+.favorite-card-picker-item{
+  min-width:0;
+  padding:5px 3px 6px;
+  border:1px solid transparent;
+  border-radius:7px;
+  background:transparent;
+  color:#bad6e6;
+  font-family:"Clash UI","Segoe UI",sans-serif!important;
+  cursor:pointer;
+  transition:background .12s ease,border-color .12s ease,transform .12s ease;
+}
+.favorite-card-picker-item:hover{
+  transform:translateY(-1px);
+  border-color:rgba(239,200,94,.32);
+  background:rgba(17,78,116,.46);
+}
+.favorite-card-picker-item.selected{
+  border-color:#f0c94d;
+  background:linear-gradient(180deg,rgba(128,92,14,.58),rgba(44,64,70,.55));
+  box-shadow:inset 0 0 0 1px rgba(255,233,148,.10);
+}
+.favorite-card-picker-item img{
+  width:100%;
+  max-width:65px;
+  height:74px;
+  object-fit:contain;
+  filter:drop-shadow(0 3px 4px rgba(0,0,0,.30));
+}
+.favorite-card-picker-item span{
+  display:block;
+  margin-top:3px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  color:#c8e1ee;
+  font-size:7px;
+  font-weight:300!important;
+}
+.favorite-card-picker-item.selected span{color:#ffe89d}
+.favorite-card-picker-empty{
+  grid-column:1/-1;
+  padding:24px 10px;
+  color:#86aabd;
+  font-size:10px;
+  text-align:center;
+}
+.favorite-card-picker-footer{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:9px;
+}
+.favorite-card-picker-status{
+  min-width:0;
+  flex:1;
+  color:#8fb4c9;
+  font-size:8.5px;
+  line-height:1.3;
+  font-weight:300!important;
+}
+.favorite-card-picker-status.good{color:#79dda8}
+.favorite-card-picker-status.bad{color:#ff9da3}
+.favorite-card-picker-save{
+  flex:0 0 auto;
+  min-height:34px!important;
+  padding:5px 9px!important;
+  font-size:10px!important;
+}
+.favorite-card-picker-save:disabled{opacity:.45}
+
+@media(max-width:700px){
+  .favorite-card-picker-modal{
+    padding:6px;
+  }
+  .favorite-card-picker-window{
+    width:96vw;
+    max-height:94vh;
+  }
+  .favorite-card-picker-head h3{
+    font-size:21px;
+  }
+  .favorite-card-picker-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:5px;
+    padding:6px;
+  }
+  .favorite-card-picker-item img{
+    max-width:60px;
+    height:68px;
+  }
+  .favorite-card-picker-item span{
+    font-size:6.8px;
+  }
+  .favorite-card-picker-footer{
+    align-items:stretch;
+    flex-direction:column;
+  }
+  .favorite-card-picker-save{
+    width:100%;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
