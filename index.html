@@ -16900,6 +16900,297 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   }
 }
 
+
+.favorite-card-mode-tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5px;
+  margin-bottom:8px;
+}
+.favorite-card-mode-button{
+  min-height:34px;
+  padding:5px 8px;
+  border:1px solid #315f80;
+  border-radius:6px;
+  background:#062d4b;
+  color:#a5c7d9;
+  font-family:"Clash UI","Segoe UI",sans-serif!important;
+  font-size:10px;
+  font-weight:400!important;
+  cursor:pointer;
+}
+.favorite-card-mode-button.active{
+  border-color:#e7bf48;
+  background:linear-gradient(180deg,#145f8e,#0a4168);
+  color:#ffe69a;
+}
+
+.favorite-card-picker-tools select{
+  flex:0 0 auto;
+  height:34px;
+  padding:4px 7px;
+  border:1px solid #356e91;
+  border-radius:6px;
+  background:#041f35;
+  color:#dceef7;
+  font-family:"Clash UI","Segoe UI",sans-serif!important;
+  font-size:9px;
+  font-weight:300!important;
+}
+
+.favorite-card-filter-row{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  margin-top:7px;
+  overflow-x:auto;
+  padding-bottom:2px;
+  scrollbar-width:thin;
+}
+.favorite-card-filter-button{
+  flex:0 0 auto;
+  min-height:27px;
+  padding:4px 7px;
+  border:1px solid #315f7f;
+  border-radius:999px;
+  background:#062b47;
+  color:#9fc1d4;
+  font-family:"Clash UI","Segoe UI",sans-serif!important;
+  font-size:7.5px;
+  font-weight:400!important;
+  cursor:pointer;
+}
+.favorite-card-filter-button.active{
+  border-color:#e5bc43;
+  background:#8a6510;
+  color:#fff0ac;
+}
+
+.favorite-card-item-art{
+  position:relative;
+  width:100%;
+  min-height:76px;
+  display:grid;
+  place-items:center;
+}
+.favorite-card-meta-elixir{
+  position:absolute;
+  left:1px;
+  top:1px;
+  z-index:3;
+  width:18px;
+  height:18px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:50%;
+  background:#8139b0;
+  color:#fff;
+  font-size:7px!important;
+  font-weight:400!important;
+  box-shadow:0 2px 5px rgba(0,0,0,.35);
+}
+.favorite-card-meta-special{
+  position:absolute;
+  right:1px;
+  z-index:3;
+  padding:3px 4px;
+  border-radius:4px;
+  color:#fff;
+  font-size:5px!important;
+  line-height:1;
+  font-weight:400!important;
+  box-shadow:0 2px 5px rgba(0,0,0,.30);
+}
+.favorite-card-meta-special.evo{
+  top:1px;
+  background:#7e38b5;
+}
+.favorite-card-meta-special.hero{
+  top:17px;
+  background:#b27c13;
+}
+.favorite-card-picker-item.selected .favorite-card-item-art{
+  filter:brightness(1.08);
+}
+
+/* Deck Builder */
+.favorite-deck-builder-panel{
+  margin-bottom:8px;
+  padding:8px;
+  border:1px solid rgba(239,200,94,.28);
+  border-radius:8px;
+  background:
+    radial-gradient(circle at 100% 0,rgba(239,200,94,.08),transparent 30%),
+    rgba(3,30,51,.52);
+}
+.favorite-deck-builder-panel.hidden,
+#favoriteCardFavoritePanel.hidden{
+  display:none!important;
+}
+.favorite-deck-builder-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:7px;
+}
+.favorite-deck-builder-head span{
+  display:block;
+  color:#7fa9c1;
+  font-size:7px;
+  letter-spacing:.09em;
+}
+.favorite-deck-builder-head b{
+  display:block;
+  margin-top:2px;
+  color:#ffe691;
+  font-size:13px;
+  font-weight:400!important;
+}
+.favorite-deck-builder-summary{
+  flex:0 0 auto;
+  text-align:right;
+}
+.favorite-deck-builder-summary strong{
+  display:block;
+  color:#ffe691;
+  font-size:12px;
+  font-weight:400!important;
+}
+.favorite-deck-builder-summary small{
+  display:block;
+  margin-top:2px;
+  color:#8fb2c5;
+  font-size:7px;
+  font-weight:300!important;
+}
+.favorite-deck-builder-slots{
+  display:grid;
+  grid-template-columns:repeat(8,minmax(0,1fr));
+  gap:5px;
+}
+.favorite-deck-slot{
+  position:relative;
+  min-width:0;
+  aspect-ratio:.76;
+  display:grid;
+  place-items:center;
+  padding:2px;
+  overflow:hidden;
+  border:1px dashed #365f78;
+  border-radius:5px;
+  background:#04233b;
+  color:#577f96;
+  font-family:"Clash UI","Segoe UI",sans-serif!important;
+  cursor:pointer;
+}
+.favorite-deck-slot.empty span{
+  position:absolute;
+  top:3px;
+  left:4px;
+  font-size:5px;
+}
+.favorite-deck-slot.empty b{
+  font-size:18px;
+  font-weight:300!important;
+}
+.favorite-deck-slot.filled{
+  border-style:solid;
+  border-color:#597f94;
+  background:transparent;
+}
+.favorite-deck-slot.filled img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.favorite-deck-slot.filled small{
+  position:absolute;
+  left:2px;
+  bottom:2px;
+  width:16px;
+  height:16px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#8139b0;
+  color:#fff;
+  font-size:6px;
+  font-weight:400!important;
+}
+.favorite-deck-builder-actions{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-top:7px;
+}
+.favorite-deck-builder-actions button{
+  flex:0 0 auto;
+  padding:4px 7px;
+  border:1px solid #376d8d;
+  border-radius:5px;
+  background:#0b456b;
+  color:#cfe7f3;
+  font-family:"Clash UI","Segoe UI",sans-serif!important;
+  font-size:7px;
+  font-weight:400!important;
+  cursor:pointer;
+}
+.favorite-deck-builder-actions span{
+  color:#789caf;
+  font-size:6.5px;
+  font-weight:300!important;
+  text-align:right;
+}
+
+/* Slightly more room for filters/deck builder */
+.favorite-card-picker-window{
+  width:min(650px,96vw)!important;
+}
+
+@media(max-width:700px){
+  .favorite-card-picker-window{
+    width:97vw!important;
+  }
+  .favorite-card-picker-tools{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+  }
+  .favorite-card-picker-tools>span{
+    grid-column:1/-1;
+    text-align:right;
+  }
+  .favorite-card-filter-button{
+    font-size:7px;
+    padding:4px 6px;
+  }
+  .favorite-card-picker-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  }
+  .favorite-deck-builder-slots{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:5px;
+  }
+  .favorite-deck-builder-actions{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .favorite-deck-builder-actions span{
+    text-align:left;
+  }
+}
+
+@media(max-width:390px){
+  .favorite-card-mode-button{
+    font-size:9px;
+  }
+  .favorite-card-picker-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
