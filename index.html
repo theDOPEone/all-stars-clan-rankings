@@ -18012,6 +18012,230 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   }
 }
 
+
+/* ============================================================
+   MODAL FOCUS:
+   Pause decorative motion behind Favorite Card / Deck Builder.
+   The active modal and header Now Playing ticker remain live.
+   ============================================================ */
+
+body.asc-card-picker-open .shell,
+body.asc-card-picker-open #myProfileModal,
+body.asc-card-picker-open #profileCustomizeModal,
+body.asc-card-picker-open #profilePhotoModal{
+  --asc-background-motion-paused:1;
+}
+
+body.asc-card-picker-open .shell *,
+body.asc-card-picker-open .shell *::before,
+body.asc-card-picker-open .shell *::after,
+body.asc-card-picker-open #myProfileModal *,
+body.asc-card-picker-open #myProfileModal *::before,
+body.asc-card-picker-open #myProfileModal *::after,
+body.asc-card-picker-open #profileCustomizeModal *,
+body.asc-card-picker-open #profileCustomizeModal *::before,
+body.asc-card-picker-open #profileCustomizeModal *::after,
+body.asc-card-picker-open #profilePhotoModal *,
+body.asc-card-picker-open #profilePhotoModal *::before,
+body.asc-card-picker-open #profilePhotoModal *::after{
+  -webkit-animation-play-state:paused!important;
+  animation-play-state:paused!important;
+}
+
+/* ============================================================
+   NOW PLAYING:
+   Always move continuously. Previous keyframes had a long stationary
+   portion at the end that could look frozen, especially behind a modal.
+   ============================================================ */
+
+.header-music-controls .asc-now-playing-text{
+  left:100%!important;
+  animation-name:ascNowPlayingContinuousV1!important;
+  animation-duration:15s!important;
+  animation-timing-function:linear!important;
+  animation-iteration-count:infinite!important;
+  animation-play-state:running!important;
+  will-change:transform!important;
+}
+
+body.asc-card-picker-open .header-music-controls .asc-now-playing-text{
+  -webkit-animation-play-state:running!important;
+  animation-play-state:running!important;
+}
+
+@keyframes ascNowPlayingContinuousV1{
+  from{transform:translate3d(0,-50%,0)}
+  to{transform:translate3d(calc(-100% - 285px),-50%,0)}
+}
+
+@media(max-width:700px){
+  .header-music-controls .asc-now-playing-text{
+    animation-duration:13.2s!important;
+  }
+  @keyframes ascNowPlayingContinuousV1{
+    from{transform:translate3d(0,-50%,0)}
+    to{transform:translate3d(calc(-100% - 175px),-50%,0)}
+  }
+}
+
+@media(max-width:430px){
+  .header-music-controls .asc-now-playing-text{
+    animation-duration:12.8s!important;
+  }
+  @keyframes ascNowPlayingContinuousV1{
+    from{transform:translate3d(0,-50%,0)}
+    to{transform:translate3d(calc(-100% - 165px),-50%,0)}
+  }
+}
+
+/* ============================================================
+   SPECIAL SLOT VISUALS:
+   The earlier aura lived behind the slot background in some Chromium
+   compositions. Keep the energy layer INSIDE the slot and animate the
+   actual card artwork too, so EVO/HERO movement is obvious.
+   ============================================================ */
+
+.favorite-card-picker-modal .favorite-deck-slot.special-evo,
+.favorite-card-picker-modal .favorite-deck-slot.special-hero,
+.favorite-card-picker-modal .favorite-deck-slot.special-hybrid{
+  position:relative!important;
+  overflow:visible!important;
+  isolation:isolate!important;
+}
+
+/* Move energy layer in front of the slot background but behind art. */
+.favorite-card-picker-modal .favorite-deck-slot.special-evo::before,
+.favorite-card-picker-modal .favorite-deck-slot.special-hero::before,
+.favorite-card-picker-modal .favorite-deck-slot.special-hybrid::before{
+  z-index:1!important;
+  inset:2px!important;
+  border-radius:7px!important;
+  opacity:.44!important;
+  mix-blend-mode:screen;
+}
+
+/* Card image stays above all effects. */
+.favorite-card-picker-modal .favorite-deck-slot.special-evo>img,
+.favorite-card-picker-modal .favorite-deck-slot.special-hero>img,
+.favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img{
+  position:relative!important;
+  z-index:4!important;
+  transform-origin:50% 72%!important;
+  will-change:transform,filter!important;
+  -webkit-animation-play-state:running!important;
+  animation-play-state:running!important;
+}
+
+/* EVO: floating/charged motion. */
+.favorite-card-picker-modal .favorite-deck-slot.special-evo.evo-active>img{
+  animation:ascEvoCardMotionV2 2.15s ease-in-out infinite!important;
+}
+
+/* HERO: slower confident lift with gold flash. */
+.favorite-card-picker-modal .favorite-deck-slot.special-hero.hero-active>img{
+  animation:ascHeroCardMotionV2 2.55s ease-in-out infinite!important;
+}
+
+/* Slot 3: whichever upgrade state is active still moves.
+   Dual-capable cards use a slightly stronger combined animation. */
+.favorite-card-picker-modal .favorite-deck-slot.special-hybrid.evo-active:not(.hybrid-dual-active)>img{
+  animation:ascEvoCardMotionV2 2.15s ease-in-out infinite!important;
+}
+.favorite-card-picker-modal .favorite-deck-slot.special-hybrid.hero-active:not(.hybrid-dual-active)>img{
+  animation:ascHeroCardMotionV2 2.55s ease-in-out infinite!important;
+}
+.favorite-card-picker-modal .favorite-deck-slot.special-hybrid.hybrid-dual-active>img{
+  animation:ascHybridCardMotionV2 2.3s ease-in-out infinite!important;
+}
+
+@keyframes ascEvoCardMotionV2{
+  0%,100%{
+    transform:translate3d(0,0,0) rotate(-.45deg) scale(1);
+    filter:brightness(1) saturate(1) drop-shadow(0 4px 5px rgba(115,45,182,.12));
+  }
+  46%{
+    transform:translate3d(0,-6px,0) rotate(.65deg) scale(1.035);
+    filter:brightness(1.16) saturate(1.14) drop-shadow(0 7px 10px rgba(174,77,244,.40));
+  }
+  62%{
+    transform:translate3d(0,-4px,0) rotate(.25deg) scale(1.025);
+    filter:brightness(1.08) saturate(1.08) drop-shadow(0 6px 8px rgba(174,77,244,.28));
+  }
+}
+
+@keyframes ascHeroCardMotionV2{
+  0%,100%{
+    transform:translate3d(0,0,0) rotate(.35deg) scale(1);
+    filter:brightness(1) drop-shadow(0 4px 5px rgba(218,165,46,.10));
+  }
+  42%{
+    transform:translate3d(0,-5px,0) rotate(-.45deg) scale(1.028);
+    filter:brightness(1.16) drop-shadow(0 8px 10px rgba(247,198,74,.34));
+  }
+  60%{
+    transform:translate3d(0,-3px,0) rotate(-.15deg) scale(1.018);
+    filter:brightness(1.08) drop-shadow(0 6px 8px rgba(247,198,74,.23));
+  }
+}
+
+@keyframes ascHybridCardMotionV2{
+  0%,100%{
+    transform:translate3d(0,0,0) rotate(-.35deg) scale(1);
+    filter:brightness(1) saturate(1);
+  }
+  34%{
+    transform:translate3d(-1px,-5px,0) rotate(.55deg) scale(1.032);
+    filter:brightness(1.12) saturate(1.10) drop-shadow(-2px 7px 8px rgba(164,71,232,.27));
+  }
+  68%{
+    transform:translate3d(1px,-4px,0) rotate(-.45deg) scale(1.025);
+    filter:brightness(1.13) saturate(1.08) drop-shadow(2px 7px 8px rgba(243,192,62,.25));
+  }
+}
+
+/* Make the slot badge itself gently breathe so its special role reads
+   even when the currently placed card is not upgrade-capable. */
+.favorite-card-picker-modal .favorite-deck-slot.special-evo .favorite-deck-special-label{
+  animation:ascEvoLabelPulseV1 1.8s ease-in-out infinite!important;
+}
+.favorite-card-picker-modal .favorite-deck-slot.special-hero .favorite-deck-special-label{
+  animation:ascHeroLabelPulseV1 2.1s ease-in-out infinite!important;
+}
+.favorite-card-picker-modal .favorite-deck-slot.special-hybrid .favorite-deck-special-label{
+  animation:ascHybridLabelPulseV1 2s ease-in-out infinite!important;
+}
+
+@keyframes ascEvoLabelPulseV1{
+  0%,100%{transform:translateX(-50%) scale(1);filter:brightness(1)}
+  50%{transform:translateX(-50%) scale(1.08);filter:brightness(1.28)}
+}
+@keyframes ascHeroLabelPulseV1{
+  0%,100%{transform:translateX(-50%) scale(1);filter:brightness(1)}
+  50%{transform:translateX(-50%) scale(1.07);filter:brightness(1.24)}
+}
+@keyframes ascHybridLabelPulseV1{
+  0%,100%{transform:translateX(-50%) scale(1);filter:brightness(1)}
+  50%{transform:translateX(-50%) scale(1.08);filter:brightness(1.28)}
+}
+
+/* Active modal graphics must never inherit the general page-pause rule. */
+body.asc-card-picker-open #favoriteCardPickerModal,
+body.asc-card-picker-open #favoriteCardPickerModal *,
+body.asc-card-picker-open #favoriteCardPickerModal *::before,
+body.asc-card-picker-open #favoriteCardPickerModal *::after{
+  -webkit-animation-play-state:running!important;
+  animation-play-state:running!important;
+}
+
+@media(prefers-reduced-motion:reduce){
+  .favorite-card-picker-modal .favorite-deck-slot.special-evo.evo-active>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hero.hero-active>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img,
+  .favorite-card-picker-modal .favorite-deck-special-label{
+    animation:none!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
