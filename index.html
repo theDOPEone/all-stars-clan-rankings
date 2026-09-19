@@ -11152,6 +11152,99 @@ samp,
   gap:7px;
   margin:0 2px 0 0;
 }
+
+/* NOW PLAYING ticker — lives immediately left of the title-bar audio buttons. */
+.asc-now-playing{
+  flex:0 0 172px;
+  width:172px;
+  height:38px;
+  min-width:0;
+  overflow:hidden;
+  border:1px solid rgba(239,200,94,.72);
+  border-radius:7px;
+  background:linear-gradient(180deg,#05080c,#010204);
+  box-shadow:
+    0 5px 14px rgba(0,0,0,.32),
+    inset 0 1px rgba(255,255,255,.035),
+    inset 0 0 12px rgba(0,0,0,.78);
+}
+.asc-now-playing-viewport{
+  position:relative;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+}
+.asc-now-playing-text{
+  position:absolute;
+  left:0;
+  top:50%;
+  display:block;
+  width:max-content;
+  max-width:none;
+  white-space:nowrap;
+  color:#ffe36d;
+  font-family:"Clash","Clash Regular","Segoe UI",Arial,sans-serif;
+  font-size:9px;
+  line-height:1;
+  font-weight:500;
+  letter-spacing:.045em;
+  text-shadow:
+    0 1px 0 #704500,
+    0 2px 3px rgba(0,0,0,.92),
+    0 0 8px rgba(255,210,65,.14);
+  transform:translate(180px,-50%);
+  will-change:transform;
+  animation:ascNowPlayingMarquee 8.2s linear infinite;
+}
+.asc-now-playing.music-off .asc-now-playing-text{
+  opacity:.72;
+}
+@keyframes ascNowPlayingMarquee{
+  0%{transform:translate(180px,-50%)}
+  12%{transform:translate(140px,-50%)}
+  84%{transform:translate(calc(-100% - 16px),-50%)}
+  100%{transform:translate(calc(-100% - 16px),-50%)}
+}
+
+@media(max-width:900px){
+  .asc-now-playing{
+    flex-basis:160px;
+    width:160px;
+    height:34px;
+    border-radius:6px;
+  }
+  .asc-now-playing-text{
+    font-size:8.5px;
+    transform:translate(168px,-50%);
+    animation-duration:7.8s;
+  }
+  @keyframes ascNowPlayingMarquee{
+    0%{transform:translate(168px,-50%)}
+    12%{transform:translate(130px,-50%)}
+    84%{transform:translate(calc(-100% - 14px),-50%)}
+    100%{transform:translate(calc(-100% - 14px),-50%)}
+  }
+}
+@media(max-width:520px){
+  .asc-now-playing{
+    flex-basis:150px;
+    width:150px;
+    height:32px;
+  }
+  .asc-now-playing-text{
+    font-size:8px;
+    transform:translate(158px,-50%);
+    animation-duration:7.5s;
+  }
+  @keyframes ascNowPlayingMarquee{
+    0%{transform:translate(158px,-50%)}
+    12%{transform:translate(122px,-50%)}
+    84%{transform:translate(calc(-100% - 12px),-50%)}
+    100%{transform:translate(calc(-100% - 12px),-50%)}
+  }
+}
 .dashboard-music-toggle,
 .dashboard-music-next,
 .dashboard-music-shuffle{
