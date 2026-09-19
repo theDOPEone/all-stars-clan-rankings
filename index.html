@@ -16766,6 +16766,140 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   }
 }
 
+
+/* Gear belongs to the identity card, not the DP. */
+.edit-profile-identity{
+  position:relative!important;
+  padding-right:52px!important;
+}
+.edit-profile-customize-gear{
+  left:auto!important;
+  top:10px!important;
+  right:10px!important;
+  width:34px!important;
+  height:34px!important;
+  font-size:16px!important;
+  z-index:12!important;
+}
+
+/* Dynamic contribution highlight under the player's About text. */
+.profile-contribution-card{
+  display:grid;
+  grid-template-columns:46px minmax(0,1fr);
+  gap:10px;
+  align-items:center;
+  margin-top:9px;
+  padding:9px 10px;
+  border:1px solid rgba(239,200,94,.31);
+  border-radius:7px;
+  background:
+    radial-gradient(circle at 0 50%,rgba(239,200,94,.09),transparent 30%),
+    linear-gradient(90deg,rgba(8,61,95,.84),rgba(3,36,61,.72));
+}
+.profile-contribution-card.quiet{
+  border-color:rgba(88,148,183,.25);
+}
+.profile-contribution-icon{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(239,200,94,.52);
+  border-radius:50%;
+  background:linear-gradient(180deg,#145f8e,#092f4f);
+  font-size:20px;
+  box-shadow:inset 0 1px rgba(255,255,255,.08),0 3px 8px rgba(0,0,0,.20);
+}
+.profile-contribution-copy{
+  min-width:0;
+}
+.profile-contribution-copy>span{
+  display:block;
+  color:#86bad5;
+  font-size:7.5px!important;
+  letter-spacing:.08em;
+  line-height:1.15;
+  font-weight:400!important;
+}
+.profile-contribution-copy>b{
+  display:flex;
+  align-items:baseline;
+  gap:7px;
+  margin-top:2px;
+  color:#ffe690;
+  font-size:15px!important;
+  line-height:1.05;
+  font-weight:400!important;
+}
+.profile-contribution-copy>b small{
+  color:#9fc3d6;
+  font-size:7px!important;
+  font-weight:300!important;
+}
+.profile-contribution-copy p{
+  margin:4px 0 0!important;
+  color:#cce2ee!important;
+  font-size:9px!important;
+  line-height:1.4!important;
+  font-weight:300!important;
+}
+.profile-contribution-copy p b{
+  color:#ffe596!important;
+  font-weight:400!important;
+}
+
+/* Keep the highlight compact inside both public and edit Bio views. */
+.community-profile-bio-section .profile-contribution-card{
+  margin-bottom:0;
+}
+
+@media(max-width:700px){
+  .edit-profile-identity{
+    padding-right:43px!important;
+  }
+  .edit-profile-customize-gear{
+    top:7px!important;
+    right:7px!important;
+    width:29px!important;
+    height:29px!important;
+    font-size:13px!important;
+  }
+
+  .profile-contribution-card{
+    grid-template-columns:38px minmax(0,1fr);
+    gap:8px;
+    padding:8px;
+  }
+  .profile-contribution-icon{
+    width:36px;
+    height:36px;
+    font-size:17px;
+  }
+  .profile-contribution-copy>span{
+    font-size:7px!important;
+  }
+  .profile-contribution-copy>b{
+    font-size:13px!important;
+  }
+  .profile-contribution-copy p{
+    font-size:8.5px!important;
+  }
+}
+
+@media(max-width:390px){
+  .edit-profile-identity{
+    padding-right:40px!important;
+  }
+  .edit-profile-customize-gear{
+    width:27px!important;
+    height:27px!important;
+    font-size:12px!important;
+  }
+  .profile-contribution-copy p{
+    font-size:8px!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
