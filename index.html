@@ -16085,6 +16085,147 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   }
 }
 
+
+/* ===== PASS 3C — OWN PROFILE HEADER ===== */
+
+.member-profile-page-heading{
+  margin:0 0 7px;
+}
+.member-profile-page-heading .member-zone-tab-kicker{
+  margin:0!important;
+  font-size:12px!important;
+}
+
+.member-profile-page-actions{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin:0 0 10px;
+}
+.member-profile-page-actions .profile-page-edit-button{
+  flex:0 0 auto;
+  margin:0!important;
+}
+.member-profile-page-points{
+  flex:0 0 auto;
+  margin:0!important;
+  align-self:center!important;
+  justify-self:auto!important;
+}
+.member-profile-page-points.hidden{
+  display:none!important;
+}
+
+/* On My Public Profile, Clan Points now live above the identity card.
+   The identity card therefore has only DP + name at the top and cannot
+   collide with long display names on narrow screens. */
+#myPublicProfileView>.player-profile-name-section{
+  grid-template-columns:116px minmax(0,1fr)!important;
+}
+#myPublicProfileView>.player-profile-name-section>.player-profile-quickstats{
+  grid-column:1/-1!important;
+}
+
+/* ===== DP EDIT PENCIL =====
+   Let the badge sit in front of the circular photo border instead of being clipped. */
+.own-profile-photo{
+  overflow:visible!important;
+  z-index:2!important;
+}
+.own-profile-photo>img{
+  position:relative!important;
+  z-index:1!important;
+  overflow:hidden!important;
+}
+.own-profile-photo.has-profile-photo::after{
+  z-index:2!important;
+}
+.own-profile-photo .profile-photo-edit-hint{
+  z-index:8!important;
+  right:-2px!important;
+  bottom:5px!important;
+  width:25px!important;
+  height:25px!important;
+  box-sizing:border-box!important;
+}
+
+/* ===== FAVORITE CARD ART ALIGNMENT =====
+   The card image was visually sitting a little low in its profile frame. */
+.community-profile-favorite-wrap .community-profile-cardart img.favorite-card-image,
+.community-profile-favorite-wrap .community-profile-cardart>img{
+  transform:translateY(-4px)!important;
+}
+.favorite-card-picker-preview img{
+  transform:translateY(-2px);
+}
+
+/* Old title-row rule is retired by Pass 3C. */
+.member-profile-page-title-row{
+  display:none!important;
+}
+
+@media(max-width:700px){
+  .member-profile-page-heading{
+    margin-bottom:6px;
+  }
+  .member-profile-page-heading .member-zone-tab-kicker{
+    font-size:11px!important;
+  }
+  .member-profile-page-actions{
+    gap:8px;
+    margin-bottom:8px;
+  }
+  .member-profile-page-actions .profile-page-edit-button{
+    min-height:31px!important;
+    padding:5px 8px!important;
+    font-size:9px!important;
+  }
+  .member-profile-page-points{
+    min-width:92px!important;
+    padding:6px 7px!important;
+  }
+  .member-profile-page-points span{
+    font-size:10px!important;
+  }
+  .member-profile-page-points small{
+    font-size:5.5px!important;
+  }
+
+  #myPublicProfileView>.player-profile-name-section{
+    grid-template-columns:82px minmax(0,1fr)!important;
+  }
+
+  .own-profile-photo .profile-photo-edit-hint{
+    right:-3px!important;
+    bottom:3px!important;
+    width:23px!important;
+    height:23px!important;
+  }
+
+  .community-profile-favorite-wrap .community-profile-cardart img.favorite-card-image,
+  .community-profile-favorite-wrap .community-profile-cardart>img{
+    transform:translateY(-3px)!important;
+  }
+}
+
+@media(max-width:390px){
+  .member-profile-page-actions{
+    gap:6px;
+  }
+  .member-profile-page-actions .profile-page-edit-button{
+    font-size:8.5px!important;
+    padding:5px 7px!important;
+  }
+  .member-profile-page-points{
+    min-width:84px!important;
+    padding:5px 6px!important;
+  }
+  #myPublicProfileView>.player-profile-name-section{
+    grid-template-columns:72px minmax(0,1fr)!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
