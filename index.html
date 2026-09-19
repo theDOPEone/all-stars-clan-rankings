@@ -11953,6 +11953,58 @@ html[data-asc-honor-view="mobile-portrait"] #familySummary .honor-scene-frame.ra
 }
 
 
+/* Rankings welcome scene: calmer ambient character pacing.
+   Goal: keep 1–2 characters on screen, reduce clutter, and let distant
+   characters drift more slowly than closer ones. */
+#rankingsPage .rankings-character-distance{
+  overflow:hidden!important;
+}
+
+#rankingsPage .rankings-character-distance .rankings-character-travel{
+  animation-duration:24s!important;
+  animation-timing-function:linear!important;
+  animation-iteration-count:infinite!important;
+  will-change:transform,opacity!important;
+}
+
+#rankingsPage .rankings-character-distance .rankings-character-travel.asc-rankings-char-front{
+  animation-duration:21.5s!important;
+}
+
+#rankingsPage .rankings-character-distance .rankings-character-travel.asc-rankings-char-back{
+  animation-duration:28.5s!important;
+}
+
+#rankingsPage .rankings-character-distance .rankings-character-travel.asc-rankings-char-back img{
+  opacity:.78!important;
+  transform:scale(.82)!important;
+  filter:saturate(.88) brightness(.98) drop-shadow(0 10px 16px rgba(0,0,0,.28))!important;
+}
+
+#rankingsPage .rankings-character-distance .rankings-character-travel:not(.asc-rankings-visible-char){
+  display:none!important;
+}
+
+/* Longer hold on screen and gentler fade-out so it feels less busy. */
+@keyframes ascRankingsDistantCrossingV2{
+  0%{transform:translate3d(-46%,0,0);opacity:0}
+  9%{opacity:.76}
+  17%{opacity:.92}
+  79%{opacity:.92}
+  92%{opacity:.42}
+  100%{transform:translate3d(106%,0,0);opacity:0}
+}
+
+@media(max-width:700px){
+  #rankingsPage .rankings-character-distance .rankings-character-travel.asc-rankings-char-front{
+    animation-duration:19.5s!important;
+  }
+  #rankingsPage .rankings-character-distance .rankings-character-travel.asc-rankings-char-back{
+    animation-duration:25.5s!important;
+  }
+}
+
+
 /* ===== MEMBER ZONE COMPACT THREE-BUTTON DIAL =====
    Keep the sub-nav pinned beneath the main app nav, but remove the large
    surrounding panel. Only the three Clash-style buttons remain visible. */
