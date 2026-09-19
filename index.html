@@ -11143,22 +11143,21 @@ samp,
 
 
 
-/* ascDashboardMusicV1 */
-.dashboard-music-controls{
-  position:absolute;
-  z-index:7;
-  top:16px;
-  right:16px;
+/* ascDashboardMusicV2 — title-bar controls */
+.header-music-controls{
+  flex:0 0 auto;
   display:flex;
   align-items:center;
+  justify-content:center;
   gap:7px;
+  margin:0 2px 0 0;
 }
 .dashboard-music-toggle,
 .dashboard-music-next,
 .dashboard-music-shuffle{
   position:relative;
-  width:46px;
-  height:46px;
+  width:38px;
+  height:38px;
   display:grid;
   place-items:center;
   padding:0;
@@ -11166,66 +11165,64 @@ samp,
   border-radius:50%;
   background:linear-gradient(180deg,rgba(18,76,113,.96),rgba(5,38,64,.98));
   color:#ffe58d;
-  font-size:21px;
+  font-size:17px;
   line-height:1;
   cursor:pointer;
-  box-shadow:0 7px 18px rgba(0,0,0,.34),inset 0 1px rgba(255,255,255,.10);
+  box-shadow:0 5px 14px rgba(0,0,0,.30),inset 0 1px rgba(255,255,255,.10);
   transition:transform .15s ease,filter .15s ease,box-shadow .15s ease,opacity .15s ease;
 }
-.dashboard-music-toggle{font-size:23px}
+.dashboard-music-toggle{font-size:19px}
 .dashboard-music-toggle:hover,
 .dashboard-music-next:hover,
 .dashboard-music-shuffle:hover{transform:translateY(-1px);filter:brightness(1.1)}
 .dashboard-music-toggle[aria-pressed="true"],
 .dashboard-music-shuffle[aria-pressed="true"]{
   background:linear-gradient(180deg,#b88618,#725006);
-  box-shadow:0 7px 18px rgba(0,0,0,.34),0 0 17px rgba(239,200,94,.24),inset 0 1px rgba(255,244,182,.28);
+  box-shadow:0 5px 14px rgba(0,0,0,.30),0 0 15px rgba(239,200,94,.22),inset 0 1px rgba(255,244,182,.28);
 }
 .dashboard-music-toggle:focus-visible,
 .dashboard-music-next:focus-visible,
 .dashboard-music-shuffle:focus-visible{outline:2px solid #fff1a9;outline-offset:3px}
 .dashboard-music-next[disabled]{opacity:.45;cursor:default;filter:none;transform:none}
-@media(max-width:600px){
-  .dashboard-music-controls{
-    top:10px;
+
+/* The old dashboard-hero control containers are retired. */
+.dashboard-music-controls,.dashboard-music-controls-mobile{display:none!important}
+
+/* Phone/narrow window: use the open top-right area of the title bar.
+   The rest of header-right can still wrap underneath as before. */
+@media(max-width:900px){
+  .top{position:sticky!important;padding-right:12px!important}
+  .header-music-controls{
+    position:absolute;
+    z-index:45;
+    top:17px;
     right:10px;
     gap:5px;
+    margin:0;
   }
-  .dashboard-music-toggle,
-  .dashboard-music-next,
-  .dashboard-music-shuffle{
-    width:39px;
-    height:39px;
-    font-size:18px;
+  .header-music-controls .dashboard-music-toggle,
+  .header-music-controls .dashboard-music-next,
+  .header-music-controls .dashboard-music-shuffle{
+    width:34px;
+    height:34px;
+    font-size:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.09);
   }
-  .dashboard-music-toggle{font-size:20px}
+  .header-music-controls .dashboard-music-toggle{font-size:17px}
+  .header-right{padding-top:0}
+}
+@media(max-width:520px){
+  .header-music-controls{top:18px;right:9px;gap:4px}
+  .header-music-controls .dashboard-music-toggle,
+  .header-music-controls .dashboard-music-next,
+  .header-music-controls .dashboard-music-shuffle{
+    width:32px;
+    height:32px;
+    font-size:14px;
+  }
+  .header-music-controls .dashboard-music-toggle{font-size:16px}
 }
 
-
-.dashboard-welcome-page #dashboardInfo,.dashboard-welcome-page #tabs,.dashboard-welcome-page #publicClanFeed{display:none!important}
-.dashboard-welcome-page{overflow:visible!important}
-
-.dashboard-music-controls-mobile{display:none}
-@media(max-width:600px){
-  .dashboard-music-controls{display:none!important}
-  .dashboard-music-controls-mobile{
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
-    gap:8px;
-    margin:10px 0 2px;
-    padding:0 2px;
-  }
-  .dashboard-music-controls-mobile .dashboard-music-toggle,
-  .dashboard-music-controls-mobile .dashboard-music-next,
-  .dashboard-music-controls-mobile .dashboard-music-shuffle{
-    width:43px;
-    height:43px;
-    flex:0 0 43px;
-    font-size:19px;
-  }
-  .dashboard-music-controls-mobile .dashboard-music-toggle{font-size:21px}
-}
 
 .dashboard-welcome-shell{width:min(1480px,calc(100vw - 34px));margin:14px auto 0;padding-bottom:140px}
 .dashboard-welcome-hero{position:relative;min-height:420px;overflow:hidden;border:1px solid rgba(239,200,94,.58);border-radius:18px;background:linear-gradient(90deg,rgba(3,25,45,.96) 0%,rgba(5,43,72,.90) 48%,rgba(5,37,62,.72) 100%),url('assets/arena/CR_LS_April26_Final.jpg') center 58%/cover no-repeat;box-shadow:0 18px 42px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.06)}
@@ -13498,7 +13495,6 @@ function renderDashboardWelcome(){
     <div class="dashboard-welcome-shell">
       <section class="dashboard-welcome-hero dashboard-welcome-hero--${hero.state}">
         <div class="dashboard-welcome-light"></div>
-        
         <img class="${hero.princeClass}" src="${hero.princeSrc}" alt="" aria-hidden="true">
         ${hero.showArcher?`<img class="dashboard-welcome-archer" src="assets/arena-characters/Archer_Evolution_Pose01_Purple.png" alt="" aria-hidden="true">`:''}
         <div class="dashboard-welcome-copy">
@@ -13506,7 +13502,6 @@ function renderDashboardWelcome(){
           <p class="dashboard-welcome-lead">Your home for ALL STARS clan activity, player profiles, rankings, Live Arena and community tools.</p>
           <div class="dashboard-session-pill"><span class="dashboard-session-dot ${me.signedIn?'online':''}"></span><b>${signedLabel}</b><small>${roleLabel}</small></div>
           <div class="dashboard-welcome-actions">${primaryActions}</div>
-          
           ${!me.signedIn?`<p class="dashboard-login-note">Leaders and Co-Leaders use the same <b>Sign In</b> button as Members. Your tracked clan role is detected automatically.</p>`:''}
         </div>
       </section>
