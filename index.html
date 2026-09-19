@@ -17647,6 +17647,110 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   }
 }
 
+
+/* ----------------------------------------------------------
+   Elixir badge correction
+   - restore compact bubble size
+   - make ONLY the number much larger
+   - hard-center the number vertically/horizontally
+   - restore card artwork presence/size
+   ---------------------------------------------------------- */
+
+.favorite-card-meta-elixir{
+  width:24px!important;
+  height:24px!important;
+  min-width:24px!important;
+  min-height:24px!important;
+  left:-2px!important;
+  top:-2px!important;
+  display:grid!important;
+  place-items:center!important;
+  padding:0!important;
+  margin:0!important;
+  font-size:17px!important;
+  line-height:1!important;
+  font-weight:400!important;
+  text-align:center!important;
+  text-indent:0!important;
+}
+
+/* Restore the card artwork scale so the larger badge did not make
+   the cards feel visually smaller. */
+.favorite-card-picker-item img{
+  width:auto!important;
+  max-width:72px!important;
+  height:82px!important;
+  max-height:82px!important;
+  object-fit:contain!important;
+}
+
+.favorite-card-item-art{
+  min-height:84px!important;
+}
+
+/* Deck-slot elixir badge: same treatment, compact bubble + large number. */
+.favorite-deck-slot.filled small{
+  width:23px!important;
+  height:23px!important;
+  min-width:23px!important;
+  min-height:23px!important;
+  display:grid!important;
+  place-items:center!important;
+  padding:0!important;
+  margin:0!important;
+  font-size:15px!important;
+  line-height:1!important;
+  font-weight:400!important;
+  text-align:center!important;
+}
+
+/* Keep the actual deck card art large. */
+.favorite-deck-slot.filled img{
+  width:112%!important;
+  height:112%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:contain!important;
+}
+
+@media(max-width:700px){
+  .favorite-card-meta-elixir{
+    width:23px!important;
+    height:23px!important;
+    min-width:23px!important;
+    min-height:23px!important;
+    font-size:16px!important;
+  }
+
+  .favorite-card-picker-item img{
+    max-width:68px!important;
+    height:78px!important;
+    max-height:78px!important;
+  }
+
+  .favorite-card-item-art{
+    min-height:80px!important;
+  }
+
+  .favorite-deck-slot.filled small{
+    width:22px!important;
+    height:22px!important;
+    min-width:22px!important;
+    min-height:22px!important;
+    font-size:14px!important;
+  }
+}
+
+@media(max-width:390px){
+  .favorite-card-meta-elixir{
+    width:22px!important;
+    height:22px!important;
+    min-width:22px!important;
+    min-height:22px!important;
+    font-size:15px!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
