@@ -13396,6 +13396,7 @@ async function publicFetch(input,options={}){
  try{return await rawPublicFetch(api?MANAGEMENT_URL.replace(/\/$/,'')+value:value,{...options,credentials:'omit',signal:controller.signal,headers:api?{'ngrok-skip-browser-warning':'1',...(options.headers||{})}:options.headers})}finally{clearTimeout(timer)}
 }
 function dashboardWelcomeIdentity(){return{signedIn:false,role:'Guest',name:'Public Viewer',manager:false,owner:false}}
+function dashboardWelcomeHeroConfig(){return{state:'signed-out',princeSrc:'assets/dashboard-hero/prince-signed-out.png',princeClass:'dashboard-welcome-prince mirrored',showArcher:false}}
 function roleName(role){return ({leader:'Leader',coLeader:'Co-Leader',elder:'Elder',member:'Member'})[role]||role||'Member'}
 function openServerLogin(role,mode){location.href=MANAGEMENT_URL+'?login='+(mode==='register'?'register':role==='coleader'?'coleader':'member')}
 let publicLinks=[];
@@ -13421,7 +13422,7 @@ function startPublicSite(){renderDashboardWelcome();refreshPublicData();setInter
 
 function renderDashboardWelcome(){
   const box=$('dashboard');if(!box)return;
-  ensureDashboardAuthErrorObserver();
+  
   const me=dashboardWelcomeIdentity();
   const hero=dashboardWelcomeHeroConfig(me);
   const local=location.hostname==='127.0.0.1'||location.hostname==='localhost';
@@ -13440,11 +13441,7 @@ function renderDashboardWelcome(){
     <div class="dashboard-welcome-shell">
       <section class="dashboard-welcome-hero dashboard-welcome-hero--${hero.state}">
         <div class="dashboard-welcome-light"></div>
-        <div class="dashboard-music-controls" aria-label="App music controls">
-          <button id="dashboardMusicToggle" class="dashboard-music-toggle" type="button" aria-pressed="false" aria-label="Turn app music on" title="App music: OFF — click to play" onpointerdown="primeAscAppMusic()" onclick="toggleAppMusic()">🔇</button>
-          <button id="dashboardMusicNext" class="dashboard-music-next" type="button" aria-label="Next song" title="Turn music on to use Next" onclick="nextAppMusic()" disabled>⏭</button>
-          <button id="dashboardMusicShuffle" class="dashboard-music-shuffle" type="button" aria-pressed="false" aria-label="Toggle shuffle" title="Shuffle: OFF — current song repeats" onclick="toggleAppMusicShuffle()">🔀</button>
-        </div>
+        
         <img class="${hero.princeClass}" src="${hero.princeSrc}" alt="" aria-hidden="true">
         ${hero.showArcher?`<img class="dashboard-welcome-archer" src="assets/arena-characters/Archer_Evolution_Pose01_Purple.png" alt="" aria-hidden="true">`:''}
         <div class="dashboard-welcome-copy">
@@ -13452,11 +13449,7 @@ function renderDashboardWelcome(){
           <p class="dashboard-welcome-lead">Your home for ALL STARS clan activity, player profiles, rankings, Live Arena and community tools.</p>
           <div class="dashboard-session-pill"><span class="dashboard-session-dot ${me.signedIn?'online':''}"></span><b>${signedLabel}</b><small>${roleLabel}</small></div>
           <div class="dashboard-welcome-actions">${primaryActions}</div>
-          <div class="dashboard-music-controls-mobile" aria-label="App music controls">
-            <button id="dashboardMusicToggleMobile" class="dashboard-music-toggle" type="button" aria-pressed="false" aria-label="Turn app music on" title="App music: OFF — click to play" onpointerdown="primeAscAppMusic()" onclick="toggleAppMusic()">🔇</button>
-            <button id="dashboardMusicNextMobile" class="dashboard-music-next" type="button" aria-label="Next song" title="Turn music on to use Next" onclick="nextAppMusic()" disabled>⏭</button>
-            <button id="dashboardMusicShuffleMobile" class="dashboard-music-shuffle" type="button" aria-pressed="false" aria-label="Toggle shuffle" title="Shuffle: OFF — current song repeats" onclick="toggleAppMusicShuffle()">🔀</button>
-          </div>
+          
           ${!me.signedIn?`<p class="dashboard-login-note">Leaders and Co-Leaders use the same <b>Sign In</b> button as Members. Your tracked clan role is detected automatically.</p>`:''}
         </div>
       </section>
@@ -13476,7 +13469,7 @@ function renderDashboardWelcome(){
         <button class="dashboard-feature-card" onclick="${me.manager?"showPage('events')":"showPage('rankings')"}"><span class="dashboard-feature-icon">📜</span><div><b>${me.manager?'Events & History':'Explore ALL STARS'}</b><p>${me.manager?'Clan activity, battle logs and leadership history.':'Browse the public family rankings before signing in.'}</p></div><span class="dashboard-feature-arrow">›</span></button>
       </section>
     </div>`;
-  syncDashboardMusicButton();
+  
 }
 function clanHonorShortName(c,index){
   const raw=String(c?.label||c?.name||'').toUpperCase().replace(/\s+/g,' ').trim();
