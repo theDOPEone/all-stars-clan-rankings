@@ -12520,6 +12520,253 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
 @media(max-width:760px){#settingsPage .owner-dev-hero{grid-template-columns:1fr!important}.owner-settings-log-stream{height:42px}.owner-settings-log-panel.expanded .owner-settings-log-stream{height:150px}.owner-settings-save-actions .btn{flex:1 1 145px}.owner-settings-save-actions .owner-save-all{flex-basis:100%}.owner-settings-toast{min-height:154px}}
 
 
+/* ===== SETTINGS PAGE — POLISHED ACCORDIONS / SECTION SAVES ===== */
+#settingsPage .owner-settings-save-center-compact{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:14px!important;
+  min-height:50px!important;
+  margin:0 0 12px!important;
+  padding:8px 11px!important;
+  background:linear-gradient(90deg,rgba(5,39,65,.78),rgba(10,64,99,.62))!important;
+}
+#settingsPage .owner-settings-save-center-compact .owner-settings-save-copy{
+  display:flex;align-items:baseline;gap:10px;min-width:0;
+}
+#settingsPage .owner-settings-save-center-compact .owner-settings-save-copy span{
+  font-size:8px!important;color:#8cdbff!important;letter-spacing:.12em!important;white-space:nowrap;
+}
+#settingsPage .owner-settings-save-center-compact .owner-settings-save-copy b{
+  margin:0!important;font-size:9px!important;color:#ffe39a!important;font-weight:500!important;
+}
+#settingsPage .owner-settings-save-center-compact .owner-settings-save-actions{
+  flex:0 0 auto!important;
+}
+#settingsPage .owner-settings-save-center-compact .owner-save-all{
+  min-height:32px!important;padding:7px 14px!important;font-size:8px!important;font-weight:600!important;
+}
+
+/* Make every Settings card header the accordion control. */
+#settingsPage .owner-settings-accordion{
+  overflow:hidden!important;
+  transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease;
+}
+#settingsPage .owner-settings-accordion:hover{
+  border-color:rgba(255,211,102,.58)!important;
+  box-shadow:0 10px 27px rgba(0,14,32,.28),inset 0 1px rgba(255,255,255,.04)!important;
+}
+#settingsPage .owner-settings-section-head{
+  position:relative!important;
+  isolation:isolate;
+  min-height:60px!important;
+  padding:8px 12px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  grid-template-rows:auto auto!important;
+  column-gap:14px!important;
+  row-gap:2px!important;
+  align-items:center!important;
+  cursor:pointer!important;
+  user-select:none!important;
+  -webkit-user-select:none!important;
+  overflow:hidden!important;
+  background-image:
+    linear-gradient(90deg,rgba(8,55,91,.92),rgba(8,43,75,.76) 58%,rgba(5,31,56,.88)),
+    url('assets/arena/CR_LS_April26_Final.jpg')!important;
+  background-size:cover!important;
+  background-position:center 52%!important;
+  border-bottom:1px solid rgba(239,200,94,.32)!important;
+}
+#settingsPage .owner-settings-section-head::before{
+  content:"";
+  position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(255,223,112,.055),transparent 30%),
+    radial-gradient(circle at 82% 45%,rgba(46,159,218,.17),transparent 29%);
+}
+#settingsPage .owner-settings-section-head:hover{
+  filter:brightness(1.05);
+}
+#settingsPage .owner-settings-section-head:focus-visible{
+  outline:2px solid #ffe48b!important;
+  outline-offset:-2px!important;
+}
+
+/* Use different crops of the existing arena art to keep sections from feeling cloned. */
+#settingsPage .owner-settings-section-security>.owner-settings-section-head{background-position:center 24%!important}
+#settingsPage .owner-settings-section-points>.owner-settings-section-head{background-position:center 66%!important}
+#settingsPage .owner-settings-section-clan>.owner-settings-section-head{background-position:center 76%!important}
+#settingsPage .owner-settings-section-members>.owner-settings-section-head{background-position:center 38%!important}
+#settingsPage .owner-settings-section-tracker>.owner-settings-section-head{background-position:center 58%!important}
+#settingsPage .owner-settings-section-discord>.owner-settings-section-head{background-position:center 31%!important}
+#settingsPage .owner-settings-section-appearance>.owner-settings-section-head{background-position:center 84%!important}
+#settingsPage .owner-settings-section-messages>.owner-settings-section-head{background-position:center 44%!important}
+#settingsPage .owner-settings-section-mission>.owner-settings-section-head{background-position:center 72%!important}
+#settingsPage .owner-settings-section-account>.owner-settings-section-head{background-position:center 15%!important}
+
+/* Header titles: much larger than the collapse control. */
+#settingsPage .owner-settings-section-head h3{
+  grid-column:1;
+  grid-row:1;
+  min-width:0;
+  display:flex!important;
+  align-items:center!important;
+  gap:10px!important;
+  margin:0!important;
+  color:#ffe69a!important;
+  font-family:"Clash","Clash Regular","Segoe UI",Arial,sans-serif!important;
+  font-size:15px!important;
+  line-height:1.08!important;
+  font-weight:500!important;
+  letter-spacing:.015em!important;
+  text-shadow:0 2px 0 rgba(73,44,0,.62),0 4px 8px rgba(0,0,0,.52)!important;
+}
+#settingsPage .owner-settings-head-icon{
+  flex:0 0 auto;
+  width:34px;height:34px;
+  display:grid;place-items:center;
+  border:1px solid rgba(255,222,116,.50);
+  border-radius:10px;
+  background:linear-gradient(155deg,rgba(31,113,165,.90),rgba(7,53,91,.96));
+  box-shadow:0 5px 13px rgba(0,0,0,.31),inset 0 1px rgba(255,255,255,.12);
+  font-family:"Segoe UI Emoji","Apple Color Emoji",sans-serif;
+  font-size:21px!important;
+  line-height:1!important;
+  filter:drop-shadow(0 2px 2px rgba(0,0,0,.35));
+}
+#settingsPage .owner-settings-head-title{min-width:0}
+#settingsPage .owner-settings-section-head>.owner-settings-section-subtitle{
+  grid-column:1;
+  grid-row:2;
+  margin:0 0 0 44px!important;
+  color:#a5cae0!important;
+  font-size:8px!important;
+  font-weight:400!important;
+  letter-spacing:.015em!important;
+}
+
+/* Collapse control is intentionally quieter/smaller than the title. */
+#settingsPage .owner-settings-collapse-control{
+  grid-column:2;
+  grid-row:1 / span 2;
+  align-self:center;
+  display:flex;align-items:center;gap:5px;
+  padding:5px 7px;
+  border:1px solid rgba(239,200,94,.30);
+  border-radius:7px;
+  background:rgba(1,24,42,.45);
+  color:#b8d8ea;
+  box-shadow:inset 0 1px rgba(255,255,255,.04);
+}
+#settingsPage .owner-settings-collapse-label{
+  font-size:6.5px!important;
+  line-height:1!important;
+  font-weight:500!important;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+#settingsPage .owner-settings-collapse-arrow{
+  display:inline-block;
+  color:#ffe18a;
+  font-size:13px!important;
+  line-height:1;
+  transition:transform .18s ease;
+}
+#settingsPage .owner-settings-accordion.settings-collapsed .owner-settings-collapse-arrow{transform:rotate(-90deg)}
+#settingsPage .owner-settings-accordion.settings-collapsed .owner-settings-collapse-label::before{content:"Expand";font-size:6.5px}
+#settingsPage .owner-settings-accordion.settings-collapsed .owner-settings-collapse-label{font-size:0!important}
+
+/* This overrides the old "always open" rules. */
+#settingsPage .owner-settings-accordion.settings-collapsed>.owner-dev-card-body,
+#settingsPage .owner-settings-accordion.settings-collapsed>.discord-body{
+  display:none!important;
+  max-height:0!important;
+  opacity:0!important;
+  visibility:hidden!important;
+}
+#settingsPage .owner-settings-accordion.settings-collapsed>.owner-settings-section-head{
+  border-bottom-color:transparent!important;
+}
+
+/* Per-section save footer. */
+#settingsPage .owner-settings-section-save{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:8px;
+  margin-top:12px;
+  padding-top:10px;
+  border-top:1px solid rgba(239,200,94,.20);
+}
+#settingsPage .owner-settings-section-save .btn{
+  min-width:176px;
+  min-height:34px;
+  font-size:8px!important;
+  font-weight:600!important;
+  border-color:rgba(239,200,94,.55)!important;
+  background:linear-gradient(180deg,#276f9f,#10496f)!important;
+}
+#settingsPage .owner-settings-section-save .btn:hover{
+  background:linear-gradient(180deg,#3285b8,#165b86)!important;
+}
+#settingsPage .owner-settings-save-note{
+  color:#789fb7;
+  font-size:7px;
+}
+
+/* Existing Discord panel participates in the same visual system. */
+#settingsPage #discordProtectionSection.owner-settings-accordion{
+  margin:0!important;
+  border:1px solid rgba(239,200,94,.34)!important;
+  border-radius:9px!important;
+  background:linear-gradient(180deg,rgba(9,54,88,.56),rgba(5,35,61,.64))!important;
+}
+#settingsPage #discordProtectionSection>.discord-head{
+  min-height:60px!important;
+  border-radius:0!important;
+}
+#settingsPage #discordProtectionSection>.discord-head .right{
+  grid-column:1;
+  grid-row:2;
+  margin:0 0 0 44px!important;
+  color:#9cc3da!important;
+  font-size:8px!important;
+}
+
+/* Larger section typography on mobile too. */
+@media(max-width:760px){
+  #settingsPage .owner-settings-save-center-compact{
+    align-items:stretch!important;
+    flex-direction:column!important;
+    gap:7px!important;
+  }
+  #settingsPage .owner-settings-save-center-compact .owner-settings-save-copy{
+    display:block!important;
+  }
+  #settingsPage .owner-settings-save-center-compact .owner-settings-save-copy b{
+    display:block!important;margin-top:2px!important;
+  }
+  #settingsPage .owner-settings-save-center-compact .owner-settings-save-actions,
+  #settingsPage .owner-settings-save-center-compact .owner-save-all{width:100%!important}
+  #settingsPage .owner-settings-section-head{
+    min-height:64px!important;
+    padding:9px 10px!important;
+  }
+  #settingsPage .owner-settings-section-head h3{font-size:16px!important}
+  #settingsPage .owner-settings-head-icon{width:36px;height:36px;font-size:22px!important}
+  #settingsPage .owner-settings-section-head>.owner-settings-section-subtitle,
+  #settingsPage #discordProtectionSection>.discord-head .right{
+    margin-left:46px!important;
+    font-size:9px!important;
+  }
+  #settingsPage .owner-settings-collapse-label{display:none!important}
+  #settingsPage .owner-settings-collapse-control{padding:5px 7px!important}
+  #settingsPage .owner-settings-collapse-arrow{font-size:16px!important}
+  #settingsPage .owner-settings-section-save .btn{width:100%!important;font-size:9px!important;min-height:38px!important}
+}
+
+
 /* ===== ALL STARS LEADERSHIP COMMAND CENTER ===== */
 #coLeadersPage{width:min(1440px,96vw);margin:0 auto}
 #coLeaderProtected{position:relative}
