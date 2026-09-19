@@ -10964,9 +10964,10 @@ html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-spotlight
 }
 
 
-/* ===== CLASH TYPOGRAPHY WEIGHT PASS =====
-   Light = normal copy, Regular = controls, Bold = emphasis/section headings,
-   Heavy = major display titles. All weights use the real project font files. */
+/* ===== CLASH TYPOGRAPHY — TWO-FONT SYSTEM =====
+   Clash Light = normal/support copy.
+   Clash Regular = controls, headings and display titles.
+   No synthetic Bold or Heavy faces are used. */
 @font-face{
   font-family:"Clash UI";
   src:url("./assets/fonts/Clash-Light.otf") format("opentype");
@@ -10981,23 +10982,8 @@ html[data-asc-honor-view="mobile-portrait"] #familySummary .clan-honor-spotlight
   font-weight:400;
   font-display:swap;
 }
-@font-face{
-  font-family:"Clash UI";
-  src:url("./assets/fonts/Clash_Bold.otf") format("opentype");
-  font-style:normal;
-  font-weight:700;
-  font-display:swap;
-}
-@font-face{
-  font-family:"Clash UI";
-  src:url("./assets/fonts/Clash-Heavy.otf") format("opentype");
-  font-style:normal;
-  font-weight:900;
-  font-display:swap;
-}
-
 /* Force normal UI text onto the Clash family, including older rules that
-   explicitly selected Segoe UI. Numeric weights now resolve to real Clash files. */
+   explicitly selected Segoe UI. Only Light and Regular are available. */
 html body :not(#__asc_clash_font_exempt__){
   font-family:"Clash UI","Segoe UI Emoji","Segoe UI Symbol","Segoe UI",Arial,sans-serif!important;
   font-synthesis:none!important;
@@ -11109,7 +11095,7 @@ h2,h3,h4,h5,h6,
   font-weight:400!important;
 }
 
-/* Major display/title text = Clash Bold (one weight lighter). */
+/* Major display/title text = Clash Regular. */
 h1,
 .brand h1,
 .server-auth-brand h2,
@@ -11121,7 +11107,7 @@ h1,
 .clan-honor-cinematic-title h4,
 .live-player-name,
 .dream-title{
-  font-weight:700!important;
+  font-weight:400!important;
 }
 
 /* Keep true technical/log text monospace. */
@@ -13273,7 +13259,7 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
 
 /* ===== PLAYER + TRACKER BOT PROFILE TYPOGRAPHY POLISH =====
    Profile reading copy uses Clash Light; headings use Clash Regular.
-   This deliberately avoids Bold/Heavy inside profile modals while increasing
+   This uses only Clash Light/Regular inside profile modals while increasing
    desktop sizes so the information is readable at normal browser zoom. */
 #playerModal,
 #playerModal .modalcard,
@@ -14574,7 +14560,7 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
    Clash Regular = 400
    ========================================================== */
 
-/* Profile-only font policy: no Bold/Heavy synthesis. */
+/* Profile-only font policy: Clash Light + Clash Regular only. */
 #playerModal,
 #myProfileModal,
 #myPublicProfileView,
@@ -14920,6 +14906,47 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   .community-profile-preview-identity .community-profile-name{
     font-size:19px!important;
   }
+}
+
+
+/* PASS 2 — Discord DP as the profile-photo source.
+   Uploaded user photos will take priority later in Pass 3. */
+
+.player-profile-avatar,
+.community-profile-preview-identity .avatar{
+  overflow:hidden!important;
+  position:relative!important;
+}
+
+.player-profile-avatar img,
+.community-profile-preview-identity .avatar img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  border-radius:50%!important;
+}
+
+.player-profile-avatar.has-profile-photo,
+.community-profile-preview-identity .avatar.has-profile-photo{
+  color:transparent!important;
+  background:#072743!important;
+}
+
+/* A little more definition around a real photo without making it bulky. */
+.player-profile-avatar.has-profile-photo::after,
+.community-profile-preview-identity .avatar.has-profile-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius:50%;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,238,165,.22),
+    inset 0 -10px 22px rgba(0,19,37,.12);
 }
 
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
