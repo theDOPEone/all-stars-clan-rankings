@@ -15455,6 +15455,341 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   }
 }
 
+
+/* ==========================================================
+   PROFILE READABILITY PASS
+   Larger hierarchy, less empty padding, clearer PC + mobile
+   ========================================================== */
+
+/* ---------- Photo popup: portrait proportions ---------- */
+.profile-photo-window{
+  width:min(430px,94vw)!important;
+  max-height:94vh!important;
+  border-radius:12px!important;
+}
+.profile-photo-window-head{
+  padding:10px 12px!important;
+}
+.profile-photo-window-kicker{
+  font-size:9px!important;
+  line-height:1.1!important;
+}
+.profile-photo-window-head h3{
+  margin-top:2px!important;
+  font-size:25px!important;
+  line-height:1!important;
+}
+.profile-photo-close{
+  width:38px!important;
+  height:38px!important;
+  font-size:23px!important;
+}
+
+.profile-photo-window-body{
+  padding:12px 12px 14px!important;
+}
+.profile-photo-current-label{
+  font-size:9px!important;
+  line-height:1.15!important;
+  letter-spacing:.10em!important;
+}
+.profile-photo-current-preview{
+  width:176px!important;
+  height:176px!important;
+  margin-top:7px!important;
+  font-size:52px!important;
+}
+.profile-photo-current-help{
+  margin-top:7px!important;
+  font-size:9.5px!important;
+  line-height:1.25!important;
+}
+
+.profile-photo-picker{
+  margin-top:10px!important;
+  gap:6px!important;
+}
+.profile-photo-picker .btn{
+  min-height:34px!important;
+  padding:4px 9px!important;
+  font-size:11px!important;
+  line-height:1!important;
+}
+.profile-photo-picker .btn.secondary{
+  padding-left:8px!important;
+  padding-right:8px!important;
+}
+
+/* ---------- Crop area ---------- */
+.profile-photo-crop-stage{
+  margin-top:10px!important;
+  padding:9px!important;
+}
+.profile-photo-crop-title{
+  margin-bottom:7px!important;
+}
+.profile-photo-crop-title b{
+  font-size:12px!important;
+}
+.profile-photo-crop-title span{
+  font-size:9px!important;
+}
+.profile-photo-canvas-shell{
+  width:min(300px,76vw)!important;
+}
+.profile-photo-crop-controls{
+  margin-top:8px!important;
+  gap:6px!important;
+}
+.profile-photo-crop-controls label{
+  font-size:9px!important;
+}
+.profile-photo-reset{
+  padding:4px 7px!important;
+  font-size:9px!important;
+}
+.profile-photo-save{
+  min-height:35px!important;
+  margin-top:8px!important;
+  padding:4px 10px!important;
+  font-size:11px!important;
+}
+
+.profile-photo-window .member-profile-photo-msg{
+  min-height:0!important;
+  margin-top:8px!important;
+  font-size:9px!important;
+  line-height:1.3!important;
+}
+.profile-photo-security-note{
+  gap:7px!important;
+  margin-top:9px!important;
+  padding:7px 8px!important;
+}
+.profile-photo-security-note>span{
+  font-size:18px!important;
+}
+.profile-photo-security-note b{
+  font-size:9px!important;
+}
+.profile-photo-security-note small{
+  margin-top:1px!important;
+  font-size:8px!important;
+  line-height:1.25!important;
+}
+
+/* ---------- Profile screens: stronger readable hierarchy ---------- */
+#playerModal .modal-head h2,
+#myProfileModal .modal-head h2{
+  font-size:22px!important;
+}
+#playerModal .player-profile-name-copy h2,
+#myProfileModal .community-profile-name,
+#myPublicProfileView .community-profile-name{
+  font-size:28px!important;
+}
+#playerModal .player-profile-kicker,
+#myProfileModal .community-profile-kicker,
+#myPublicProfileView .community-profile-kicker{
+  font-size:9px!important;
+}
+#playerModal .player-profile-identity-line,
+#myProfileModal .community-profile-handle,
+#myPublicProfileView .community-profile-handle{
+  font-size:10px!important;
+}
+#playerModal .player-profile-clan-line{
+  font-size:11px!important;
+}
+#playerModal .player-profile-quickstat>span{
+  font-size:8px!important;
+}
+#playerModal .player-profile-quickstat>b{
+  font-size:12px!important;
+}
+#playerModal .rating-kicker,
+#myProfileModal .rating-kicker,
+#myPublicProfileView .rating-kicker{
+  font-size:9px!important;
+}
+#playerModal .rating-title,
+#myProfileModal .rating-title,
+#myPublicProfileView .rating-title{
+  font-size:24px!important;
+}
+#playerModal .rating-sub,
+#myProfileModal .rating-sub,
+#myPublicProfileView .rating-sub{
+  font-size:10px!important;
+  line-height:1.35!important;
+}
+#playerModal .rank-number,
+#myProfileModal .rank-number,
+#myPublicProfileView .rank-number{
+  font-size:20px!important;
+}
+#playerModal .rank-label,
+#myProfileModal .rank-label,
+#myPublicProfileView .rank-label{
+  font-size:8px!important;
+  line-height:1.25!important;
+}
+#playerModal .community-profile-section-head span,
+#playerModal .community-profile-showcase-head span,
+#myProfileModal .community-profile-section-head span,
+#myProfileModal .community-profile-showcase-head span,
+#myPublicProfileView .community-profile-section-head span,
+#myPublicProfileView .community-profile-showcase-head span{
+  font-size:8px!important;
+}
+#playerModal .community-profile-section-head b,
+#playerModal .community-profile-showcase-head b,
+#myProfileModal .community-profile-section-head b,
+#myProfileModal .community-profile-showcase-head b,
+#myPublicProfileView .community-profile-section-head b,
+#myPublicProfileView .community-profile-showcase-head b{
+  font-size:12px!important;
+}
+#playerModal .community-profile-about,
+#myProfileModal .community-profile-about,
+#myPublicProfileView .community-profile-about{
+  font-size:11px!important;
+  line-height:1.45!important;
+}
+#playerModal .community-profile-fact .k,
+#myProfileModal .community-profile-fact .k,
+#myPublicProfileView .community-profile-fact .k{
+  font-size:8px!important;
+}
+#playerModal .community-profile-fact .v,
+#myProfileModal .community-profile-fact .v,
+#myPublicProfileView .community-profile-fact .v{
+  font-size:11px!important;
+}
+#myProfileModal .member-profile-grid label{
+  font-size:8.5px!important;
+}
+#myProfileModal .member-profile-grid input,
+#myProfileModal .member-profile-grid select,
+#myProfileModal .member-profile-grid textarea{
+  font-size:14px!important;
+  line-height:1.2!important;
+  padding:7px 9px!important;
+}
+#myProfileModal .member-profile-actions .btn,
+#myProfileModal .profile-page-edit-button{
+  font-size:11px!important;
+  padding:5px 9px!important;
+}
+#myProfileModal .my-profile-upgrades.compact{
+  font-size:10px!important;
+  line-height:1.35!important;
+}
+
+/* Reduce excessive vertical padding in profile cards */
+.player-profile-name-section{
+  padding:13px 14px!important;
+}
+.player-profile-rating-section{
+  padding:11px 13px!important;
+}
+.community-profile-bio-section{
+  padding:10px 11px!important;
+}
+.community-profile-showcase{
+  padding:10px 11px!important;
+}
+.community-profile-facts{
+  padding-top:8px!important;
+}
+
+/* ---------- Mobile ---------- */
+@media(max-width:700px){
+  .profile-photo-modal{
+    align-items:center!important;
+    padding:6px!important;
+  }
+  .profile-photo-window{
+    width:min(410px,96vw)!important;
+    max-height:95vh!important;
+  }
+  .profile-photo-window-head{
+    padding:9px 10px!important;
+  }
+  .profile-photo-window-kicker{
+    font-size:8px!important;
+  }
+  .profile-photo-window-head h3{
+    font-size:22px!important;
+  }
+  .profile-photo-window-body{
+    padding:10px!important;
+  }
+  .profile-photo-current-preview{
+    width:150px!important;
+    height:150px!important;
+  }
+  .profile-photo-current-help{
+    font-size:9px!important;
+  }
+  .profile-photo-picker .btn{
+    min-height:32px!important;
+    padding:4px 7px!important;
+    font-size:10px!important;
+  }
+  .profile-photo-canvas-shell{
+    width:min(286px,80vw)!important;
+  }
+  .profile-photo-crop-title b{
+    font-size:11px!important;
+  }
+  .profile-photo-crop-title span{
+    font-size:8.5px!important;
+  }
+  .profile-photo-window .member-profile-photo-msg{
+    font-size:8.5px!important;
+  }
+  .profile-photo-security-note b{
+    font-size:8.5px!important;
+  }
+  .profile-photo-security-note small{
+    font-size:7.5px!important;
+  }
+
+  #playerModal .player-profile-name-copy h2,
+  #myProfileModal .community-profile-name,
+  #myPublicProfileView .community-profile-name{
+    font-size:23px!important;
+  }
+  #playerModal .player-profile-quickstat>span{
+    font-size:7.5px!important;
+  }
+  #playerModal .player-profile-quickstat>b{
+    font-size:10.5px!important;
+  }
+  #playerModal .rating-title,
+  #myProfileModal .rating-title,
+  #myPublicProfileView .rating-title{
+    font-size:21px!important;
+  }
+  #playerModal .rating-sub,
+  #myProfileModal .rating-sub,
+  #myPublicProfileView .rating-sub{
+    font-size:9.5px!important;
+  }
+  #playerModal .community-profile-about,
+  #myProfileModal .community-profile-about,
+  #myPublicProfileView .community-profile-about{
+    font-size:10.5px!important;
+  }
+  #myProfileModal .member-profile-grid input,
+  #myProfileModal .member-profile-grid select,
+  #myProfileModal .member-profile-grid textarea{
+    font-size:13px!important;
+    padding:6px 8px!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
