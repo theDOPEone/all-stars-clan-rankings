@@ -23512,8 +23512,8 @@ body.asc-card-picker-open #myProfileModal{
 
 /* Customization live preview frame. */
 .profile-customize-preview-avatar-stage{
-  width:72px;
-  height:72px;
+  width:84px;
+  height:84px;
 }
 .profile-customize-preview-avatar{
   position:relative;
@@ -26296,217 +26296,163 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
 
 
 /* ==========================================================
-   PASS 5Z.5 — DP-SIZED FRAME ANCHORS
-   Frame geometry is based on the DP, not the surrounding card.
+   PASS 5Z.5 — DP-SYNCHRONIZED PROFILE FRAMES
+   Frame art measures and follows the actual DP at runtime.
    ========================================================== */
 
-/* The old calc(100% * number) form is not portable CSS.
-   Every frame now receives an actual percentage variable. */
 .profile-avatar-cosmetic-frame,
 .community-profile-avatar-frame,
 .edit-profile-avatar-frame,
 .profile-customize-avatar-frame,
-#memberSpotlight .member-spotlight-avatar-frame{
+#memberSpotlight .member-spotlight-avatar-frame,
+.shop-user-frame-overlay{
   position:absolute!important;
   z-index:7!important;
-  left:calc(50% + var(--asc-frame-x,0%))!important;
-  top:calc(50% + var(--asc-frame-y,0%))!important;
-  width:var(--asc-frame-size,162%)!important;
-  height:var(--asc-frame-size,162%)!important;
-  transform:translate(-50%,-50%)!important;
   pointer-events:none!important;
-}
-
-/* PUBLIC PROFILE: stage and DP are the same size. */
-.community-profile-avatar-stage{
-  width:108px!important;
-  height:108px!important;
-  min-width:108px!important;
-  place-items:center!important;
+  transform:translate(-50%,-50%)!important;
   overflow:visible!important;
 }
-.community-profile-avatar-stage>.avatar{
-  width:108px!important;
-  height:108px!important;
-  min-width:108px!important;
+
+.profile-avatar-cosmetic-frame img,
+.community-profile-avatar-frame img,
+.edit-profile-avatar-frame img,
+.profile-customize-avatar-frame img,
+#memberSpotlight .member-spotlight-avatar-frame img,
+.shop-user-frame-overlay img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  transform-origin:center center!important;
 }
 
-/* EDIT PROFILE: exact 108px anchor rather than 112px around a 108px DP. */
-.edit-profile-avatar-stack{
-  width:108px!important;
-  height:108px!important;
+/* Every stage that can own a frame must allow the artwork to extend beyond
+   the circular DP. */
+.community-profile-avatar-stage,
+.profile-customize-preview-avatar-stage,
+.edit-profile-avatar-stack,
+#memberSpotlight .member-spotlight-avatar-stage,
+.shop-user-frame-stage{
+  position:relative!important;
   overflow:visible!important;
 }
-.edit-profile-avatar{
-  left:0!important;
-  top:0!important;
-  width:108px!important;
-  height:108px!important;
-}
 
-/* Reserve vertical room below the DP so larger frame artwork never sits on
-   top of the Clan Points button in Edit Profile. */
-.edit-profile-avatar-stack:has(.edit-profile-avatar-frame){
-  margin-bottom:46px!important;
-}
-.edit-profile-avatar-stack:has([data-profile-frame="ice-blue"]),
-.edit-profile-avatar-stack:has([data-profile-frame="pekka-purple"]){
-  margin-bottom:60px!important;
-}
-
-/* CUSTOMIZATION STUDIO: stage matches its 84px DP and the card reserves
-   enough horizontal room for the visible frame decoration. */
+/* Customization Studio: make stage and 84px DP use identical geometry. */
 .profile-customize-preview-avatar-stage{
   width:84px!important;
   height:84px!important;
-  min-width:84px!important;
-  justify-self:center!important;
-  overflow:visible!important;
-}
-.profile-customize-preview-avatar{
-  width:84px!important;
-  height:84px!important;
-}
-.profile-customize-preview-card:has(.profile-customize-avatar-frame){
-  grid-template-columns:190px minmax(0,1fr) auto!important;
-}
-.profile-customize-preview-card:has([data-profile-frame="elixir-purple"]),
-.profile-customize-preview-card:has([data-profile-frame="arrow-wood"]){
-  grid-template-columns:165px minmax(0,1fr) auto!important;
-}
-
-/* SPOTLIGHT: make the frame percentage reference the actual 78px DP.
-   Margins preserve the original 92px footprint in the row. */
-#memberSpotlight .member-spotlight-avatar-stage{
-  width:78px!important;
-  height:78px!important;
-  flex:0 0 78px!important;
-  margin:7px!important;
-  overflow:visible!important;
-}
-#memberSpotlight .member-spotlight-summary-avatar{
-  width:78px!important;
-  height:78px!important;
-}
-#memberSpotlight .member-spotlight-avatar-view{
-  bottom:2px!important;
-}
-
-/* SHOP PREVIEW: an explicit anchor equals the DP diameter. The frame uses
-   the exact same percentage and center offset as every other profile view. */
-#shopPreviewOverlay .shop-user-frame-stage{
-  width:390px!important;
-  height:330px!important;
-  max-width:92vw!important;
   display:grid!important;
   place-items:center!important;
 }
-#shopPreviewOverlay .shop-user-frame-anchor{
-  position:relative!important;
-  width:178px!important;
-  height:178px!important;
+
+/* Public profile stage previously reserved 96px around a 46px DP.
+   Keep its layout footprint, but runtime alignment now measures the actual
+   46px avatar rather than treating the whole 96px stage as the DP. */
+.community-profile-avatar-stage{
   display:grid!important;
   place-items:center!important;
+}
+
+/* ---------- Shop / purchase frame preview ---------- */
+#shopPreviewOverlay .shop-user-frame-preview,
+.shop-purchase-confirm-visual .shop-user-frame-preview{
+  width:100%;
+  min-height:330px;
+  display:grid!important;
+  grid-template-rows:1fr auto auto;
+  place-items:center;
+  align-content:center;
+  gap:4px;
+  margin:0 auto!important;
+  padding:52px 10px 24px;
+  overflow:visible;
+}
+
+#shopPreviewOverlay .shop-user-frame-stage,
+.shop-purchase-confirm-visual .shop-user-frame-stage{
+  width:184px!important;
+  height:184px!important;
+  display:grid!important;
+  place-items:center!important;
+  margin:0 auto!important;
   overflow:visible!important;
 }
-#shopPreviewOverlay .shop-user-frame-face{
-  position:relative!important;
-  z-index:3!important;
-  width:178px!important;
-  height:178px!important;
-}
-#shopPreviewOverlay .shop-user-frame-image{
+
+#shopPreviewOverlay .shop-user-frame-face,
+.shop-purchase-confirm-visual .shop-user-frame-face{
   position:absolute!important;
-  z-index:7!important;
-  left:calc(50% + var(--asc-frame-x,0%))!important;
-  top:calc(50% + var(--asc-frame-y,0%))!important;
-  inset:auto!important;
-  width:var(--asc-frame-size,162%)!important;
-  height:var(--asc-frame-size,162%)!important;
-  object-fit:contain!important;
-  transform:translate(-50%,-50%)!important;
-}
-#shopPreviewOverlay .shop-user-frame-stage:hover .shop-user-frame-image.off{
-  opacity:.12!important;
-  transform:translate(-50%,-50%) scale(1.005)!important;
-}
-#shopPreviewOverlay .shop-user-frame-stage:hover .shop-user-frame-image.on{
-  opacity:1!important;
-  transform:translate(-50%,-50%) scale(1.025)!important;
-}
-
-/* The frame should never alter the dimensions of the DP image itself. */
-.community-profile-avatar-stage .avatar img,
-.edit-profile-avatar img,
-.profile-customize-preview-avatar img,
-#memberSpotlight .member-spotlight-summary-avatar img,
-#shopPreviewOverlay .shop-user-frame-face img{
-  width:100%!important;
-  height:100%!important;
-  object-fit:cover!important;
+  inset:0!important;
+  width:184px!important;
+  height:184px!important;
+  margin:0!important;
   border-radius:50%!important;
+  z-index:2!important;
 }
 
-/* Public identity gets a little extra room when an image frame is equipped,
-   preventing the frame edge from colliding with the player-name column. */
-.community-profile-preview-identity .community-profile-id:has(.community-profile-avatar-frame){
-  grid-template-columns:165px minmax(0,1fr)!important;
-}
-.community-profile-preview-identity .community-profile-avatar-stage:has(.community-profile-avatar-frame){
-  justify-self:center!important;
+#shopPreviewOverlay .shop-user-frame-overlay,
+.shop-purchase-confirm-visual .shop-user-frame-overlay{
+  z-index:6!important;
 }
 
-/* Mobile DP dimensions remain synchronized with their frame anchor. */
+#shopPreviewOverlay .shop-user-frame-overlay .profile-avatar-frame-off,
+.shop-purchase-confirm-visual .shop-user-frame-overlay .profile-avatar-frame-off{
+  opacity:1!important;
+}
+
+#shopPreviewOverlay .shop-user-frame-overlay .profile-avatar-frame-on,
+.shop-purchase-confirm-visual .shop-user-frame-overlay .profile-avatar-frame-on{
+  opacity:0!important;
+}
+
+#shopPreviewOverlay .shop-user-frame-stage:hover .shop-user-frame-overlay .profile-avatar-frame-off,
+.shop-purchase-confirm-visual .shop-user-frame-stage:hover .shop-user-frame-overlay .profile-avatar-frame-off{
+  opacity:.14!important;
+}
+
+#shopPreviewOverlay .shop-user-frame-stage:hover .shop-user-frame-overlay .profile-avatar-frame-on,
+.shop-purchase-confirm-visual .shop-user-frame-stage:hover .shop-user-frame-overlay .profile-avatar-frame-on{
+  opacity:1!important;
+  transform:scale(1.025)!important;
+  filter:drop-shadow(0 0 12px rgba(255,228,126,.28));
+}
+
+/* Disable the old separate Shop-frame positioning rules. */
+#shopPreviewOverlay .shop-user-frame-image,
+.shop-purchase-confirm-visual .shop-user-frame-image{
+  display:none!important;
+}
+
+/* Purchase dialog uses the same large DP/frame proportions, just slightly
+   more compact than the full Shop preview. */
+.shop-purchase-confirm-visual .shop-user-frame-preview{
+  min-height:280px;
+  padding-top:42px;
+  padding-bottom:18px;
+}
+.shop-purchase-confirm-visual .shop-user-frame-stage{
+  transform:scale(.86)!important;
+  margin:0 auto!important;
+}
+
+/* Mobile keeps the same geometry; only the DP base size changes. */
 @media(max-width:700px){
-  .community-profile-avatar-stage{
-    width:76px!important;
-    height:76px!important;
-    min-width:76px!important;
+  #shopPreviewOverlay .shop-user-frame-preview{
+    min-height:285px;
+    padding-top:42px;
   }
-  .community-profile-avatar-stage>.avatar{
-    width:76px!important;
-    height:76px!important;
-    min-width:76px!important;
-  }
-  .community-profile-preview-identity .community-profile-id:has(.community-profile-avatar-frame){
-    grid-template-columns:120px minmax(0,1fr)!important;
-  }
-
-  #memberSpotlight .member-spotlight-avatar-stage{
-    width:62px!important;
-    height:62px!important;
-    flex-basis:62px!important;
-    margin:5px!important;
-  }
-  #memberSpotlight .member-spotlight-summary-avatar{
-    width:62px!important;
-    height:62px!important;
-  }
-
-  #shopPreviewOverlay .shop-user-frame-anchor,
+  #shopPreviewOverlay .shop-user-frame-stage,
   #shopPreviewOverlay .shop-user-frame-face{
-    width:148px!important;
-    height:148px!important;
-  }
-
-  .profile-customize-preview-card:has(.profile-customize-avatar-frame){
-    grid-template-columns:145px minmax(0,1fr) auto!important;
+    width:154px!important;
+    height:154px!important;
   }
 }
 
-@media(max-width:390px){
-  .community-profile-avatar-stage{
-    width:66px!important;
-    height:66px!important;
-    min-width:66px!important;
-  }
-  .community-profile-avatar-stage>.avatar{
-    width:66px!important;
-    height:66px!important;
-    min-width:66px!important;
-  }
-  .community-profile-preview-identity .community-profile-id:has(.community-profile-avatar-frame){
-    grid-template-columns:106px minmax(0,1fr)!important;
+/* These are explicit visual previews; keep frame hover transitions usable. */
+@media(prefers-reduced-motion:reduce){
+  #shopPreviewOverlay .shop-user-frame-overlay img,
+  .shop-purchase-confirm-visual .shop-user-frame-overlay img{
+    transition:opacity .18s linear!important;
   }
 }
 
