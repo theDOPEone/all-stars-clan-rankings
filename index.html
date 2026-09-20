@@ -24051,6 +24051,210 @@ body.asc-card-picker-open #myProfileModal{
   }
 }
 
+
+/* ==========================================================
+   PASS 5X.3 — OWNER SETTINGS QUICK ACCESS CONSOLIDATION
+   Save All + compact activity log now live inside the toolbar.
+   ========================================================== */
+
+.owner-settings-quick-toolbar{
+  min-height:68px!important;
+  padding:5px 6px 5px 4px!important;
+}
+
+/* Slightly tighter title so the functional controls get more room. */
+.owner-settings-toolbar-title{
+  width:96px!important;
+  flex-basis:96px!important;
+  padding-right:6px!important;
+}
+
+/* Larger Windows-style tool buttons. */
+.owner-settings-toolbar-buttons{
+  gap:3px!important;
+  overflow-x:auto!important;
+}
+.owner-settings-toolbar-buttons button{
+  min-width:67px!important;
+  height:55px!important;
+  gap:4px!important;
+  padding:4px 7px!important;
+  font-size:7.8px!important;
+}
+.owner-settings-toolbar-icon{
+  min-height:27px!important;
+  font-size:21px!important;
+}
+
+/* Compact Save All lives after all navigation buttons. */
+.owner-settings-toolbar-divider-save{
+  margin-left:3px!important;
+}
+.owner-settings-toolbar-save{
+  width:66px;
+  min-width:66px;
+  height:55px;
+  flex:0 0 66px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  margin:1px 5px 1px 1px;
+  padding:3px 5px;
+  border:1px solid #b98a21;
+  border-radius:4px;
+  background:linear-gradient(180deg,#715515,#3f310d);
+  box-shadow:
+    inset 0 1px rgba(255,242,171,.18),
+    inset 0 -1px rgba(0,0,0,.35);
+  color:#ffe69a;
+  font-family:inherit;
+  font-size:6.4px;
+  line-height:1;
+  white-space:nowrap;
+  text-shadow:0 1px #1c1403;
+  cursor:default;
+}
+.owner-settings-toolbar-save:hover{
+  border-color:#e2bd4c;
+  background:linear-gradient(180deg,#896b20,#4c3b10);
+}
+.owner-settings-toolbar-save:active{
+  transform:translateY(1px);
+}
+.owner-settings-toolbar-save:disabled{
+  opacity:.50;
+}
+.owner-settings-toolbar-save-icon{
+  font-family:"Segoe UI Emoji","Segoe UI Symbol","Segoe UI",sans-serif;
+  font-size:20px;
+  line-height:1;
+}
+
+/* Headerless dark activity log at the far right. */
+.owner-settings-toolbar-log{
+  width:300px;
+  min-width:230px;
+  max-width:300px;
+  height:55px;
+  flex:0 0 clamp(230px,20vw,300px);
+  align-self:center;
+  overflow:hidden;
+  border:1px solid #233f58;
+  border-radius:4px;
+  background:#031522;
+  box-shadow:
+    inset 0 1px 7px rgba(0,0,0,.55),
+    inset 0 0 0 1px rgba(104,145,170,.035);
+}
+
+.owner-settings-toolbar-log .owner-settings-log-stream{
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  max-height:none!important;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+  padding:3px 5px!important;
+  background:#031522!important;
+  transition:none!important;
+  scrollbar-width:thin;
+  scrollbar-color:#365f7d #061b2b;
+}
+.owner-settings-toolbar-log .owner-settings-log-stream::-webkit-scrollbar{
+  width:5px;
+}
+.owner-settings-toolbar-log .owner-settings-log-stream::-webkit-scrollbar-track{
+  background:#061b2b;
+}
+.owner-settings-toolbar-log .owner-settings-log-stream::-webkit-scrollbar-thumb{
+  border-radius:3px;
+  background:#365f7d;
+}
+
+/* Log text intentionally stays smaller than toolbar labels. */
+.owner-settings-toolbar-log .owner-settings-log-row{
+  display:grid!important;
+  grid-template-columns:40px 46px minmax(0,1fr)!important;
+  gap:4px!important;
+  align-items:start!important;
+  min-height:15px!important;
+  padding:1px 2px!important;
+  border-bottom:1px solid rgba(135,184,215,.08)!important;
+  font:500 5.8px/1.24 Consolas,"Courier New",monospace!important;
+}
+.owner-settings-toolbar-log .owner-settings-log-row .time{
+  color:#62859c!important;
+}
+.owner-settings-toolbar-log .owner-settings-log-row .kind{
+  font-size:5.6px!important;
+}
+.owner-settings-toolbar-log .owner-settings-log-row .message{
+  min-width:0!important;
+  overflow:visible!important;
+  text-overflow:clip!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+  word-break:break-word!important;
+}
+.owner-settings-toolbar-log .owner-settings-log-empty{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  padding:4px!important;
+  color:#607f92!important;
+  font:500 5.8px/1.2 Consolas,"Courier New",monospace!important;
+  text-align:center;
+}
+
+/* Old floating log header and standalone Quick Save strip are no longer used. */
+.owner-settings-log-head,
+.owner-settings-log-toggle,
+.owner-settings-save-center{
+  display:none!important;
+}
+
+/* Keep the toolbar usable on typical PC widths. */
+@media(min-width:901px) and (max-width:1380px){
+  .owner-settings-toolbar-title{
+    width:80px!important;
+    flex-basis:80px!important;
+  }
+  .owner-settings-toolbar-buttons button{
+    min-width:62px!important;
+    padding-left:5px!important;
+    padding-right:5px!important;
+  }
+  .owner-settings-toolbar-log{
+    min-width:210px;
+    max-width:240px;
+    flex-basis:220px;
+  }
+}
+
+/* This owner toolbar is desktop-first; preserve horizontal access if the
+   app window is temporarily narrow rather than crushing the controls. */
+@media(max-width:900px){
+  .owner-settings-quick-toolbar{
+    overflow-x:auto!important;
+  }
+  .owner-settings-toolbar-buttons{
+    flex:0 0 auto!important;
+  }
+  .owner-settings-toolbar-log{
+    min-width:210px;
+    flex-basis:210px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .owner-settings-toolbar-save{
+    transition:none!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
