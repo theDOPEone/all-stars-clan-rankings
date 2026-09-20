@@ -21692,6 +21692,275 @@ body.asc-card-picker-open #favoriteCardPickerModal .favorite-deck-card-shimmer{
   }
 }
 
+
+/* ==========================================================
+   PASS 5O — PROFILE FAVORITE + CURRENT DECK SHOWCASE
+   ========================================================== */
+
+/* Keep both column headings above their bordered content boxes. */
+.community-profile-showcase{
+  align-items:stretch!important;
+}
+
+.community-profile-favorite-wrap,
+.community-profile-deck-wrap{
+  display:flex!important;
+  flex-direction:column!important;
+  min-width:0!important;
+}
+
+.community-profile-showcase-head{
+  flex:0 0 auto!important;
+  margin:0 0 7px 1px!important;
+}
+
+/* ---------- Current Deck heading ABOVE the border ---------- */
+.community-profile-deck-heading{
+  display:flex!important;
+  align-items:baseline!important;
+  gap:8px!important;
+  min-height:20px!important;
+  padding:0 2px!important;
+  cursor:default;
+}
+
+.community-profile-deck-heading span{
+  display:inline-block!important;
+  color:#ffe58c!important;
+  font-size:9px!important;
+  letter-spacing:.05em!important;
+  text-transform:uppercase!important;
+  white-space:nowrap!important;
+}
+
+.community-profile-deck-heading b{
+  display:inline-block!important;
+  margin:0!important;
+  color:#d3b968!important;
+  font-size:8px!important;
+  font-weight:300!important;
+  line-height:1.2!important;
+  text-transform:none!important;
+}
+
+.community-profile-deck-heading.editable{
+  cursor:pointer!important;
+  border-radius:5px;
+  transition:background .14s ease,color .14s ease;
+}
+.community-profile-deck-heading.editable:hover,
+.community-profile-deck-heading.editable:focus-visible{
+  background:rgba(224,184,66,.07)!important;
+  outline:none!important;
+}
+.community-profile-deck-heading.editable:hover b{
+  color:#ffe18b!important;
+}
+
+/* Old deck-title rules are no longer layout-bearing. */
+.community-profile-deck-title{
+  display:none!important;
+}
+
+/* ---------- Current Deck box ---------- */
+.community-profile-deck-wrap .community-profile-deck{
+  flex:1 1 auto!important;
+  margin:0!important;
+  min-height:0!important;
+  padding:8px 8px 7px!important;
+  border-radius:8px!important;
+  background:rgba(3,29,49,.56)!important;
+}
+
+.community-profile-deck-cards{
+  width:100%!important;
+  display:grid!important;
+  grid-template-columns:repeat(8,minmax(0,1fr))!important;
+  justify-content:stretch!important;
+  align-items:start!important;
+  gap:5px!important;
+}
+
+/* Let the deck area determine card size instead of fixed 68px boxes. */
+.community-profile-deck-card{
+  width:auto!important;
+  min-width:0!important;
+  padding:2px 2px 4px!important;
+  border-radius:6px!important;
+}
+
+.community-profile-deck-card img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-width:88px!important;
+  margin:0 auto!important;
+  aspect-ratio:.74!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 3px 4px rgba(0,0,0,.34))!important;
+}
+
+.community-profile-deck-card .n{
+  display:block!important;
+  margin-top:3px!important;
+  padding:0 1px!important;
+  color:#b5d4e3!important;
+  font-size:7.5px!important;
+  line-height:1.1!important;
+  text-align:center!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+
+/* ---------- Favorite Card ----------
+   Keep the title at top, but center the actual card lower in the column. */
+.community-profile-favorite-wrap{
+  justify-content:stretch!important;
+}
+
+.community-profile-favorite-wrap .favorite-card-profile-trigger{
+  flex:1 1 auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:0!important;
+  padding-top:8px!important;
+  padding-bottom:2px!important;
+}
+
+/* Lower the framed card slightly so it is centered against the deck box. */
+.community-profile-favorite-wrap .community-profile-cardart{
+  margin:6px auto 0!important;
+}
+
+/* CHANGE becomes its own centered control below the favorite-card frame. */
+.community-profile-favorite-wrap .favorite-card-edit-badge{
+  position:static!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  left:auto!important;
+  right:auto!important;
+  top:auto!important;
+  bottom:auto!important;
+  transform:none!important;
+  margin:6px auto 0!important;
+  padding:4px 9px!important;
+  border-radius:999px!important;
+  font-size:6.5px!important;
+  line-height:1!important;
+}
+
+/* ---------- Facts ---------- */
+.community-profile-fact .v{
+  text-transform:none!important;
+}
+
+/* ==========================================================
+   TABLET / MOBILE
+   ========================================================== */
+@media(max-width:900px){
+  .community-profile-deck-cards{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:5px 6px!important;
+  }
+
+  .community-profile-deck-card img{
+    width:100%!important;
+    max-width:74px!important;
+  }
+
+  .community-profile-deck-card .n{
+    display:block!important;
+    font-size:7px!important;
+  }
+}
+
+@media(max-width:700px){
+  .community-profile-showcase{
+    grid-template-columns:112px minmax(0,1fr)!important;
+    gap:9px!important;
+  }
+
+  .community-profile-deck-heading{
+    display:block!important;
+    min-height:29px!important;
+    margin-bottom:5px!important;
+    padding:0 1px!important;
+  }
+
+  .community-profile-deck-heading span{
+    display:block!important;
+    font-size:8px!important;
+  }
+
+  .community-profile-deck-heading b{
+    display:block!important;
+    margin-top:2px!important;
+    font-size:6.8px!important;
+    white-space:normal!important;
+  }
+
+  .community-profile-deck-wrap .community-profile-deck{
+    padding:6px!important;
+  }
+
+  .community-profile-deck-cards{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:5px!important;
+  }
+
+  .community-profile-deck-card{
+    padding:2px!important;
+  }
+
+  .community-profile-deck-card img{
+    width:100%!important;
+    max-width:68px!important;
+  }
+
+  .community-profile-deck-card .n{
+    display:block!important;
+    margin-top:2px!important;
+    font-size:6.3px!important;
+  }
+
+  .community-profile-favorite-wrap .favorite-card-profile-trigger{
+    padding-top:10px!important;
+  }
+
+  .community-profile-favorite-wrap .community-profile-cardart{
+    margin-top:8px!important;
+  }
+
+  .community-profile-favorite-wrap .favorite-card-edit-badge{
+    margin-top:5px!important;
+    padding:3px 7px!important;
+    font-size:5.8px!important;
+  }
+}
+
+@media(max-width:390px){
+  .community-profile-showcase{
+    grid-template-columns:102px minmax(0,1fr)!important;
+    gap:6px!important;
+  }
+
+  .community-profile-deck-card img{
+    max-width:62px!important;
+  }
+
+  .community-profile-deck-card .n{
+    font-size:5.8px!important;
+  }
+
+  .community-profile-deck-heading b{
+    font-size:6.2px!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
