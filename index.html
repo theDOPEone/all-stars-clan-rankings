@@ -22914,6 +22914,304 @@ body.asc-card-picker-open #myProfileModal{
   }
 }
 
+
+/* ==========================================================
+   PASS 5W.1 — OWNER SHOP PRICE MANAGER
+   ========================================================== */
+
+.owner-shop-pricing-summary{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+.owner-shop-pricing-summary>div{
+  min-width:0;
+}
+.owner-shop-pricing-summary b{
+  display:block;
+  color:#ffe08a;
+  font-size:11px;
+}
+.owner-shop-pricing-summary span{
+  display:block;
+  margin-top:3px;
+  color:#94b7ca;
+  font-size:8px;
+  line-height:1.4;
+}
+.owner-shop-pricing-summary .btn{
+  flex:0 0 auto;
+}
+
+.owner-shop-pricing-modal{
+  position:fixed;
+  inset:0;
+  z-index:11080;
+  display:grid;
+  place-items:center;
+  padding:18px;
+  background:rgba(1,11,21,.82);
+  backdrop-filter:blur(5px);
+}
+.owner-shop-pricing-modal.hidden{
+  display:none!important;
+}
+.owner-shop-pricing-window{
+  width:min(900px,96vw);
+  max-height:min(860px,92vh);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid rgba(234,195,75,.58);
+  border-radius:13px;
+  background:
+    radial-gradient(circle at 85% -10%,rgba(43,136,185,.16),transparent 32%),
+    linear-gradient(180deg,#0a3c61,#05253f 46%,#041b2f);
+  box-shadow:
+    0 28px 70px rgba(0,0,0,.55),
+    inset 0 1px rgba(255,255,255,.05);
+}
+.owner-shop-pricing-head{
+  position:relative;
+  padding:15px 52px 13px 17px;
+  border-bottom:1px solid rgba(231,193,75,.25);
+  background:linear-gradient(180deg,#155d8f,#0b3d68);
+}
+.owner-shop-pricing-kicker{
+  color:#83d8ff;
+  font-size:7px;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+.owner-shop-pricing-head h3{
+  margin:3px 0 2px;
+  color:#ffe28b;
+  font-size:18px;
+}
+.owner-shop-pricing-head p{
+  margin:0;
+  color:#a8c8da;
+  font-size:8px;
+  line-height:1.4;
+}
+.owner-shop-pricing-close{
+  position:absolute;
+  top:10px;
+  right:11px;
+  width:34px;
+  height:34px;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:8px;
+  background:#072d4b;
+  color:#d9effb;
+  font-size:22px;
+  cursor:pointer;
+}
+.owner-shop-pricing-toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 14px;
+  border-bottom:1px solid rgba(95,160,195,.18);
+  background:rgba(4,31,52,.78);
+}
+.owner-shop-pricing-toolbar-copy span{
+  display:block;
+  color:#719db5;
+  font-size:6.5px;
+  letter-spacing:.10em;
+}
+.owner-shop-pricing-toolbar-copy b{
+  display:block;
+  margin-top:2px;
+  color:#ddecf4;
+  font-size:9px;
+}
+.owner-shop-pricing-body{
+  min-height:240px;
+  overflow:auto;
+  padding:12px;
+}
+.owner-shop-pricing-loading{
+  padding:30px 16px;
+  color:#92b4c7;
+  text-align:center;
+  font-size:9px;
+}
+.owner-shop-pricing-loading.bad{
+  color:#ffadb3;
+}
+.owner-shop-price-category{
+  margin-bottom:12px;
+  overflow:hidden;
+  border:1px solid rgba(88,151,184,.24);
+  border-radius:9px;
+  background:rgba(3,28,48,.60);
+}
+.owner-shop-price-category-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:8px 10px;
+  border-bottom:1px solid rgba(83,145,178,.20);
+  background:linear-gradient(180deg,rgba(13,73,111,.82),rgba(7,49,78,.80));
+}
+.owner-shop-price-category-head span{
+  display:block;
+  color:#72abc8;
+  font-size:6px;
+  letter-spacing:.11em;
+}
+.owner-shop-price-category-head b{
+  display:block;
+  margin-top:1px;
+  color:#ffe090;
+  font-size:10px;
+}
+.owner-shop-price-category-head small{
+  color:#779fb4;
+  font-size:7px;
+}
+.owner-shop-price-rows{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1px;
+  background:rgba(68,124,155,.12);
+}
+.owner-shop-price-row{
+  min-width:0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 112px;
+  align-items:center;
+  gap:10px;
+  padding:10px;
+  background:#061f35;
+}
+.owner-shop-price-name{
+  min-width:0;
+}
+.owner-shop-price-name b{
+  display:block;
+  overflow:hidden;
+  color:#dcecf4;
+  font-size:9px;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+.owner-shop-price-name small{
+  display:block;
+  margin-top:3px;
+  color:#6f98ae;
+  font-size:6.5px;
+}
+.owner-shop-price-input-wrap{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  padding:4px 6px;
+  border:1px solid rgba(224,184,66,.34);
+  border-radius:7px;
+  background:#041728;
+}
+.owner-shop-price-input-wrap>span{
+  color:#f1ca55;
+  font-size:11px;
+}
+.owner-shop-price-input-wrap input{
+  width:100%;
+  min-width:0;
+  padding:5px 4px;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:#fff0af;
+  font-family:inherit;
+  font-size:10px;
+  font-weight:900;
+  text-align:right;
+  appearance:textfield;
+}
+.owner-shop-price-input-wrap input::-webkit-outer-spin-button,
+.owner-shop-price-input-wrap input::-webkit-inner-spin-button{
+  margin:0;
+  appearance:none;
+}
+.owner-shop-pricing-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:11px 13px;
+  border-top:1px solid rgba(231,193,75,.22);
+  background:#041b2f;
+}
+.owner-shop-pricing-footer>div:first-child{
+  min-width:0;
+}
+.owner-shop-pricing-footer b{
+  display:block;
+  color:#b8d0dc;
+  font-size:8px;
+}
+.owner-shop-pricing-footer b.dirty{
+  color:#ffda72;
+}
+.owner-shop-pricing-footer b.good{
+  color:#9ce1ba;
+}
+.owner-shop-pricing-footer b.bad{
+  color:#ffadb3;
+}
+.owner-shop-pricing-footer span{
+  display:block;
+  margin-top:2px;
+  color:#688fa5;
+  font-size:6.5px;
+}
+.owner-shop-pricing-actions{
+  display:flex;
+  gap:7px;
+  flex:0 0 auto;
+}
+
+/* Live profile cosmetics do not show a fake client fallback price.
+   Until server pricing loads, their price reads as — and Buy stays disabled. */
+.asc-shop-item.live-cosmetic .asc-shop-price strong{
+  font-variant-numeric:tabular-nums;
+}
+
+@media(max-width:700px){
+  .owner-shop-pricing-modal{
+    padding:7px;
+  }
+  .owner-shop-pricing-window{
+    width:100%;
+    max-height:94vh;
+  }
+  .owner-shop-price-rows{
+    grid-template-columns:1fr;
+  }
+  .owner-shop-pricing-summary{
+    align-items:stretch;
+    flex-direction:column;
+  }
+  .owner-shop-pricing-summary .btn{
+    width:100%;
+  }
+  .owner-shop-pricing-footer{
+    align-items:stretch;
+    flex-direction:column;
+  }
+  .owner-shop-pricing-actions{
+    width:100%;
+  }
+  .owner-shop-pricing-actions .btn{
+    flex:1 1 0;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
