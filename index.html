@@ -20459,6 +20459,343 @@ body.asc-card-picker-open #favoriteCardPickerModal .favorite-deck-card-shimmer{
   }
 }
 
+
+/* ==========================================================
+   COMPACT VERTICAL LAYOUT
+   ========================================================== */
+
+.favorite-card-picker-window{
+  padding-bottom:0!important;
+}
+
+.favorite-card-picker-body.deck-mode{
+  gap:3px!important;
+}
+
+/* Remove the dead band directly below Favorite Card / Deck Builder buttons. */
+.favorite-card-mode-tabs{
+  margin-bottom:2px!important;
+}
+.favorite-card-picker-body.deck-mode .favorite-deck-builder-panel{
+  margin-top:0!important;
+  padding:3px 5px 3px!important;
+}
+.favorite-card-picker-body.deck-mode .favorite-deck-builder-head{
+  margin:0 0 2px!important;
+  min-height:26px!important;
+}
+.favorite-card-picker-body.deck-mode .favorite-deck-builder-actions{
+  min-height:18px!important;
+  margin-top:1px!important;
+  gap:4px!important;
+}
+.favorite-card-picker-body.deck-mode .favorite-deck-builder-actions button{
+  min-height:18px!important;
+  padding:2px 5px!important;
+  font-size:6px!important;
+}
+.favorite-card-picker-body.deck-mode .favorite-deck-builder-actions span{
+  font-size:5.5px!important;
+  line-height:1!important;
+}
+
+/* Reduce the marked gap between selected deck and the lower folder. */
+.favorite-card-list-area{
+  margin-top:0!important;
+  padding-top:0!important;
+}
+
+/* ==========================================================
+   SELECTED 8 CARDS — TIGHTER FRAMES / BIGGER ART
+   ========================================================== */
+
+.favorite-card-picker-body.deck-mode .favorite-deck-builder-slots{
+  gap:2px!important;
+}
+.favorite-card-picker-body.deck-mode .favorite-deck-slot.filled{
+  padding:1px!important;
+  border-radius:6px!important;
+}
+.favorite-deck-card-stage{
+  width:99%!important;
+  height:99%!important;
+  border-radius:5px!important;
+}
+.favorite-deck-card-stage>img,
+.favorite-deck-slot.special-evo .favorite-deck-card-stage>img,
+.favorite-deck-slot.special-hero .favorite-deck-card-stage>img,
+.favorite-deck-slot.special-hybrid .favorite-deck-card-stage>img{
+  transform:scale(1.145)!important;
+}
+
+/* Keep labels/elixir inside without stealing art space. */
+.favorite-deck-card-stage .favorite-deck-special-label{
+  top:4px!important;
+  right:4px!important;
+  padding:2px 4px!important;
+  font-size:6.5px!important;
+}
+.favorite-deck-card-stage .favorite-deck-card-elixir{
+  left:4px!important;
+  bottom:4px!important;
+  width:23px!important;
+  height:23px!important;
+  min-width:23px!important;
+  min-height:23px!important;
+  font-size:13px!important;
+}
+
+/* ==========================================================
+   REMOVE DECK-CARD SHIMMER
+   ========================================================== */
+.favorite-deck-card-shimmer{
+  display:none!important;
+  animation:none!important;
+}
+
+/* ==========================================================
+   SPECIAL CARD OUTLINE ENERGY
+   Effects stay around the card border instead of sweeping over faces.
+   ========================================================== */
+
+.favorite-deck-card-stage::before{
+  content:"";
+  position:absolute;
+  z-index:6;
+  inset:2px;
+  border-radius:7px;
+  pointer-events:none;
+  opacity:0;
+}
+
+.favorite-deck-slot.special-evo .favorite-deck-card-stage::before{
+  opacity:.85;
+  border:2px solid rgba(185,92,250,.70);
+  box-shadow:
+    0 0 5px rgba(181,82,246,.55),
+    inset 0 0 7px rgba(153,63,224,.34);
+  animation:ascDeckEvoBorderPulseV1 2.25s ease-in-out infinite!important;
+}
+
+.favorite-deck-slot.special-hero .favorite-deck-card-stage::before{
+  opacity:.90;
+  border:2px solid rgba(255,210,74,.76);
+  box-shadow:
+    0 0 6px rgba(255,188,40,.56),
+    inset 0 0 8px rgba(255,202,63,.30);
+  animation:ascDeckHeroBorderPulseV1 2.65s ease-in-out infinite!important;
+}
+
+.favorite-deck-slot.special-hybrid .favorite-deck-card-stage::before{
+  opacity:.88;
+  border:2px solid rgba(222,151,255,.68);
+  box-shadow:
+    -2px 0 7px rgba(170,72,234,.45),
+    2px 0 7px rgba(247,190,45,.42),
+    inset 0 0 8px rgba(211,135,255,.25);
+  animation:ascDeckHybridBorderPulseV1 2.45s ease-in-out infinite!important;
+}
+
+@keyframes ascDeckEvoBorderPulseV1{
+  0%,100%{
+    border-color:rgba(174,77,238,.52);
+    box-shadow:0 0 4px rgba(174,77,238,.32),inset 0 0 5px rgba(139,54,209,.22);
+  }
+  35%{
+    border-color:rgba(225,166,255,.94);
+    box-shadow:0 0 10px rgba(190,87,255,.76),inset 0 0 10px rgba(174,72,243,.36);
+  }
+  62%{
+    border-color:rgba(154,70,229,.64);
+    box-shadow:0 0 6px rgba(141,55,221,.50),inset 0 0 7px rgba(155,61,228,.28);
+  }
+}
+
+@keyframes ascDeckHeroBorderPulseV1{
+  0%,100%{
+    border-color:rgba(231,172,43,.58);
+    box-shadow:0 0 4px rgba(229,160,28,.30),inset 0 0 5px rgba(229,173,42,.20);
+  }
+  28%{
+    border-color:rgba(255,239,165,.96);
+    box-shadow:0 0 12px rgba(255,194,54,.82),inset 0 0 10px rgba(255,209,86,.34);
+  }
+  55%{
+    border-color:rgba(255,192,51,.72);
+    box-shadow:0 0 7px rgba(245,171,25,.55),inset 0 0 8px rgba(241,183,44,.27);
+  }
+}
+
+@keyframes ascDeckHybridBorderPulseV1{
+  0%,100%{
+    box-shadow:-2px 0 5px rgba(159,64,225,.34),2px 0 5px rgba(229,170,31,.30),inset 0 0 5px rgba(191,96,236,.20);
+  }
+  38%{
+    box-shadow:-3px 0 11px rgba(190,87,255,.70),3px 0 11px rgba(255,199,55,.65),inset 0 0 10px rgba(223,151,255,.32);
+  }
+  68%{
+    box-shadow:-2px 0 7px rgba(140,55,218,.50),2px 0 7px rgba(242,181,38,.47),inset 0 0 7px rgba(202,117,245,.25);
+  }
+}
+
+/* ==========================================================
+   SELECTED CARD FACE ILLUMINATION
+   ========================================================== */
+
+.favorite-deck-card-stage::after{
+  content:"";
+  position:absolute;
+  z-index:5;
+  inset:4%;
+  border-radius:8px;
+  pointer-events:none;
+  opacity:0;
+  background:
+    radial-gradient(circle at 50% 35%,
+      rgba(255,248,204,.00) 0%,
+      rgba(255,242,176,.00) 20%,
+      rgba(255,238,152,.22) 47%,
+      rgba(255,255,255,.04) 65%,
+      transparent 78%);
+  transition:opacity .28s ease;
+  mix-blend-mode:screen;
+}
+.favorite-deck-slot.selected .favorite-deck-card-stage::after{
+  opacity:1;
+}
+.favorite-deck-slot.selected .favorite-deck-card-stage>img{
+  filter:brightness(1.13) contrast(1.04) saturate(1.08)!important;
+}
+
+/* ==========================================================
+   SELECTED CARD ACTION MENU
+   ========================================================== */
+
+.favorite-deck-action-menu{
+  min-width:220px!important;
+}
+.favorite-deck-action-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:5px;
+  margin-top:6px;
+}
+.favorite-deck-action-row button{
+  min-height:27px!important;
+  padding:5px 6px!important;
+  border-radius:5px!important;
+  font-size:8px!important;
+}
+.favorite-deck-action-row .remove{
+  border-color:#a85050!important;
+  background:#6e2828!important;
+}
+.favorite-deck-action-row .info{
+  border-color:#4a819d!important;
+  background:#164963!important;
+}
+.favorite-deck-action-row .upgrade{
+  border-color:#af8426!important;
+  background:#73510f!important;
+  color:#ffe9a0!important;
+}
+.favorite-deck-cursor-info{
+  margin-top:6px;
+  padding:6px 7px;
+  border:1px solid rgba(99,145,169,.35);
+  border-radius:5px;
+  background:#062a43;
+  color:#c7dde8;
+  font-size:7px;
+  line-height:1.35;
+}
+.favorite-deck-cursor-info.hidden{
+  display:none!important;
+}
+
+/* ==========================================================
+   STICKY FOLDER HEADER
+   Tabs stay on top, search is embedded directly underneath.
+   ========================================================== */
+
+.favorite-card-folder{
+  overflow:visible!important;
+}
+
+.favorite-card-folder-sticky{
+  position:sticky!important;
+  top:0!important;
+  z-index:40!important;
+  background:#031f34!important;
+  box-shadow:0 5px 9px rgba(0,0,0,.16);
+}
+
+.favorite-card-picker-modal .favorite-card-filter-row{
+  margin:0!important;
+  padding-top:5px!important;
+  min-height:39px!important;
+  border-bottom:0!important;
+}
+
+.favorite-card-picker-tools{
+  display:block!important;
+  margin:0!important;
+  padding:5px 7px 7px!important;
+  background:#031f34!important;
+  border-bottom:1px solid #1b4f6d!important;
+}
+.favorite-card-picker-tools input{
+  width:100%!important;
+  height:34px!important;
+  margin:0!important;
+}
+#favoriteCardPickerCount{
+  display:none!important;
+}
+
+/* Folder list begins immediately below sticky search. */
+.favorite-card-folder .favorite-card-picker-grid{
+  padding-top:8px!important;
+}
+
+/* Remove extra list/footer vertical chrome. */
+.favorite-card-folder .favorite-card-picker-footer{
+  padding-top:5px!important;
+  padding-bottom:6px!important;
+}
+
+/* ==========================================================
+   MOBILE / NARROW
+   ========================================================== */
+@media(max-width:700px){
+  .favorite-card-picker-body.deck-mode{
+    gap:2px!important;
+  }
+  .favorite-card-picker-body.deck-mode .favorite-deck-builder-panel{
+    padding:3px 4px!important;
+  }
+  .favorite-card-picker-body.deck-mode .favorite-deck-builder-slots{
+    gap:2px!important;
+  }
+  .favorite-deck-card-stage>img,
+  .favorite-deck-slot.special-evo .favorite-deck-card-stage>img,
+  .favorite-deck-slot.special-hero .favorite-deck-card-stage>img,
+  .favorite-deck-slot.special-hybrid .favorite-deck-card-stage>img{
+    transform:scale(1.11)!important;
+  }
+  .favorite-card-picker-tools{
+    padding:4px 5px 6px!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .favorite-deck-slot.special-evo .favorite-deck-card-stage::before,
+  .favorite-deck-slot.special-hero .favorite-deck-card-stage::before,
+  .favorite-deck-slot.special-hybrid .favorite-deck-card-stage::before{
+    animation:none!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
