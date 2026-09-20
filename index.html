@@ -18497,6 +18497,82 @@ body.asc-card-picker-open #favoriteCardPickerModal .favorite-deck-card-shimmer{
   }
 }
 
+
+/* ==========================================================
+   PASS 5A — DASHBOARD HERO
+   Signed-in scene uses ONLY the Prince + Princess composite.
+   ========================================================== */
+
+.dashboard-welcome-archer{
+  display:none!important;
+}
+
+/* Soft light behind the two-character scene so removing the Archer does not
+   leave a visual hole on the right side. */
+.dashboard-welcome-character-glow{
+  position:absolute;
+  z-index:1;
+  right:-6%;
+  bottom:-23%;
+  width:60%;
+  height:118%;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 57% 54%,
+      rgba(255,211,85,.14) 0%,
+      rgba(49,145,205,.10) 34%,
+      rgba(7,35,57,0) 70%);
+  filter:blur(2px);
+}
+
+/* Give the Prince + Princess composite the whole character side of the hero.
+   No extra character is layered in front of them. */
+.dashboard-welcome-hero--signed-in .dashboard-welcome-prince{
+  right:2.5%!important;
+  bottom:-14px!important;
+  height:97%!important;
+  max-height:452px!important;
+  opacity:1!important;
+  filter:
+    drop-shadow(0 19px 23px rgba(0,0,0,.44))
+    drop-shadow(0 0 8px rgba(239,200,94,.08));
+}
+
+/* Slightly stronger separation between copy and character art. */
+.dashboard-welcome-hero--signed-in::after{
+  background:
+    linear-gradient(90deg,
+      rgba(2,21,38,.12) 0%,
+      rgba(2,21,38,.06) 47%,
+      rgba(2,21,38,0) 72%),
+    linear-gradient(180deg,rgba(0,0,0,.01),rgba(2,18,31,.14)),
+    radial-gradient(circle at 28% 32%,rgba(31,142,208,.18),transparent 35%)!important;
+}
+
+/* Keep the mobile scene clean: one composite image, no crowding. */
+@media(max-width:700px){
+  .dashboard-welcome-character-glow{
+    right:-20%;
+    bottom:56px;
+    width:78%;
+    height:62%;
+    opacity:.72;
+  }
+  .dashboard-welcome-hero--signed-in .dashboard-welcome-prince{
+    right:-1%!important;
+    bottom:104px!important;
+    height:56%!important;
+    max-height:none!important;
+  }
+}
+
+@media(max-width:430px){
+  .dashboard-welcome-hero--signed-in .dashboard-welcome-prince{
+    right:-4%!important;
+    height:54%!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
@@ -18659,8 +18735,8 @@ function renderDashboardWelcome(){
     <div class="dashboard-welcome-shell">
       <section class="dashboard-welcome-hero dashboard-welcome-hero--${hero.state}">
         <div class="dashboard-welcome-light"></div>
+        <div class="dashboard-welcome-character-glow" aria-hidden="true"></div>
         <img class="${hero.princeClass}" src="${hero.princeSrc}" alt="" aria-hidden="true">
-        ${hero.showArcher?`<img class="dashboard-welcome-archer" src="assets/arena-characters/Archer_Evolution_Pose01_Purple.png" alt="" aria-hidden="true">`:''}
         <div class="dashboard-welcome-copy">
           <div class="dashboard-welcome-brand"><img src="asc-crest.svg" alt="ALL STARS crest"><div><span>ALL STARS CLAN APP</span><strong>Welcome to the Family</strong></div></div>
           <p class="dashboard-welcome-lead">Your home for ALL STARS clan activity, player profiles, rankings, Live Arena and community tools.</p>
