@@ -21435,6 +21435,263 @@ body.asc-card-picker-open #favoriteCardPickerModal .favorite-deck-card-shimmer{
   }
 }
 
+
+/* ==========================================================
+   PASS 5N — CUSTOMIZATION STUDIO PC SCALE
+   Desktop only: larger window, larger preview, larger controls.
+   Mobile layout from Pass 5M is preserved.
+   ========================================================== */
+
+@media (min-width:901px) and (hover:hover) and (pointer:fine){
+  .profile-customize-studio{
+    width:min(1040px,90vw)!important;
+    max-width:1040px!important;
+    max-height:94vh!important;
+  }
+
+  .profile-customize-studio .profile-customize-body{
+    padding:18px!important;
+  }
+
+  .profile-customize-head{
+    padding:15px 18px!important;
+  }
+
+  .profile-customize-kicker{
+    font-size:10px!important;
+  }
+
+  .profile-customize-head h3{
+    margin-top:2px!important;
+    font-size:30px!important;
+    line-height:1!important;
+  }
+
+  .profile-customize-points{
+    padding:9px 13px!important;
+    font-size:11px!important;
+  }
+
+  .profile-customize-close{
+    width:44px!important;
+    height:44px!important;
+    font-size:25px!important;
+  }
+
+  /* ---------- Large live preview ---------- */
+  .profile-customize-live-preview{
+    min-height:250px!important;
+    border-radius:12px!important;
+  }
+
+  .profile-customize-preview-card{
+    inset:24px!important;
+    grid-template-columns:138px minmax(0,1fr) auto!important;
+    gap:20px!important;
+    padding:20px!important;
+    border-radius:12px!important;
+  }
+
+  .profile-customize-preview-avatar{
+    width:120px!important;
+    height:120px!important;
+    border-width:3px!important;
+    font-size:36px!important;
+  }
+
+  .profile-customize-preview-copy span{
+    font-size:10px!important;
+  }
+
+  .profile-customize-preview-copy b{
+    margin-top:5px!important;
+    font-size:32px!important;
+  }
+
+  .profile-customize-preview-copy small{
+    margin-top:7px!important;
+    font-size:12px!important;
+  }
+
+  .profile-customize-preview-points{
+    padding:9px 12px!important;
+    font-size:11px!important;
+  }
+
+  /* ---------- Category tabs ---------- */
+  .profile-customize-tabs{
+    gap:7px!important;
+    margin-top:14px!important;
+    padding:7px!important;
+  }
+
+  .profile-customize-tab{
+    min-height:46px!important;
+    border-radius:8px!important;
+    font-size:13px!important;
+  }
+
+  /* ---------- Catalog ---------- */
+  .profile-customize-catalog{
+    margin-top:14px!important;
+    padding:14px!important;
+    border-radius:10px!important;
+  }
+
+  .profile-customize-catalog-head span:first-child{
+    font-size:10px!important;
+  }
+
+  .profile-customize-catalog-head b{
+    margin-top:3px!important;
+    font-size:17px!important;
+  }
+
+  .profile-customize-preview-only{
+    padding:6px 9px!important;
+    font-size:9px!important;
+  }
+
+  .profile-customize-catalog-grid{
+    gap:10px!important;
+    margin-top:13px!important;
+  }
+
+  .profile-customize-card{
+    padding:10px!important;
+    border-radius:9px!important;
+  }
+
+  .profile-customize-card-preview{
+    height:78px!important;
+    border-radius:7px!important;
+  }
+
+  .profile-customize-lock-badge{
+    right:7px!important;
+    top:7px!important;
+    width:26px!important;
+    height:26px!important;
+    font-size:13px!important;
+  }
+
+  .profile-customize-card-name{
+    margin-top:8px!important;
+    font-size:12px!important;
+  }
+
+  .profile-customize-state{
+    margin-top:4px!important;
+    font-size:8px!important;
+  }
+
+  /* ---------- Gallery teaser ---------- */
+  .profile-customize-gallery-teaser{
+    margin-top:14px!important;
+    padding:14px 16px!important;
+    border-radius:10px!important;
+  }
+
+  .profile-customize-gallery-teaser span:first-child{
+    font-size:9px!important;
+  }
+
+  .profile-customize-gallery-teaser b{
+    margin-top:3px!important;
+    font-size:13px!important;
+  }
+
+  .profile-customize-gallery-teaser small{
+    margin-top:4px!important;
+    font-size:10px!important;
+  }
+
+  .profile-customize-gallery-lock{
+    padding:8px 11px!important;
+    font-size:10px!important;
+  }
+
+  /* ---------- Footer ---------- */
+  .profile-customize-footer{
+    gap:13px!important;
+    margin-top:14px!important;
+    padding-top:14px!important;
+  }
+
+  .profile-customize-footer .btn{
+    min-height:43px!important;
+    padding:8px 13px!important;
+    font-size:11px!important;
+  }
+
+  .profile-customize-footer-copy b{
+    font-size:10px!important;
+  }
+
+  .profile-customize-footer-copy span{
+    margin-top:3px!important;
+    font-size:9px!important;
+  }
+}
+
+/* Medium desktop / laptop windows also get a larger editor. */
+@media (min-width:701px) and (max-width:900px) and (hover:hover) and (pointer:fine){
+  .profile-customize-studio{
+    width:min(820px,94vw)!important;
+    max-width:820px!important;
+    max-height:94vh!important;
+  }
+
+  .profile-customize-studio .profile-customize-body{
+    padding:14px!important;
+  }
+
+  .profile-customize-head{
+    padding:12px 14px!important;
+  }
+
+  .profile-customize-head h3{
+    font-size:25px!important;
+  }
+
+  .profile-customize-live-preview{
+    min-height:205px!important;
+  }
+
+  .profile-customize-preview-card{
+    inset:17px!important;
+    grid-template-columns:108px minmax(0,1fr) auto!important;
+    gap:15px!important;
+    padding:15px!important;
+  }
+
+  .profile-customize-preview-avatar{
+    width:96px!important;
+    height:96px!important;
+  }
+
+  .profile-customize-preview-copy b{
+    font-size:25px!important;
+  }
+
+  .profile-customize-preview-copy small{
+    font-size:10px!important;
+  }
+
+  .profile-customize-tab{
+    min-height:40px!important;
+    font-size:11px!important;
+  }
+
+  .profile-customize-card-preview{
+    height:62px!important;
+  }
+
+  .profile-customize-card-name{
+    font-size:10px!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
