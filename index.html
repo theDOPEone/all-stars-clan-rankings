@@ -24255,6 +24255,390 @@ body.asc-card-picker-open #myProfileModal{
   }
 }
 
+
+/* ==========================================================
+   PASS 5X.4 — SHOP PREVIEW + ANIMATION FIX
+   Shop previews are deliberate product demonstrations, so their
+   animation stays active even when Windows asks for reduced motion.
+   ========================================================== */
+
+/* ---------- Shop effect cards ---------- */
+.asc-shop-effect-visual{
+  overflow:hidden!important;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(67,115,177,.16),transparent 57%),
+    linear-gradient(180deg,#071e34,#041728)!important;
+}
+.shop-effect-demo{
+  position:relative;
+  width:160px;
+  height:104px;
+  overflow:hidden;
+  isolation:isolate;
+  border:1px solid rgba(235,193,71,.78);
+  border-radius:13px;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(90,74,153,.16),transparent 60%),
+    linear-gradient(135deg,#0d4168,#071f34);
+  box-shadow:
+    inset 0 0 20px rgba(0,0,0,.28),
+    0 7px 15px rgba(0,0,0,.26);
+}
+.shop-effect-demo.large{
+  width:260px;
+  height:160px;
+  margin:7px auto;
+  border-radius:16px;
+}
+.shop-effect-demo>span{
+  position:absolute;
+  pointer-events:none;
+}
+
+/* Base pulse */
+.shop-effect-demo-core{
+  inset:27% 24%;
+  z-index:2;
+  border-radius:999px;
+  background:radial-gradient(circle,rgba(100,181,255,.30),rgba(56,99,164,.05) 54%,transparent 72%);
+  animation:ascShopDemoCorePulse 1.65s ease-in-out infinite!important;
+  animation-play-state:running!important;
+}
+@keyframes ascShopDemoCorePulse{
+  0%,100%{opacity:.34;transform:scale(.80)}
+  50%{opacity:1;transform:scale(1.16)}
+}
+
+/* Generic rings */
+.shop-effect-demo-ring{
+  left:50%;
+  top:50%;
+  z-index:3;
+  width:58%;
+  height:58%;
+  border:1px solid rgba(135,195,235,.48);
+  border-radius:50%;
+  transform:translate(-50%,-50%) scale(.70);
+  opacity:0;
+  animation:ascShopDemoRingPulse 2.2s ease-out infinite!important;
+  animation-play-state:running!important;
+}
+.shop-effect-demo-ring.ring-b{
+  animation-delay:1.05s!important;
+}
+@keyframes ascShopDemoRingPulse{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.55)}
+  22%{opacity:.80}
+  74%{opacity:.10}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.28)}
+}
+
+/* Electric evolution effect */
+.shop-effect-evo-electric{
+  border-color:#bd65f1!important;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(161,71,225,.22),transparent 54%),
+    linear-gradient(135deg,#281448,#091c34)!important;
+  box-shadow:
+    inset 0 0 20px rgba(111,31,176,.20),
+    0 0 12px rgba(174,71,235,.18)!important;
+  animation:ascShopElectricBoxPulse 1.55s ease-in-out infinite!important;
+  animation-play-state:running!important;
+}
+.shop-effect-evo-electric .shop-effect-demo-core{
+  background:radial-gradient(circle,rgba(236,171,255,.56),rgba(174,70,241,.14) 50%,transparent 72%);
+  animation:ascShopElectricCore 1.15s ease-in-out infinite!important;
+}
+.shop-effect-evo-electric::before,
+.shop-effect-evo-electric::after{
+  content:"";
+  position:absolute;
+  z-index:7;
+  left:11%;
+  top:49%;
+  width:78%;
+  height:2px;
+  opacity:.8;
+  background:
+    linear-gradient(90deg,transparent 0 5%,#d988ff 8% 12%,transparent 15% 25%,#fff 29% 31%,transparent 34% 47%,#b64dff 50% 56%,transparent 59% 70%,#f2c4ff 74% 78%,transparent 82%);
+  filter:drop-shadow(0 0 4px #b64dff);
+  clip-path:polygon(0 50%,8% 10%,15% 70%,24% 20%,34% 90%,45% 18%,55% 75%,67% 15%,78% 88%,88% 25%,100% 50%,88% 39%,79% 95%,68% 28%,56% 84%,45% 30%,34% 98%,23% 32%,14% 80%,7% 27%);
+  animation:ascShopElectricBolt 1.05s linear infinite!important;
+  animation-play-state:running!important;
+}
+.shop-effect-evo-electric::after{
+  transform:rotate(83deg) scale(.74);
+  animation-delay:.42s!important;
+}
+@keyframes ascShopElectricBoxPulse{
+  0%,100%{box-shadow:inset 0 0 16px rgba(111,31,176,.15),0 0 8px rgba(174,71,235,.13)}
+  50%{box-shadow:inset 0 0 25px rgba(155,60,219,.28),0 0 22px rgba(191,88,245,.48)}
+}
+@keyframes ascShopElectricCore{
+  0%,100%{opacity:.35;transform:scale(.72)}
+  50%{opacity:1;transform:scale(1.24)}
+}
+@keyframes ascShopElectricBolt{
+  0%,100%{opacity:.15;filter:drop-shadow(0 0 2px #b64dff)}
+  12%{opacity:1}
+  19%{opacity:.24}
+  27%{opacity:.95}
+  47%{opacity:.18}
+  63%{opacity:.86}
+  75%{opacity:.22}
+}
+
+/* Soft blue glow */
+.shop-effect-soft-glow{
+  border-color:#73c7ef!important;
+}
+.shop-effect-soft-glow .shop-effect-demo-core{
+  inset:12%;
+  background:radial-gradient(circle,rgba(130,214,255,.45),rgba(46,150,211,.11) 48%,transparent 72%);
+  animation:ascShopSoftGlowPulse 2s ease-in-out infinite!important;
+}
+@keyframes ascShopSoftGlowPulse{
+  0%,100%{opacity:.22;transform:scale(.76)}
+  50%{opacity:1;transform:scale(1.08)}
+}
+
+/* Gold sparks */
+.shop-effect-gold-sparks{
+  border-color:#e5b63f!important;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(245,188,48,.15),transparent 52%),
+    linear-gradient(135deg,#49320b,#142d40)!important;
+}
+.shop-effect-gold-sparks .shop-effect-demo-core{
+  background:radial-gradient(circle,rgba(255,221,95,.35),rgba(211,143,28,.05) 58%,transparent 72%);
+}
+.shop-effect-demo-spark{
+  z-index:8;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#fff1a4;
+  box-shadow:0 0 7px #ffc438,0 0 13px rgba(255,188,44,.55);
+  opacity:0;
+}
+.shop-effect-demo-spark.spark-a{
+  left:24%;top:67%;
+  animation:ascShopSparkRise 1.85s ease-out infinite!important;
+}
+.shop-effect-demo-spark.spark-b{
+  left:70%;top:72%;
+  animation:ascShopSparkRise 2.05s ease-out .55s infinite!important;
+}
+.shop-effect-demo-spark.spark-c{
+  left:51%;top:76%;
+  animation:ascShopSparkRise 1.65s ease-out 1.05s infinite!important;
+}
+@keyframes ascShopSparkRise{
+  0%{opacity:0;transform:translateY(9px) scale(.45)}
+  22%{opacity:1}
+  72%{opacity:.72}
+  100%{opacity:0;transform:translateY(-62px) scale(1.15)}
+}
+
+/* Moving premium shimmer / spotlight */
+.shop-effect-demo-sweep{
+  z-index:9;
+  top:-40%;
+  bottom:-40%;
+  left:-42%;
+  width:30%;
+  opacity:0;
+  transform:skewX(-20deg);
+  background:linear-gradient(90deg,transparent,rgba(255,244,188,.75),transparent);
+}
+.shop-effect-shimmer .shop-effect-demo-sweep,
+.shop-effect-pulse .shop-effect-demo-sweep{
+  animation:ascShopEffectSweep 2.25s ease-in-out infinite!important;
+  animation-play-state:running!important;
+}
+@keyframes ascShopEffectSweep{
+  0%,25%{left:-42%;opacity:0}
+  36%{opacity:.82}
+  67%{left:118%;opacity:.65}
+  72%,100%{left:118%;opacity:0}
+}
+
+/* ---------- Preview modal: effect ---------- */
+.shop-preview-effect-stage{
+  display:grid;
+  place-items:center;
+  gap:5px;
+  margin:13px 0 4px;
+  padding:12px;
+  border:1px solid rgba(93,151,187,.24);
+  border-radius:11px;
+  background:rgba(2,22,38,.55);
+}
+.shop-preview-effect-stage>span{
+  color:#7faac0;
+  font-size:6.5px;
+  letter-spacing:.10em;
+}
+
+/* ---------- Preview modal: actual background ---------- */
+.shop-generic-preview-device{
+  width:min(620px,95%)!important;
+}
+.shop-background-preview-shell{
+  margin:13px 0 4px;
+  padding:6px;
+  border:1px solid rgba(235,194,70,.42);
+  border-radius:11px;
+  background:#031a2c;
+  box-shadow:0 8px 22px rgba(0,0,0,.28);
+}
+.shop-background-preview-image{
+  position:relative;
+  min-height:245px;
+  overflow:hidden;
+  border-radius:7px;
+  background-color:#05243c;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+.shop-background-preview-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,15,28,.04),rgba(0,16,30,.30));
+  pointer-events:none;
+}
+.shop-background-preview-ui{
+  position:absolute;
+  z-index:2;
+  inset:0;
+  display:grid;
+  grid-template-rows:auto 1fr;
+  padding:10px;
+}
+.shop-background-preview-nav{
+  display:flex;
+  justify-content:center;
+  gap:5px;
+}
+.shop-background-preview-nav i{
+  width:44px;
+  height:9px;
+  border:1px solid rgba(255,224,116,.50);
+  border-radius:3px;
+  background:rgba(6,54,88,.82);
+}
+.shop-background-preview-card{
+  align-self:center;
+  justify-self:center;
+  min-width:55%;
+  padding:14px 16px;
+  border:1px solid rgba(255,221,104,.60);
+  border-radius:10px;
+  background:rgba(3,31,52,.80);
+  box-shadow:0 10px 25px rgba(0,0,0,.35);
+  text-align:center;
+}
+.shop-background-preview-card span{
+  display:block;
+  color:#85c3e5;
+  font-size:6px;
+  letter-spacing:.12em;
+}
+.shop-background-preview-card b{
+  display:block;
+  margin-top:3px;
+  color:#ffe18b;
+  font-size:15px;
+}
+.shop-background-preview-card small{
+  display:block;
+  margin-top:4px;
+  color:#9fc0d2;
+  font-size:7px;
+}
+.shop-preview-only-note{
+  margin-top:12px;
+  padding:10px;
+  border:1px solid var(--asc-border);
+  border-radius:9px;
+  background:linear-gradient(180deg,var(--asc-bar-a),var(--asc-panel-b));
+  color:var(--asc-accent-light);
+}
+
+/* Make the temporary full-app background swap easier to see around the modal. */
+html.asc-shop-background-preview-active #shopPreviewOverlay{
+  background:rgba(0,8,17,.62)!important;
+  backdrop-filter:blur(2px)!important;
+}
+
+/* Product demo animation is intentional. Force it running even when a
+   broad page/modal animation-pause rule or reduced-motion preference exists. */
+#shopPage .shop-effect-demo,
+#shopPage .shop-effect-demo *,
+#shopPage .shop-effect-demo::before,
+#shopPage .shop-effect-demo::after,
+#shopPreviewOverlay .shop-effect-demo,
+#shopPreviewOverlay .shop-effect-demo *,
+#shopPreviewOverlay .shop-effect-demo::before,
+#shopPreviewOverlay .shop-effect-demo::after{
+  -webkit-animation-play-state:running!important;
+  animation-play-state:running!important;
+}
+
+@media(prefers-reduced-motion:reduce){
+  /* These are explicit Shop product previews requested by the user.
+     Keep the demonstration animations active. */
+  #shopPage .shop-effect-demo,
+  #shopPage .shop-effect-demo *,
+  #shopPage .shop-effect-demo::before,
+  #shopPage .shop-effect-demo::after,
+  #shopPreviewOverlay .shop-effect-demo,
+  #shopPreviewOverlay .shop-effect-demo *,
+  #shopPreviewOverlay .shop-effect-demo::before,
+  #shopPreviewOverlay .shop-effect-demo::after{
+    -webkit-animation-play-state:running!important;
+    animation-play-state:running!important;
+  }
+  .shop-effect-evo-electric{
+    animation:ascShopElectricBoxPulse 1.55s ease-in-out infinite!important;
+  }
+  .shop-effect-evo-electric::before,
+  .shop-effect-evo-electric::after{
+    animation:ascShopElectricBolt 1.05s linear infinite!important;
+  }
+  .shop-effect-demo-core{
+    animation:ascShopDemoCorePulse 1.65s ease-in-out infinite!important;
+  }
+  .shop-effect-demo-ring{
+    animation:ascShopDemoRingPulse 2.2s ease-out infinite!important;
+  }
+  .shop-effect-gold-sparks .spark-a{
+    animation:ascShopSparkRise 1.85s ease-out infinite!important;
+  }
+  .shop-effect-gold-sparks .spark-b{
+    animation:ascShopSparkRise 2.05s ease-out .55s infinite!important;
+  }
+  .shop-effect-gold-sparks .spark-c{
+    animation:ascShopSparkRise 1.65s ease-out 1.05s infinite!important;
+  }
+  .shop-effect-shimmer .shop-effect-demo-sweep,
+  .shop-effect-pulse .shop-effect-demo-sweep{
+    animation:ascShopEffectSweep 2.25s ease-in-out infinite!important;
+  }
+}
+
+@media(max-width:700px){
+  .shop-background-preview-image{
+    min-height:210px;
+  }
+  .shop-effect-demo.large{
+    width:min(250px,82vw);
+    height:150px;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
