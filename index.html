@@ -20237,6 +20237,228 @@ body.asc-card-picker-open #favoriteCardPickerModal .favorite-deck-card-shimmer{
   }
 }
 
+
+/* ==========================================================
+   PASS 5I — TOP SELECTED DECK ONLY
+   The lower 4-column card list is intentionally untouched.
+   ========================================================== */
+
+/* Clean, even 4 x 2 geometry. */
+.favorite-card-picker-body.deck-mode .favorite-deck-builder-slots{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  grid-template-rows:repeat(2,minmax(0,1fr))!important;
+  gap:5px!important;
+}
+
+.favorite-card-picker-body.deck-mode .favorite-deck-slot.filled{
+  position:relative!important;
+  min-width:0!important;
+  min-height:0!important;
+  padding:4px!important;
+  overflow:hidden!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+
+/* One stable inner stage for every selected card.
+   This avoids different old img selectors fighting each other. */
+.favorite-deck-card-stage{
+  position:relative!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:96%!important;
+  height:96%!important;
+  min-width:0!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  border-radius:7px!important;
+  pointer-events:none!important;
+}
+
+/* LARGE, consistent card art.
+   Slight controlled scale compensates for transparent padding in card PNGs. */
+.favorite-deck-card-stage>img{
+  position:relative!important;
+  z-index:2!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  margin:0!important;
+  transform:scale(1.10)!important;
+  transform-origin:center center!important;
+  filter:none!important;
+  pointer-events:none!important;
+}
+
+/* EVO/HERO artwork uses the exact same visual box and scale. */
+.favorite-deck-slot.special-evo .favorite-deck-card-stage>img,
+.favorite-deck-slot.special-hero .favorite-deck-card-stage>img,
+.favorite-deck-slot.special-hybrid .favorite-deck-card-stage>img{
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  transform:scale(1.10)!important;
+}
+
+/* Special slot labels belong ON the card, top-right.
+   No more badge sitting across the character's face. */
+.favorite-deck-card-stage .favorite-deck-special-label{
+  position:absolute!important;
+  z-index:8!important;
+  top:5px!important;
+  right:5px!important;
+  left:auto!important;
+  bottom:auto!important;
+  transform:none!important;
+  max-width:72%!important;
+  min-width:0!important;
+  padding:3px 5px!important;
+  border-radius:5px!important;
+  font-size:7px!important;
+  line-height:1!important;
+  text-align:center!important;
+  white-space:nowrap!important;
+  box-shadow:0 2px 5px rgba(0,0,0,.38)!important;
+  animation:none!important;
+}
+
+/* EVO / HERO badge identity. */
+.favorite-deck-slot.special-evo .favorite-deck-special-label{
+  border:1px solid rgba(219,156,255,.72)!important;
+  background:rgba(117,47,165,.90)!important;
+  color:#fff2ff!important;
+}
+.favorite-deck-slot.special-hero .favorite-deck-special-label{
+  border:1px solid rgba(255,226,126,.78)!important;
+  background:rgba(160,111,18,.92)!important;
+  color:#fff2b4!important;
+}
+.favorite-deck-slot.special-hybrid .favorite-deck-special-label{
+  border:1px solid rgba(236,190,255,.72)!important;
+  background:linear-gradient(90deg,rgba(112,47,166,.94),rgba(159,111,18,.94))!important;
+  color:#fff5ce!important;
+}
+
+/* Elixir bubble is now INSIDE the actual card visual, bottom-left. */
+.favorite-deck-card-stage .favorite-deck-card-elixir{
+  position:absolute!important;
+  z-index:9!important;
+  left:5px!important;
+  bottom:5px!important;
+  top:auto!important;
+  right:auto!important;
+  display:grid!important;
+  place-items:center!important;
+  width:25px!important;
+  height:25px!important;
+  min-width:25px!important;
+  min-height:25px!important;
+  padding:0!important;
+  margin:0!important;
+  border:1px solid rgba(238,183,255,.78)!important;
+  border-radius:50%!important;
+  background:linear-gradient(180deg,#a33fd0,#7130a5)!important;
+  color:#fff!important;
+  font-size:14px!important;
+  line-height:1!important;
+  text-align:center!important;
+  box-shadow:
+    0 2px 6px rgba(0,0,0,.46),
+    inset 0 1px 0 rgba(255,255,255,.20)!important;
+}
+
+/* Neutralize old direct-child elixir positioning rules. */
+.favorite-deck-slot.filled>small{
+  display:none!important;
+}
+
+/* Shimmer is clipped to the card stage and stays behind badges. */
+.favorite-deck-card-stage .favorite-deck-card-shimmer{
+  position:absolute!important;
+  z-index:5!important;
+  inset:3%!important;
+  border-radius:7px!important;
+  pointer-events:none!important;
+}
+
+/* Special slot backgrounds: keep them premium but less visually muddy. */
+.favorite-deck-slot.special-evo{
+  background:
+    radial-gradient(circle at 50% 34%,rgba(176,80,239,.18),transparent 54%),
+    linear-gradient(180deg,#15314a,#0a2b43)!important;
+}
+.favorite-deck-slot.special-hero{
+  background:
+    radial-gradient(circle at 50% 34%,rgba(255,205,67,.16),transparent 54%),
+    linear-gradient(180deg,#17334a,#0a2b43)!important;
+}
+.favorite-deck-slot.special-hybrid{
+  background:
+    radial-gradient(circle at 36% 34%,rgba(162,73,227,.13),transparent 43%),
+    radial-gradient(circle at 68% 42%,rgba(244,192,56,.12),transparent 45%),
+    linear-gradient(180deg,#17324a,#0a2b43)!important;
+}
+
+/* Desktop/mouse: use nearly the full selected-card slot. */
+@media (hover:hover) and (pointer:fine){
+  .favorite-deck-card-stage{
+    width:97%!important;
+    height:97%!important;
+  }
+  .favorite-deck-card-stage>img,
+  .favorite-deck-slot.special-evo .favorite-deck-card-stage>img,
+  .favorite-deck-slot.special-hero .favorite-deck-card-stage>img,
+  .favorite-deck-slot.special-hybrid .favorite-deck-card-stage>img{
+    transform:scale(1.12)!important;
+  }
+}
+
+/* Touch/mobile: same visual hierarchy, with a small safety margin. */
+@media (hover:none) and (pointer:coarse){
+  .favorite-deck-card-stage{
+    width:94%!important;
+    height:94%!important;
+  }
+  .favorite-deck-card-stage>img,
+  .favorite-deck-slot.special-evo .favorite-deck-card-stage>img,
+  .favorite-deck-slot.special-hero .favorite-deck-card-stage>img,
+  .favorite-deck-slot.special-hybrid .favorite-deck-card-stage>img{
+    transform:scale(1.06)!important;
+  }
+  .favorite-deck-card-stage .favorite-deck-special-label{
+    top:4px!important;
+    right:4px!important;
+    padding:2px 4px!important;
+    font-size:6px!important;
+  }
+  .favorite-deck-card-stage .favorite-deck-card-elixir{
+    left:4px!important;
+    bottom:4px!important;
+    width:23px!important;
+    height:23px!important;
+    min-width:23px!important;
+    min-height:23px!important;
+    font-size:13px!important;
+  }
+}
+
+@media(max-width:430px) and (hover:none) and (pointer:coarse){
+  .favorite-deck-card-stage{
+    width:92%!important;
+    height:92%!important;
+  }
+  .favorite-deck-card-stage>img{
+    transform:scale(1.04)!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
