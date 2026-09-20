@@ -25301,6 +25301,394 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
   }
 }
 
+
+/* ==========================================================
+   PASS 5X.6 — ALL STARS BANK NAVIGATION + DASHBOARD
+   ========================================================== */
+
+/* ---------- Standalone Bank navigation ---------- */
+.asc-shop-bank-launch{
+  width:100%;
+  min-height:62px;
+  display:grid;
+  grid-template-columns:54px minmax(0,1fr) 30px;
+  align-items:center;
+  gap:10px;
+  margin:3px 0 7px;
+  padding:8px 12px;
+  border:1px solid rgba(235,194,71,.56);
+  border-radius:10px;
+  background:
+    radial-gradient(circle at 8% 50%,rgba(243,199,68,.14),transparent 24%),
+    linear-gradient(180deg,#15547d,#0a385c);
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.08),
+    0 7px 15px rgba(0,0,0,.17);
+  color:#e8f5fb;
+  text-align:left;
+  cursor:pointer;
+}
+.asc-shop-bank-launch:hover,
+.asc-shop-bank-launch.active{
+  border-color:#f0c84f;
+  background:
+    radial-gradient(circle at 8% 50%,rgba(255,215,83,.23),transparent 26%),
+    linear-gradient(180deg,#1b6592,#0d456c);
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.10),
+    0 0 0 1px rgba(239,199,74,.11),
+    0 7px 17px rgba(0,0,0,.19);
+}
+.asc-shop-bank-launch-icon{
+  display:grid;
+  place-items:center;
+  width:48px;
+  height:48px;
+  border:1px solid rgba(239,199,74,.36);
+  border-radius:50%;
+  background:linear-gradient(180deg,#584311,#292408);
+  font-family:"Segoe UI Emoji","Segoe UI Symbol",sans-serif;
+  font-size:28px;
+  box-shadow:inset 0 1px rgba(255,247,184,.12);
+}
+.asc-shop-bank-launch-copy{
+  min-width:0;
+}
+.asc-shop-bank-launch-copy small{
+  display:block;
+  color:#80abc2;
+  font-size:7px;
+  letter-spacing:.10em;
+}
+.asc-shop-bank-launch-copy b{
+  display:block;
+  margin-top:2px;
+  color:#ffe18a;
+  font-size:16px;
+  line-height:1;
+}
+.asc-shop-bank-launch-copy em{
+  display:block;
+  margin-top:4px;
+  overflow:hidden;
+  color:#a8c6d7;
+  font-size:8px;
+  font-style:normal;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+.asc-shop-bank-launch-arrow{
+  color:#ffe18a;
+  font-family:"Segoe UI Symbol",sans-serif;
+  font-size:34px;
+  line-height:1;
+  text-align:center;
+}
+
+/* Bank is no longer part of the category-button grid. */
+.asc-shop-tabs{
+  grid-template-columns:repeat(6,1fr)!important;
+}
+
+/* ---------- Bank page layout ---------- */
+.asc-bank-page-title{
+  margin-top:7px!important;
+}
+.asc-bank-dashboard{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(330px,.85fr);
+  gap:12px;
+}
+.asc-bank-wallet-panel{
+  grid-row:span 2;
+}
+.asc-bank-panel{
+  min-width:0;
+}
+.asc-bank-head h3{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.asc-bank-body{
+  min-width:0;
+}
+
+/* Info buttons beside section names. */
+.asc-bank-info-button{
+  position:relative;
+  width:17px;
+  height:17px;
+  display:inline-grid;
+  place-items:center;
+  flex:0 0 17px;
+  padding:0;
+  border:1px solid rgba(136,183,210,.52);
+  border-radius:50%;
+  background:#082b48;
+  color:#a9d2e8;
+  font-family:Georgia,serif;
+  font-size:10px;
+  font-style:italic;
+  font-weight:700;
+  line-height:1;
+  cursor:pointer;
+}
+.asc-bank-info-button:hover,
+.asc-bank-info-button.open{
+  border-color:#e7c34e;
+  background:#58440f;
+  color:#fff0a4;
+}
+.asc-bank-info-button::after{
+  content:attr(title);
+  position:absolute;
+  z-index:30;
+  left:50%;
+  top:calc(100% + 8px);
+  width:260px;
+  padding:8px 9px;
+  border:1px solid #416985;
+  border-radius:7px;
+  background:#031a2c;
+  box-shadow:0 9px 24px rgba(0,0,0,.42);
+  color:#c0d8e5;
+  font-family:inherit;
+  font-size:7px;
+  font-style:normal;
+  font-weight:400;
+  line-height:1.45;
+  text-align:left;
+  pointer-events:none;
+  opacity:0;
+  transform:translate(-50%,-4px);
+  transition:opacity .12s ease,transform .12s ease;
+}
+.asc-bank-info-button:hover::after,
+.asc-bank-info-button.open::after{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+/* Main wallet balance. */
+.asc-bank-wallet-hero,
+.asc-bank-honor-balance{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:11px;
+  padding:12px;
+  border:1px solid rgba(236,195,71,.34);
+  border-radius:10px;
+  background:
+    radial-gradient(circle at 0 50%,rgba(240,194,61,.15),transparent 34%),
+    #072b48;
+}
+.asc-bank-wallet-coin,
+.asc-bank-honor-coin{
+  display:grid;
+  place-items:center;
+  width:48px;
+  height:48px;
+  flex:0 0 48px;
+  border-radius:50%;
+  background:linear-gradient(180deg,#f4d258,#a97010);
+  box-shadow:inset 0 2px rgba(255,249,194,.32),0 4px 10px rgba(0,0,0,.24);
+  color:#4d3104;
+  font-size:24px;
+}
+.asc-bank-honor-coin{
+  background:linear-gradient(180deg,#e4d4ff,#7960ba);
+  color:#28184e;
+}
+.asc-bank-wallet-hero span,
+.asc-bank-honor-balance span{
+  display:block;
+  color:#739cb4;
+  font-size:6.5px;
+  letter-spacing:.09em;
+}
+.asc-bank-wallet-hero b,
+.asc-bank-honor-balance b{
+  display:block;
+  margin-top:2px;
+  color:#fff0a7;
+  font-size:24px;
+}
+.asc-bank-honor-balance b{
+  color:#e2d5ff;
+}
+.asc-bank-wallet-hero small,
+.asc-bank-honor-balance small{
+  display:block;
+  color:#88aabd;
+  font-size:7px;
+}
+
+.asc-bank-subhead{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:10px;
+  margin:12px 0 5px;
+  padding-bottom:5px;
+  border-bottom:1px solid rgba(88,139,169,.18);
+}
+.asc-bank-subhead b{
+  color:#d8e9f2;
+  font-size:8px;
+}
+.asc-bank-subhead span{
+  color:#7195a9;
+  font-size:6px;
+}
+
+/* Recent positive additions. */
+.asc-bank-additions{
+  display:grid;
+  gap:6px;
+}
+.asc-bank-addition-row{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:9px;
+  border:1px solid rgba(86,140,171,.24);
+  border-radius:8px;
+  background:#072640;
+}
+.asc-bank-addition-icon{
+  display:grid;
+  place-items:center;
+  width:28px;
+  height:28px;
+  flex:0 0 28px;
+  border-radius:50%;
+  background:linear-gradient(180deg,#f0ca4a,#9c6910);
+  color:#4b3005;
+  font-size:14px;
+}
+.asc-bank-addition-row b{
+  display:block;
+  color:#9ce2b9;
+  font-size:9px;
+}
+.asc-bank-addition-row small{
+  display:block;
+  margin-top:2px;
+  color:#779daf;
+  font-size:6.5px;
+}
+.asc-bank-empty{
+  padding:15px;
+  border:1px dashed rgba(103,151,179,.28);
+  border-radius:8px;
+  color:#7397aa;
+  font-size:8px;
+  text-align:center;
+}
+
+/* Ledger sign handling. */
+.asc-bank-ledger-row .minus{
+  color:#f0a0a6;
+}
+
+/* Honor accumulation. */
+.asc-bank-honor-progress-total{
+  padding:11px;
+  border:1px solid rgba(145,115,200,.27);
+  border-radius:9px;
+  background:linear-gradient(180deg,#1b2447,#0b2743);
+}
+.asc-bank-honor-progress-total span{
+  display:block;
+  color:#a18dc9;
+  font-size:6.5px;
+  letter-spacing:.09em;
+}
+.asc-bank-honor-progress-total b{
+  display:block;
+  margin-top:2px;
+  color:#e2d6ff;
+  font-size:22px;
+}
+.asc-bank-honor-progress-total small{
+  color:#8f9ebd;
+  font-size:7px;
+}
+.asc-bank-honor-source-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+  margin-top:9px;
+}
+.asc-bank-honor-source-list>div{
+  display:grid;
+  grid-template-columns:27px 1fr;
+  align-items:center;
+  column-gap:7px;
+  padding:8px;
+  border:1px solid rgba(103,143,172,.20);
+  border-radius:8px;
+  background:#07233b;
+}
+.asc-bank-honor-source-list>div>span{
+  grid-row:1/3;
+  font-family:"Segoe UI Emoji","Segoe UI Symbol",sans-serif;
+  font-size:18px;
+}
+.asc-bank-honor-source-list b{
+  color:#c9dbe5;
+  font-size:7px;
+}
+.asc-bank-honor-source-list small{
+  color:#708fa1;
+  font-size:6px;
+}
+
+/* ---------- Mobile ---------- */
+@media(max-width:700px){
+  .asc-shop-bank-launch{
+    min-height:67px;
+    grid-template-columns:50px minmax(0,1fr) 24px;
+    padding:8px 10px;
+  }
+  .asc-shop-bank-launch-icon{
+    width:44px;
+    height:44px;
+    font-size:25px;
+  }
+  .asc-shop-bank-launch-copy b{
+    font-size:15px;
+  }
+  .asc-shop-bank-launch-copy em{
+    font-size:8px;
+  }
+  .asc-shop-tabs{
+    grid-template-columns:repeat(3,1fr)!important;
+  }
+
+  .asc-bank-dashboard{
+    grid-template-columns:1fr;
+  }
+  .asc-bank-wallet-panel{
+    grid-row:auto;
+  }
+  .asc-bank-info-button::after{
+    left:auto;
+    right:-6px;
+    width:min(250px,76vw);
+    transform:translateY(-4px);
+  }
+  .asc-bank-info-button:hover::after,
+  .asc-bank-info-button.open::after{
+    transform:translateY(0);
+  }
+  .asc-bank-honor-source-list{
+    grid-template-columns:1fr;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
