@@ -23212,6 +23212,56 @@ body.asc-card-picker-open #myProfileModal{
   }
 }
 
+
+/* ==========================================================
+   PASS 5W.2 — PRIVATE SHOP TEST ACCESS
+   Owner + Matty2 only while the Shop remains in development.
+   ========================================================== */
+
+/* Restore the development veil for normal members/public users. */
+#shopPage.shop-development-locked .asc-shop-development-zone{
+  pointer-events:none!important;
+  user-select:none!important;
+  -webkit-user-select:none!important;
+  filter:blur(2.4px) brightness(.38) saturate(.42) drop-shadow(0 16px 24px rgba(0,0,0,.62))!important;
+  opacity:.58!important;
+}
+#shopPage.shop-development-locked .asc-shop-development-notice{
+  display:block!important;
+}
+
+/* Authorized testers see the Shop normally. */
+#shopPage.shop-development-tester .asc-shop-development-zone{
+  pointer-events:auto!important;
+  filter:none!important;
+  opacity:1!important;
+}
+#shopPage.shop-development-tester .asc-shop-development-notice{
+  display:none!important;
+}
+
+/* 5W.1 temporarily forced the Shop unlocked. Override that rule here. */
+#shopPage:not(.shop-development-tester) .asc-shop-development-zone{
+  pointer-events:none!important;
+}
+
+/* Disabled Buy buttons should not show the browser's circle/slash cursor.
+   They remain non-clickable, but use the normal arrow cursor instead. */
+#shopPage button:disabled,
+#shopPage .shop-buy-disabled,
+#shopPage .asc-shop-buy-btn:disabled{
+  cursor:default!important;
+}
+
+/* Development tester banner. */
+#shopPage.shop-development-tester .asc-shop-launch-note{
+  border-color:rgba(235,195,72,.42)!important;
+  background:rgba(84,59,7,.27)!important;
+}
+#shopPage.shop-development-tester .asc-shop-launch-note span{
+  color:#ffe083!important;
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
