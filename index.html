@@ -20062,6 +20062,181 @@ body.asc-card-picker-open #favoriteCardPickerModal .favorite-deck-card-shimmer{
   }
 }
 
+
+/* ==========================================================
+   PASS 5H — DECK BUILDER PROPORTIONS
+   - narrower submenu window inside the app
+   - 60% selected deck / 40% card browser
+   - top 8 cards large, but still contained
+   - bottom 4-column list left at the size from Pass 5E
+   ========================================================== */
+
+/* This is a submenu, so do not let it span nearly the entire app width. */
+.favorite-card-picker-window{
+  width:min(560px,90vw)!important;
+  max-width:560px!important;
+}
+
+/* Deck Builder gets the larger share of the vertical space now. */
+.favorite-card-picker-body.deck-mode{
+  grid-template-rows:auto minmax(0,60fr) minmax(0,40fr)!important;
+  gap:7px!important;
+}
+
+/* Make the selected deck section use its 60% efficiently. */
+.favorite-card-picker-body.deck-mode .favorite-deck-builder-panel{
+  padding:6px 7px!important;
+}
+
+.favorite-card-picker-body.deck-mode .favorite-deck-builder-slots{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  grid-template-rows:repeat(2,minmax(0,1fr))!important;
+  gap:5px!important;
+  min-height:0!important;
+  height:100%!important;
+}
+
+/* Remove dead space around each selected card. */
+.favorite-card-picker-body.deck-mode .favorite-deck-slot{
+  padding:3px 2px 9px!important;
+  min-width:0!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+
+/* LARGE top deck cards:
+   scale from BOTH available width and height, preserving aspect ratio.
+   This overrides the previous narrow-window/mobile rules. */
+.favorite-card-picker-body.deck-mode .favorite-deck-slot.filled>img,
+.favorite-card-picker-modal .favorite-deck-slot.special-evo>img,
+.favorite-card-picker-modal .favorite-deck-slot.special-hero>img,
+.favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img{
+  display:block!important;
+  width:94%!important;
+  height:94%!important;
+  max-width:94%!important;
+  max-height:94%!important;
+  object-fit:contain!important;
+  margin:auto!important;
+  transform:none!important;
+}
+
+/* Special artwork can be just a touch larger. */
+.favorite-card-picker-modal .favorite-deck-slot.special-evo>img,
+.favorite-card-picker-modal .favorite-deck-slot.special-hero>img,
+.favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img{
+  width:96%!important;
+  height:96%!important;
+  max-width:96%!important;
+  max-height:96%!important;
+}
+
+/* Keep badges in the corners, not consuming layout space. */
+.favorite-deck-special-label{
+  top:2px!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  z-index:10!important;
+}
+.favorite-deck-slot.filled small{
+  left:3px!important;
+  bottom:3px!important;
+  z-index:10!important;
+}
+
+/* Shimmer tracks the now larger card area. */
+.favorite-deck-card-shimmer{
+  inset:2% 2% 5%!important;
+}
+
+/* Lower card list remains 4 columns and keeps Pass 5E scale. */
+.favorite-card-folder .favorite-card-picker-grid{
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+}
+
+/* PC / laptop — even if the app window is narrow. */
+@media (hover:hover) and (pointer:fine){
+  .favorite-card-picker-window{
+    width:min(560px,88vw)!important;
+    max-width:560px!important;
+  }
+
+  .favorite-card-picker-body.deck-mode{
+    grid-template-rows:auto minmax(0,60fr) minmax(0,40fr)!important;
+  }
+
+  .favorite-card-picker-body.deck-mode .favorite-deck-slot.filled>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-evo>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hero>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img{
+    width:94%!important;
+    height:94%!important;
+    max-width:94%!important;
+    max-height:94%!important;
+  }
+
+  .favorite-card-picker-modal .favorite-deck-slot.special-evo>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hero>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img{
+    width:96%!important;
+    height:96%!important;
+    max-width:96%!important;
+    max-height:96%!important;
+  }
+}
+
+/* Touch/mobile still gets the 60/40 split, but the modal uses more of the screen.
+   Cards remain large without touching slot borders. */
+@media (hover:none) and (pointer:coarse){
+  .favorite-card-picker-window{
+    width:94vw!important;
+    max-width:94vw!important;
+  }
+
+  .favorite-card-picker-body.deck-mode{
+    grid-template-rows:auto minmax(0,60fr) minmax(0,40fr)!important;
+  }
+
+  .favorite-card-picker-body.deck-mode .favorite-deck-slot.filled>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-evo>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hero>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img{
+    width:91%!important;
+    height:91%!important;
+    max-width:91%!important;
+    max-height:91%!important;
+  }
+
+  .favorite-card-picker-modal .favorite-deck-slot.special-evo>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hero>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img{
+    width:93%!important;
+    height:93%!important;
+    max-width:93%!important;
+    max-height:93%!important;
+  }
+}
+
+@media(max-width:430px) and (hover:none) and (pointer:coarse){
+  .favorite-card-picker-window{
+    width:96vw!important;
+    max-width:96vw!important;
+  }
+
+  .favorite-card-picker-body.deck-mode .favorite-deck-slot.filled>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-evo>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hero>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img{
+    width:88%!important;
+    height:88%!important;
+    max-width:88%!important;
+    max-height:88%!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
