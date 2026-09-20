@@ -19983,6 +19983,85 @@ body.asc-card-picker-open #favoriteCardPickerModal .favorite-deck-card-shimmer{
   }
 }
 
+
+/* ==========================================================
+   PASS 5G — PC VS MOBILE BREAKPOINT FIX
+   The Windows app can be only ~600px wide, so width alone must
+   not force it into the mobile top-deck sizing rules.
+   ========================================================== */
+
+/* Desktop / laptop mouse environment, even when the app window is narrow. */
+@media (hover:hover) and (pointer:fine){
+  .favorite-card-picker-body.deck-mode .favorite-deck-slot{
+    padding:4px 2px 9px!important;
+  }
+
+  .favorite-card-picker-body.deck-mode .favorite-deck-slot.filled>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-evo>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hero>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img{
+    width:auto!important;
+    height:94%!important;
+    max-width:97%!important;
+    max-height:94%!important;
+    object-fit:contain!important;
+    margin:auto!important;
+    transform:none!important;
+  }
+
+  .favorite-card-picker-modal .favorite-deck-slot.special-evo>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hero>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img{
+    height:96%!important;
+    max-height:96%!important;
+    max-width:98%!important;
+  }
+
+  .favorite-deck-card-shimmer{
+    inset:2% 2% 6%!important;
+  }
+}
+
+/* True mobile/touch layouts keep slightly more breathing room. */
+@media (hover:none) and (pointer:coarse){
+  .favorite-card-picker-body.deck-mode .favorite-deck-slot.filled>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-evo>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hero>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img{
+    height:87%!important;
+    max-height:87%!important;
+    max-width:94%!important;
+  }
+
+  .favorite-card-picker-modal .favorite-deck-slot.special-evo>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hero>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img{
+    height:90%!important;
+    max-height:90%!important;
+    max-width:96%!important;
+  }
+}
+
+/* Phone portrait still gets the restrained fit needed for iPhone-width screens. */
+@media(max-width:430px) and (hover:none) and (pointer:coarse){
+  .favorite-card-picker-body.deck-mode .favorite-deck-slot.filled>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-evo>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hero>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img{
+    height:83%!important;
+    max-height:83%!important;
+    max-width:92%!important;
+  }
+
+  .favorite-card-picker-modal .favorite-deck-slot.special-evo>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hero>img,
+  .favorite-card-picker-modal .favorite-deck-slot.special-hybrid>img{
+    height:86%!important;
+    max-height:86%!important;
+    max-width:94%!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
