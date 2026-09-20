@@ -18573,6 +18573,287 @@ body.asc-card-picker-open #favoriteCardPickerModal .favorite-deck-card-shimmer{
   }
 }
 
+
+/* ==========================================================
+   PASS 5B — CARD SELECTOR POLISH
+   ========================================================== */
+
+/* ---------- Compact filter text / | dividers ---------- */
+.favorite-card-filter-row{
+  min-height:28px!important;
+  width:100%!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:0!important;
+  margin:5px 0 4px!important;
+  padding:1px 0!important;
+  overflow:visible!important;
+  overflow-x:visible!important;
+  white-space:nowrap!important;
+  scrollbar-width:none!important;
+}
+.favorite-card-filter-row::-webkit-scrollbar{
+  display:none!important;
+}
+
+.favorite-card-filter-button{
+  position:relative!important;
+  flex:0 1 auto!important;
+  min-width:0!important;
+  min-height:24px!important;
+  height:24px!important;
+  margin:0!important;
+  padding:3px 7px!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:#8fb1c4!important;
+  font-size:8.5px!important;
+  line-height:1!important;
+  font-weight:400!important;
+  white-space:nowrap!important;
+  transition:color .14s ease,text-shadow .14s ease,filter .14s ease!important;
+}
+
+.favorite-card-filter-button:not(:first-child)::before{
+  content:"|";
+  position:absolute;
+  left:-1px;
+  top:50%;
+  transform:translateY(-51%);
+  color:#3f6b84;
+  font-size:9px;
+  font-weight:300!important;
+  pointer-events:none;
+}
+
+.favorite-card-filter-button:hover{
+  color:#d2e6f1!important;
+  filter:none!important;
+}
+
+.favorite-card-filter-button.active{
+  border:0!important;
+  background:transparent!important;
+  color:#ffe485!important;
+  text-shadow:
+    0 0 7px rgba(255,211,72,.28),
+    0 1px 1px rgba(0,0,0,.7)!important;
+}
+
+.favorite-card-elixir-sort-button{
+  border:0!important;
+  background:transparent!important;
+  color:#b99adb!important;
+}
+.favorite-card-elixir-sort-button.active{
+  border:0!important;
+  background:transparent!important;
+  color:#e3b8ff!important;
+  box-shadow:none!important;
+  text-shadow:0 0 7px rgba(190,92,248,.36)!important;
+}
+
+/* ---------- Clean card spacing ---------- */
+.favorite-card-picker-grid{
+  padding-top:7px!important;
+}
+.favorite-card-picker-item{
+  padding-top:5px!important;
+}
+.favorite-card-picker-item>span{
+  margin-top:2px!important;
+}
+
+/* ---------- Elixir badge ----------
+   Keep the compact bubble from 4C, but put it fully inside the tile
+   and center the large number precisely. */
+.favorite-card-meta-elixir{
+  left:4px!important;
+  top:5px!important;
+  width:24px!important;
+  height:24px!important;
+  min-width:24px!important;
+  min-height:24px!important;
+  display:grid!important;
+  place-items:center!important;
+  padding:0!important;
+  border-width:1px!important;
+  font-size:17px!important;
+  line-height:1!important;
+  text-align:center!important;
+  transform:none!important;
+  z-index:8!important;
+  box-shadow:
+    0 2px 5px rgba(0,0,0,.42),
+    inset 0 1px 0 rgba(255,255,255,.20)!important;
+}
+
+/* Keep special badge away from card edge and aligned consistently. */
+.favorite-card-meta-special{
+  right:4px!important;
+  z-index:8!important;
+}
+.favorite-card-meta-special.evo{
+  top:5px!important;
+}
+.favorite-card-meta-special.hero{
+  top:24px!important;
+}
+
+/* ---------- EVO list ----------
+   Actual Evolution artwork + purple electric aura/shimmer.
+   Card itself stays still; only light moves. */
+.favorite-card-picker-item.evo-list-card .favorite-card-item-art{
+  isolation:isolate;
+  overflow:visible;
+}
+
+.favorite-card-picker-item.evo-list-card .favorite-card-item-art>img{
+  position:relative!important;
+  z-index:3!important;
+  filter:
+    drop-shadow(0 0 3px rgba(178,82,244,.34))
+    drop-shadow(0 0 8px rgba(129,54,196,.20))!important;
+}
+
+/* electric halo */
+.favorite-card-picker-item.evo-list-card .favorite-card-item-art::before{
+  content:"";
+  position:absolute;
+  z-index:1;
+  left:50%;
+  top:50%;
+  width:68px;
+  height:78px;
+  transform:translate(-50%,-50%);
+  border-radius:9px;
+  pointer-events:none;
+  opacity:.66;
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent 0 9%,
+      rgba(195,100,255,.78) 13%,
+      transparent 18% 35%,
+      rgba(122,57,220,.70) 40%,
+      transparent 45% 65%,
+      rgba(220,154,255,.80) 70%,
+      transparent 76% 91%,
+      rgba(137,67,221,.72) 96%,
+      transparent
+    );
+  filter:blur(2px);
+  animation:ascEvoListElectricOrbitV1 4.2s linear infinite!important;
+}
+
+/* bright sweep across the evolution art */
+.favorite-card-picker-item.evo-list-card .favorite-card-item-art::after{
+  content:"";
+  position:absolute;
+  z-index:5;
+  left:50%;
+  top:50%;
+  width:66px;
+  height:77px;
+  transform:translate(-50%,-50%);
+  border-radius:8px;
+  pointer-events:none;
+  opacity:.9;
+  mix-blend-mode:screen;
+  background:
+    linear-gradient(
+      112deg,
+      transparent 0 30%,
+      rgba(198,112,255,0) 35%,
+      rgba(210,146,255,.28) 42%,
+      rgba(255,255,255,.78) 48%,
+      rgba(176,91,244,.35) 55%,
+      transparent 63% 100%
+    );
+  background-size:260% 100%;
+  animation:ascEvoListShimmerV1 2.75s ease-in-out infinite!important;
+}
+
+.favorite-card-picker-item.evo-list-card:hover .favorite-card-item-art>img{
+  filter:
+    brightness(1.06)
+    drop-shadow(0 0 5px rgba(190,91,255,.50))
+    drop-shadow(0 0 11px rgba(130,57,201,.28))!important;
+}
+
+@keyframes ascEvoListElectricOrbitV1{
+  to{transform:translate(-50%,-50%) rotate(360deg)}
+}
+@keyframes ascEvoListShimmerV1{
+  0%,18%{background-position:165% 0;opacity:.30}
+  48%{opacity:.95}
+  76%,100%{background-position:-70% 0;opacity:.34}
+}
+
+/* Hero-filter cards get a restrained gold edge so the two special filters
+   have distinct identities without crowding the list. */
+.favorite-card-picker-item.hero-list-card .favorite-card-item-art>img{
+  filter:
+    drop-shadow(0 0 3px rgba(255,209,79,.30))
+    drop-shadow(0 0 7px rgba(206,150,34,.15))!important;
+}
+
+/* ---------- Mobile ----------
+   All seven controls still fit on one line; no horizontal filter scrolling. */
+@media(max-width:700px){
+  .favorite-card-filter-row{
+    min-height:27px!important;
+    margin-top:4px!important;
+  }
+  .favorite-card-filter-button{
+    min-height:23px!important;
+    height:23px!important;
+    padding:3px 5px!important;
+    font-size:7.8px!important;
+  }
+  .favorite-card-filter-button:not(:first-child)::before{
+    font-size:8px!important;
+  }
+  .favorite-card-meta-elixir{
+    left:3px!important;
+    top:4px!important;
+    width:23px!important;
+    height:23px!important;
+    min-width:23px!important;
+    min-height:23px!important;
+    font-size:16px!important;
+  }
+  .favorite-card-meta-special{
+    right:3px!important;
+  }
+  .favorite-card-meta-special.evo{
+    top:4px!important;
+  }
+  .favorite-card-meta-special.hero{
+    top:23px!important;
+  }
+}
+
+@media(max-width:390px){
+  .favorite-card-filter-button{
+    padding:3px 4px!important;
+    font-size:7.2px!important;
+  }
+  .favorite-card-meta-elixir{
+    font-size:15px!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .favorite-card-picker-item.evo-list-card .favorite-card-item-art::before,
+  .favorite-card-picker-item.evo-list-card .favorite-card-item-art::after{
+    animation:none!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
