@@ -22816,6 +22816,104 @@ body.asc-card-picker-open #myProfileModal{
   display:none!important;
 }
 
+
+/* ==========================================================
+   PASS 5W — LIVE CLAN POINTS PROFILE COSMETIC SHOP
+   ========================================================== */
+
+.asc-shop-launch-note.live{
+  border-color:rgba(98,190,139,.42)!important;
+  background:rgba(18,79,54,.34)!important;
+}
+.asc-shop-launch-note.live span{
+  color:#a8e6bf!important;
+}
+
+.asc-shop-purchase-status{
+  min-height:18px;
+  margin-top:5px;
+  color:#91b2c5;
+  font-size:7px;
+  line-height:1.25;
+}
+.asc-shop-purchase-status.good{color:#a8e6bf}
+.asc-shop-purchase-status.bad{color:#ffb5ba}
+
+.asc-shop-item.live-cosmetic{
+  border-color:rgba(74,160,203,.34)!important;
+}
+.asc-shop-item.live-cosmetic.owned{
+  border-color:rgba(93,187,133,.44)!important;
+  box-shadow:
+    0 0 0 1px rgba(93,187,133,.08) inset,
+    0 8px 18px rgba(0,0,0,.18)!important;
+}
+
+.asc-shop-buy-btn.live{
+  border-color:#68b8dd!important;
+  background:linear-gradient(180deg,#287ba8,#145878)!important;
+  color:#effaff!important;
+}
+.asc-shop-buy-btn.live:hover{
+  filter:brightness(1.08);
+}
+.asc-shop-buy-btn.owned{
+  border-color:#4f9870!important;
+  background:#174f38!important;
+  color:#b8eccd!important;
+}
+.asc-shop-buy-btn.insufficient{
+  border-color:#79535a!important;
+  background:#3a2830!important;
+  color:#bd9ca3!important;
+}
+
+.live-profile-cosmetic-preview{
+  border-color:rgba(91,177,216,.36)!important;
+  background:
+    radial-gradient(circle at 70% 20%,rgba(65,162,212,.12),transparent 34%),
+    linear-gradient(180deg,#073553,#05253e)!important;
+}
+.shop-profile-preview-note{
+  margin-top:16px;
+  padding:10px;
+  border:1px solid rgba(86,151,188,.30);
+  border-radius:8px;
+  background:rgba(4,37,60,.72);
+  color:#b9d3e0;
+  font-size:9px;
+  line-height:1.4;
+}
+
+/* Shop itself is live now; old development blur stays disabled. */
+#shopPage .asc-shop-development-zone{
+  filter:none!important;
+  opacity:1!important;
+  pointer-events:auto!important;
+}
+#shopDevelopmentNotice{
+  display:none!important;
+}
+
+/* Profile category gets a subtle live header identity. */
+.asc-shop-tabs [data-shop-tab="profile"]{
+  border-color:rgba(91,177,216,.28);
+}
+.asc-shop-tabs [data-shop-tab="profile"].active{
+  color:#bceaff!important;
+}
+
+/* Bank now reflects actual shop spend for live profile purchases. */
+.asc-bank-summary b{
+  font-variant-numeric:tabular-nums;
+}
+
+@media(max-width:760px){
+  .asc-shop-purchase-status{
+    font-size:8px;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
