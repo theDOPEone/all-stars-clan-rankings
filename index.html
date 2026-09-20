@@ -24639,6 +24639,668 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
   }
 }
 
+
+/* ==========================================================
+   PASS 5X.5 — USER-SPECIFIC SHOP PREVIEWS
+   ========================================================== */
+
+.user-specific-preview{
+  width:min(660px,96%)!important;
+}
+
+/* ---------- Shared user DP ---------- */
+.shop-user-avatar,
+.shop-user-avatar-effect-face,
+.shop-user-frame-face,
+.shop-user-crest-aura-face,
+.shop-user-mini-avatar,
+.shop-background-user-avatar,
+.shop-user-nameplate-avatar{
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 30%,#2d83b5,#0b385a 58%,#061c31);
+  color:#ffe08a;
+  font-size:32px;
+  font-weight:900;
+  text-shadow:0 2px 4px rgba(0,0,0,.42);
+}
+.shop-user-avatar img,
+.shop-user-avatar-effect-face img,
+.shop-user-frame-face img,
+.shop-user-crest-aura-face img,
+.shop-user-mini-avatar img,
+.shop-background-user-avatar img,
+.shop-user-nameplate-avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* ---------- User-specific frame preview ---------- */
+.shop-user-frame-preview{
+  display:grid;
+  place-items:center;
+  gap:3px;
+  margin:10px auto 5px;
+}
+.shop-user-frame-stage{
+  position:relative;
+  width:232px;
+  height:232px;
+  display:grid;
+  place-items:center;
+  isolation:isolate;
+}
+.shop-user-frame-face{
+  position:absolute;
+  z-index:1;
+  width:126px;
+  height:126px;
+  border:2px solid rgba(239,202,89,.54);
+}
+.shop-user-frame-image{
+  position:absolute;
+  z-index:4;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  pointer-events:none;
+  transition:opacity .32s ease,transform .38s ease,filter .38s ease;
+}
+.shop-user-frame-image.off{
+  opacity:1;
+  transform:scale(.96);
+}
+.shop-user-frame-image.on{
+  opacity:0;
+  transform:scale(.98);
+}
+.shop-user-frame-stage:hover .shop-user-frame-image.off{
+  opacity:.12;
+  transform:scale(.98);
+}
+.shop-user-frame-stage:hover .shop-user-frame-image.on{
+  opacity:1;
+  transform:scale(1.035);
+  filter:drop-shadow(0 0 13px rgba(255,228,125,.24));
+}
+.shop-user-frame-preview>b,
+.shop-user-crest-aura-preview>b{
+  color:#ffe18b;
+  font-size:10px;
+}
+.shop-user-frame-preview>small,
+.shop-user-crest-aura-preview>small{
+  color:#759caf;
+  font-size:6px;
+  letter-spacing:.08em;
+}
+
+/* Concept frames use the signed-in player's DP too. */
+.shop-user-frame-stage.conceptual{
+  width:205px;
+  height:205px;
+}
+.shop-user-frame-preview.conceptual .shop-user-frame-face{
+  width:132px;
+  height:132px;
+}
+.shop-user-concept-frame{
+  position:absolute;
+  z-index:4;
+  width:164px;
+  height:164px;
+  border:8px solid #e4b83f;
+  border-radius:50%;
+  box-shadow:
+    inset 0 0 0 2px rgba(255,248,194,.44),
+    0 0 18px rgba(226,183,61,.20);
+}
+.shop-user-frame-preview.evo .shop-user-concept-frame{
+  border-color:#a956dc;
+  box-shadow:
+    inset 0 0 0 2px rgba(232,191,255,.32),
+    0 0 18px rgba(170,78,226,.34);
+}
+.shop-user-frame-preview.hero .shop-user-concept-frame{
+  border-color:#f0c347;
+  box-shadow:
+    inset 0 0 0 2px rgba(255,248,191,.40),
+    0 0 20px rgba(240,195,71,.30);
+}
+
+/* ---------- DP effect preview ---------- */
+.shop-user-effect-preview{
+  display:grid;
+  place-items:center;
+  margin:10px auto 4px;
+}
+.shop-user-effect-label{
+  margin-bottom:5px;
+  color:#84b1c8;
+  font-size:6.5px;
+  letter-spacing:.08em;
+}
+.shop-user-avatar-effect-stage{
+  position:relative;
+  width:222px;
+  height:222px;
+  display:grid;
+  place-items:center;
+  isolation:isolate;
+}
+.shop-user-avatar-effect-face{
+  position:relative;
+  z-index:5;
+  width:124px;
+  height:124px;
+  border:3px solid #d7b445;
+  box-shadow:0 8px 20px rgba(0,0,0,.28);
+}
+.shop-user-effect-preview>small{
+  color:#739caf;
+  font-size:6px;
+  letter-spacing:.08em;
+}
+.shop-user-effect-ring{
+  position:absolute;
+  z-index:2;
+  left:50%;
+  top:50%;
+  width:154px;
+  height:154px;
+  border:2px solid rgba(116,188,226,.36);
+  border-radius:50%;
+  opacity:0;
+  transform:translate(-50%,-50%) scale(.76);
+  animation:shopUserDpRing 2.25s ease-out infinite!important;
+}
+.shop-user-effect-ring.ring-b{
+  animation-delay:1.05s!important;
+}
+@keyframes shopUserDpRing{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.72)}
+  20%{opacity:.72}
+  72%{opacity:.12}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.22)}
+}
+
+/* Evo Electricity: electricity is specifically around THEIR DP. */
+.shop-user-effect-evo-electric .shop-user-avatar-effect-face{
+  border-color:#c767f2;
+  box-shadow:
+    0 0 0 3px rgba(164,67,222,.14),
+    0 0 22px rgba(178,70,234,.44);
+  animation:shopUserEvoFacePulse 1.45s ease-in-out infinite!important;
+}
+.shop-user-effect-evo-electric .shop-user-effect-ring{
+  border-color:rgba(202,100,255,.62);
+}
+.shop-user-effect-bolt{
+  display:none;
+}
+.shop-user-effect-evo-electric .shop-user-effect-bolt{
+  display:block;
+  position:absolute;
+  z-index:8;
+  left:21px;
+  top:107px;
+  width:180px;
+  height:3px;
+  opacity:.28;
+  background:linear-gradient(90deg,transparent,#b643ff 8%,#fff 25%,#b643ff 42%,transparent 54%,#e29cff 74%,transparent);
+  clip-path:polygon(0 50%,7% 8%,15% 73%,24% 18%,35% 92%,46% 12%,57% 78%,69% 17%,80% 90%,90% 24%,100% 52%,90% 39%,80% 98%,69% 32%,57% 88%,46% 28%,35% 99%,24% 34%,14% 83%,7% 28%);
+  filter:drop-shadow(0 0 5px #b34cff);
+  animation:shopUserElectricBolt 1.05s linear infinite!important;
+}
+.shop-user-effect-evo-electric .shop-user-effect-bolt.bolt-b{
+  transform:rotate(91deg) scale(.79);
+  animation-delay:.37s!important;
+}
+@keyframes shopUserEvoFacePulse{
+  0%,100%{transform:scale(.985);box-shadow:0 0 0 2px rgba(164,67,222,.10),0 0 12px rgba(178,70,234,.24)}
+  50%{transform:scale(1.025);box-shadow:0 0 0 5px rgba(164,67,222,.16),0 0 27px rgba(201,91,247,.56)}
+}
+@keyframes shopUserElectricBolt{
+  0%,100%{opacity:.10}
+  9%{opacity:.95}
+  17%{opacity:.18}
+  27%{opacity:.88}
+  42%{opacity:.13}
+  56%{opacity:.80}
+  72%{opacity:.18}
+}
+
+/* Soft glow. */
+.shop-user-effect-soft-glow .shop-user-avatar-effect-face{
+  border-color:#76c9ef;
+  animation:shopUserSoftGlow 2.1s ease-in-out infinite!important;
+}
+@keyframes shopUserSoftGlow{
+  0%,100%{box-shadow:0 0 8px rgba(80,181,230,.18)}
+  50%{box-shadow:0 0 29px rgba(104,205,250,.58)}
+}
+
+/* Gold/Hero/Victory sparks around their DP. */
+.shop-user-effect-spark{
+  display:none;
+}
+.shop-user-effect-gold-sparks .shop-user-effect-spark,
+.shop-user-effect-impact .shop-user-effect-spark{
+  display:block;
+  position:absolute;
+  z-index:9;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#fff1a0;
+  box-shadow:0 0 7px #ffc338,0 0 14px rgba(255,185,42,.52);
+  opacity:0;
+}
+.shop-user-effect-gold-sparks .spark-a,
+.shop-user-effect-impact .spark-a{
+  left:53px;top:156px;
+  animation:shopUserGoldSpark 1.7s ease-out infinite!important;
+}
+.shop-user-effect-gold-sparks .spark-b,
+.shop-user-effect-impact .spark-b{
+  left:161px;top:164px;
+  animation:shopUserGoldSpark 1.95s ease-out .53s infinite!important;
+}
+.shop-user-effect-gold-sparks .spark-c,
+.shop-user-effect-impact .spark-c{
+  left:108px;top:176px;
+  animation:shopUserGoldSpark 1.55s ease-out 1.02s infinite!important;
+}
+@keyframes shopUserGoldSpark{
+  0%{opacity:0;transform:translateY(8px) scale(.45)}
+  20%{opacity:1}
+  100%{opacity:0;transform:translateY(-92px) scale(1.12)}
+}
+
+/* Witch night aura */
+.shop-user-effect-witch-night .shop-user-avatar-effect-face{
+  border-color:#a344d0;
+  box-shadow:0 0 24px rgba(139,48,187,.46);
+}
+.shop-user-effect-witch-night .shop-user-effect-ring{
+  border-color:rgba(182,69,218,.52);
+  box-shadow:0 0 12px rgba(147,49,192,.18);
+}
+
+/* Mega Knight entrance / impact */
+.shop-user-effect-impact .shop-user-avatar-effect-face{
+  animation:shopUserImpact 2.4s ease-in-out infinite!important;
+}
+@keyframes shopUserImpact{
+  0%,68%,100%{transform:translateY(0) scale(1)}
+  74%{transform:translateY(-9px) scale(1.02)}
+  80%{transform:translateY(3px) scale(.98)}
+  86%{transform:translateY(0) scale(1)}
+}
+
+/* Spotlight sweeps over the user's DP. */
+.shop-user-effect-sweep{
+  display:none;
+}
+.shop-user-effect-spotlight .shop-user-effect-sweep,
+.shop-user-effect-pulse .shop-user-effect-sweep{
+  display:block;
+  position:absolute;
+  z-index:10;
+  top:20px;
+  bottom:20px;
+  left:-22px;
+  width:38px;
+  opacity:0;
+  transform:skewX(-18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,242,183,.72),transparent);
+  animation:shopUserDpSweep 2.65s ease-in-out infinite!important;
+}
+@keyframes shopUserDpSweep{
+  0%,25%{left:-22px;opacity:0}
+  38%{opacity:.82}
+  70%{left:208px;opacity:.56}
+  76%,100%{left:208px;opacity:0}
+}
+
+/* ---------- Favorite-card subject ---------- */
+.shop-user-favorite-card{
+  position:relative;
+  width:150px;
+  display:grid;
+  place-items:center;
+  margin:8px auto;
+}
+.shop-user-favorite-card-art{
+  position:relative;
+  width:102px;
+  height:128px;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  border:2px solid #d7aa38;
+  border-radius:10px;
+  background:linear-gradient(160deg,#183e64,#25194b);
+  box-shadow:0 8px 17px rgba(0,0,0,.26);
+}
+.shop-user-favorite-card-art img{
+  width:86px;
+  height:116px;
+  object-fit:contain;
+}
+.shop-user-favorite-fallback{
+  color:#ffe08a;
+  font-size:38px;
+}
+.shop-user-favorite-crown{
+  position:absolute;
+  z-index:5;
+  top:-12px;
+  color:#ffd553;
+  font-size:24px;
+  filter:drop-shadow(0 2px 2px rgba(0,0,0,.45));
+}
+.shop-user-favorite-card>b{
+  margin-top:5px;
+  color:#ffe596;
+  font-size:9px;
+}
+.shop-user-favorite-card>small,
+.shop-user-related-effect>small{
+  margin-top:2px;
+  color:#729aad;
+  font-size:5.5px;
+  letter-spacing:.08em;
+}
+.shop-user-favorite-sweep{
+  position:absolute;
+  z-index:4;
+  top:-20%;
+  bottom:-20%;
+  left:-48%;
+  width:35%;
+  opacity:0;
+  transform:skewX(-18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,239,171,.78),transparent);
+}
+.shop-user-favorite-card.shimmer .shop-user-favorite-sweep{
+  animation:shopUserFavoriteSweep 2.45s ease-in-out infinite!important;
+}
+@keyframes shopUserFavoriteSweep{
+  0%,26%{left:-48%;opacity:0}
+  38%{opacity:.80}
+  70%{left:116%;opacity:.55}
+  76%,100%{left:116%;opacity:0}
+}
+.shop-user-related-effect{
+  display:grid;
+  place-items:center;
+}
+
+/* ---------- Crest Aura: DP + slight bounce + very slow gold sweep ---------- */
+.shop-user-crest-aura-preview{
+  display:grid;
+  place-items:center;
+  margin:10px auto 5px;
+}
+.shop-user-crest-aura-stage{
+  position:relative;
+  width:220px;
+  height:220px;
+  display:grid;
+  place-items:center;
+  animation:shopCrestAuraFloat 3.8s ease-in-out infinite!important;
+}
+.shop-user-crest-aura-face{
+  position:relative;
+  z-index:4;
+  width:122px;
+  height:122px;
+  border:3px solid #e1b542;
+  box-shadow:0 0 16px rgba(226,183,63,.20);
+}
+.shop-user-crest-aura-ring{
+  position:absolute;
+  z-index:3;
+  width:164px;
+  height:164px;
+  border:7px solid #dba934;
+  border-radius:50%;
+  box-shadow:
+    inset 0 0 0 2px rgba(255,245,179,.34),
+    0 0 20px rgba(227,181,54,.24);
+}
+.shop-user-crest-aura-shimmer{
+  position:absolute;
+  z-index:6;
+  width:172px;
+  height:172px;
+  border-radius:50%;
+  background:conic-gradient(
+    from 0deg,
+    transparent 0 79%,
+    rgba(255,248,198,0) 80%,
+    rgba(255,247,191,.92) 86%,
+    rgba(255,208,73,.22) 91%,
+    transparent 96% 100%
+  );
+  -webkit-mask:radial-gradient(circle,transparent 0 71%,#000 72% 79%,transparent 80%);
+  mask:radial-gradient(circle,transparent 0 71%,#000 72% 79%,transparent 80%);
+  animation:shopCrestAuraSweep 6.8s linear infinite!important;
+  opacity:.68;
+}
+.shop-user-crest-aura-badge{
+  position:absolute;
+  z-index:8;
+  top:15px;
+  left:50%;
+  width:48px;
+  height:48px;
+  transform:translateX(-50%);
+  filter:drop-shadow(0 3px 4px rgba(0,0,0,.34));
+}
+.shop-user-crest-aura-badge img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+@keyframes shopCrestAuraFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-3px)}
+}
+@keyframes shopCrestAuraSweep{
+  to{transform:rotate(360deg)}
+}
+
+/* ---------- Mini profile / nameplate / deck ---------- */
+.shop-user-mini-profile{
+  width:min(380px,92%);
+  margin:10px auto;
+  padding:12px;
+  border:1px solid rgba(235,193,72,.33);
+  border-radius:11px;
+  background:linear-gradient(180deg,#0b4167,#062a46);
+}
+.shop-user-mini-profile-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.shop-user-mini-avatar{
+  width:64px;
+  height:64px;
+  flex:0 0 64px;
+  border:2px solid #d8af3f;
+}
+.shop-user-mini-profile-head span,
+.shop-user-nameplate-preview span{
+  display:block;
+  color:#70a6c3;
+  font-size:5.5px;
+  letter-spacing:.10em;
+}
+.shop-user-mini-profile-head b,
+.shop-user-nameplate-preview b{
+  display:block;
+  color:#ffe08a;
+  font-size:12px;
+}
+.shop-user-mini-profile-head small,
+.shop-user-nameplate-preview small{
+  display:block;
+  color:#9ab9c9;
+  font-size:6px;
+}
+.shop-user-mini-profile-card .shop-user-favorite-card{
+  transform:scale(.74);
+  margin:-3px auto -13px;
+}
+.shop-user-nameplate-preview{
+  width:min(380px,92%);
+  margin:13px auto;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 13px;
+  border:2px solid #ddb23b;
+  border-radius:10px;
+  background:linear-gradient(180deg,#664b0d,#292307);
+  box-shadow:inset 0 0 0 1px rgba(255,244,171,.17);
+}
+.shop-user-nameplate-avatar{
+  width:58px;
+  height:58px;
+  flex:0 0 58px;
+}
+.shop-user-deck-preview{
+  width:min(430px,94%);
+  margin:11px auto;
+}
+.shop-user-deck-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:6px;
+}
+.shop-user-deck-card{
+  min-height:74px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(96,155,187,.26);
+  border-radius:7px;
+  background:#041f35;
+}
+.shop-user-deck-card img{
+  max-width:52px;
+  max-height:67px;
+  object-fit:contain;
+}
+.shop-user-deck-preview>b{
+  display:block;
+  margin-top:6px;
+  color:#88b2c8;
+  font-size:7px;
+  text-align:center;
+}
+
+/* ---------- Background uses their DP + favorite card ---------- */
+.shop-background-preview-card.user-specific{
+  width:min(360px,72%);
+  min-width:260px;
+  padding:10px!important;
+}
+.shop-background-user-row{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  text-align:left;
+}
+.shop-background-user-avatar{
+  width:58px;
+  height:58px;
+  flex:0 0 58px;
+  border:2px solid #d8ae3e;
+}
+.shop-background-user-row span{
+  display:block;
+  color:#7eb6d2;
+  font-size:5.5px;
+  letter-spacing:.09em;
+}
+.shop-background-user-row b{
+  display:block;
+  color:#ffe18b;
+  font-size:11px;
+}
+.shop-background-user-row small{
+  display:block;
+  color:#b5cfdd;
+  font-size:6px;
+}
+.shop-background-user-favorite{
+  height:93px;
+  overflow:hidden;
+  margin-top:4px;
+}
+.shop-background-user-favorite .shop-user-favorite-card{
+  transform:scale(.56);
+  transform-origin:top center;
+  margin:0 auto;
+}
+
+.shop-preview-user-subject{
+  margin:5px 0;
+}
+
+/* Explicit preview animations keep running. */
+#shopPreviewOverlay .shop-user-avatar-effect-stage *,
+#shopPreviewOverlay .shop-user-crest-aura-stage,
+#shopPreviewOverlay .shop-user-crest-aura-shimmer,
+#shopPreviewOverlay .shop-user-favorite-sweep{
+  animation-play-state:running!important;
+  -webkit-animation-play-state:running!important;
+}
+
+@media(max-width:700px){
+  .shop-user-frame-stage,
+  .shop-user-avatar-effect-stage,
+  .shop-user-crest-aura-stage{
+    transform:scale(.88);
+    margin:-10px 0;
+  }
+  .shop-background-preview-card.user-specific{
+    width:88%;
+    min-width:0;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  /* Shop preview is an explicit requested product demonstration. */
+  #shopPreviewOverlay .shop-user-effect-evo-electric .shop-user-avatar-effect-face{
+    animation:shopUserEvoFacePulse 1.45s ease-in-out infinite!important;
+  }
+  #shopPreviewOverlay .shop-user-effect-evo-electric .shop-user-effect-bolt{
+    animation:shopUserElectricBolt 1.05s linear infinite!important;
+  }
+  #shopPreviewOverlay .shop-user-effect-ring{
+    animation:shopUserDpRing 2.25s ease-out infinite!important;
+  }
+  #shopPreviewOverlay .shop-user-effect-gold-sparks .shop-user-effect-spark{
+    animation-name:shopUserGoldSpark!important;
+    animation-iteration-count:infinite!important;
+  }
+  #shopPreviewOverlay .shop-user-crest-aura-stage{
+    animation:shopCrestAuraFloat 3.8s ease-in-out infinite!important;
+  }
+  #shopPreviewOverlay .shop-user-crest-aura-shimmer{
+    animation:shopCrestAuraSweep 6.8s linear infinite!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
