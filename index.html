@@ -23301,6 +23301,317 @@ body.asc-card-picker-open #myProfileModal{
   cursor:default!important;
 }
 
+
+/* ==========================================================
+   PASS 5X — ASC SHOP BRANDING + PROFILE FRAME COLLECTION
+   ========================================================== */
+
+/* ---------- Shop header logo ---------- */
+.asc-shop-hero-brand{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  min-width:0;
+  margin-bottom:7px;
+}
+.asc-shop-header-logo{
+  width:clamp(185px,18vw,290px);
+  height:auto;
+  flex:0 0 auto;
+  object-fit:contain;
+  filter:drop-shadow(0 7px 13px rgba(0,0,0,.34));
+}
+.asc-shop-hero-brand-copy{
+  min-width:0;
+}
+.asc-shop-title-fallback{
+  margin-top:3px!important;
+  font-size:17px!important;
+  opacity:.62;
+}
+
+/* ---------- Shop frame cards ---------- */
+.asc-shop-frame-visual{
+  overflow:visible!important;
+  background:
+    radial-gradient(circle at 50% 44%,rgba(59,149,205,.24),rgba(4,27,46,.96) 67%)!important;
+}
+.asc-shop-frame-demo{
+  position:relative;
+  width:136px;
+  height:136px;
+  display:grid;
+  place-items:center;
+  isolation:isolate;
+}
+.asc-shop-frame-demo img{
+  position:absolute!important;
+  inset:0;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 9px 12px rgba(0,0,0,.28))!important;
+  transition:opacity .32s ease,transform .38s cubic-bezier(.2,.75,.2,1),filter .38s ease;
+}
+.asc-shop-frame-off{
+  opacity:1;
+  transform:scale(.96);
+}
+.asc-shop-frame-on{
+  opacity:0;
+  transform:scale(.98);
+  animation:ascShopFrameDemoPulse 5.2s ease-in-out infinite;
+}
+.asc-shop-frame-demo:hover .asc-shop-frame-off{
+  opacity:.22;
+  transform:scale(.98);
+}
+.asc-shop-frame-demo:hover .asc-shop-frame-on{
+  opacity:1;
+  transform:scale(1.04);
+  animation:none;
+  filter:
+    drop-shadow(0 9px 12px rgba(0,0,0,.28))
+    drop-shadow(0 0 12px rgba(255,228,129,.22))!important;
+}
+.asc-shop-frame-demo-label{
+  position:absolute;
+  z-index:4;
+  left:50%;
+  bottom:-2px;
+  transform:translateX(-50%);
+  white-space:nowrap;
+  padding:3px 6px;
+  border:1px solid rgba(239,200,94,.28);
+  border-radius:999px;
+  background:rgba(3,24,41,.76);
+  color:#d6bd6d;
+  font-size:5.5px;
+  letter-spacing:.07em;
+  pointer-events:none;
+}
+@keyframes ascShopFrameDemoPulse{
+  0%,33%,100%{opacity:0;transform:scale(.98)}
+  46%,70%{opacity:1;transform:scale(1.025)}
+  82%{opacity:.12;transform:scale(1)}
+}
+
+/* ---------- Full Shop preview ---------- */
+.shop-preview-frame-demo{
+  position:relative;
+  width:190px;
+  height:210px;
+  margin:8px auto 12px;
+}
+.shop-preview-frame-demo img{
+  position:absolute;
+  left:50%;
+  top:0;
+  width:180px;
+  height:180px;
+  object-fit:contain;
+  transform:translateX(-50%);
+  transition:opacity .34s ease,transform .4s ease,filter .4s ease;
+}
+.shop-preview-frame-demo img.off{
+  opacity:1;
+}
+.shop-preview-frame-demo img.on{
+  opacity:0;
+}
+.shop-preview-frame-demo:hover img.off{
+  opacity:.16;
+  transform:translateX(-50%) scale(.98);
+}
+.shop-preview-frame-demo:hover img.on{
+  opacity:1;
+  transform:translateX(-50%) scale(1.045);
+  filter:drop-shadow(0 0 15px rgba(255,229,137,.25));
+}
+.shop-preview-frame-demo span{
+  position:absolute;
+  left:50%;
+  bottom:1px;
+  width:260px;
+  max-width:90vw;
+  transform:translateX(-50%);
+  color:#8fb8cd;
+  font-size:7px;
+  text-align:center;
+}
+
+/* ---------- Actual equipped DP frame ---------- */
+.community-profile-avatar-stage,
+.profile-customize-preview-avatar-stage{
+  position:relative;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+}
+.community-profile-avatar-stage{
+  width:96px;
+  height:96px;
+}
+.community-profile-avatar-stage>.avatar{
+  position:relative;
+  z-index:2;
+}
+.profile-avatar-cosmetic-frame,
+.community-profile-avatar-frame,
+.edit-profile-avatar-frame,
+.profile-customize-avatar-frame{
+  position:absolute;
+  z-index:5;
+  inset:50% auto auto 50%;
+  width:138%;
+  height:138%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.profile-avatar-cosmetic-frame img,
+.community-profile-avatar-frame img,
+.edit-profile-avatar-frame img,
+.profile-customize-avatar-frame img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:opacity .28s ease,transform .34s ease,filter .34s ease;
+}
+.profile-avatar-frame-off{
+  opacity:1;
+}
+.profile-avatar-frame-on{
+  opacity:0;
+}
+.community-profile-avatar-stage:hover .profile-avatar-frame-off,
+.edit-profile-avatar-stack:hover .profile-avatar-frame-off,
+.profile-customize-preview-avatar-stage:hover .profile-avatar-frame-off{
+  opacity:.18;
+}
+.community-profile-avatar-stage:hover .profile-avatar-frame-on,
+.edit-profile-avatar-stack:hover .profile-avatar-frame-on,
+.profile-customize-preview-avatar-stage:hover .profile-avatar-frame-on{
+  opacity:1;
+  transform:scale(1.035);
+  filter:drop-shadow(0 0 10px rgba(255,230,139,.22));
+}
+
+/* Edit-profile existing avatar stack is already positioned. */
+.edit-profile-avatar-frame{
+  z-index:6;
+  width:132%;
+  height:132%;
+}
+.edit-profile-avatar-stack .profile-photo-edit-hint{
+  z-index:12!important;
+}
+
+/* Customization live preview frame. */
+.profile-customize-preview-avatar-stage{
+  width:72px;
+  height:72px;
+}
+.profile-customize-preview-avatar{
+  position:relative;
+  z-index:2;
+}
+.profile-customize-avatar-frame{
+  width:146%;
+  height:146%;
+}
+
+/* Customization Studio frame thumbnails use the real assets. */
+.profile-customize-frame-thumb{
+  position:absolute;
+  inset:4px;
+  display:grid;
+  place-items:center;
+  pointer-events:none;
+}
+.profile-customize-frame-thumb img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:opacity .28s ease,transform .32s ease;
+}
+.profile-customize-frame-thumb img.off{
+  opacity:1;
+}
+.profile-customize-frame-thumb img.on{
+  opacity:0;
+}
+.profile-customize-card:hover .profile-customize-frame-thumb img.off{
+  opacity:.18;
+}
+.profile-customize-card:hover .profile-customize-frame-thumb img.on{
+  opacity:1;
+  transform:scale(1.04);
+}
+
+/* ---------- Mobile ---------- */
+@media(max-width:700px){
+  .asc-shop-hero-brand{
+    display:block;
+    text-align:center;
+    margin-bottom:9px;
+  }
+  .asc-shop-header-logo{
+    display:block;
+    width:min(210px,72vw);
+    margin:0 auto 5px;
+  }
+  .asc-shop-hero-brand-copy .asc-shop-kicker{
+    margin-top:2px;
+  }
+  .asc-shop-title-fallback{
+    display:none!important;
+  }
+  .asc-shop-frame-demo{
+    width:154px;
+    height:154px;
+  }
+  .asc-shop-frame-demo-label{
+    font-size:6px;
+  }
+}
+
+/* Hover isn't available on many phones, so cycle the on-state automatically
+   in the Shop cards to demonstrate the effect. */
+@media(hover:none){
+  .asc-shop-frame-on{
+    animation:ascShopFrameDemoPulse 4.2s ease-in-out infinite;
+  }
+  .profile-customize-frame-thumb img.on{
+    animation:ascShopFrameThumbMobile 4.6s ease-in-out infinite;
+  }
+  @keyframes ascShopFrameThumbMobile{
+    0%,38%,100%{opacity:0}
+    50%,76%{opacity:1}
+  }
+}
+
+/* Respect accessibility motion settings. */
+@media(prefers-reduced-motion:reduce){
+  .asc-shop-frame-on,
+  .profile-customize-frame-thumb img.on{
+    animation:none!important;
+  }
+  .asc-shop-frame-demo img,
+  .shop-preview-frame-demo img,
+  .profile-avatar-cosmetic-frame img,
+  .community-profile-avatar-frame img,
+  .edit-profile-avatar-frame img,
+  .profile-customize-avatar-frame img{
+    transition:none!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
