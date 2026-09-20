@@ -18854,6 +18854,285 @@ body.asc-card-picker-open #favoriteCardPickerModal .favorite-deck-card-shimmer{
   }
 }
 
+
+/* ==========================================================
+   PASS 5C — DECK BUILDER 40 / 60 LAYOUT
+   ========================================================== */
+
+.favorite-card-picker-window{
+  height:min(92vh,920px)!important;
+  max-height:92vh!important;
+  overflow:hidden!important;
+}
+
+.favorite-card-picker-body{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  overflow:hidden!important;
+}
+
+/* Favorite Card mode keeps the normal stacked layout. */
+.favorite-card-picker-body:not(.deck-mode){
+  display:flex!important;
+  flex-direction:column!important;
+}
+
+/* Deck Builder:
+   tabs stay fixed; everything below them is split 40% / 60%. */
+.favorite-card-picker-body.deck-mode{
+  display:grid!important;
+  grid-template-rows:auto minmax(0,40fr) minmax(0,60fr)!important;
+  gap:7px!important;
+}
+
+.favorite-card-picker-body.deck-mode .favorite-card-mode-tabs{
+  min-height:0!important;
+}
+
+.favorite-card-picker-body.deck-mode .favorite-deck-builder-panel{
+  min-height:0!important;
+  height:100%!important;
+  margin:0!important;
+  padding:6px 8px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  overflow:hidden!important;
+}
+
+.favorite-card-picker-body.deck-mode .favorite-deck-builder-head{
+  flex:0 0 auto!important;
+  margin-bottom:4px!important;
+}
+
+.favorite-card-picker-body.deck-mode .favorite-deck-builder-slots{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  height:auto!important;
+  align-items:stretch!important;
+}
+
+.favorite-card-picker-body.deck-mode .favorite-deck-slot{
+  min-height:0!important;
+  height:100%!important;
+  aspect-ratio:auto!important;
+}
+
+.favorite-card-picker-body.deck-mode .favorite-deck-builder-actions{
+  flex:0 0 auto!important;
+  margin-top:4px!important;
+}
+
+/* The available-card region is the lower 60% and is the one scroll surface.
+   Mouse wheel works from the filters, card grid, or footer. */
+.favorite-card-list-area{
+  min-height:0!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  overscroll-behavior:contain!important;
+  touch-action:pan-y!important;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  scrollbar-color:#f3cb4d #082c48;
+  padding-right:2px;
+}
+
+.favorite-card-list-area::-webkit-scrollbar{
+  width:8px;
+}
+.favorite-card-list-area::-webkit-scrollbar-track{
+  background:#082c48;
+  border-radius:999px;
+}
+.favorite-card-list-area::-webkit-scrollbar-thumb{
+  background:#f3cb4d;
+  border-radius:999px;
+  border:2px solid #082c48;
+}
+
+/* The list-area itself scrolls, so the grid no longer traps wheel scrolling. */
+.favorite-card-list-area .favorite-card-picker-grid{
+  flex:none!important;
+  min-height:260px!important;
+  max-height:none!important;
+  height:auto!important;
+  overflow:visible!important;
+  overscroll-behavior:auto!important;
+  margin-bottom:7px!important;
+}
+
+/* ==========================================================
+   FILTER ROW — LARGE, CLEAN, NO PILLS
+   User asked for much larger text. These are now real navigation
+   labels instead of tiny bubble buttons.
+   ========================================================== */
+
+.favorite-card-picker-modal .favorite-card-filter-row{
+  min-height:42px!important;
+  width:100%!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  flex-wrap:nowrap!important;
+  gap:0!important;
+  margin:4px 0 6px!important;
+  padding:1px 0!important;
+  overflow:visible!important;
+  white-space:nowrap!important;
+}
+
+.favorite-card-picker-modal .favorite-card-filter-row .favorite-card-filter-button{
+  position:relative!important;
+  flex:0 0 auto!important;
+  min-width:0!important;
+  width:auto!important;
+  min-height:38px!important;
+  height:38px!important;
+  margin:0!important;
+  padding:3px 6px!important;
+  border:0!important;
+  outline:0!important;
+  border-radius:0!important;
+  background:none!important;
+  box-shadow:none!important;
+  color:#a9c8d8!important;
+  font-size:20px!important;
+  line-height:1!important;
+  letter-spacing:-.025em!important;
+  font-weight:400!important;
+  text-shadow:0 1px 2px rgba(0,0,0,.65)!important;
+}
+
+.favorite-card-picker-modal .favorite-card-filter-row .favorite-card-filter-button:not(:first-child)::before{
+  content:"|"!important;
+  position:absolute!important;
+  left:-2px!important;
+  top:50%!important;
+  transform:translateY(-51%)!important;
+  color:#4e7890!important;
+  font-size:17px!important;
+  line-height:1!important;
+  font-weight:300!important;
+  text-shadow:none!important;
+}
+
+.favorite-card-picker-modal .favorite-card-filter-row .favorite-card-filter-button:hover{
+  color:#e5f4fb!important;
+  background:none!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+
+.favorite-card-picker-modal .favorite-card-filter-row .favorite-card-filter-button.active{
+  color:#ffe083!important;
+  background:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  text-shadow:
+    0 0 9px rgba(255,211,71,.34),
+    0 1px 2px rgba(0,0,0,.72)!important;
+}
+
+.favorite-card-picker-modal .favorite-card-filter-row .favorite-card-elixir-sort-button{
+  color:#d5a9ef!important;
+  background:none!important;
+}
+.favorite-card-picker-modal .favorite-card-filter-row .favorite-card-elixir-sort-button.active{
+  color:#efc7ff!important;
+  background:none!important;
+  text-shadow:0 0 9px rgba(190,93,244,.40)!important;
+}
+
+/* Keep search/sort compact so the larger filter labels have room. */
+.favorite-card-picker-tools{
+  margin-top:5px!important;
+}
+.favorite-card-picker-tools input,
+.favorite-card-picker-tools select{
+  height:36px!important;
+}
+
+/* ==========================================================
+   DECK SLOT SIZE — make selected 8 cards visually ~40% of modal
+   ========================================================== */
+@media(min-width:701px){
+  .favorite-card-picker-body.deck-mode .favorite-deck-builder-slots{
+    grid-template-columns:repeat(8,minmax(0,1fr))!important;
+    grid-template-rows:minmax(0,1fr)!important;
+  }
+}
+
+@media(max-width:700px){
+  .favorite-card-picker-window{
+    height:94vh!important;
+    max-height:94vh!important;
+  }
+
+  .favorite-card-picker-body.deck-mode{
+    grid-template-rows:auto minmax(0,40fr) minmax(0,60fr)!important;
+  }
+
+  .favorite-card-picker-body.deck-mode .favorite-deck-builder-slots{
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-template-rows:repeat(2,minmax(0,1fr))!important;
+    gap:4px!important;
+  }
+
+  .favorite-card-picker-body.deck-mode .favorite-deck-builder-actions{
+    flex-direction:row!important;
+    align-items:center!important;
+    gap:5px!important;
+  }
+  .favorite-card-picker-body.deck-mode .favorite-deck-builder-actions span{
+    font-size:6px!important;
+    text-align:right!important;
+  }
+
+  /* Still dramatically larger than the old ~8px labels while fitting all 7
+     items on one row in the narrow desktop/mobile-sized window. */
+  .favorite-card-picker-modal .favorite-card-filter-row{
+    min-height:40px!important;
+  }
+  .favorite-card-picker-modal .favorite-card-filter-row .favorite-card-filter-button{
+    min-height:36px!important;
+    height:36px!important;
+    padding:2px 4px!important;
+    font-size:18px!important;
+    letter-spacing:-.04em!important;
+  }
+  .favorite-card-picker-modal .favorite-card-filter-row .favorite-card-filter-button:not(:first-child)::before{
+    left:-1px!important;
+    font-size:15px!important;
+  }
+
+  .favorite-card-list-area .favorite-card-picker-grid{
+    min-height:330px!important;
+  }
+}
+
+@media(max-width:430px){
+  .favorite-card-picker-modal .favorite-card-filter-row .favorite-card-filter-button{
+    padding:2px 3px!important;
+    font-size:14px!important;
+    letter-spacing:-.05em!important;
+  }
+  .favorite-card-picker-modal .favorite-card-filter-row .favorite-card-filter-button:not(:first-child)::before{
+    font-size:12px!important;
+  }
+}
+
+@media(max-height:760px){
+  .favorite-card-picker-window{
+    height:96vh!important;
+    max-height:96vh!important;
+  }
+  .favorite-card-mode-button{
+    min-height:36px!important;
+  }
+  .favorite-card-picker-modal .favorite-card-filter-row{
+    min-height:36px!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
