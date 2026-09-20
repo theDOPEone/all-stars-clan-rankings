@@ -23612,6 +23612,237 @@ body.asc-card-picker-open #myProfileModal{
   }
 }
 
+
+/* ==========================================================
+   PASS 5X.1 — OWNER SHOP PRICE MANAGER (PC)
+   Wider workspace + visual preview column.
+   ========================================================== */
+
+@media(min-width:901px){
+  .owner-shop-pricing-window{
+    width:min(1240px,96vw)!important;
+    max-height:94vh!important;
+  }
+
+  .owner-shop-pricing-body{
+    padding:14px!important;
+  }
+
+  .owner-shop-price-rows{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+    padding:10px!important;
+    background:transparent!important;
+  }
+
+  .owner-shop-price-row{
+    min-width:0!important;
+    display:grid!important;
+    grid-template-columns:200px minmax(0,1fr)!important;
+    align-items:center!important;
+    gap:14px!important;
+    min-height:220px!important;
+    padding:10px!important;
+    border:1px solid rgba(84,145,178,.20)!important;
+    border-radius:10px!important;
+    background:
+      linear-gradient(180deg,rgba(7,40,65,.95),rgba(4,28,47,.96))!important;
+  }
+
+  .owner-shop-price-content{
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:18px;
+  }
+
+  .owner-shop-price-name b{
+    display:block!important;
+    color:#ffe08a!important;
+    font-size:11px!important;
+    white-space:normal!important;
+  }
+
+  .owner-shop-price-name small{
+    display:block!important;
+    margin-top:4px!important;
+    color:#83aac0!important;
+    font-size:7px!important;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+  }
+
+  .owner-shop-price-name span{
+    display:block;
+    margin-top:7px;
+    color:#6f98ae;
+    font-size:7px;
+    line-height:1.35;
+  }
+
+  .owner-shop-price-current{
+    display:block;
+  }
+
+  .owner-shop-price-current>span:first-child{
+    display:block;
+    margin-bottom:5px;
+    color:#78a7bf;
+    font-size:6.5px;
+    letter-spacing:.10em;
+  }
+
+  .owner-shop-price-input-wrap{
+    width:100%!important;
+    min-height:42px!important;
+    padding:6px 9px!important;
+  }
+
+  .owner-shop-price-input-wrap>span{
+    font-size:15px!important;
+  }
+
+  .owner-shop-price-input-wrap input{
+    font-size:15px!important;
+  }
+
+  /* ---------- 200 x 200 visual preview ---------- */
+  .owner-shop-price-preview{
+    position:relative;
+    width:200px;
+    height:200px;
+    overflow:hidden;
+    display:grid;
+    place-items:center;
+    border:1px solid rgba(83,148,184,.26);
+    border-radius:10px;
+    background:
+      radial-gradient(circle at 50% 42%,rgba(42,130,183,.16),transparent 50%),
+      #031c30;
+    box-shadow:
+      inset 0 0 18px rgba(0,0,0,.25),
+      0 6px 15px rgba(0,0,0,.18);
+  }
+
+  .owner-shop-price-preview-frame img{
+    position:absolute;
+    inset:5px;
+    width:190px;
+    height:190px;
+    object-fit:contain;
+    transition:
+      opacity .30s ease,
+      transform .36s cubic-bezier(.2,.75,.2,1),
+      filter .36s ease;
+  }
+
+  .owner-shop-price-preview-frame img.off{
+    opacity:1;
+    transform:scale(.95);
+  }
+
+  .owner-shop-price-preview-frame img.on{
+    opacity:0;
+    transform:scale(.98);
+  }
+
+  .owner-shop-price-preview-frame:hover img.off{
+    opacity:.16;
+    transform:scale(.98);
+  }
+
+  .owner-shop-price-preview-frame:hover img.on{
+    opacity:1;
+    transform:scale(1.035);
+    filter:drop-shadow(0 0 12px rgba(255,225,119,.24));
+  }
+
+  .owner-shop-price-preview-frame>span{
+    position:absolute;
+    z-index:4;
+    left:50%;
+    bottom:7px;
+    transform:translateX(-50%);
+    padding:3px 7px;
+    border:1px solid rgba(234,194,74,.28);
+    border-radius:999px;
+    background:rgba(2,20,34,.82);
+    color:#d7b957;
+    font-size:5.5px;
+    letter-spacing:.08em;
+    pointer-events:none;
+  }
+
+  .owner-shop-price-preview-image{
+    background-repeat:no-repeat!important;
+    background-position:center!important;
+    background-size:contain!important;
+  }
+
+  .owner-shop-price-preview-theme>div{
+    width:150px;
+    height:150px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:12px;
+  }
+
+  .owner-shop-price-preview-theme i{
+    display:block;
+  }
+
+  .owner-shop-price-preview-effect .shimmer-demo{
+    width:145px!important;
+    height:145px!important;
+    border-radius:14px!important;
+  }
+
+  .owner-shop-price-preview-crest img{
+    width:150px;
+    height:150px;
+    object-fit:contain;
+  }
+
+  .owner-shop-price-preview-generic span{
+    color:#8eb3c7;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+  }
+
+  .owner-shop-price-category-head{
+    padding:10px 12px!important;
+  }
+
+  .owner-shop-price-category-head b{
+    font-size:12px!important;
+  }
+
+  .owner-shop-price-category-head small{
+    font-size:8px!important;
+  }
+}
+
+/* Owner manager is intended for desktop. Keep legacy stacking if it
+   is ever opened on a narrow screen rather than forcing the 200px layout. */
+@media(max-width:900px){
+  .owner-shop-price-preview{
+    display:none!important;
+  }
+  .owner-shop-price-row{
+    min-height:0!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .owner-shop-price-preview-frame img{
+    transition:none!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
