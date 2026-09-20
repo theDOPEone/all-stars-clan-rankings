@@ -21961,6 +21961,385 @@ body.asc-card-picker-open #favoriteCardPickerModal .favorite-deck-card-shimmer{
   }
 }
 
+
+/* ==========================================================
+   PASS 5P — INTEGRATED PROFILE WORKSPACE
+   ========================================================== */
+
+/* Three primary profile tabs. */
+.edit-profile-tabs{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  margin-top:7px!important;
+}
+
+/* Contribution is always visible directly above the tabs. */
+.edit-profile-contribution-top{
+  margin:7px 9px 0!important;
+}
+.edit-profile-contribution-top .community-profile-contribution,
+.edit-profile-contribution-top .community-profile-contribution-card{
+  margin:0!important;
+}
+
+/* Remove duplicate contribution from Bio if any legacy markup slips through. */
+.edit-profile-bio-content .community-profile-bio-section + .community-profile-contribution{
+  display:none!important;
+}
+
+/* ---------- Persistent Profile Details inside Bio ---------- */
+.my-profile-editor-dock{
+  display:none!important;
+}
+
+.my-profile-details-host{
+  margin:9px 0!important;
+}
+
+.my-profile-details-host .my-profile-editor{
+  display:block!important;
+  margin:0!important;
+  padding:10px!important;
+  border:1px solid rgba(81,145,181,.28)!important;
+  border-radius:8px!important;
+  background:rgba(3,30,51,.48)!important;
+}
+
+.my-profile-details-host .my-profile-editor-head{
+  margin-bottom:8px!important;
+}
+.my-profile-details-host .my-profile-editor-head h3{
+  margin:0!important;
+  color:#ffe393!important;
+  font-size:14px!important;
+}
+
+.my-profile-details-host .member-profile-grid{
+  gap:8px!important;
+}
+
+.my-profile-details-host .my-profile-upgrades.compact{
+  margin-top:6px!important;
+}
+
+/* Gallery never gets Profile Details. */
+.edit-profile-gallery-panel + .my-profile-editor,
+.edit-profile-card-tools-content + .my-profile-editor{
+  display:none!important;
+}
+
+/* ---------- Integrated Favorite Card / Deck Builder ---------- */
+.edit-profile-card-tools-content{
+  min-height:0!important;
+}
+
+.edit-profile-card-tools-intro{
+  display:flex!important;
+  align-items:flex-end!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+  margin-bottom:7px!important;
+  padding:0 2px!important;
+}
+.edit-profile-card-tools-intro span{
+  display:block!important;
+  color:#7fa9c0!important;
+  font-size:7px!important;
+  letter-spacing:.10em!important;
+}
+.edit-profile-card-tools-intro b{
+  display:block!important;
+  margin-top:2px!important;
+  color:#ffe393!important;
+  font-size:14px!important;
+  font-weight:400!important;
+}
+.edit-profile-card-tools-intro small{
+  max-width:52%!important;
+  color:#8aabba!important;
+  font-size:7px!important;
+  line-height:1.3!important;
+  text-align:right!important;
+}
+
+.my-profile-card-tools{
+  min-height:0!important;
+  overflow:hidden!important;
+  border:1px solid rgba(239,200,94,.32)!important;
+  border-radius:9px!important;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(58,166,221,.10),transparent 32%),
+    #05263f!important;
+}
+
+.my-profile-card-tools #favoriteCardPickerBody{
+  width:100%!important;
+  min-height:0!important;
+  padding:8px!important;
+  background:transparent!important;
+}
+
+/* Embedded tools get a definite working height so 60/40 deck split behaves. */
+.my-profile-card-tools #favoriteCardPickerBody.deck-mode{
+  height:min(650px,67vh)!important;
+  max-height:650px!important;
+}
+
+.my-profile-card-tools #favoriteCardPickerBody:not(.deck-mode){
+  min-height:560px!important;
+  max-height:650px!important;
+  overflow:hidden!important;
+}
+
+/* No nested window chrome while embedded. */
+.my-profile-card-tools .favorite-card-mode-tabs{
+  margin-top:0!important;
+}
+
+/* Make modal-specific special card rules work in embedded mode too. */
+.my-profile-card-tools .favorite-deck-slot.special-evo .favorite-deck-card-stage::before{
+  opacity:.85!important;
+}
+.my-profile-card-tools .favorite-deck-slot.special-hero .favorite-deck-card-stage::before{
+  opacity:.90!important;
+}
+.my-profile-card-tools .favorite-deck-slot.special-hybrid .favorite-deck-card-stage::before{
+  opacity:.88!important;
+}
+
+/* Give embedded browser more usable height and keep sticky tabs/search. */
+.my-profile-card-tools .favorite-card-list-area{
+  min-height:0!important;
+}
+.my-profile-card-tools .favorite-card-folder-sticky{
+  top:0!important;
+}
+
+/* When card tools are active, pause unrelated profile animation/effects.
+   The embedded card effects remain active. */
+body.asc-profile-card-tools-open #myProfileModal .edit-profile-identity *,
+body.asc-profile-card-tools-open #myProfileModal .edit-profile-contribution-top *,
+body.asc-profile-card-tools-open #myProfileModal .profile-customize-preview-effect{
+  animation-play-state:paused!important;
+}
+
+/* ---------- Tighter overall profile workspace ---------- */
+.edit-profile-tab-stage{
+  padding-top:8px!important;
+}
+
+.edit-profile-bio-content .community-profile-bio-section{
+  margin-bottom:0!important;
+}
+
+/* ---------- Mobile ---------- */
+@media(max-width:700px){
+  .edit-profile-contribution-top{
+    margin:6px 5px 0!important;
+  }
+
+  .edit-profile-tabs{
+    gap:3px!important;
+  }
+
+  .edit-profile-tabs button{
+    font-size:10px!important;
+  }
+
+  .my-profile-details-host{
+    margin:7px 0!important;
+  }
+
+  .my-profile-details-host .my-profile-editor{
+    padding:8px!important;
+  }
+
+  .edit-profile-card-tools-intro{
+    display:block!important;
+  }
+  .edit-profile-card-tools-intro small{
+    display:block!important;
+    max-width:none!important;
+    margin-top:3px!important;
+    text-align:left!important;
+  }
+
+  .my-profile-card-tools #favoriteCardPickerBody.deck-mode{
+    height:min(620px,70vh)!important;
+  }
+  .my-profile-card-tools #favoriteCardPickerBody:not(.deck-mode){
+    min-height:540px!important;
+  }
+}
+
+
+/* ==========================================================
+   PASS 5Q — FAVORITE CARD SHOWCASE
+   ========================================================== */
+
+/* FAVORITE CARD heading now matches CURRENT DECK heading. */
+.community-profile-favorite-wrap>.community-profile-showcase-head{
+  display:flex!important;
+  align-items:baseline!important;
+  min-height:20px!important;
+  margin:0 0 7px 1px!important;
+  padding:0 2px!important;
+}
+
+.community-profile-favorite-wrap>.community-profile-showcase-head span{
+  display:inline-block!important;
+  color:#ffe58c!important;
+  font-size:9px!important;
+  letter-spacing:.05em!important;
+  line-height:1.2!important;
+  text-transform:uppercase!important;
+  white-space:nowrap!important;
+}
+
+/* Slightly larger favorite-card frame while keeping the column balanced. */
+.community-profile-favorite-wrap .community-profile-cardart{
+  width:166px!important;
+  min-width:166px!important;
+  max-width:166px!important;
+  height:198px!important;
+  min-height:198px!important;
+  max-height:198px!important;
+  padding:24px 7px 27px!important;
+  overflow:visible!important;
+}
+
+/* Make the selected card artwork itself larger. */
+.community-profile-favorite-wrap .community-profile-cardart img.favorite-card-image,
+.community-profile-favorite-wrap .community-profile-cardart img{
+  width:auto!important;
+  height:auto!important;
+  max-width:122px!important;
+  max-height:139px!important;
+  object-fit:contain!important;
+}
+
+/* Crown sits higher and overlaps the gold outer frame. */
+.community-profile-favorite-wrap .profile-favorite-card-frame .favorite-card-crown,
+.community-profile-favorite-wrap .profile-favorite-card-frame .favorite-card-crown-wrap,
+.community-profile-favorite-wrap .profile-favorite-card-frame>.crown,
+.community-profile-favorite-wrap .profile-favorite-card-frame svg.favorite-card-crown{
+  top:-13px!important;
+  transform:translateX(-50%)!important;
+  z-index:12!important;
+}
+
+/* Catch the current crown element if its class differs: the first decorative
+   child generated by favoriteCrownHtml stays centered and is lifted. */
+.community-profile-favorite-wrap .profile-favorite-card-frame>span:first-child{
+  top:-13px!important;
+  z-index:12!important;
+}
+
+/* Remove old standalone name line. Name now belongs in the gold plaque. */
+.community-profile-favorite-wrap .profile-favorite-card-name{
+  display:none!important;
+}
+
+/* Gold plaque now carries the card name, e.g. Witch. */
+.community-profile-favorite-wrap .profile-favorite-card-plaque{
+  left:7px!important;
+  right:7px!important;
+  bottom:5px!important;
+  min-height:23px!important;
+  display:grid!important;
+  place-items:center!important;
+  padding:4px 7px!important;
+  color:#fff0a8!important;
+  font-size:8px!important;
+  line-height:1!important;
+  letter-spacing:.01em!important;
+  text-align:center!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+
+/* EVO/HERO favorite art gets a restrained outer glow only; no face shimmer. */
+.community-profile-favorite-wrap .favorite-variant-evo{
+  box-shadow:
+    0 0 0 1px rgba(188,95,247,.24),
+    0 0 12px rgba(167,72,229,.17)!important;
+}
+.community-profile-favorite-wrap .favorite-variant-hero{
+  box-shadow:
+    0 0 0 1px rgba(243,197,64,.25),
+    0 0 12px rgba(235,179,43,.16)!important;
+}
+
+/* Keep CHANGE below the larger frame. */
+.community-profile-favorite-wrap .favorite-card-edit-badge{
+  margin-top:7px!important;
+}
+
+/* ---------- Mobile ---------- */
+@media(max-width:700px){
+  .community-profile-favorite-wrap>.community-profile-showcase-head{
+    min-height:29px!important;
+    display:block!important;
+    margin-bottom:5px!important;
+    padding:0 1px!important;
+  }
+
+  .community-profile-favorite-wrap>.community-profile-showcase-head span{
+    display:block!important;
+    font-size:8px!important;
+  }
+
+  .community-profile-favorite-wrap .community-profile-cardart{
+    width:108px!important;
+    min-width:108px!important;
+    max-width:108px!important;
+    height:148px!important;
+    min-height:148px!important;
+    max-height:148px!important;
+    padding:20px 5px 24px!important;
+  }
+
+  .community-profile-favorite-wrap .community-profile-cardart img.favorite-card-image,
+  .community-profile-favorite-wrap .community-profile-cardart img{
+    max-width:84px!important;
+    max-height:103px!important;
+  }
+
+  .community-profile-favorite-wrap .profile-favorite-card-plaque{
+    left:5px!important;
+    right:5px!important;
+    bottom:4px!important;
+    min-height:20px!important;
+    padding:3px 5px!important;
+    font-size:7px!important;
+  }
+
+  .community-profile-favorite-wrap .profile-favorite-card-frame .favorite-card-crown,
+  .community-profile-favorite-wrap .profile-favorite-card-frame .favorite-card-crown-wrap,
+  .community-profile-favorite-wrap .profile-favorite-card-frame>.crown,
+  .community-profile-favorite-wrap .profile-favorite-card-frame svg.favorite-card-crown,
+  .community-profile-favorite-wrap .profile-favorite-card-frame>span:first-child{
+    top:-10px!important;
+  }
+}
+
+@media(max-width:390px){
+  .community-profile-favorite-wrap .community-profile-cardart{
+    width:100px!important;
+    min-width:100px!important;
+    max-width:100px!important;
+    height:140px!important;
+    min-height:140px!important;
+    max-height:140px!important;
+  }
+
+  .community-profile-favorite-wrap .community-profile-cardart img.favorite-card-image,
+  .community-profile-favorite-wrap .community-profile-cardart img{
+    max-width:78px!important;
+    max-height:97px!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
