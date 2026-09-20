@@ -22617,6 +22617,199 @@ body.asc-card-picker-open #myProfileModal{
   animation:none!important;
 }
 
+
+/* ==========================================================
+   PASS 5V — PERSISTENT PROFILE CUSTOMIZATION
+   ========================================================== */
+
+/* ---------- Ownership states ---------- */
+.profile-customize-state.owned{
+  color:#9fcfe7!important;
+}
+.profile-customize-card.equipped-item{
+  border-color:#dcb542!important;
+  box-shadow:
+    0 0 0 1px rgba(220,181,66,.12) inset,
+    0 0 9px rgba(220,181,66,.08)!important;
+}
+.profile-customize-equip-status{
+  display:block!important;
+}
+.profile-customize-equip-status.good{color:#a8e6bf!important}
+.profile-customize-equip-status.bad{color:#ffb3b8!important}
+.profile-customize-equip-status.locked{color:#d6ad75!important}
+.profile-customize-equip-status.ready{color:#9fcfe7!important}
+
+.profile-customize-footer{
+  grid-template-columns:auto minmax(0,1fr) auto auto!important;
+}
+.profile-customize-apply-button{
+  border-color:#67b1d7!important;
+  background:linear-gradient(180deg,#237aa7,#135578)!important;
+  color:#eaf8ff!important;
+}
+.profile-customize-apply-button:disabled{
+  opacity:.42!important;
+  cursor:not-allowed!important;
+}
+
+/* ---------- Real profile backgrounds ---------- */
+.community-profile-panel.pc-bg-default,
+.edit-profile-preview-card.pc-bg-default{
+  background:var(--panel2)!important;
+}
+
+.community-profile-panel.pc-bg-royal-night,
+.edit-profile-preview-card.pc-bg-royal-night{
+  background:
+    radial-gradient(circle at 78% 13%,rgba(95,112,218,.18),transparent 31%),
+    radial-gradient(circle at 20% 78%,rgba(37,105,176,.15),transparent 36%),
+    linear-gradient(145deg,#0b1732,#102b59 52%,#06172c)!important;
+}
+
+.community-profile-panel.pc-bg-arena-gold,
+.edit-profile-preview-card.pc-bg-arena-gold{
+  background:
+    radial-gradient(circle at 76% 18%,rgba(255,210,77,.20),transparent 30%),
+    linear-gradient(145deg,#4a320e,#143653 53%,#08233b)!important;
+}
+
+.community-profile-panel.pc-bg-evo-storm,
+.edit-profile-preview-card.pc-bg-evo-storm{
+  background:
+    radial-gradient(circle at 70% 15%,rgba(187,87,249,.22),transparent 30%),
+    radial-gradient(circle at 20% 82%,rgba(104,51,164,.18),transparent 36%),
+    linear-gradient(145deg,#25133f,#103654 56%,#071e32)!important;
+}
+
+/* ---------- Real profile accents ---------- */
+.community-profile-panel.pc-accent-gold,
+.edit-profile-preview-card.pc-accent-gold{
+  border-color:#ddb944!important;
+}
+.community-profile-panel.pc-accent-gold .community-profile-name,
+.community-profile-panel.pc-accent-gold .community-profile-section-head b,
+.edit-profile-preview-card.pc-accent-gold .community-profile-name{
+  color:#ffe28b!important;
+}
+
+.community-profile-panel.pc-accent-violet,
+.edit-profile-preview-card.pc-accent-violet{
+  border-color:#9f56cf!important;
+}
+.community-profile-panel.pc-accent-violet .community-profile-name,
+.community-profile-panel.pc-accent-violet .community-profile-section-head b,
+.edit-profile-preview-card.pc-accent-violet .community-profile-name{
+  color:#deb6f5!important;
+}
+
+.community-profile-panel.pc-accent-crimson,
+.edit-profile-preview-card.pc-accent-crimson{
+  border-color:#c14c4d!important;
+}
+.community-profile-panel.pc-accent-crimson .community-profile-name,
+.community-profile-panel.pc-accent-crimson .community-profile-section-head b,
+.edit-profile-preview-card.pc-accent-crimson .community-profile-name{
+  color:#ffb2ad!important;
+}
+
+.community-profile-panel.pc-accent-emerald,
+.edit-profile-preview-card.pc-accent-emerald{
+  border-color:#3da879!important;
+}
+.community-profile-panel.pc-accent-emerald .community-profile-name,
+.community-profile-panel.pc-accent-emerald .community-profile-section-head b,
+.edit-profile-preview-card.pc-accent-emerald .community-profile-name{
+  color:#a9e5c7!important;
+}
+
+/* ---------- Real identity frames ---------- */
+.community-profile-panel.pc-frame-royal-gold .community-profile-preview-identity,
+.edit-profile-preview-card.pc-frame-royal-gold .edit-profile-identity{
+  border:2px solid #e1b840!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,241,174,.10),
+    0 0 12px rgba(225,184,64,.14)!important;
+}
+
+.community-profile-panel.pc-frame-evo-electric .community-profile-preview-identity,
+.edit-profile-preview-card.pc-frame-evo-electric .edit-profile-identity{
+  border:2px solid #a24fd7!important;
+  box-shadow:
+    0 0 13px rgba(162,79,215,.24),
+    inset 0 0 10px rgba(162,79,215,.10)!important;
+}
+
+.community-profile-panel.pc-frame-hero-gold .community-profile-preview-identity,
+.edit-profile-preview-card.pc-frame-hero-gold .edit-profile-identity{
+  border:2px solid #f0c347!important;
+  box-shadow:
+    0 0 14px rgba(240,195,71,.23),
+    inset 0 0 11px rgba(240,195,71,.10)!important;
+}
+
+/* ---------- Real profile effects ----------
+   Effects animate the overall profile panel only. They never add shimmer
+   over Favorite Card / Current Deck artwork. */
+.community-profile-panel.pc-effect-soft-glow,
+.edit-profile-preview-card.pc-effect-soft-glow{
+  animation:ascProfileSoftGlowV1 3.4s ease-in-out infinite!important;
+}
+
+.community-profile-panel.pc-effect-evo-electric,
+.edit-profile-preview-card.pc-effect-evo-electric{
+  animation:ascProfileEvoOutlineV1 2.6s ease-in-out infinite!important;
+}
+
+.community-profile-panel.pc-effect-gold-sparks,
+.edit-profile-preview-card.pc-effect-gold-sparks{
+  animation:ascProfileGoldAuraV1 3.2s ease-in-out infinite!important;
+}
+
+@keyframes ascProfileSoftGlowV1{
+  0%,100%{box-shadow:0 0 0 rgba(72,163,216,0)}
+  50%{box-shadow:0 0 18px rgba(72,163,216,.20)}
+}
+@keyframes ascProfileEvoOutlineV1{
+  0%,100%{box-shadow:0 0 5px rgba(160,74,220,.12)}
+  45%{box-shadow:0 0 18px rgba(183,91,239,.36)}
+}
+@keyframes ascProfileGoldAuraV1{
+  0%,100%{box-shadow:0 0 5px rgba(234,185,54,.10)}
+  42%{box-shadow:0 0 18px rgba(244,196,66,.32)}
+}
+
+/* Preserve shimmer-removal passes on profile card/deck artwork. */
+.community-profile-panel .favorite-card-frame::after,
+.community-profile-panel .community-profile-deck::after,
+.community-profile-panel .community-profile-deck-cards::before,
+.community-profile-panel .community-profile-deck-cards::after{
+  content:none!important;
+  display:none!important;
+}
+
+/* Mobile studio footer stacks cleanly. */
+@media(max-width:700px){
+  .profile-customize-footer{
+    grid-template-columns:1fr 1fr!important;
+  }
+  .profile-customize-footer-copy{
+    grid-column:1/-1!important;
+    grid-row:3!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .community-profile-panel.pc-effect-soft-glow,
+  .community-profile-panel.pc-effect-evo-electric,
+  .community-profile-panel.pc-effect-gold-sparks,
+  .edit-profile-preview-card.pc-effect-soft-glow,
+  .edit-profile-preview-card.pc-effect-evo-electric,
+  .edit-profile-preview-card.pc-effect-gold-sparks{
+    animation:none!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
