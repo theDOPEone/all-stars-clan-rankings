@@ -25757,6 +25757,225 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
   display:none!important;
 }
 
+
+/* ==========================================================
+   PASS 5Z.3 — PERSONALIZED PLAYER SPOTLIGHT
+   Uses each player's public profile upload + equipped cosmetics.
+   Default/fallback background: assets/arena/spotlight-lightning.png
+   ========================================================== */
+
+#memberSpotlight.personalized-player-spotlight{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border:1px solid rgba(239,200,94,.56)!important;
+  background:
+    linear-gradient(90deg,rgba(5,32,52,.88),rgba(5,30,49,.72) 52%,rgba(5,26,43,.90)),
+    url('./assets/arena/spotlight-lightning.png') center 44%/cover no-repeat!important;
+  box-shadow:inset 0 1px 0 rgba(255,244,188,.09),0 8px 19px rgba(0,0,0,.20)!important;
+}
+#memberSpotlight.personalized-player-spotlight::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(4,27,45,.70),rgba(4,27,45,.17) 45%,rgba(4,27,45,.55));
+}
+
+/* Equipped profile backgrounds become the Spotlight skin. */
+#memberSpotlight.pc-bg-default{
+  background:
+    linear-gradient(90deg,rgba(5,32,52,.86),rgba(5,30,49,.65) 52%,rgba(5,26,43,.88)),
+    url('./assets/arena/spotlight-lightning.png') center 44%/cover no-repeat!important;
+}
+#memberSpotlight.pc-bg-royal-night{
+  background:
+    radial-gradient(circle at 72% 20%,rgba(106,93,230,.36),transparent 34%),
+    linear-gradient(100deg,rgba(5,19,45,.93),rgba(15,39,84,.82) 55%,rgba(4,18,38,.94)),
+    url('./assets/arena/spotlight-lightning.png') center 44%/cover no-repeat!important;
+}
+#memberSpotlight.pc-bg-arena-gold{
+  background:
+    radial-gradient(circle at 70% 22%,rgba(255,211,74,.32),transparent 35%),
+    linear-gradient(100deg,rgba(56,37,7,.91),rgba(21,56,78,.80) 58%,rgba(8,30,47,.92)),
+    url('./assets/arena/spotlight-lightning.png') center 44%/cover no-repeat!important;
+}
+#memberSpotlight.pc-bg-evo-storm{
+  background:
+    radial-gradient(circle at 71% 24%,rgba(190,79,250,.36),transparent 34%),
+    linear-gradient(100deg,rgba(38,14,66,.91),rgba(14,49,80,.79) 56%,rgba(8,27,46,.93)),
+    url('./assets/arena/spotlight-lightning.png') center 44%/cover no-repeat!important;
+}
+
+/* Accent colour carries into the Spotlight outline and labels. */
+#memberSpotlight.pc-accent-gold{border-color:#ddb944!important}
+#memberSpotlight.pc-accent-violet{border-color:#a25dd1!important}
+#memberSpotlight.pc-accent-crimson{border-color:#c65354!important}
+#memberSpotlight.pc-accent-emerald{border-color:#43aa7d!important}
+#memberSpotlight.pc-accent-gold .member-achievement-label{color:#ffe18c!important}
+#memberSpotlight.pc-accent-violet .member-achievement-label{color:#deb6f5!important}
+#memberSpotlight.pc-accent-crimson .member-achievement-label{color:#ffb5b0!important}
+#memberSpotlight.pc-accent-emerald .member-achievement-label{color:#a8e4c6!important}
+
+/* Equipped profile effects remain visible in Spotlight. */
+#memberSpotlight.pc-effect-soft-glow{animation:ascSpotlightSoftGlow 3.4s ease-in-out infinite!important}
+#memberSpotlight.pc-effect-evo-electric{animation:ascSpotlightEvoElectric 2.35s ease-in-out infinite!important}
+#memberSpotlight.pc-effect-gold-sparks{animation:ascSpotlightGoldAura 3.1s ease-in-out infinite!important}
+@keyframes ascSpotlightSoftGlow{
+  0%,100%{box-shadow:inset 0 1px 0 rgba(255,244,188,.09),0 8px 19px rgba(0,0,0,.20),0 0 0 rgba(78,187,239,0)}
+  50%{box-shadow:inset 0 1px 0 rgba(255,244,188,.09),0 8px 19px rgba(0,0,0,.20),0 0 22px rgba(84,193,242,.30)}
+}
+@keyframes ascSpotlightEvoElectric{
+  0%,100%{box-shadow:inset 0 1px 0 rgba(255,244,188,.09),0 8px 19px rgba(0,0,0,.20),0 0 5px rgba(177,74,233,.18)}
+  42%{box-shadow:inset 0 1px 0 rgba(255,244,188,.09),0 8px 19px rgba(0,0,0,.20),0 0 24px rgba(192,86,242,.48)}
+}
+@keyframes ascSpotlightGoldAura{
+  0%,100%{box-shadow:inset 0 1px 0 rgba(255,244,188,.09),0 8px 19px rgba(0,0,0,.20),0 0 5px rgba(239,191,55,.12)}
+  45%{box-shadow:inset 0 1px 0 rgba(255,244,188,.09),0 8px 19px rgba(0,0,0,.20),0 0 23px rgba(247,202,69,.39)}
+}
+
+/* DP is now the View Profile control. */
+#memberSpotlight .member-achievement-player{
+  position:relative;
+  z-index:3;
+  min-width:0;
+}
+#memberSpotlight .member-achievement-player-copy{min-width:0}
+#memberSpotlight .member-spotlight-avatar-stage{
+  position:relative;
+  width:92px;
+  height:92px;
+  flex:0 0 92px;
+  display:grid;
+  place-items:center;
+  overflow:visible;
+  border-radius:50%;
+}
+#memberSpotlight .member-spotlight-avatar-stage.interactive{
+  cursor:pointer;
+  outline:none;
+}
+#memberSpotlight .member-spotlight-summary-avatar{
+  position:relative;
+  z-index:3;
+  width:78px!important;
+  height:78px!important;
+  display:grid!important;
+  place-items:center;
+  overflow:hidden;
+  border:2px solid rgba(247,213,111,.92)!important;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#2a77a8,#082b48)!important;
+  color:#ffe69b;
+  font-size:24px!important;
+  font-weight:950;
+  box-shadow:0 5px 14px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,240,164,.22)!important;
+  transition:transform .16s ease,filter .16s ease;
+}
+#memberSpotlight .member-spotlight-summary-avatar img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+#memberSpotlight .member-spotlight-avatar-stage.interactive:hover .member-spotlight-summary-avatar,
+#memberSpotlight .member-spotlight-avatar-stage.interactive:focus-visible .member-spotlight-summary-avatar{
+  transform:scale(1.035);
+  filter:brightness(1.05);
+}
+
+/* Actual purchased frame art follows the DP into Spotlight. */
+#memberSpotlight .member-spotlight-avatar-frame{
+  position:absolute;
+  z-index:7;
+  left:50%;
+  top:50%;
+  width:122px;
+  height:122px;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+#memberSpotlight .member-spotlight-avatar-frame img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:opacity .26s ease,transform .28s ease,filter .28s ease;
+}
+#memberSpotlight .member-spotlight-avatar-frame .profile-avatar-frame-off{opacity:1}
+#memberSpotlight .member-spotlight-avatar-frame .profile-avatar-frame-on{opacity:0}
+#memberSpotlight .member-spotlight-avatar-stage:hover .member-spotlight-avatar-frame .profile-avatar-frame-off{opacity:.16}
+#memberSpotlight .member-spotlight-avatar-stage:hover .member-spotlight-avatar-frame .profile-avatar-frame-on{opacity:1;transform:scale(1.035);filter:drop-shadow(0 0 9px rgba(255,228,126,.28))}
+
+/* Conceptual equipped frames when no PNG overlay is used. */
+#memberSpotlight.pc-frame-royal-gold .member-spotlight-summary-avatar{
+  border:4px solid #e1b840!important;
+  box-shadow:0 0 0 2px rgba(255,242,173,.18),0 0 14px rgba(225,184,64,.26)!important;
+}
+#memberSpotlight.pc-frame-evo-electric .member-spotlight-summary-avatar{
+  border:4px solid #a24fd7!important;
+  box-shadow:0 0 0 2px rgba(223,164,255,.12),0 0 16px rgba(175,77,224,.36)!important;
+}
+#memberSpotlight.pc-frame-hero-gold .member-spotlight-summary-avatar{
+  border:4px solid #f0c347!important;
+  box-shadow:0 0 0 2px rgba(255,244,175,.16),0 0 17px rgba(240,195,71,.34)!important;
+}
+
+/* VIEW appears inside the bottom of the circular DP. No underline/link styling. */
+#memberSpotlight .member-spotlight-avatar-view{
+  position:absolute;
+  z-index:12;
+  left:50%;
+  bottom:8px;
+  min-width:49px;
+  padding:4px 8px 3px;
+  transform:translateX(-50%) translateY(3px);
+  border:1px solid rgba(255,222,112,.74);
+  border-radius:999px;
+  background:rgba(5,31,51,.92);
+  box-shadow:0 3px 9px rgba(0,0,0,.32);
+  color:#ffe28b;
+  font-size:7px;
+  font-weight:950;
+  letter-spacing:.08em;
+  line-height:1;
+  text-align:center;
+  text-decoration:none!important;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .14s ease,transform .14s ease;
+}
+#memberSpotlight .member-spotlight-avatar-stage.interactive:hover .member-spotlight-avatar-view,
+#memberSpotlight .member-spotlight-avatar-stage.interactive:focus-visible .member-spotlight-avatar-view{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+#memberSpotlight .member-achievement-open{display:none!important}
+
+@media(max-width:700px){
+  #memberSpotlight .member-spotlight-avatar-stage{
+    width:72px;
+    height:72px;
+    flex-basis:72px;
+  }
+  #memberSpotlight .member-spotlight-summary-avatar{
+    width:62px!important;
+    height:62px!important;
+    font-size:19px!important;
+  }
+  #memberSpotlight .member-spotlight-avatar-frame{
+    width:96px;
+    height:96px;
+  }
+  #memberSpotlight .member-spotlight-avatar-view{
+    bottom:4px;
+    min-width:42px;
+    padding:3px 6px;
+    font-size:6px;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
