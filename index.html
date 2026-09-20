@@ -18390,6 +18390,113 @@ body.asc-card-picker-open #favoriteCardPickerModal .favorite-deck-card-shimmer{
   color:#ffb6b9!important;
 }
 
+
+/* ---------- Favorite card profile frame ---------- */
+.community-profile-favorite-wrap .profile-favorite-card-frame{
+  padding-bottom:44px!important;
+}
+
+.community-profile-favorite-wrap .profile-favorite-card-name{
+  position:absolute;
+  left:7px;
+  right:7px;
+  bottom:28px;
+  z-index:8;
+  overflow:hidden;
+  text-align:center;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  color:#fff1ac;
+  font-size:9px;
+  line-height:1.05;
+  font-weight:400!important;
+  text-shadow:0 1px 2px rgba(0,0,0,.85);
+}
+
+.community-profile-favorite-wrap .profile-favorite-card-plaque{
+  display:grid!important;
+  place-items:center!important;
+  min-height:20px!important;
+  padding:4px 5px!important;
+  color:#fff0aa!important;
+  font-size:7px!important;
+  letter-spacing:.10em;
+  line-height:1!important;
+  text-align:center!important;
+}
+
+/* ---------- Current Deck title can open Deck Builder ---------- */
+.community-profile-deck-title.editable{
+  cursor:pointer;
+  user-select:none;
+  border-radius:5px;
+  transition:background .14s ease,color .14s ease,box-shadow .14s ease;
+}
+.community-profile-deck-title.editable:hover,
+.community-profile-deck-title.editable:focus-visible{
+  background:rgba(224,184,66,.10);
+  color:#ffe795;
+  outline:none;
+  box-shadow:0 0 0 1px rgba(224,184,66,.22);
+}
+.community-profile-deck-title.editable::after{
+  content:"EDIT";
+  display:inline-block;
+  margin-left:7px;
+  padding:2px 4px;
+  border:1px solid rgba(233,196,82,.36);
+  border-radius:4px;
+  color:#d6bc6d;
+  font-size:5px;
+  letter-spacing:.07em;
+  vertical-align:middle;
+}
+
+/* ---------- Saved profile deck distinction ---------- */
+.community-profile-deck.custom-deck-active{
+  border-color:rgba(239,200,94,.30)!important;
+  background:
+    radial-gradient(circle at 30% -10%,rgba(239,200,94,.07),transparent 35%),
+    rgba(3,29,49,.52)!important;
+}
+
+.community-profile-deck.custom-deck-active .community-profile-deck-title>span{
+  color:#d9be6e!important;
+}
+
+.community-profile-deck-card.evo-slot{
+  border-radius:5px;
+  box-shadow:0 0 0 1px rgba(156,76,217,.24),0 0 9px rgba(151,68,215,.10);
+}
+.community-profile-deck-card.hero-slot{
+  border-radius:5px;
+  box-shadow:0 0 0 1px rgba(229,178,57,.24),0 0 9px rgba(229,178,57,.09);
+}
+.community-profile-deck-card.hybrid-slot{
+  border-radius:5px;
+  box-shadow:0 0 0 1px rgba(206,150,68,.23),0 0 9px rgba(158,75,214,.08);
+}
+
+.community-profile-deck-card-placeholder{
+  width:100%;
+  height:100%;
+  min-height:62px;
+  display:grid;
+  place-items:center;
+  color:#7293a8;
+  font-size:13px;
+}
+
+@media(max-width:700px){
+  .community-profile-favorite-wrap .profile-favorite-card-name{
+    bottom:27px;
+    font-size:8px;
+  }
+  .community-profile-favorite-wrap .profile-favorite-card-plaque{
+    font-size:6.5px!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
