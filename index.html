@@ -22422,6 +22422,148 @@ body.asc-card-picker-open #myProfileModal{
 /* Do not remove the subtle EVO/HERO static outer glow added to the
    favorite frame; only the moving sweep is disabled above. */
 
+
+/* ==========================================================
+   PASS 5T — MY PROFILE EDIT FLOW
+   ========================================================== */
+
+/* Community Role now belongs with identity, not in a footer. */
+.edit-profile-role-row{
+  display:flex!important;
+  align-items:center!important;
+  gap:6px!important;
+  margin-top:5px!important;
+}
+.edit-profile-role-label{
+  color:#7fa9c0!important;
+  font-size:6.5px!important;
+  letter-spacing:.08em!important;
+  white-space:nowrap!important;
+}
+.edit-profile-role-pill{
+  display:inline-flex!important;
+  align-items:center!important;
+  min-height:20px!important;
+  padding:3px 8px!important;
+  border:1px solid rgba(235,195,77,.40)!important;
+  border-radius:999px!important;
+  background:rgba(88,62,9,.50)!important;
+  color:#ffe594!important;
+  font-size:8px!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+}
+
+/* Bio tab now starts immediately with the editable Profile Details form. */
+.edit-profile-bio-content{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:10px!important;
+}
+.edit-profile-bio-content>.community-profile-bio-section{
+  display:none!important;
+}
+
+/* Profile Details gets a clear editor header, not a preview treatment. */
+.my-profile-details-host{
+  margin:0!important;
+}
+.my-profile-details-host .my-profile-editor{
+  margin:0!important;
+  padding:12px!important;
+  border:1px solid rgba(79,144,182,.30)!important;
+  border-radius:9px!important;
+  background:
+    linear-gradient(180deg,rgba(8,57,87,.42),rgba(3,31,52,.48))!important;
+}
+.my-profile-editor-head{
+  display:flex!important;
+  align-items:flex-end!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+  margin-bottom:10px!important;
+}
+.my-profile-editor-kicker{
+  display:block!important;
+  color:#7ea8bf!important;
+  font-size:6.5px!important;
+  letter-spacing:.10em!important;
+}
+.my-profile-editor-head h3{
+  margin:2px 0 0!important;
+  color:#ffe291!important;
+  font-size:15px!important;
+  line-height:1!important;
+}
+.my-profile-editor-head small{
+  max-width:42%!important;
+  color:#80a4b7!important;
+  font-size:6.5px!important;
+  line-height:1.25!important;
+  text-align:right!important;
+}
+
+/* Favorite Card / Current Deck becomes the next logical section. */
+.edit-profile-card-showcase{
+  margin-top:0!important;
+  padding-top:9px!important;
+  border-top:1px solid rgba(84,144,179,.20)!important;
+}
+
+/* The old footer facts are intentionally removed from edit mode. */
+.edit-profile-bio-content .community-profile-facts{
+  display:none!important;
+}
+
+/* Tighten the transition from tabs -> editor. */
+.edit-profile-tab-stage{
+  padding-top:7px!important;
+}
+
+/* Keep Contribution directly above tabs with no extra dead band. */
+.edit-profile-contribution-top{
+  margin-bottom:6px!important;
+}
+
+/* Mobile / narrow app */
+@media(max-width:700px){
+  .edit-profile-role-row{
+    flex-wrap:wrap!important;
+    gap:4px!important;
+  }
+  .edit-profile-role-label{
+    font-size:6px!important;
+  }
+  .edit-profile-role-pill{
+    min-height:18px!important;
+    padding:3px 7px!important;
+    font-size:7px!important;
+  }
+
+  .edit-profile-bio-content{
+    gap:8px!important;
+  }
+
+  .my-profile-details-host .my-profile-editor{
+    padding:9px!important;
+  }
+
+  .my-profile-editor-head{
+    display:block!important;
+    margin-bottom:8px!important;
+  }
+  .my-profile-editor-head small{
+    display:block!important;
+    max-width:none!important;
+    margin-top:4px!important;
+    text-align:left!important;
+  }
+
+  .edit-profile-card-showcase{
+    padding-top:7px!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
