@@ -25689,6 +25689,42 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
   }
 }
 
+
+/* ==========================================================
+   PASS 5X.7 — PURE HORIZONTAL PAGE SLIDE
+   No opacity/fade component while dragging or snapping pages.
+   ========================================================== */
+
+.main-page-viewport > .main-page-slide,
+.main-page-viewport > .main-page-slide.main-page-current,
+.main-page-viewport > .main-page-slide.main-page-drag-target,
+.main-page-viewport > .main-page-slide.main-page-transitioning{
+  opacity:1!important;
+  filter:none!important;
+}
+
+/* During the swipe/snap, only transform is allowed to transition. */
+.main-page-viewport > .main-page-slide.main-page-transitioning{
+  transition-property:transform!important;
+  transition-duration:.27s!important;
+  transition-timing-function:cubic-bezier(.2,.82,.2,1)!important;
+}
+
+/* Prevent inherited "transition: all" rules from introducing a fade on
+   the page containers while the horizontal gesture is active. */
+.main-page-viewport.main-page-dragging > .main-page-slide,
+.main-page-viewport.main-page-animating > .main-page-slide{
+  opacity:1!important;
+  transition-property:transform!important;
+}
+
+/* Reduced motion still gets the shorter slide, but never an opacity fade. */
+@media(prefers-reduced-motion:reduce){
+  .main-page-viewport > .main-page-slide.main-page-transitioning{
+    transition-duration:.11s!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
