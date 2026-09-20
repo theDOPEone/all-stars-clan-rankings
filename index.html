@@ -20796,6 +20796,157 @@ body.asc-card-picker-open #favoriteCardPickerModal .favorite-deck-card-shimmer{
   }
 }
 
+
+.favorite-deck-builder-actions{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:6px!important;
+}
+
+.favorite-deck-builder-action-buttons{
+  display:flex!important;
+  align-items:center!important;
+  gap:5px!important;
+  min-width:0!important;
+  flex:0 0 auto!important;
+}
+
+.favorite-deck-builder-action-buttons button{
+  min-height:20px!important;
+  padding:3px 6px!important;
+  border-radius:4px!important;
+  font-size:6.5px!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+}
+
+.favorite-deck-save-top{
+  border:1px solid #d6a62d!important;
+  background:linear-gradient(180deg,#287aa9,#145a80)!important;
+  color:#fff1ad!important;
+  box-shadow:0 1px 0 rgba(255,255,255,.08) inset!important;
+}
+
+.favorite-deck-save-top:hover:not(:disabled){
+  filter:brightness(1.09);
+}
+
+.favorite-deck-save-top:disabled{
+  opacity:.45!important;
+  cursor:not-allowed!important;
+}
+
+/* Remove the old bottom Save Custom Deck button only in Deck Builder mode.
+   Favorite Card mode keeps Save Favorite Card at the bottom. */
+.favorite-card-picker-body.deck-mode .favorite-card-picker-footer .favorite-card-picker-save{
+  display:none!important;
+}
+
+.favorite-card-picker-body.deck-mode .favorite-card-picker-footer{
+  padding-top:4px!important;
+  padding-bottom:5px!important;
+}
+
+@media(max-width:700px){
+  .favorite-deck-builder-action-buttons{
+    gap:3px!important;
+  }
+  .favorite-deck-builder-action-buttons button{
+    padding:3px 4px!important;
+    font-size:5.8px!important;
+  }
+}
+
+
+/* ==========================================================
+   PASS 5L — FAVORITE CARD SAVE BUTTON
+   ========================================================== */
+
+.favorite-card-picker-selected{
+  grid-template-columns:78px minmax(0,1fr) auto!important;
+  gap:11px!important;
+  align-items:center!important;
+}
+
+.favorite-card-picker-selected-save{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  align-self:stretch!important;
+}
+
+.favorite-card-picker-save-top{
+  min-width:150px!important;
+  min-height:42px!important;
+  padding:8px 14px!important;
+  border:1px solid #d5aa35!important;
+  border-radius:6px!important;
+  background:linear-gradient(180deg,#2680b3,#165c86)!important;
+  color:#fff4bd!important;
+  font-size:11px!important;
+  line-height:1.05!important;
+  white-space:nowrap!important;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.10) inset,
+    0 3px 8px rgba(0,0,0,.20)!important;
+}
+
+.favorite-card-picker-save-top:hover:not(:disabled){
+  filter:brightness(1.08);
+}
+
+.favorite-card-picker-save-top:disabled{
+  opacity:.46!important;
+  cursor:not-allowed!important;
+}
+
+/* Bottom footer is now feedback/status only. */
+.favorite-card-picker-footer{
+  min-height:0!important;
+  padding-top:5px!important;
+  padding-bottom:6px!important;
+}
+
+.favorite-card-picker-status{
+  margin:0!important;
+}
+
+/* Narrow app/mobile: keep save on the right, just scale it down enough to fit. */
+@media(max-width:700px){
+  .favorite-card-picker-selected{
+    grid-template-columns:68px minmax(0,1fr) auto!important;
+    gap:8px!important;
+    padding:7px!important;
+  }
+
+  .favorite-card-picker-save-top{
+    min-width:118px!important;
+    min-height:38px!important;
+    padding:7px 9px!important;
+    font-size:9px!important;
+  }
+}
+
+@media(max-width:430px){
+  .favorite-card-picker-selected{
+    grid-template-columns:58px minmax(0,1fr) auto!important;
+    gap:6px!important;
+  }
+
+  .favorite-card-picker-preview{
+    width:56px!important;
+    height:66px!important;
+  }
+
+  .favorite-card-picker-save-top{
+    min-width:96px!important;
+    min-height:36px!important;
+    padding:6px 7px!important;
+    font-size:8px!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
