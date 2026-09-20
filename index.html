@@ -26294,6 +26294,222 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
   .shop-purchase-confirm-actions{grid-template-columns:1fr}
 }
 
+
+/* ==========================================================
+   PASS 5Z.5 — DP-SIZED FRAME ANCHORS
+   Frame geometry is based on the DP, not the surrounding card.
+   ========================================================== */
+
+/* The old calc(100% * number) form is not portable CSS.
+   Every frame now receives an actual percentage variable. */
+.profile-avatar-cosmetic-frame,
+.community-profile-avatar-frame,
+.edit-profile-avatar-frame,
+.profile-customize-avatar-frame,
+#memberSpotlight .member-spotlight-avatar-frame{
+  position:absolute!important;
+  z-index:7!important;
+  left:calc(50% + var(--asc-frame-x,0%))!important;
+  top:calc(50% + var(--asc-frame-y,0%))!important;
+  width:var(--asc-frame-size,162%)!important;
+  height:var(--asc-frame-size,162%)!important;
+  transform:translate(-50%,-50%)!important;
+  pointer-events:none!important;
+}
+
+/* PUBLIC PROFILE: stage and DP are the same size. */
+.community-profile-avatar-stage{
+  width:108px!important;
+  height:108px!important;
+  min-width:108px!important;
+  place-items:center!important;
+  overflow:visible!important;
+}
+.community-profile-avatar-stage>.avatar{
+  width:108px!important;
+  height:108px!important;
+  min-width:108px!important;
+}
+
+/* EDIT PROFILE: exact 108px anchor rather than 112px around a 108px DP. */
+.edit-profile-avatar-stack{
+  width:108px!important;
+  height:108px!important;
+  overflow:visible!important;
+}
+.edit-profile-avatar{
+  left:0!important;
+  top:0!important;
+  width:108px!important;
+  height:108px!important;
+}
+
+/* Reserve vertical room below the DP so larger frame artwork never sits on
+   top of the Clan Points button in Edit Profile. */
+.edit-profile-avatar-stack:has(.edit-profile-avatar-frame){
+  margin-bottom:46px!important;
+}
+.edit-profile-avatar-stack:has([data-profile-frame="ice-blue"]),
+.edit-profile-avatar-stack:has([data-profile-frame="pekka-purple"]){
+  margin-bottom:60px!important;
+}
+
+/* CUSTOMIZATION STUDIO: stage matches its 84px DP and the card reserves
+   enough horizontal room for the visible frame decoration. */
+.profile-customize-preview-avatar-stage{
+  width:84px!important;
+  height:84px!important;
+  min-width:84px!important;
+  justify-self:center!important;
+  overflow:visible!important;
+}
+.profile-customize-preview-avatar{
+  width:84px!important;
+  height:84px!important;
+}
+.profile-customize-preview-card:has(.profile-customize-avatar-frame){
+  grid-template-columns:190px minmax(0,1fr) auto!important;
+}
+.profile-customize-preview-card:has([data-profile-frame="elixir-purple"]),
+.profile-customize-preview-card:has([data-profile-frame="arrow-wood"]){
+  grid-template-columns:165px minmax(0,1fr) auto!important;
+}
+
+/* SPOTLIGHT: make the frame percentage reference the actual 78px DP.
+   Margins preserve the original 92px footprint in the row. */
+#memberSpotlight .member-spotlight-avatar-stage{
+  width:78px!important;
+  height:78px!important;
+  flex:0 0 78px!important;
+  margin:7px!important;
+  overflow:visible!important;
+}
+#memberSpotlight .member-spotlight-summary-avatar{
+  width:78px!important;
+  height:78px!important;
+}
+#memberSpotlight .member-spotlight-avatar-view{
+  bottom:2px!important;
+}
+
+/* SHOP PREVIEW: an explicit anchor equals the DP diameter. The frame uses
+   the exact same percentage and center offset as every other profile view. */
+#shopPreviewOverlay .shop-user-frame-stage{
+  width:390px!important;
+  height:330px!important;
+  max-width:92vw!important;
+  display:grid!important;
+  place-items:center!important;
+}
+#shopPreviewOverlay .shop-user-frame-anchor{
+  position:relative!important;
+  width:178px!important;
+  height:178px!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:visible!important;
+}
+#shopPreviewOverlay .shop-user-frame-face{
+  position:relative!important;
+  z-index:3!important;
+  width:178px!important;
+  height:178px!important;
+}
+#shopPreviewOverlay .shop-user-frame-image{
+  position:absolute!important;
+  z-index:7!important;
+  left:calc(50% + var(--asc-frame-x,0%))!important;
+  top:calc(50% + var(--asc-frame-y,0%))!important;
+  inset:auto!important;
+  width:var(--asc-frame-size,162%)!important;
+  height:var(--asc-frame-size,162%)!important;
+  object-fit:contain!important;
+  transform:translate(-50%,-50%)!important;
+}
+#shopPreviewOverlay .shop-user-frame-stage:hover .shop-user-frame-image.off{
+  opacity:.12!important;
+  transform:translate(-50%,-50%) scale(1.005)!important;
+}
+#shopPreviewOverlay .shop-user-frame-stage:hover .shop-user-frame-image.on{
+  opacity:1!important;
+  transform:translate(-50%,-50%) scale(1.025)!important;
+}
+
+/* The frame should never alter the dimensions of the DP image itself. */
+.community-profile-avatar-stage .avatar img,
+.edit-profile-avatar img,
+.profile-customize-preview-avatar img,
+#memberSpotlight .member-spotlight-summary-avatar img,
+#shopPreviewOverlay .shop-user-frame-face img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  border-radius:50%!important;
+}
+
+/* Public identity gets a little extra room when an image frame is equipped,
+   preventing the frame edge from colliding with the player-name column. */
+.community-profile-preview-identity .community-profile-id:has(.community-profile-avatar-frame){
+  grid-template-columns:165px minmax(0,1fr)!important;
+}
+.community-profile-preview-identity .community-profile-avatar-stage:has(.community-profile-avatar-frame){
+  justify-self:center!important;
+}
+
+/* Mobile DP dimensions remain synchronized with their frame anchor. */
+@media(max-width:700px){
+  .community-profile-avatar-stage{
+    width:76px!important;
+    height:76px!important;
+    min-width:76px!important;
+  }
+  .community-profile-avatar-stage>.avatar{
+    width:76px!important;
+    height:76px!important;
+    min-width:76px!important;
+  }
+  .community-profile-preview-identity .community-profile-id:has(.community-profile-avatar-frame){
+    grid-template-columns:120px minmax(0,1fr)!important;
+  }
+
+  #memberSpotlight .member-spotlight-avatar-stage{
+    width:62px!important;
+    height:62px!important;
+    flex-basis:62px!important;
+    margin:5px!important;
+  }
+  #memberSpotlight .member-spotlight-summary-avatar{
+    width:62px!important;
+    height:62px!important;
+  }
+
+  #shopPreviewOverlay .shop-user-frame-anchor,
+  #shopPreviewOverlay .shop-user-frame-face{
+    width:148px!important;
+    height:148px!important;
+  }
+
+  .profile-customize-preview-card:has(.profile-customize-avatar-frame){
+    grid-template-columns:145px minmax(0,1fr) auto!important;
+  }
+}
+
+@media(max-width:390px){
+  .community-profile-avatar-stage{
+    width:66px!important;
+    height:66px!important;
+    min-width:66px!important;
+  }
+  .community-profile-avatar-stage>.avatar{
+    width:66px!important;
+    height:66px!important;
+    min-width:66px!important;
+  }
+  .community-profile-preview-identity .community-profile-id:has(.community-profile-avatar-frame){
+    grid-template-columns:106px minmax(0,1fr)!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
