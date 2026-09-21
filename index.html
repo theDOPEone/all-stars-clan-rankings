@@ -26481,6 +26481,93 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
   }
 }
 
+
+/* ==========================================================
+   PASS 5Z.7 — PUBLIC PROFILE FRAME HOVER + HEADER BREATHING ROOM
+   Keep the DP clickable while the parent stage owns frame hover state.
+   ========================================================== */
+
+/* Hovering the DP itself still counts as hovering its frame stage. */
+.player-profile-avatar-stage:hover>.profile-avatar-cosmetic-frame .profile-avatar-frame-off{
+  opacity:.12!important;
+}
+.player-profile-avatar-stage:hover>.profile-avatar-cosmetic-frame .profile-avatar-frame-on{
+  opacity:1!important;
+  transform:scale(1.025)!important;
+  filter:drop-shadow(0 0 11px rgba(255,230,139,.24))!important;
+}
+.player-profile-avatar-stage>.profile-avatar-cosmetic-frame{
+  pointer-events:none!important;
+}
+
+/* Give the main public-profile frame a real envelope around the 108px DP.
+   The DP size stays unchanged; only its layout cell gets more breathing room. */
+.player-profile-name-section{
+  grid-template-columns:156px minmax(0,1fr) auto!important;
+  gap:14px 18px!important;
+  align-items:center!important;
+  padding:20px 22px!important;
+  overflow:visible!important;
+}
+.player-profile-avatar-stage{
+  width:150px!important;
+  height:150px!important;
+  justify-self:center!important;
+  align-self:center!important;
+  display:grid!important;
+  place-items:center!important;
+  overflow:visible!important;
+}
+.player-profile-avatar-stage>.player-profile-avatar{
+  margin:0!important;
+  align-self:center!important;
+  justify-self:center!important;
+}
+#myPublicProfileView>.player-profile-name-section{
+  grid-template-columns:156px minmax(0,1fr)!important;
+}
+
+/* Keep the secondary community-profile identity header comfortable too. */
+.community-profile-preview-identity{
+  padding-top:20px!important;
+  padding-bottom:20px!important;
+  overflow:visible!important;
+}
+
+@media(max-width:700px){
+  .player-profile-name-section{
+    grid-template-columns:120px minmax(0,1fr) 88px!important;
+    gap:8px 9px!important;
+    padding:12px 11px!important;
+  }
+  .player-profile-avatar-stage{
+    width:116px!important;
+    height:116px!important;
+  }
+  #myPublicProfileView>.player-profile-name-section{
+    grid-template-columns:120px minmax(0,1fr)!important;
+  }
+  .community-profile-preview-identity{
+    padding-top:15px!important;
+    padding-bottom:15px!important;
+  }
+}
+
+@media(max-width:390px){
+  .player-profile-name-section{
+    grid-template-columns:108px minmax(0,1fr) 78px!important;
+    gap:7px!important;
+    padding:10px!important;
+  }
+  .player-profile-avatar-stage{
+    width:104px!important;
+    height:104px!important;
+  }
+  #myPublicProfileView>.player-profile-name-section{
+    grid-template-columns:108px minmax(0,1fr)!important;
+  }
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
