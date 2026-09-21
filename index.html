@@ -26622,6 +26622,96 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
   .asc-chat-photo-viewer{padding:10px}.asc-chat-photo-viewer-card{padding:7px}.asc-chat-photo-viewer img{max-width:94vw;max-height:82vh}.asc-chat-events .btn,.asc-chat-events button{font-size:8.5px}
 }
 
+
+/* ==========================================================
+   LIVE PROFILE EFFECTS — DP + CHAT SURFACES
+   Pure CSS animation: no extra image/video bandwidth.
+   ========================================================== */
+.profile-avatar-effect-overlay{
+  position:absolute;inset:0;z-index:8;pointer-events:none;overflow:visible;
+  display:block;isolation:isolate;border-radius:50%;
+}
+.profile-avatar-effect-ring{
+  position:absolute;left:50%;top:50%;width:82%;height:82%;border-radius:50%;
+  transform:translate(-50%,-50%) scale(.86);opacity:0;
+}
+.profile-avatar-effect-spark,.profile-avatar-effect-bolt{display:none;position:absolute;pointer-events:none}
+
+/* Soft Glow */
+.profile-avatar-effect-overlay.pc-effect-soft-glow .profile-avatar-effect-ring.ring-a{
+  opacity:.32;border:2px solid rgba(117,210,255,.48);box-shadow:0 0 12px rgba(88,198,250,.35),inset 0 0 10px rgba(88,198,250,.14);
+  animation:ascDpSoftGlowPulse 2.7s ease-in-out infinite!important;
+}
+@keyframes ascDpSoftGlowPulse{
+  0%,100%{opacity:.22;transform:translate(-50%,-50%) scale(.88);filter:blur(.1px)}
+  50%{opacity:.85;transform:translate(-50%,-50%) scale(1.03);filter:blur(.35px)}
+}
+
+/* Evo Electricity */
+.profile-avatar-effect-overlay.pc-effect-evo-electric .profile-avatar-effect-ring{
+  opacity:.55;border:2px solid rgba(206,111,255,.64);box-shadow:0 0 12px rgba(185,70,244,.45);
+  animation:ascDpEvoRing 1.7s ease-out infinite!important;
+}
+.profile-avatar-effect-overlay.pc-effect-evo-electric .ring-b{animation-delay:.82s!important}
+.profile-avatar-effect-overlay.pc-effect-evo-electric .profile-avatar-effect-bolt{
+  display:block;left:8%;right:8%;top:49%;height:3px;z-index:4;opacity:.42;
+  background:linear-gradient(90deg,transparent,#ba4cff 10%,#fff 29%,#bd4fff 45%,transparent 58%,#ebadff 80%,transparent);
+  clip-path:polygon(0 50%,8% 8%,17% 75%,28% 18%,40% 88%,51% 11%,63% 79%,76% 17%,88% 88%,100% 48%,89% 38%,77% 96%,64% 31%,52% 89%,41% 29%,29% 98%,17% 34%,8% 82%);
+  filter:drop-shadow(0 0 4px #c259ff);animation:ascDpEvoBolt 1.12s linear infinite!important;
+}
+@keyframes ascDpEvoRing{0%{opacity:.05;transform:translate(-50%,-50%) scale(.75)}35%{opacity:.75}100%{opacity:0;transform:translate(-50%,-50%) scale(1.22)}}
+@keyframes ascDpEvoBolt{0%,100%{opacity:.14;transform:rotate(-8deg) scaleX(.94)}40%{opacity:.72;transform:rotate(4deg) scaleX(1.03)}58%{opacity:.24;transform:rotate(-3deg)}}
+
+/* Hero Sparks */
+.profile-avatar-effect-overlay.pc-effect-gold-sparks .profile-avatar-effect-ring.ring-a{
+  opacity:.40;border:2px solid rgba(255,215,89,.72);box-shadow:0 0 10px rgba(255,190,43,.40),inset 0 0 8px rgba(255,226,115,.18);
+  animation:ascDpHeroRing 2.35s ease-in-out infinite!important;
+}
+.profile-avatar-effect-overlay.pc-effect-gold-sparks .profile-avatar-effect-ring.ring-b{
+  opacity:.16;border:1px solid rgba(255,238,159,.55);width:96%;height:96%;
+  animation:ascDpHeroRingOuter 2.9s ease-out .4s infinite!important;
+}
+.profile-avatar-effect-overlay.pc-effect-gold-sparks .profile-avatar-effect-spark{
+  display:block;z-index:6;color:#fff2a1;font-weight:900;line-height:1;text-shadow:0 0 4px #ffcf42,0 0 9px rgba(255,182,38,.72);opacity:0;
+  animation:ascDpHeroSpark 1.85s ease-out infinite!important;
+}
+.profile-avatar-effect-overlay.pc-effect-gold-sparks .spark-a{left:11%;top:67%;font-size:10px;animation-delay:0s!important}
+.profile-avatar-effect-overlay.pc-effect-gold-sparks .spark-b{right:9%;top:61%;font-size:8px;animation-delay:.48s!important}
+.profile-avatar-effect-overlay.pc-effect-gold-sparks .spark-c{left:28%;top:84%;font-size:7px;animation-delay:.92s!important}
+.profile-avatar-effect-overlay.pc-effect-gold-sparks .spark-d{right:27%;top:78%;font-size:9px;animation-delay:1.28s!important}
+@keyframes ascDpHeroRing{0%,100%{opacity:.25;transform:translate(-50%,-50%) scale(.92)}50%{opacity:.82;transform:translate(-50%,-50%) scale(1.03)}}
+@keyframes ascDpHeroRingOuter{0%{opacity:0;transform:translate(-50%,-50%) scale(.76)}24%{opacity:.34}100%{opacity:0;transform:translate(-50%,-50%) scale(1.18)}}
+@keyframes ascDpHeroSpark{0%{opacity:0;transform:translate(0,8px) scale(.45) rotate(0)}18%{opacity:1}72%{opacity:.72}100%{opacity:0;transform:translate(4px,-42px) scale(1.15) rotate(80deg)}}
+
+/* Hero Sparks also dresses the name/header portions of equipped profiles. */
+.player-profile-name-section.pc-effect-gold-sparks .player-profile-name-copy,
+.community-profile-panel.pc-effect-gold-sparks .community-profile-preview-identity,
+.edit-profile-preview-card.pc-effect-gold-sparks .edit-profile-identity{
+  animation:ascHeroProfileHeaderGlow 3.1s ease-in-out infinite!important;
+}
+@keyframes ascHeroProfileHeaderGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(255,203,61,0))}48%{filter:drop-shadow(0 0 6px rgba(255,203,61,.26))}}
+
+/* Chat carries the equipped effect too. */
+.asc-chat-message-head{position:relative;overflow:hidden}
+.asc-chat-message.pc-effect-soft-glow .asc-chat-avatar-face{animation:ascChatSoftGlow 2.7s ease-in-out infinite!important}
+.asc-chat-message.pc-effect-evo-electric .asc-chat-message-head{animation:ascChatEvoHeader 2.4s ease-in-out infinite!important}
+.asc-chat-message.pc-effect-gold-sparks .asc-chat-message-head{animation:ascChatHeroHeader 2.8s ease-in-out infinite!important}
+.asc-chat-message.pc-effect-gold-sparks .asc-chat-message-head:after{
+  content:"";position:absolute;top:-30%;bottom:-30%;left:-28%;width:18%;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(255,229,128,.36),transparent);transform:skewX(-20deg);
+  animation:ascChatHeroSweep 4.6s ease-in-out infinite!important;
+}
+@keyframes ascChatSoftGlow{0%,100%{box-shadow:0 3px 8px rgba(0,0,0,.32),0 0 5px rgba(91,201,251,.12)}50%{box-shadow:0 3px 8px rgba(0,0,0,.32),0 0 15px rgba(91,201,251,.56)}}
+@keyframes ascChatEvoHeader{0%,100%{box-shadow:inset 0 0 0 rgba(190,83,243,0)}50%{box-shadow:inset 0 0 12px rgba(190,83,243,.20),0 0 7px rgba(190,83,243,.13)}}
+@keyframes ascChatHeroHeader{0%,100%{box-shadow:inset 0 0 0 rgba(255,203,61,0)}50%{box-shadow:inset 0 0 12px rgba(255,203,61,.13),0 0 7px rgba(255,203,61,.12)}}
+@keyframes ascChatHeroSweep{0%,62%{left:-28%;opacity:0}68%{opacity:.7}86%{left:112%;opacity:.34}90%,100%{left:112%;opacity:0}}
+
+@media(prefers-reduced-motion:reduce){
+  /* Profile cosmetics are explicit visual effects, but keep them calmer for reduced motion. */
+  .profile-avatar-effect-overlay *{animation-duration:5s!important}
+  .asc-chat-message.pc-effect-gold-sparks .asc-chat-message-head:after{animation-duration:8s!important}
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header button{margin-left:auto}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 
 .public-site-nav .btn,.public-site-header .btn{color:#e7f3fc!important;background:linear-gradient(#176294,#0a395a)!important;border:1px solid #477e9e!important;border-radius:6px!important;padding:8px 12px!important}.public-site-nav .btn.active{color:#fff0af!important;background:linear-gradient(#bd9023,#75500c)!important;border-color:#e7c052!important}
