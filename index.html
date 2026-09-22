@@ -26752,8 +26752,8 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
     display:grid!important;
     /* The Vault card lives in one half of the PC Settings grid. Keep all four
        fields inside that real width instead of forcing ~900px of minimum columns. */
-    grid-template-columns:minmax(0,1.55fr) 112px minmax(0,.95fr) 112px!important;
-    gap:8px!important;
+    grid-template-columns:minmax(0,1.55fr) 132px minmax(105px,.85fr) 145px!important;
+    gap:10px!important;
     align-items:center!important;
     width:100%!important;
     max-width:100%!important;
@@ -26793,9 +26793,10 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
   #settingsPage .owner-vault-state{display:contents!important;}
   #settingsPage .owner-vault-pill{
     justify-self:start!important;
+    max-width:100%!important;
     white-space:nowrap!important;
     font-size:9px!important;
-    padding:4px 7px!important;
+    padding:4px 8px!important;
   }
   #settingsPage .owner-vault-state small{
     min-width:0!important;
@@ -26809,19 +26810,20 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
     display:flex!important;
     align-items:baseline!important;
     justify-content:flex-end!important;
-    gap:5px!important;
+    gap:6px!important;
     min-width:0!important;
+    padding-left:6px!important;
     text-align:right!important;
     white-space:nowrap!important;
-    overflow:hidden!important;
+    overflow:visible!important;
   }
   #settingsPage .owner-vault-amount strong{display:inline!important;font-size:13px!important;}
   #settingsPage .owner-vault-amount small{display:inline!important;margin:0!important;font-size:9px!important;}
   @media (min-width:900px) and (max-width:1250px){
-    #settingsPage .owner-vault-row{grid-template-columns:minmax(0,1.45fr) 105px minmax(0,.82fr) 96px!important;gap:6px!important;}
+    #settingsPage .owner-vault-row{grid-template-columns:minmax(0,1.35fr) 120px minmax(90px,.72fr) 132px!important;gap:7px!important;}
     #settingsPage .owner-vault-pill{font-size:8.5px!important;padding:4px 6px!important;}
     #settingsPage .owner-vault-state small{font-size:9px!important;}
-    #settingsPage .owner-vault-amount{gap:3px!important;}
+    #settingsPage .owner-vault-amount{gap:4px!important;padding-left:4px!important;}
     #settingsPage .owner-vault-amount strong{font-size:12.5px!important;}
     #settingsPage .owner-vault-amount small{font-size:8.5px!important;}
   }
