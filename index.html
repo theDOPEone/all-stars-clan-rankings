@@ -26741,6 +26741,73 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
 @media(max-width:520px){.owner-vault-metrics{grid-template-columns:1fr 1fr}.owner-vault-metric strong{font-size:15px}.owner-vault-activity-row{grid-template-columns:60px minmax(0,1fr);}.owner-vault-activity-row .amount{grid-column:2;text-align:left}}
 
 \n/* ===== OWNER SETTINGS — PC READABILITY PASS =====\n   Settings is currently a desktop-only workspace. Keep the compact layout,\n   but stop using 6–8px helper text that becomes difficult to read on PC. */\n@media (min-width:900px){\n  #settingsPage{font-size:11px!important;}\n\n  /* Section headers and descriptions */\n  #settingsPage .owner-settings-section-head h3{font-size:16px!important;}\n  #settingsPage .owner-settings-section-head>.owner-settings-section-subtitle,\n  #settingsPage #discordProtectionSection>.discord-head .right{font-size:10px!important;line-height:1.35!important;}\n  #settingsPage .owner-settings-collapse-label,\n  #settingsPage .owner-settings-accordion.settings-collapsed .owner-settings-collapse-label::before{font-size:9px!important;}\n  #settingsPage .owner-settings-accordion.settings-collapsed .owner-settings-collapse-label{font-size:0!important;}\n\n  /* Card titles + supporting copy */\n  #settingsPage .owner-dev-card-head h3{font-size:13px!important;}\n  #settingsPage .owner-dev-card-head>span{font-size:10px!important;line-height:1.35!important;}\n  #settingsPage .owner-dev-card-head .btn{font-size:10px!important;padding:6px 9px!important;}\n  #settingsPage .owner-dev-card-body{font-size:11px!important;}\n\n  /* Forms, buttons and small status text */\n  #settingsPage label,\n  #settingsPage .rule label{font-size:10px!important;line-height:1.3!important;}\n  #settingsPage input,\n  #settingsPage select,\n  #settingsPage textarea{font-size:11px!important;}\n  #settingsPage .btn{font-size:10.5px!important;}\n  #settingsPage .security-state,\n  #settingsPage .msg,\n  #settingsPage .muted,\n  #settingsPage .threshold-note,\n  #settingsPage .owner-settings-save-note{font-size:10px!important;line-height:1.4!important;}\n\n  /* Top save strip + activity console */\n  #settingsPage .owner-settings-save-center-compact .owner-settings-save-copy span{font-size:9px!important;}\n  #settingsPage .owner-settings-save-center-compact .owner-settings-save-copy b{font-size:11px!important;}\n  #settingsPage .owner-settings-save-center-compact .owner-save-all{font-size:10px!important;}\n  #settingsPage .owner-settings-log-head b{font-size:10px!important;}\n  #settingsPage .owner-settings-log-head span{font-size:9px!important;}\n  #settingsPage .owner-settings-log-row{font-size:9px!important;line-height:1.4!important;min-height:21px!important;}\n  #settingsPage .owner-settings-log-empty{font-size:9.5px!important;}\n\n  /* ALL STARS Vault — match the rest of Settings instead of micro text */\n  #settingsPage .owner-vault-metric span{font-size:10px!important;line-height:1.25!important;}\n  #settingsPage .owner-vault-metric strong{font-size:20px!important;}\n  #settingsPage .owner-vault-explain{font-size:11px!important;line-height:1.55!important;}\n  #settingsPage .owner-vault-section-head{padding:10px 12px!important;}\n  #settingsPage .owner-vault-section-head b{font-size:12px!important;}\n  #settingsPage .owner-vault-section-head span{font-size:10px!important;}\n  #settingsPage .owner-vault-row{padding:10px 11px!important;}\n  #settingsPage .owner-vault-person b{font-size:11px!important;}\n  #settingsPage .owner-vault-person small{font-size:9.5px!important;line-height:1.35!important;}\n  #settingsPage .owner-vault-pill{font-size:9px!important;padding:4px 7px!important;}\n  #settingsPage .owner-vault-state small{font-size:9.5px!important;line-height:1.4!important;}\n  #settingsPage .owner-vault-amount strong{font-size:13px!important;}\n  #settingsPage .owner-vault-amount small{font-size:9px!important;}\n  #settingsPage .owner-vault-activity-row{font-size:10px!important;line-height:1.4!important;padding:8px 10px!important;}\n  #settingsPage .owner-vault-empty{font-size:10.5px!important;}\n\n  /* Common settings sub-panels that still inherited older 7–8px typography */\n  #settingsPage .owner-admin-stats span,\n  #settingsPage .owner-security-maint,\n  #settingsPage .discord-note,\n  #settingsPage .discord-kicker,\n  #settingsPage .discord-metric .dm-label,\n  #settingsPage .discord-picker label,\n  #settingsPage .discord-linked-member,\n  #settingsPage .member-auth-note,\n  #settingsPage .co-sub,\n  #settingsPage .co-reason,\n  #settingsPage .week-chip{font-size:10px!important;line-height:1.4!important;}\n  #settingsPage .discord-metric .dm-value{font-size:20px!important;}\n  #settingsPage .discord-linked-player,\n  #settingsPage .co-name{font-size:11px!important;}\n\n  /* Save buttons should be readable at normal desktop viewing distance. */\n  #settingsPage .owner-settings-section-save .btn{font-size:10.5px!important;min-height:36px!important;}\n}\n
+
+/* ===== ALL STARS VAULT — COMPACT ONE-LINE MEMBER ROWS (PC) ===== */
+@media (min-width:900px){
+  #settingsPage .owner-vault-list{gap:4px!important;padding:7px!important;}
+  #settingsPage .owner-vault-row{
+    display:grid!important;
+    grid-template-columns:minmax(300px,1.45fr) minmax(150px,.68fr) minmax(260px,1.15fr) minmax(145px,.58fr)!important;
+    gap:10px!important;
+    align-items:center!important;
+    min-height:42px!important;
+    padding:6px 10px!important;
+  }
+  #settingsPage .owner-vault-person{
+    display:flex!important;
+    align-items:baseline!important;
+    gap:7px!important;
+    min-width:0!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+  }
+  #settingsPage .owner-vault-person b{
+    display:inline!important;
+    flex:0 1 auto!important;
+    min-width:0!important;
+    font-size:11px!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  #settingsPage .owner-vault-person small{
+    display:inline!important;
+    flex:1 1 auto!important;
+    min-width:0!important;
+    margin:0!important;
+    font-size:9.5px!important;
+    line-height:1.2!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  #settingsPage .owner-vault-state{display:contents!important;}
+  #settingsPage .owner-vault-pill{
+    justify-self:start!important;
+    white-space:nowrap!important;
+    font-size:9px!important;
+    padding:4px 7px!important;
+  }
+  #settingsPage .owner-vault-state small{
+    min-width:0!important;
+    font-size:9.5px!important;
+    line-height:1.2!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  #settingsPage .owner-vault-amount{
+    display:flex!important;
+    align-items:baseline!important;
+    justify-content:flex-end!important;
+    gap:6px!important;
+    text-align:right!important;
+    white-space:nowrap!important;
+  }
+  #settingsPage .owner-vault-amount strong{display:inline!important;font-size:13px!important;}
+  #settingsPage .owner-vault-amount small{display:inline!important;margin:0!important;font-size:9px!important;}
+}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header>.public-signin-top{margin-left:0}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 #playerModal .modalcard{background:linear-gradient(180deg,#0f4066 0%,#082b4a 100%)!important;border:1px solid rgba(239,200,94,.58)!important;box-shadow:0 24px 70px rgba(0,0,0,.62),inset 0 1px rgba(255,255,255,.04)!important}#playerModal .modalbody{background:radial-gradient(circle at 50% -18%,rgba(53,158,224,.16),transparent 42%),linear-gradient(180deg,#0b3558 0%,#071f37 100%)!important}#playerModal .public-player-card{padding:18px!important;border:1px solid rgba(239,200,94,.28);border-radius:9px;background:linear-gradient(180deg,rgba(16,73,116,.96),rgba(7,39,67,.98));box-shadow:inset 0 1px rgba(255,255,255,.035)}.public-signin-modal{position:fixed;inset:0;z-index:30000;display:grid;place-items:center;padding:18px;background:rgba(2,13,25,.82);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}.public-signin-modal.hidden{display:none!important}.public-signin-card{width:min(520px,calc(100vw - 28px));overflow:hidden;border-radius:13px;border:1px solid rgba(239,200,94,.72);background:linear-gradient(180deg,#10517e 0%,#082e50 52%,#061f38 100%);box-shadow:0 28px 90px rgba(0,0,0,.68),0 0 35px rgba(37,145,216,.14),inset 0 1px rgba(255,255,255,.05);color:#eaf6ff}.public-signin-head{display:flex;align-items:center;gap:11px;padding:13px 14px;border-bottom:1px solid rgba(239,200,94,.30);background:linear-gradient(180deg,#17699e,#0e4774)}.public-signin-head img{width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 3px 5px rgba(0,0,0,.35))}.public-signin-brand{min-width:0;flex:1}.public-signin-brand span{display:block;color:#9bc9e4;font-size:8px;font-weight:900;letter-spacing:.12em}.public-signin-brand b{display:block;margin-top:2px;color:#ffe18a;font-size:17px;line-height:1.1}.public-signin-close{width:36px;height:36px;border:1px solid #477e9e;border-radius:7px;background:#0a3558;color:#eaf6ff;font-size:18px;font-weight:900;cursor:pointer}.public-signin-body{padding:20px 20px 18px;text-align:center}.public-signin-badge{display:inline-flex;padding:5px 9px;border:1px solid rgba(239,200,94,.45);border-radius:999px;background:rgba(111,75,8,.34);color:#ffe18a;font-size:8px;font-weight:900;letter-spacing:.10em}.public-signin-body h2{margin:11px 0 8px;color:#ffe18a;font-size:23px;line-height:1.1;text-shadow:0 2px 5px rgba(0,0,0,.4)}.public-signin-body p{margin:7px auto;max-width:420px;color:#b9d8e9;font-size:12px;line-height:1.55}.public-signin-body p strong{color:#fff0b0}.public-signin-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:17px}.public-signin-actions .btn{min-height:43px;font-size:12px!important;font-weight:900!important}.public-signin-actions .primary{color:#3c2800!important;background:linear-gradient(180deg,#ffe985,#d6a72f)!important;border-color:#fff0a7!important}@media(max-width:560px){.public-signin-body{padding:18px 14px 15px}.public-signin-body h2{font-size:20px}.public-signin-body p{font-size:11px}.public-signin-actions{grid-template-columns:1fr}.public-signin-head{padding:11px 12px}}
 
