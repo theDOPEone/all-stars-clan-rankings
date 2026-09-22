@@ -26969,7 +26969,7 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
 .member-dashboard-mission>summary:hover{background:#0c3657}.member-dashboard-mission .mission-title{min-width:0}.member-dashboard-mission .mission-title span{display:block;color:#69bee9;font-size:7px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}.member-dashboard-mission .mission-title b{display:block;color:#fff0ae;font-size:10px;line-height:1.25;margin-top:2px}.member-dashboard-mission .mission-summary-status{color:#ffe17a;font-size:8px;font-weight:950;white-space:nowrap}
 .member-dashboard-mission-body{padding:0 10px 10px;border-top:1px solid rgba(94,151,186,.18)}.member-dashboard-mission-desc{padding-top:8px;color:#c8dfea;font-size:8px;line-height:1.45}.member-dashboard-progress{height:7px;margin:8px 0 5px;border:1px solid #315a76;border-radius:99px;overflow:hidden;background:#061b2e}.member-dashboard-progress>span{display:block;height:100%;background:linear-gradient(90deg,#c58a17,#ffe47f)}.member-dashboard-progress-copy{color:#9fc0d4;font-size:7.5px;margin-bottom:7px}
 .member-dashboard-tier{display:grid;grid-template-columns:25px minmax(0,1fr) auto;gap:6px;align-items:center;padding:6px;border-top:1px solid rgba(86,139,171,.15)}.member-dashboard-tier:first-of-type{border-top:0}.member-dashboard-tier .tier-icon{font-size:15px;text-align:center}.member-dashboard-tier b{display:block;color:#eaf6ff;font-size:8px}.member-dashboard-tier span{display:block;color:#7fa4bb;font-size:7px;margin-top:1px}.member-dashboard-tier .reward{color:#ffe079;font-size:7.5px;font-weight:900;white-space:nowrap}.member-dashboard-tier.earned .reward{color:#78e5ad}
-.member-dashboard-accolade{display:grid;grid-template-columns:42px minmax(0,1fr);gap:8px;align-items:center;padding:9px;border:1px solid rgba(239,200,94,.34);border-radius:8px;background:linear-gradient(180deg,#113d5e,#08273f)}.member-dashboard-accolade .badge{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(239,200,94,.48);background:radial-gradient(circle at 35% 25%,#2d6e97,#08253e);font-size:22px}.member-dashboard-accolade b{display:block;color:#ffe397;font-size:9.5px}.member-dashboard-accolade span{display:block;color:#87a9bf;font-size:7px;margin-top:2px}
+.member-dashboard-accolade{width:100%;display:grid;grid-template-columns:42px minmax(0,1fr);gap:8px;align-items:center;padding:9px;border:1px solid rgba(239,200,94,.34);border-radius:8px;background:linear-gradient(180deg,#113d5e,#08273f);color:inherit;text-align:left;cursor:pointer;box-shadow:inset 0 1px rgba(255,255,255,.035)}.member-dashboard-accolade:hover{border-color:#efc85e;background:linear-gradient(180deg,#174968,#0b3049);transform:translateY(-1px)}.member-dashboard-accolade .badge{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(239,200,94,.48);background:radial-gradient(circle at 35% 25%,#2d6e97,#08253e);font-size:22px}.member-dashboard-accolade b{display:block;color:#ffe397;font-size:9.5px}.member-dashboard-accolade span{display:block;color:#87a9bf;font-size:7px;margin-top:2px}.member-dashboard-accolade em{display:block;margin-top:3px;color:#6dc7f0;font-size:7px;font-style:normal;font-weight:900;text-transform:uppercase;letter-spacing:.04em}
 @media(max-width:1390px){.member-dashboard-side{position:fixed;top:96px;bottom:18px;width:min(330px,calc(100vw - 24px));max-height:none;z-index:900}.member-dashboard-side.left{left:12px;right:auto;transform:translateX(-12px)}.member-dashboard-side.right{left:auto;right:12px;transform:translateX(12px)}.member-dashboard-side.open{transform:none}.member-dashboard-side-body{max-height:calc(100vh - 160px)}}
 @media(max-width:760px){.member-mission-launcher-stack{gap:4px}.member-mission-launcher{padding:9px 10px}.member-mission-launcher .copy b{font-size:10px}.member-mission-launcher .copy span{font-size:7px}.member-dashboard-side.left,.member-dashboard-side.right{top:76px;left:8px;right:8px;bottom:8px;width:auto;border-radius:9px;transform:translateY(10px)}.member-dashboard-side.open{transform:none}}
 
@@ -27042,10 +27042,41 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
 .main-page-viewport.member-side-panels-compact .member-dashboard-side-body{max-height:calc(100vh - 160px)!important}
 
 @media(max-width:760px){
+  /* Mobile rails are compact portrait popups, not full-screen sheets. */
   .main-page-viewport.member-side-panels-compact .member-dashboard-side.left,
-  .main-page-viewport.member-side-panels-compact .member-dashboard-side.right{top:76px!important;left:8px!important;right:8px!important;bottom:8px!important;width:auto!important;transform:translateY(10px)}
-  .main-page-viewport.member-side-panels-compact .member-dashboard-side.open{transform:none!important}
+  .main-page-viewport.member-side-panels-compact .member-dashboard-side.right{
+    position:fixed!important;top:50%!important;left:50%!important;right:auto!important;bottom:auto!important;
+    width:min(88vw,360px)!important;max-height:min(72vh,560px)!important;
+    border-radius:14px!important;z-index:1200!important;
+    transform:translate(-50%,calc(-50% + 12px)) scale(.975)!important;
+    box-shadow:0 0 0 100vmax rgba(1,10,22,.56),0 24px 70px rgba(0,0,0,.62),inset 0 1px rgba(255,255,255,.05)!important;
+  }
+  .main-page-viewport.member-side-panels-compact .member-dashboard-side.open{transform:translate(-50%,-50%) scale(1)!important}
+  .main-page-viewport.member-side-panels-compact .member-dashboard-side-body{max-height:calc(min(72vh,560px) - 62px)!important;overflow:auto!important}
+  #memberPage .member-dashboard-side-head{min-height:60px;padding:10px 11px}
+  #memberPage .member-dashboard-side-head b{font-size:14px}
+  #memberPage .member-dashboard-side-head>div>span{font-size:8px}
+  #memberPage .member-dashboard-mission .mission-title b{font-size:11px}
+  #memberPage .member-dashboard-mission .mission-title span{font-size:7.5px}
+  #memberPage .member-dashboard-mission-desc{font-size:9px}
+  #memberPage .member-dashboard-tier b{font-size:9px}
+  #memberPage .member-dashboard-tier span{font-size:7.5px}
+  #memberPage .member-dashboard-accolade b{font-size:11px}
+  #memberPage .member-dashboard-accolade span{font-size:8px}
 }
+
+
+/* ===== MISSION ACCOLADE DETAIL POPUP ===== */
+.member-accolade-detail-modal{position:fixed;inset:0;z-index:1450;display:grid;place-items:center;padding:18px;background:rgba(1,10,22,.62);backdrop-filter:blur(3px)}
+.member-accolade-detail-modal.hidden{display:none!important}
+.member-accolade-detail-card{position:relative;width:min(430px,92vw);max-height:80vh;overflow:auto;border:1px solid rgba(246,205,89,.72);border-radius:16px;background:radial-gradient(circle at 50% -15%,rgba(255,220,99,.16),transparent 38%),linear-gradient(180deg,#12527d 0%,#0a385c 42%,#061f36 100%);box-shadow:0 28px 85px rgba(0,0,0,.66),inset 0 1px rgba(255,255,255,.07);color:#eaf6ff}
+.member-accolade-detail-head{position:relative;overflow:hidden;display:flex;align-items:center;gap:12px;padding:15px 52px 15px 15px;border-bottom:1px solid rgba(239,200,94,.36);background:linear-gradient(115deg,#196693 0%,#0e466e 58%,#6c4b10 100%)}
+.member-accolade-detail-head:after{content:"★";position:absolute;right:48px;top:50%;transform:translateY(-50%) rotate(-10deg);font:900 78px/1 Arial,sans-serif;color:rgba(255,229,128,.08);pointer-events:none}
+.member-accolade-detail-icon{width:58px;height:58px;display:grid;place-items:center;flex:none;border-radius:50%;border:1px solid #f2c95a;background:radial-gradient(circle at 35% 25%,#347eaa,#082a45 70%);box-shadow:0 0 0 4px rgba(255,218,98,.08),0 6px 16px rgba(0,0,0,.32);font-size:30px}
+.member-accolade-detail-head-copy{min-width:0;position:relative;z-index:1}.member-accolade-detail-kicker{display:block;color:#8fd1f2;font-size:9px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}.member-accolade-detail-head h3{margin:3px 0 0;color:#ffe397;font-size:19px;line-height:1.12;text-shadow:0 2px 4px rgba(0,0,0,.42)}
+.member-accolade-detail-close{position:absolute;right:12px;top:12px;z-index:3;width:32px;height:32px;border:1px solid rgba(255,226,122,.48);border-radius:7px;background:#0a3555;color:#fff0a3;font-size:20px;font-weight:900;cursor:pointer}
+.member-accolade-detail-body{padding:15px}.member-accolade-detail-mission{color:#ffe18a;font-size:14px;font-weight:900;line-height:1.3}.member-accolade-detail-earned{margin-top:4px;color:#83abc4;font-size:9px;text-transform:uppercase;letter-spacing:.05em}.member-accolade-detail-requirement{margin-top:12px;padding:12px;border:1px solid rgba(239,200,94,.38);border-radius:9px;background:linear-gradient(180deg,rgba(8,45,73,.96),rgba(5,31,52,.98));color:#edf8ff;font-size:13px;font-weight:800;line-height:1.45}.member-accolade-detail-description{margin-top:10px;color:#a9c9dc;font-size:10px;line-height:1.55}.member-accolade-detail-footer{margin-top:13px;padding-top:10px;border-top:1px solid rgba(120,173,207,.22);color:#79a8c4;font-size:8px;text-align:center}
+@media(max-width:760px){.member-accolade-detail-modal{padding:12px}.member-accolade-detail-card{width:min(86vw,350px);max-height:72vh;border-radius:15px}.member-accolade-detail-head{padding:13px 46px 13px 13px}.member-accolade-detail-icon{width:52px;height:52px;font-size:27px}.member-accolade-detail-head h3{font-size:17px}.member-accolade-detail-mission{font-size:13px}.member-accolade-detail-requirement{font-size:12px}.member-accolade-detail-description{font-size:9px}}
 
 
 /* ===== FIGHT NIGHT LIVE TRACKER — Events / Arena Dispatch companion ===== */
