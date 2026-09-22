@@ -26858,6 +26858,24 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
 #chatPage>#eventsPage.asc-chat-events.hidden{display:none!important}
 #chatPage>#eventsPage::after{content:none!important;display:none!important;height:0!important;min-height:0!important}
 
+/* The full Arena Dispatch title treatment belongs to the Chat landing view only.
+   Events keeps just the compact Chat / Events switcher so there is no redundant header
+   above the event consoles. */
+#chatPage.asc-events-mode .asc-chat-dispatch{
+  min-height:0;
+  padding:0 4px 2px;
+  border:0;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+  justify-content:center;
+}
+#chatPage.asc-events-mode .asc-chat-dispatch-copy{display:none!important}
+#chatPage.asc-events-mode .asc-chat-mode-tabs{
+  margin:0 auto;
+  width:min(280px,100%);
+}
+
 /* The Chat/Events hub uses internal scrolling, so its page itself stays compact enough
    for the fan-content notice and DOPE1one footer to remain visible below it. */
 @media(max-width:700px){
