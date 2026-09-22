@@ -25797,7 +25797,27 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
   }
 }
 
-\n/* PASS 5Z — Shop visible for member purchase testing. */\n#shopPage .asc-shop-development-zone,\n#shopPage.shop-development-locked .asc-shop-development-zone,\n#shopPage.shop-development-tester .asc-shop-development-zone{\n  pointer-events:auto!important;\n  user-select:auto!important;\n  -webkit-user-select:auto!important;\n  filter:none!important;\n  opacity:1!important;\n}\n#shopPage #shopDevelopmentNotice,\n#shopPage .asc-shop-development-notice{\n  display:none!important;\n}\n#shopPage .asc-shop-launch-note{\n  border-color:rgba(105,190,140,.42)!important;\n  background:rgba(18,79,54,.30)!important;\n}\n#shopPage .asc-shop-launch-note span{color:#a8e6bf!important;}\n
+
+/* PASS 5Z — Shop visible for member purchase testing. */
+#shopPage .asc-shop-development-zone,
+#shopPage.shop-development-locked .asc-shop-development-zone,
+#shopPage.shop-development-tester .asc-shop-development-zone{
+  pointer-events:auto!important;
+  user-select:auto!important;
+  -webkit-user-select:auto!important;
+  filter:none!important;
+  opacity:1!important;
+}
+#shopPage #shopDevelopmentNotice,
+#shopPage .asc-shop-development-notice{
+  display:none!important;
+}
+#shopPage .asc-shop-launch-note{
+  border-color:rgba(105,190,140,.42)!important;
+  background:rgba(18,79,54,.30)!important;
+}
+#shopPage .asc-shop-launch-note span{color:#a8e6bf!important;}
+
 
 /* PASS 5Z.2 — Shop is visible after any authenticated app sign-in. */
 #navShop.hidden{
@@ -26753,7 +26773,86 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
 @media(max-width:900px){.owner-vault-metrics{grid-template-columns:1fr 1fr}.owner-vault-row{grid-template-columns:1fr auto}.owner-vault-state{grid-column:1/-1;flex-direction:row;align-items:center}.owner-vault-state small{margin-left:auto}.owner-vault-amount{grid-column:2;grid-row:1}}
 @media(max-width:520px){.owner-vault-metrics{grid-template-columns:1fr 1fr}.owner-vault-metric strong{font-size:15px}.owner-vault-activity-row{grid-template-columns:60px minmax(0,1fr);}.owner-vault-activity-row .amount{grid-column:2;text-align:left}}
 
-\n/* ===== OWNER SETTINGS — PC READABILITY PASS =====\n   Settings is currently a desktop-only workspace. Keep the compact layout,\n   but stop using 6–8px helper text that becomes difficult to read on PC. */\n@media (min-width:900px){\n  #settingsPage{font-size:11px!important;}\n\n  /* Section headers and descriptions */\n  #settingsPage .owner-settings-section-head h3{font-size:16px!important;}\n  #settingsPage .owner-settings-section-head>.owner-settings-section-subtitle,\n  #settingsPage #discordProtectionSection>.discord-head .right{font-size:10px!important;line-height:1.35!important;}\n  #settingsPage .owner-settings-collapse-label,\n  #settingsPage .owner-settings-accordion.settings-collapsed .owner-settings-collapse-label::before{font-size:9px!important;}\n  #settingsPage .owner-settings-accordion.settings-collapsed .owner-settings-collapse-label{font-size:0!important;}\n\n  /* Card titles + supporting copy */\n  #settingsPage .owner-dev-card-head h3{font-size:13px!important;}\n  #settingsPage .owner-dev-card-head>span{font-size:10px!important;line-height:1.35!important;}\n  #settingsPage .owner-dev-card-head .btn{font-size:10px!important;padding:6px 9px!important;}\n  #settingsPage .owner-dev-card-body{font-size:11px!important;}\n\n  /* Forms, buttons and small status text */\n  #settingsPage label,\n  #settingsPage .rule label{font-size:10px!important;line-height:1.3!important;}\n  #settingsPage input,\n  #settingsPage select,\n  #settingsPage textarea{font-size:11px!important;}\n  #settingsPage .btn{font-size:10.5px!important;}\n  #settingsPage .security-state,\n  #settingsPage .msg,\n  #settingsPage .muted,\n  #settingsPage .threshold-note,\n  #settingsPage .owner-settings-save-note{font-size:10px!important;line-height:1.4!important;}\n\n  /* Top save strip + activity console */\n  #settingsPage .owner-settings-save-center-compact .owner-settings-save-copy span{font-size:9px!important;}\n  #settingsPage .owner-settings-save-center-compact .owner-settings-save-copy b{font-size:11px!important;}\n  #settingsPage .owner-settings-save-center-compact .owner-save-all{font-size:10px!important;}\n  #settingsPage .owner-settings-log-head b{font-size:10px!important;}\n  #settingsPage .owner-settings-log-head span{font-size:9px!important;}\n  #settingsPage .owner-settings-log-row{font-size:9px!important;line-height:1.4!important;min-height:21px!important;}\n  #settingsPage .owner-settings-log-empty{font-size:9.5px!important;}\n\n  /* ALL STARS Vault — match the rest of Settings instead of micro text */\n  #settingsPage .owner-vault-metric span{font-size:10px!important;line-height:1.25!important;}\n  #settingsPage .owner-vault-metric strong{font-size:20px!important;}\n  #settingsPage .owner-vault-explain{font-size:11px!important;line-height:1.55!important;}\n  #settingsPage .owner-vault-section-head{padding:10px 12px!important;}\n  #settingsPage .owner-vault-section-head b{font-size:12px!important;}\n  #settingsPage .owner-vault-section-head span{font-size:10px!important;}\n  #settingsPage .owner-vault-row{padding:10px 11px!important;}\n  #settingsPage .owner-vault-person b{font-size:11px!important;}\n  #settingsPage .owner-vault-person small{font-size:9.5px!important;line-height:1.35!important;}\n  #settingsPage .owner-vault-pill{font-size:9px!important;padding:4px 7px!important;}\n  #settingsPage .owner-vault-state small{font-size:9.5px!important;line-height:1.4!important;}\n  #settingsPage .owner-vault-amount strong{font-size:13px!important;}\n  #settingsPage .owner-vault-amount small{font-size:9px!important;}\n  #settingsPage .owner-vault-activity-row{font-size:10px!important;line-height:1.4!important;padding:8px 10px!important;}\n  #settingsPage .owner-vault-empty{font-size:10.5px!important;}\n\n  /* Common settings sub-panels that still inherited older 7–8px typography */\n  #settingsPage .owner-admin-stats span,\n  #settingsPage .owner-security-maint,\n  #settingsPage .discord-note,\n  #settingsPage .discord-kicker,\n  #settingsPage .discord-metric .dm-label,\n  #settingsPage .discord-picker label,\n  #settingsPage .discord-linked-member,\n  #settingsPage .member-auth-note,\n  #settingsPage .co-sub,\n  #settingsPage .co-reason,\n  #settingsPage .week-chip{font-size:10px!important;line-height:1.4!important;}\n  #settingsPage .discord-metric .dm-value{font-size:20px!important;}\n  #settingsPage .discord-linked-player,\n  #settingsPage .co-name{font-size:11px!important;}\n\n  /* Save buttons should be readable at normal desktop viewing distance. */\n  #settingsPage .owner-settings-section-save .btn{font-size:10.5px!important;min-height:36px!important;}\n}\n
+
+/* ===== OWNER SETTINGS — PC READABILITY PASS =====
+   Settings is currently a desktop-only workspace. Keep the compact layout,
+   but stop using 6–8px helper text that becomes difficult to read on PC. */
+@media (min-width:900px){
+  #settingsPage{font-size:11px!important;}
+
+  /* Section headers and descriptions */
+  #settingsPage .owner-settings-section-head h3{font-size:16px!important;}
+  #settingsPage .owner-settings-section-head>.owner-settings-section-subtitle,
+  #settingsPage #discordProtectionSection>.discord-head .right{font-size:10px!important;line-height:1.35!important;}
+  #settingsPage .owner-settings-collapse-label,
+  #settingsPage .owner-settings-accordion.settings-collapsed .owner-settings-collapse-label::before{font-size:9px!important;}
+  #settingsPage .owner-settings-accordion.settings-collapsed .owner-settings-collapse-label{font-size:0!important;}
+
+  /* Card titles + supporting copy */
+  #settingsPage .owner-dev-card-head h3{font-size:13px!important;}
+  #settingsPage .owner-dev-card-head>span{font-size:10px!important;line-height:1.35!important;}
+  #settingsPage .owner-dev-card-head .btn{font-size:10px!important;padding:6px 9px!important;}
+  #settingsPage .owner-dev-card-body{font-size:11px!important;}
+
+  /* Forms, buttons and small status text */
+  #settingsPage label,
+  #settingsPage .rule label{font-size:10px!important;line-height:1.3!important;}
+  #settingsPage input,
+  #settingsPage select,
+  #settingsPage textarea{font-size:11px!important;}
+  #settingsPage .btn{font-size:10.5px!important;}
+  #settingsPage .security-state,
+  #settingsPage .msg,
+  #settingsPage .muted,
+  #settingsPage .threshold-note,
+  #settingsPage .owner-settings-save-note{font-size:10px!important;line-height:1.4!important;}
+
+  /* Top save strip + activity console */
+  #settingsPage .owner-settings-save-center-compact .owner-settings-save-copy span{font-size:9px!important;}
+  #settingsPage .owner-settings-save-center-compact .owner-settings-save-copy b{font-size:11px!important;}
+  #settingsPage .owner-settings-save-center-compact .owner-save-all{font-size:10px!important;}
+  #settingsPage .owner-settings-log-head b{font-size:10px!important;}
+  #settingsPage .owner-settings-log-head span{font-size:9px!important;}
+  #settingsPage .owner-settings-log-row{font-size:9px!important;line-height:1.4!important;min-height:21px!important;}
+  #settingsPage .owner-settings-log-empty{font-size:9.5px!important;}
+
+  /* ALL STARS Vault — match the rest of Settings instead of micro text */
+  #settingsPage .owner-vault-metric span{font-size:10px!important;line-height:1.25!important;}
+  #settingsPage .owner-vault-metric strong{font-size:20px!important;}
+  #settingsPage .owner-vault-explain{font-size:11px!important;line-height:1.55!important;}
+  #settingsPage .owner-vault-section-head{padding:10px 12px!important;}
+  #settingsPage .owner-vault-section-head b{font-size:12px!important;}
+  #settingsPage .owner-vault-section-head span{font-size:10px!important;}
+  #settingsPage .owner-vault-row{padding:10px 11px!important;}
+  #settingsPage .owner-vault-person b{font-size:11px!important;}
+  #settingsPage .owner-vault-person small{font-size:9.5px!important;line-height:1.35!important;}
+  #settingsPage .owner-vault-pill{font-size:9px!important;padding:4px 7px!important;}
+  #settingsPage .owner-vault-state small{font-size:9.5px!important;line-height:1.4!important;}
+  #settingsPage .owner-vault-amount strong{font-size:13px!important;}
+  #settingsPage .owner-vault-amount small{font-size:9px!important;}
+  #settingsPage .owner-vault-activity-row{font-size:10px!important;line-height:1.4!important;padding:8px 10px!important;}
+  #settingsPage .owner-vault-empty{font-size:10.5px!important;}
+
+  /* Common settings sub-panels that still inherited older 7–8px typography */
+  #settingsPage .owner-admin-stats span,
+  #settingsPage .owner-security-maint,
+  #settingsPage .discord-note,
+  #settingsPage .discord-kicker,
+  #settingsPage .discord-metric .dm-label,
+  #settingsPage .discord-picker label,
+  #settingsPage .discord-linked-member,
+  #settingsPage .member-auth-note,
+  #settingsPage .co-sub,
+  #settingsPage .co-reason,
+  #settingsPage .week-chip{font-size:10px!important;line-height:1.4!important;}
+  #settingsPage .discord-metric .dm-value{font-size:20px!important;}
+  #settingsPage .discord-linked-player,
+  #settingsPage .co-name{font-size:11px!important;}
+
+  /* Save buttons should be readable at normal desktop viewing distance. */
+  #settingsPage .owner-settings-section-save .btn{font-size:10.5px!important;min-height:36px!important;}
+}
+
 
 /* ===== ALL STARS VAULT — COMPACT ONE-LINE MEMBER ROWS (PC) ===== */
 @media (min-width:900px){
@@ -26873,6 +26972,80 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
 .member-dashboard-accolade{display:grid;grid-template-columns:42px minmax(0,1fr);gap:8px;align-items:center;padding:9px;border:1px solid rgba(239,200,94,.34);border-radius:8px;background:linear-gradient(180deg,#113d5e,#08273f)}.member-dashboard-accolade .badge{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(239,200,94,.48);background:radial-gradient(circle at 35% 25%,#2d6e97,#08253e);font-size:22px}.member-dashboard-accolade b{display:block;color:#ffe397;font-size:9.5px}.member-dashboard-accolade span{display:block;color:#87a9bf;font-size:7px;margin-top:2px}
 @media(max-width:1390px){.member-dashboard-side{position:fixed;top:96px;bottom:18px;width:min(330px,calc(100vw - 24px));max-height:none;z-index:900}.member-dashboard-side.left{left:12px;right:auto;transform:translateX(-12px)}.member-dashboard-side.right{left:auto;right:12px;transform:translateX(12px)}.member-dashboard-side.open{transform:none}.member-dashboard-side-body{max-height:calc(100vh - 160px)}}
 @media(max-width:760px){.member-mission-launcher-stack{gap:4px}.member-mission-launcher{padding:9px 10px}.member-mission-launcher .copy b{font-size:10px}.member-mission-launcher .copy span{font-size:7px}.member-dashboard-side.left,.member-dashboard-side.right{top:76px;left:8px;right:8px;bottom:8px;width:auto;border-radius:9px;transform:translateY(10px)}.member-dashboard-side.open{transform:none}}
+
+
+/* ===== MEMBER DASHBOARD SIDE SCENE — PASS 3 =====
+   Keep the center dashboard at its existing width while allowing mission and
+   accolade rails to occupy the unused desktop space beside it. */
+.main-page-viewport.member-side-panels-open{overflow-x:visible!important}
+.main-page-viewport.member-side-panels-open .main-page-slide.main-page-current{overflow:visible!important}
+#memberPage .member-command-center{overflow:visible}
+
+@media(min-width:761px){
+  #memberPage .member-dashboard-side{
+    width:clamp(300px,20.5vw,350px);
+    border-radius:12px;
+    border-width:1px;
+    box-shadow:0 22px 52px rgba(0,10,27,.50),0 0 0 1px rgba(255,255,255,.025),inset 0 1px rgba(255,255,255,.055);
+  }
+  #memberPage .member-dashboard-side.left{right:calc(100% + 8px)}
+  #memberPage .member-dashboard-side.right{left:calc(100% + 8px)}
+  #memberPage .member-dashboard-side-body{max-height:620px;padding:10px;background:linear-gradient(180deg,rgba(5,32,54,.95),rgba(4,25,44,.985))}
+}
+
+/* Richer, distinct rail headers. */
+#memberPage .member-dashboard-side-head{
+  position:relative;isolation:isolate;overflow:hidden;min-height:58px;padding:10px 12px;gap:10px;
+}
+#memberPage .member-dashboard-side-head::before{
+  content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background:linear-gradient(115deg,rgba(255,255,255,.075),transparent 38%,rgba(255,220,104,.07) 72%,transparent);
+}
+#memberPage .member-dashboard-side-head::after{
+  position:absolute;right:42px;top:50%;z-index:-1;transform:translateY(-50%) rotate(-8deg);
+  font-family:"Arial Black",Arial,sans-serif;font-size:64px;line-height:1;opacity:.07;pointer-events:none;
+}
+#memberPage .member-dashboard-side.left{border-color:rgba(244,203,84,.62)}
+#memberPage .member-dashboard-side.left .member-dashboard-side-head{
+  border-bottom-color:rgba(247,207,90,.42);
+  background:
+    radial-gradient(circle at 18% 25%,rgba(255,222,103,.22),transparent 34%),
+    linear-gradient(115deg,#17618d 0%,#0d476f 56%,#66470e 100%);
+}
+#memberPage .member-dashboard-side.left .member-dashboard-side-head::after{content:"★";color:#ffe47b}
+#memberPage .member-dashboard-side.right{border-color:rgba(93,181,229,.62)}
+#memberPage .member-dashboard-side.right .member-dashboard-side-head{
+  border-bottom-color:rgba(104,193,236,.40);
+  background:
+    radial-gradient(circle at 18% 25%,rgba(73,184,235,.24),transparent 34%),
+    linear-gradient(115deg,#145a8a 0%,#0c4169 55%,#71360e 100%);
+}
+#memberPage .member-dashboard-side.right .member-dashboard-side-head::after{content:"◎";color:#7ed8ff}
+#memberPage .member-dashboard-side-head .side-icon{
+  width:34px;height:34px;display:grid;place-items:center;flex:none;margin:0;border-radius:50%;font-size:19px;
+  border:1px solid rgba(255,224,119,.58);background:radial-gradient(circle at 35% 25%,#2d79a8,#082c49 70%);
+  box-shadow:inset 0 1px rgba(255,255,255,.13),0 3px 8px rgba(0,0,0,.28);
+}
+#memberPage .member-dashboard-side-head>div{min-width:0}
+#memberPage .member-dashboard-side-head b{display:block;font-size:13px;letter-spacing:.02em;text-shadow:0 2px 4px rgba(0,0,0,.42)}
+#memberPage .member-dashboard-side-head>div>span{font-size:7.5px;letter-spacing:.035em}
+#memberPage .member-dashboard-side-close{position:relative;z-index:2;flex:none;background:linear-gradient(180deg,#164f77,#092f4f);border-color:rgba(255,225,126,.40);font-size:18px}
+#memberPage .member-dashboard-side-close:hover{border-color:#ffe17b;color:#fff3b3;filter:brightness(1.08)}
+
+/* If the real side gutters are too narrow, switch to overlay rails instead of clipping. */
+.main-page-viewport.member-side-panels-compact .member-dashboard-side{
+  position:fixed!important;top:96px!important;bottom:18px!important;width:min(345px,calc(100vw - 24px))!important;max-height:none!important;z-index:900!important;
+}
+.main-page-viewport.member-side-panels-compact .member-dashboard-side.left{left:12px!important;right:auto!important;transform:translateX(-12px)}
+.main-page-viewport.member-side-panels-compact .member-dashboard-side.right{left:auto!important;right:12px!important;transform:translateX(12px)}
+.main-page-viewport.member-side-panels-compact .member-dashboard-side.open{transform:none!important}
+.main-page-viewport.member-side-panels-compact .member-dashboard-side-body{max-height:calc(100vh - 160px)!important}
+
+@media(max-width:760px){
+  .main-page-viewport.member-side-panels-compact .member-dashboard-side.left,
+  .main-page-viewport.member-side-panels-compact .member-dashboard-side.right{top:76px!important;left:8px!important;right:8px!important;bottom:8px!important;width:auto!important;transform:translateY(10px)}
+  .main-page-viewport.member-side-panels-compact .member-dashboard-side.open{transform:none!important}
+}
 
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header>.public-signin-top{margin-left:0}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 #playerModal .modalcard{background:linear-gradient(180deg,#0f4066 0%,#082b4a 100%)!important;border:1px solid rgba(239,200,94,.58)!important;box-shadow:0 24px 70px rgba(0,0,0,.62),inset 0 1px rgba(255,255,255,.04)!important}#playerModal .modalbody{background:radial-gradient(circle at 50% -18%,rgba(53,158,224,.16),transparent 42%),linear-gradient(180deg,#0b3558 0%,#071f37 100%)!important}#playerModal .public-player-card{padding:18px!important;border:1px solid rgba(239,200,94,.28);border-radius:9px;background:linear-gradient(180deg,rgba(16,73,116,.96),rgba(7,39,67,.98));box-shadow:inset 0 1px rgba(255,255,255,.035)}.public-signin-modal{position:fixed;inset:0;z-index:30000;display:grid;place-items:center;padding:18px;background:rgba(2,13,25,.82);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}.public-signin-modal.hidden{display:none!important}.public-signin-card{width:min(520px,calc(100vw - 28px));overflow:hidden;border-radius:13px;border:1px solid rgba(239,200,94,.72);background:linear-gradient(180deg,#10517e 0%,#082e50 52%,#061f38 100%);box-shadow:0 28px 90px rgba(0,0,0,.68),0 0 35px rgba(37,145,216,.14),inset 0 1px rgba(255,255,255,.05);color:#eaf6ff}.public-signin-head{display:flex;align-items:center;gap:11px;padding:13px 14px;border-bottom:1px solid rgba(239,200,94,.30);background:linear-gradient(180deg,#17699e,#0e4774)}.public-signin-head img{width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 3px 5px rgba(0,0,0,.35))}.public-signin-brand{min-width:0;flex:1}.public-signin-brand span{display:block;color:#9bc9e4;font-size:8px;font-weight:900;letter-spacing:.12em}.public-signin-brand b{display:block;margin-top:2px;color:#ffe18a;font-size:17px;line-height:1.1}.public-signin-close{width:36px;height:36px;border:1px solid #477e9e;border-radius:7px;background:#0a3558;color:#eaf6ff;font-size:18px;font-weight:900;cursor:pointer}.public-signin-body{padding:20px 20px 18px;text-align:center}.public-signin-badge{display:inline-flex;padding:5px 9px;border:1px solid rgba(239,200,94,.45);border-radius:999px;background:rgba(111,75,8,.34);color:#ffe18a;font-size:8px;font-weight:900;letter-spacing:.10em}.public-signin-body h2{margin:11px 0 8px;color:#ffe18a;font-size:23px;line-height:1.1;text-shadow:0 2px 5px rgba(0,0,0,.4)}.public-signin-body p{margin:7px auto;max-width:420px;color:#b9d8e9;font-size:12px;line-height:1.55}.public-signin-body p strong{color:#fff0b0}.public-signin-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:17px}.public-signin-actions .btn{min-height:43px;font-size:12px!important;font-weight:900!important}.public-signin-actions .primary{color:#3c2800!important;background:linear-gradient(180deg,#ffe985,#d6a72f)!important;border-color:#fff0a7!important}@media(max-width:560px){.public-signin-body{padding:18px 14px 15px}.public-signin-body h2{font-size:20px}.public-signin-body p{font-size:11px}.public-signin-actions{grid-template-columns:1fr}.public-signin-head{padding:11px 12px}}
