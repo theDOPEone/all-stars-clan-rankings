@@ -28990,19 +28990,22 @@ function syncDashboardMusicButton(){
   syncAscNowPlaying();
   $('ascNowPlaying')?.classList.toggle('playing',!!(ascAppMusicState.enabled||ascAppMusicState.starting));
   const toggles=[$('dashboardMusicToggle')].filter(Boolean);
+  const playButtons=[$('dashboardMusicPlay')].filter(Boolean);
   const nextButtons=[$('dashboardMusicNext')].filter(Boolean);
   const shuffleButtons=[$('dashboardMusicShuffle')].filter(Boolean);
   toggles.forEach(toggle=>{
+    const muted=!!ascAppMusicState.audio?.muted;
+    toggle.textContent=muted?'🔇':'🔊';
+    toggle.setAttribute('aria-pressed',String(muted));
+    toggle.setAttribute('aria-label',muted?'Unmute music':'Mute music');
+    toggle.title=muted?'Unmute music':'Mute music';
+  });
+  playButtons.forEach(button=>{
     const on=ascAppMusicState.enabled||ascAppMusicState.starting;
-    toggle.textContent=on?'🔊':'🔇';
-    toggle.setAttribute('aria-pressed',String(on));
-    toggle.setAttribute('aria-label',on?'Turn app music off':'Turn app music on');
-    toggle.setAttribute('aria-busy',String(ascAppMusicState.starting));
-    toggle.title=ascAppMusicState.starting
-      ? `Loading ${track.title}…`
-      : on
-        ? `App music: ON · ${track.title} — click to mute`
-        : `App music: OFF · ${track.title} — click to play`;
+    button.textContent=on?'⏸':'▶';
+    button.setAttribute('aria-label',on?'Pause music':'Play music');
+    button.setAttribute('aria-busy',String(ascAppMusicState.starting));
+    button.title=ascAppMusicState.starting?`Loading ${track.title}…`:on?'Pause music':'Play music';
   });
   nextButtons.forEach(next=>{
     next.disabled=!ascAppMusicState.enabled||ascAppMusicState.starting;
@@ -29014,6 +29017,11 @@ function syncDashboardMusicButton(){
       ? 'Shuffle: ON — songs rotate automatically'
       : 'Shuffle: OFF — current song repeats';
   });
+}
+function toggleAppMusicMute(){
+  const audio=ensureAscAppMusic();
+  audio.muted=!audio.muted;
+  syncDashboardMusicButton();
 }
 function ascShuffleArray(values){
   const items=[...values];
