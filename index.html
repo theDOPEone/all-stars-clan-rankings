@@ -28687,9 +28687,15 @@ header.top .header-runtime-state .dot,.top .header-runtime-state .dot{flex:0 0 a
 #shopPreviewOverlay .shop-live-profile-preview .community-profile-panel{width:100%;margin:0;box-sizing:border-box}
 #shopPreviewOverlay .shop-live-profile-preview .community-profile-preview-identity{padding:14px}
 #shopPreviewOverlay .shop-live-profile-preview .community-profile-bio-section{padding:14px}
+#shopPreviewOverlay .shop-preview-card{overscroll-behavior:contain}
+#shopPreviewOverlay .shop-preview-return-fixed{position:fixed;top:50%;left:max(10px,env(safe-area-inset-left));z-index:2;transform:translateY(-50%);min-height:48px;padding:10px 15px;border:2px solid #f6ca63;border-radius:12px;background:linear-gradient(180deg,#176093,#0a3459);box-shadow:0 6px 22px #000b,inset 0 1px 0 #fff5;color:#fff1be;font:700 14px/1.2 'Segoe UI',sans-serif;letter-spacing:.02em;cursor:pointer;white-space:nowrap}
+#shopPreviewOverlay .shop-preview-return-fixed:hover,#shopPreviewOverlay .shop-preview-return-fixed:focus-visible{background:linear-gradient(180deg,#257db0,#10517b);outline:2px solid #fff2bb;outline-offset:2px}
+html.asc-any-popup-open,html.asc-any-popup-open body{overflow:hidden!important;overscroll-behavior:none}
+html.asc-any-popup-open #pageBackToTop{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
 @media(max-width:600px){
  #shopPage .asc-shop-item-visual .profile-theme-demo{height:148px!important}
  #shopPreviewOverlay .shop-live-profile-preview .community-profile-preview-identity{padding:10px}
+ #shopPreviewOverlay .shop-preview-return-fixed{left:max(2px,env(safe-area-inset-left));width:35px;min-height:0;height:152px;padding:8px 5px;border-radius:0 10px 10px 0;writing-mode:vertical-rl;font-size:12px;white-space:normal}
 }
 
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header>.public-signin-top{margin-left:0}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
