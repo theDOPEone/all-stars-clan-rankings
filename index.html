@@ -27294,13 +27294,13 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
 /* ===== FIGHT NIGHT LIVE TRACKER — Events / Arena Dispatch companion ===== */
 .asc-event-fight-grid{
   display:grid;
-  grid-template-columns:minmax(0,1fr) 360px;
-  gap:10px;
-  align-items:stretch;
-  width:min(1480px,calc(100vw - 36px));
-  max-width:1480px;
-  margin:0 0 12px 50%;
-  transform:translateX(-50%);
+  grid-template-columns:minmax(0,1.62fr) minmax(440px,.88fr);
+  gap:12px;
+  align-items:start;
+  width:100%;
+  max-width:none;
+  margin:0 0 14px 0;
+  transform:none;
 }
 .asc-event-fight-grid>#eventCenter{
   width:100%!important;
@@ -27311,7 +27311,8 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
   position:relative;
   isolation:isolate;
   min-width:0;
-  height:100%;
+  height:auto;
+  min-height:560px;
   display:flex;
   flex-direction:column;
   overflow:hidden;
@@ -27384,11 +27385,29 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
 .fight-night-most{flex:1;min-height:0;display:flex;flex-direction:column}
 .fight-night-most-list{display:grid;gap:0;min-height:0}
 .fight-night-leader{
-  display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:8px;align-items:center;
+  display:grid;grid-template-columns:46px minmax(0,1fr) auto;gap:9px;align-items:center;
   min-height:48px;padding:7px 9px;border-bottom:1px solid rgba(124,174,207,.16);
 }
 .fight-night-leader:last-child{border-bottom:0}
-.fight-night-leader-icon{width:31px;height:31px;display:grid;place-items:center;border-radius:8px;background:linear-gradient(145deg,rgba(30,102,151,.9),rgba(10,47,78,.94));border:1px solid rgba(239,200,94,.35);font-size:15px}
+.fight-night-leader-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:9px;background:linear-gradient(145deg,rgba(30,102,151,.9),rgba(10,47,78,.94));border:1px solid rgba(239,200,94,.35);font-size:15px;overflow:hidden}
+.fight-night-mode-button{padding:2px;cursor:pointer;appearance:none;-webkit-appearance:none;transition:transform .16s ease,filter .16s ease,border-color .16s ease}
+.fight-night-mode-button:hover{transform:translateY(-1px) scale(1.04);filter:brightness(1.08);border-color:#efc85e}
+.fight-night-mode-button[aria-expanded="true"]{border-color:#ffe28a;box-shadow:0 0 12px rgba(239,200,94,.26)}
+.fight-night-mode-button img{width:100%;height:100%;display:block;object-fit:contain}
+.fight-night-leader-wrap{border-bottom:1px solid rgba(124,174,207,.16)}
+.fight-night-leader-wrap:last-child{border-bottom:0}
+.fight-night-leader-wrap>.fight-night-leader{border-bottom:0}
+.fight-night-recent{padding:4px 9px 9px 59px;background:linear-gradient(180deg,rgba(3,18,31,.30),rgba(3,18,31,.72))}
+.fight-night-recent.hidden{display:none!important}
+.fight-night-recent-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:6px 0;border-top:1px solid rgba(126,176,208,.12);font:700 8px/1.3 "Segoe UI",Arial,sans-serif}
+.fight-night-recent-row:first-child{border-top:0}
+.fight-night-recent-main{min-width:0;color:#dceefa}
+.fight-night-recent-main b{color:#ffe28a;font-size:9px}
+.fight-night-recent-main small{display:block;margin-top:2px;color:#86aac1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fight-night-recent-result{text-align:right;color:#f5fbff;font-weight:900;white-space:nowrap}
+.fight-night-recent-result.win{color:#72e8ae}.fight-night-recent-result.loss{color:#ff9aa1}
+.fight-night-recent-result small{display:block;margin-top:2px;color:#7fa5bd;font-size:7px;font-weight:700}
+.fight-night-recent-loading{padding:8px 0;color:#8db2c9;font:700 8px/1.35 "Segoe UI",Arial,sans-serif}
 .fight-night-leader-copy{min-width:0}.fight-night-leader-copy small{display:block;margin-top:2px;color:#8eb1c8;font:700 8px/1.2 "Segoe UI",Arial,sans-serif}
 .fight-night-leader-count{min-width:42px;text-align:right;color:#ffe079;font:900 20px/1 "Segoe UI",Arial,sans-serif}.fight-night-leader-count small{display:block;color:#8fb0c7;font:700 7px/1.2 "Segoe UI",Arial,sans-serif;text-transform:uppercase;margin-top:3px}
 .fight-night-empty{padding:16px 10px;text-align:center;color:#91afc3;font:700 9px/1.5 "Segoe UI",Arial,sans-serif}
@@ -27558,43 +27577,51 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
 }
 
 
-/* Arena Dispatch is a fixed-height app surface: no page-level or Events-list scrolling. */
+/* Chat / Events use normal document scrolling again. The event API is still bounded,
+   so restoring page scroll does not bring back the old 1,500-row initial load. */
 #chatPage.asc-chat-page{
-  overflow:hidden!important;
+  height:auto!important;
+  min-height:calc(100dvh - 145px)!important;
+  overflow:visible!important;
+  padding-bottom:24px!important;
 }
 #chatPage>#eventsPage.asc-chat-events{
-  overflow:hidden!important;
-  overscroll-behavior:none!important;
+  display:block!important;
+  flex:0 0 auto!important;
+  height:auto!important;
+  min-height:0!important;
+  overflow:visible!important;
+  overscroll-behavior:auto!important;
   padding:0!important;
+}
+#chatPage .asc-event-fight-grid{
+  width:100%!important;
+  max-width:none!important;
+  margin:0 0 14px!important;
+  transform:none!important;
+  align-items:start!important;
 }
 #chatPage #eventCenter{
   display:flex!important;
   flex-direction:column!important;
-  flex:1 1 0!important;
+  flex:0 0 auto!important;
   min-height:0!important;
-  height:100%!important;
+  height:auto!important;
   max-height:none!important;
-  overflow:hidden!important;
+  overflow:visible!important;
   margin:0!important;
 }
 #chatPage #eventCenterRows{
-  flex:1 1 auto!important;
   min-height:0!important;
-  overflow:hidden!important;
-  overscroll-behavior:none!important;
+  height:auto!important;
+  overflow:visible!important;
+  overscroll-behavior:auto!important;
   padding:0 12px!important;
 }
-#chatPage #eventCenter .event-compact-row{
-  min-height:0!important;
-}
-#chatPage #eventCenterStatus{
-  flex:0 0 auto!important;
-  min-height:0!important;
-  padding:4px 12px!important;
-}
+#chatPage #eventCenterStatus{padding:4px 12px!important}
 #chatPage #eventCenterStatus:empty{display:none!important}
 #chatPage #eventCenter .event-center-footer{
-  flex:0 0 auto;
+  position:static!important;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -27604,51 +27631,28 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
   border-top:1px solid rgba(86,126,151,.34);
   background:rgba(4,31,51,.72);
 }
-#chatPage #eventCenterCount{
-  padding:0!important;
-  color:#9fc3d8;
-  font-size:9px!important;
-  white-space:nowrap;
-}
-#chatPage .event-center-pager{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  margin-left:auto;
-}
-#chatPage .event-center-pager button{
-  width:34px;
-  height:28px;
-  min-width:34px;
-  padding:0;
-  border:1px solid #4f7893;
-  border-radius:6px;
-  background:linear-gradient(180deg,#15547e,#0a3558);
-  color:#ffe391;
-  font-size:20px;
-  font-weight:900;
-  line-height:1;
-  cursor:pointer;
-}
+#chatPage #eventCenterCount{padding:0!important;color:#9fc3d8;font-size:9px!important;white-space:nowrap}
+#chatPage .event-center-pager{display:flex;align-items:center;gap:6px;margin-left:auto}
+#chatPage .event-center-pager button{width:34px;height:28px;min-width:34px;padding:0;border:1px solid #4f7893;border-radius:6px;background:linear-gradient(180deg,#15547e,#0a3558);color:#ffe391;font-size:20px;font-weight:900;line-height:1;cursor:pointer}
 #chatPage .event-center-pager button:disabled{opacity:.32;cursor:default}
-#chatPage #eventCenterPageLabel{
-  min-width:44px;
-  text-align:center;
-  color:#dcecf5;
-  font:800 9px/1 "Segoe UI",Arial,sans-serif;
+#chatPage #eventCenterPageLabel{min-width:44px;text-align:center;color:#dcecf5;font:800 9px/1 "Segoe UI",Arial,sans-serif}
+/* Chat messages may still scroll inside their chat window, while the page itself can also scroll to the footer. */
+#chatPage .asc-chat-messages{scrollbar-width:thin!important;-ms-overflow-style:auto!important;max-height:min(52dvh,560px)!important;overflow-y:auto!important}
+#chatPage .asc-chat-messages::-webkit-scrollbar{display:block!important;width:7px!important}
+#chatPage .asc-chat-messages::-webkit-scrollbar-thumb{background:#2f7198;border-radius:10px}
+@media(max-width:1180px){
+  #chatPage .asc-event-fight-grid{grid-template-columns:1fr!important}
+  .fight-night-tracker{min-height:0!important}
 }
-/* Chat keeps touch/wheel access to older messages, but no visible scrollbar and no outer page scroll. */
-#chatPage .asc-chat-messages{
-  scrollbar-width:none!important;
-  -ms-overflow-style:none!important;
-}
-#chatPage .asc-chat-messages::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
 @media(max-width:700px){
+  #chatPage.asc-chat-page{min-height:calc(100dvh - 112px)!important;padding-bottom:18px!important}
   #chatPage #eventCenter .event-center-tools{padding:7px!important;gap:5px!important}
   #chatPage #eventCenterRows{padding:0 10px!important}
   #chatPage #eventCenter .event-compact-row{padding:7px 0!important}
   #chatPage #eventCenter .event-center-footer{min-height:34px;padding:4px 8px 5px}
   #chatPage .event-center-pager button{width:31px;height:27px;min-width:31px}
+  #chatPage .asc-chat-messages{max-height:52dvh!important}
+  .fight-night-recent{padding-left:10px}
 }
 
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header>.public-signin-top{margin-left:0}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
