@@ -28337,7 +28337,7 @@ header.top .header-runtime-state .dot,.top .header-runtime-state .dot{flex:0 0 a
 #ascTitleArea .asc-title-eq i{display:block;width:18%;min-width:2px;border-radius:2px 2px 0 0;background:linear-gradient(180deg,#37f0ff,#00a8ff);box-shadow:0 0 7px rgba(35,218,255,.6)}
 #ascTitleArea .asc-title-eq i:nth-child(1){height:42%}#ascTitleArea .asc-title-eq i:nth-child(2){height:78%}#ascTitleArea .asc-title-eq i:nth-child(3){height:100%}#ascTitleArea .asc-title-eq i:nth-child(4){height:62%}
 #ascTitleArea .asc-title-now-playing-viewport{position:relative!important;width:100%!important;height:100%!important;overflow:hidden!important}
-#ascTitleArea .asc-title-now-playing-text{position:absolute!important;left:0!important;top:50%!important;width:max-content!important;max-width:none!important;color:#f5fbff!important;font-size:clamp(9px,1.45vw,22px)!important;font-weight:900!important;line-height:1!important;letter-spacing:.01em!important;white-space:nowrap!important;text-shadow:0 2px 3px rgba(0,0,0,.58)!important;transform:translateY(-50%)!important;animation:ascImageTitleTicker 14s linear infinite!important;will-change:transform!important}
+#ascTitleArea .asc-title-now-playing-text{position:absolute!important;left:0!important;top:50%!important;width:max-content!important;max-width:none!important;color:#f5fbff!important;font-size:clamp(9px,1.45vw,22px)!important;font-weight:900!important;line-height:1!important;letter-spacing:.01em!important;white-space:nowrap!important;text-shadow:0 2px 3px rgba(0,0,0,.58)!important;translate:0 -50%!important;animation:ascImageTitleTicker 14s linear infinite!important;will-change:transform!important}
 @keyframes ascImageTitleTicker{0%,14%{transform:translate(0,-50%)}100%{transform:translate(calc(-100% - 36px),-50%)}}
 #ascTitleArea .asc-title-status{position:absolute!important;z-index:4!important;left:auto!important;right:2.1%!important;top:67.6%!important;bottom:auto!important;width:25.4%!important;height:17.8%!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0 5.5% 0 15.5%!important;display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:3%!important;border:1px solid rgba(58,215,255,.68)!important;border-radius:999px!important;background:linear-gradient(180deg,rgba(1,38,82,.96),rgba(0,23,58,.98))!important;box-shadow:inset 0 0 0 2px rgba(76,177,255,.12),0 0 15px rgba(28,177,255,.25)!important;color:#e7f8ff!important;font-size:clamp(8px,1.18vw,18px)!important;font-weight:900!important;line-height:1!important;letter-spacing:.015em!important;text-align:left!important;overflow:hidden!important;white-space:nowrap!important;text-overflow:ellipsis!important}
 #ascTitleArea .asc-title-status .dot{position:absolute!important;left:7.2%!important;top:50%!important;transform:translateY(-50%)!important;width:clamp(8px,1.5vw,21px)!important;height:clamp(8px,1.5vw,21px)!important;margin:0!important;border-radius:50%!important;background:#56ff9f!important;box-shadow:0 0 0 3px rgba(117,255,177,.15),0 0 15px #54ff9c!important}
@@ -28450,6 +28450,109 @@ header.top .header-runtime-state .dot,.top .header-runtime-state .dot{flex:0 0 a
   #ascTitleArea .asc-title-status{top:68.1%!important;width:24.6%!important;height:18.5%!important;font-size:clamp(5px,1.15vw,7.5px)!important;padding-left:10.5%!important}
   #ascTitleArea .asc-title-user #serverUserName,
   #ascTitleArea .asc-title-user #serverUserButton{font-size:clamp(5.2px,1.25vw,8px)!important}
+}
+
+
+/* Final image-header text/ticker tune. No legacy header layout changes. */
+#ascTitleArea .asc-title-now-playing{
+  justify-content:flex-start!important;
+  text-align:left!important;
+  padding-left:8.8%!important;
+  padding-right:3.2%!important;
+}
+#ascTitleArea .asc-title-now-playing-viewport{
+  position:relative!important;
+  width:100%!important;
+  height:100%!important;
+  overflow:hidden!important;
+  text-align:left!important;
+}
+#ascTitleArea .asc-title-now-playing-text{
+  left:0!important;
+  right:auto!important;
+  top:50%!important;
+  translate:0 -50%!important;
+  text-align:left!important;
+  font-size:clamp(12px,1.45vw,21px)!important;
+  animation:ascImageTitleTickerV3 11.5s linear infinite!important;
+  will-change:transform!important;
+}
+@keyframes ascImageTitleTickerV3{
+  0%,10%{transform:translateX(0)}
+  100%{transform:translateX(calc(-100% - 28px))}
+}
+
+/* Much larger live status text; left-aligned inside the pill. */
+#ascTitleArea .asc-title-status{
+  justify-content:flex-start!important;
+  text-align:left!important;
+  padding-left:11.5%!important;
+  padding-right:3.2%!important;
+  font-size:clamp(12px,1.38vw,20px)!important;
+  letter-spacing:.01em!important;
+}
+#ascTitleArea .asc-title-status #runtimeText{
+  width:100%!important;
+  max-width:none!important;
+  text-align:left!important;
+  overflow:hidden!important;
+  white-space:nowrap!important;
+  text-overflow:ellipsis!important;
+}
+#ascTitleArea .asc-title-status .dot{left:5.0%!important}
+
+/* Fill the account/sign-in pills better on desktop. */
+#ascTitleArea .asc-title-user #serverUserName,
+#ascTitleArea .asc-title-user #serverUserButton{
+  font-size:clamp(12px,1.35vw,20px)!important;
+  font-weight:1000!important;
+}
+#ascTitleArea .asc-title-user #serverUserName{
+  justify-content:flex-start!important;
+  text-align:left!important;
+  padding-left:12%!important;
+}
+#ascTitleArea .asc-title-user #serverUserButton{
+  justify-content:center!important;
+  text-align:center!important;
+}
+
+/* More obvious four-bar activity while music is enabled/starting. */
+#ascTitleArea .asc-title-eq i{
+  transform-origin:50% 100%!important;
+  animation-name:ascEqBarPulseV3!important;
+  animation-duration:.72s!important;
+  animation-timing-function:ease-in-out!important;
+  animation-iteration-count:infinite!important;
+  animation-play-state:paused!important;
+}
+#ascTitleArea .asc-title-now-playing.playing .asc-title-eq i{
+  animation-play-state:running!important;
+}
+#ascTitleArea .asc-title-eq i:nth-child(1){animation-delay:-.08s!important}
+#ascTitleArea .asc-title-eq i:nth-child(2){animation-delay:-.31s!important}
+#ascTitleArea .asc-title-eq i:nth-child(3){animation-delay:-.18s!important}
+#ascTitleArea .asc-title-eq i:nth-child(4){animation-delay:-.43s!important}
+@keyframes ascEqBarPulseV3{
+  0%,100%{transform:scaleY(.42);filter:brightness(.9)}
+  25%{transform:scaleY(1.18);filter:brightness(1.25)}
+  52%{transform:scaleY(.66);filter:brightness(1)}
+  78%{transform:scaleY(1.38);filter:brightness(1.35)}
+}
+
+@media(max-width:700px){
+  #ascTitleArea .asc-title-now-playing-text{
+    font-size:clamp(7px,1.95vw,10.5px)!important;
+    animation-duration:10.5s!important;
+  }
+  #ascTitleArea .asc-title-status{
+    font-size:clamp(6.8px,1.72vw,9.2px)!important;
+    padding-left:11.5%!important;
+  }
+  #ascTitleArea .asc-title-user #serverUserName,
+  #ascTitleArea .asc-title-user #serverUserButton{
+    font-size:clamp(6.8px,1.75vw,9.6px)!important;
+  }
 }
 
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header>.public-signin-top{margin-left:0}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
@@ -28777,6 +28880,7 @@ function ascBindAutoplayUnlock(){
 function syncDashboardMusicButton(){
   const track=ascCurrentMusicTrack();
   syncAscNowPlaying();
+  $('ascNowPlaying')?.classList.toggle('playing',!!(ascAppMusicState.enabled||ascAppMusicState.starting));
   const toggles=[$('dashboardMusicToggle')].filter(Boolean);
   const nextButtons=[$('dashboardMusicNext')].filter(Boolean);
   const shuffleButtons=[$('dashboardMusicShuffle')].filter(Boolean);
