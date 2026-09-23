@@ -26757,9 +26757,13 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
   overflow:visible;
 }
 #chatPage.asc-chat-page.hidden{display:none!important}
+/* The skeleton Arena Dispatch header belongs to the main Chat view only.
+   Events opens directly on its filters/history list. */
+#chatPage.asc-events-mode>.asc-chat-dispatch{display:none!important}
+#chatPage.asc-events-mode{gap:0}
 body.events-log-mode main.shell{padding-bottom:8px!important}
 
-/* This header never changes when switching Chat / Events. Only the content below changes. */
+/* Main Chat hero/header. Hidden while Events mode is active. */
 .asc-chat-dispatch{
   flex:0 0 auto;
   min-height:138px;
@@ -26778,7 +26782,7 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
   position:relative;
   isolation:isolate;
 }
-/* Shared skeleton scene remains visible on BOTH Chat and Events. */
+/* Skeleton scene belongs to the Main Chat header only. */
 .asc-chat-dispatch:before{
   content:"";
   position:absolute;
@@ -26843,7 +26847,7 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
 .asc-chat-dispatch-refresh.refreshing:first-letter{animation:ascDispatchRefreshSpin .7s linear infinite}
 @keyframes ascDispatchRefreshSpin{to{transform:rotate(360deg)}}
 
-/* Chat / Events live under the permanent title + refresh row. */
+/* Chat / Events buttons live inside the Main Chat header. */
 .asc-chat-mode-tabs{
   position:relative;
   z-index:1;
