@@ -302,6 +302,7 @@ tr:hover td{background:rgba(37,117,169,.22)}
 .co-login-shell{max-width:520px;margin:38px auto;border:1px solid rgba(239,200,94,.55);border-radius:8px;overflow:hidden;background:linear-gradient(180deg,#104b78,#082d4e);box-shadow:0 18px 50px rgba(0,14,32,.38)}
 .co-login-head{padding:15px 17px 12px;text-align:center;background:linear-gradient(180deg,#17699e,#0e4774);border-bottom:1px solid rgba(239,200,94,.35)}
 .co-login-star{font-size:30px;color:#f3cd63;text-shadow:0 2px 0 #744607,0 4px 7px #0008}
+.co-login-star img{display:block;width:54px;height:62px;object-fit:contain;filter:drop-shadow(0 5px 8px #0008)}
 .co-login-head h2{margin:5px 0 4px;color:#ffe99d;font-size:17px;text-shadow:0 1px 0 #704200,0 2px 3px #0008}
 .co-login-head p{margin:0;color:#a8d0e6;font-size:9px}
 .co-login-body{padding:15px 17px}
@@ -12940,6 +12941,8 @@ html body .main-page-viewport.main-page-animating > .main-page-slide *::after{
   color:#07395f;font-size:29px;text-shadow:0 1px rgba(255,255,255,.55);
   box-shadow:inset 0 1px #fff5bd,0 7px 18px rgba(0,0,0,.34),0 0 22px rgba(239,200,94,.13)
 }
+.leadership-command-emblem:has(img){width:68px;height:76px;border:0;border-radius:0;background:none;box-shadow:none}
+.leadership-command-emblem img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 7px 9px #0009)}
 .leadership-command-kicker{font-size:7px;letter-spacing:.17em;font-weight:950;color:#8fc6e7}
 .leadership-command-copy h2{margin:4px 0 2px;color:#ffe38b;font-size:22px;letter-spacing:.025em;text-shadow:0 2px 0 #6d4505,0 4px 10px rgba(0,0,0,.42)}
 .leadership-command-copy p{margin:0;color:#a9cee3;font-size:8.5px;line-height:1.5}
@@ -28556,6 +28559,9 @@ header.top .header-runtime-state .dot,.top .header-runtime-state .dot{flex:0 0 a
 }
 
 /* Royal storefront: shared by the local app and its mobile browser view. */
+#shopPage .asc-shop-hero-brand{display:block!important;width:min(820px,100%)!important;min-height:0!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important}
+#shopPage .asc-shop-title-fallback{display:block!important;margin:0!important;line-height:0!important}
+#shopPage .asc-shop-title-art{display:block;width:100%;max-height:430px;object-fit:contain;filter:drop-shadow(0 12px 16px #00172ba8)}
 #shopPage .asc-shop-catalog{min-height:0!important}
 #shopPage .royal-shop-item-rail>.asc-shop-item{content-visibility:visible!important;contain-intrinsic-size:none!important}
 #shopPage .asc-shop-title-fallback{opacity:1!important;-webkit-text-fill-color:#ffe18a!important}
@@ -28629,6 +28635,7 @@ header.top .header-runtime-state .dot,.top .header-runtime-state .dot{flex:0 0 a
 #shopPage .royal-shop-section-nav button{border:1px solid #4181a7;border-radius:8px;background:#094168;color:#e4f3ff;padding:10px;min-height:42px;font:700 13px 'Segoe UI',sans-serif;cursor:pointer}
 #shopPage #shopSectionPosition{font:700 13px 'Segoe UI',sans-serif;color:#ffdd85;text-align:center}
 @media(max-width:600px){
+ #shopPage .asc-shop-title-art{max-height:220px}
  #shopPage .asc-shop-shell{width:calc(100% - 16px)!important;margin:12px auto!important}
  #shopPage .asc-shop-hero-brand{min-height:120px!important;padding:16px!important;gap:12px!important;border-radius:18px 5px!important}
  #shopPage .asc-shop-header-logo{width:72px!important;height:88px!important}
@@ -29209,7 +29216,7 @@ function renderDashboardWelcome(){
         <div class="dashboard-welcome-character-glow" aria-hidden="true"></div>
         <img class="${hero.princeClass}" src="${hero.princeSrc}" alt="" aria-hidden="true">
         <div class="dashboard-welcome-copy">
-          <div class="dashboard-welcome-brand"><img src="asc-crest.svg" alt="ALL STARS crest"><div><span>ALL STARS CLAN APP</span><strong>Welcome to the Family</strong></div></div>
+          <div class="dashboard-welcome-brand"><img src="./assets/brand/all-stars-clan-crest.png" alt="ALL STARS crest"><div><span>ALL STARS CLAN APP</span><strong>Welcome to the Family</strong></div></div>
           <p class="dashboard-welcome-lead">Your home for ALL STARS clan activity, player profiles, rankings, Live Arena and community tools.</p>
           <div class="dashboard-session-pill"><span class="dashboard-session-dot ${me.signedIn?'online':''}"></span><b>${signedLabel}</b><small>${roleLabel}</small></div>
           <div class="dashboard-welcome-actions">${primaryActions}</div>
