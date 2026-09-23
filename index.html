@@ -27330,7 +27330,7 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
 .fight-night-mode-button img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 14px rgba(0,0,0,.28))}.fight-night-mode-button:hover{transform:translateY(-1px) scale(1.03);filter:brightness(1.06)}
 .fight-night-board-copy{min-width:0}.fight-night-board-label{display:block;color:#9ecae1;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.fight-night-board-player{display:flex;align-items:center;gap:8px;margin-top:4px;min-width:0}.fight-night-rank-badge{display:inline-grid;place-items:center;min-width:27px;height:24px;padding:0 6px;border:1px solid rgba(240,197,75,.58);border-radius:7px;background:#0b4268;color:#ffe17b;font-size:11px;font-weight:1000}.fight-night-board-player .fight-night-leader-player{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px}.fight-night-board-sub{display:block;margin-top:4px;color:#8aaec4;font-size:9px}.fight-night-board-count{text-align:right;color:#ffe38a;font-size:28px;font-weight:1000;line-height:.9}.fight-night-board-count small{display:block;margin-top:6px;color:#8db1c7;font-size:8px;text-transform:uppercase}
 .fight-night-board-list{border-top:1px solid rgba(101,157,191,.24);background:rgba(0,13,25,.48);padding:6px 12px 10px}.fight-night-board-list.hidden{display:none!important}
-.fight-night-rank-row{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:10px;align-items:center;min-height:42px;border-bottom:1px solid rgba(93,142,173,.20)}.fight-night-rank-row:last-child{border-bottom:0}.fight-night-rank-number{color:#ffe07e;font-size:11px;font-weight:1000}.fight-night-rank-name{min-width:0}.fight-night-rank-name .fight-night-leader-player{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px}.fight-night-rank-name small{display:block;margin-top:2px;color:#789db4;font-size:8px}.fight-night-rank-count{color:#ecf8ff;font-size:14px;font-weight:1000;text-align:right}.fight-night-rank-count small{display:block;color:#7fa5bc;font-size:8px;text-transform:uppercase}.fight-night-empty{padding:18px;color:#8eb0c5;font-size:10px;text-align:center}
+.fight-night-rank-row{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:10px;align-items:center;min-height:42px;border-bottom:1px solid rgba(93,142,173,.20)}.fight-night-rank-row:last-child{border-bottom:0}.fight-night-rank-number{color:#ffe07e;font-size:11px;font-weight:1000}.fight-night-rank-name{min-width:0}.fight-night-rank-name .fight-night-leader-player{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px}.fight-night-rank-name small{display:block;margin-top:2px;color:#789db4;font-size:8px}.fight-night-rank-count{color:#ecf8ff;font-size:14px;font-weight:1000;text-align:right}.fight-night-rank-count small{display:block;color:#7fa5bc;font-size:8px;text-transform:uppercase}.fight-night-empty{padding:18px;color:#8eb0c5;font-size:10px;text-align:center}.fight-night-war-period+.fight-night-war-period{margin-top:8px;padding-top:8px;border-top:1px solid rgba(239,200,94,.20)}.fight-night-war-period-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 0 7px;color:#ffe18b;font-size:10px;font-weight:1000;letter-spacing:.06em;text-transform:uppercase}.fight-night-war-period-head span{color:#83aac1;font-size:8px;font-weight:850;letter-spacing:.02em;text-transform:none}.fight-night-war-period .fight-night-rank-row:first-of-type{border-top:1px solid rgba(93,142,173,.16)}
 .fight-night-board-toggle-hint{margin-top:3px;color:#79a4bd;font-size:8px}.fight-night-mode-button[aria-expanded="true"]{filter:drop-shadow(0 0 16px rgba(255,214,84,.28));animation:ascFightNightModeBounce 1.25s ease-in-out infinite}.fight-night-mode-button[aria-expanded="true"]::before{opacity:1;border-color:rgba(255,224,107,.65);background:radial-gradient(circle at 50% 45%,rgba(255,228,131,.18),rgba(255,228,131,0) 62%)}.fight-night-mode-button[aria-expanded="true"]::after{opacity:1;animation:ascFightNightModeSweep 1.9s ease-in-out infinite}
 @keyframes ascFightNightModeBounce{0%,100%{transform:translateY(0) scale(1)}20%{transform:translateY(-2px) scale(1.035)}45%{transform:translateY(0) scale(1.015)}65%{transform:translateY(-1px) scale(1.025)}}
 @keyframes ascFightNightModeSweep{0%{transform:skewX(-24deg) translateX(-220%)}55%,100%{transform:skewX(-24deg) translateX(360%)}}
@@ -27434,7 +27434,7 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
 #eventsPage .asc-log-row-enter{
   opacity:0!important;
   transform:translate3d(0,8px,0)!important;
-  animation:ascEventSequentialFadeV2 .65s cubic-bezier(.18,.78,.2,1) both!important;
+  animation:ascEventSequentialFadeV2 .9s cubic-bezier(.18,.78,.2,1) both!important;
   animation-delay:var(--asc-log-delay,0ms)!important;
   will-change:opacity,transform!important;
 }
@@ -27498,6 +27498,9 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
   overflow:visible!important;
   padding-bottom:24px!important;
 }
+#chatPage.asc-events-mode{padding-bottom:0!important}
+#chatPage.asc-events-mode>#eventsPage{margin-bottom:0!important;padding-bottom:0!important}
+#chatPage.asc-events-mode #eventCenter{margin-bottom:0!important}
 #chatPage>#eventsPage.asc-chat-events{
   display:block!important;
   flex:0 0 auto!important;
