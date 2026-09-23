@@ -26757,13 +26757,9 @@ html.asc-shop-background-preview-active #shopPreviewOverlay{
   overflow:visible;
 }
 #chatPage.asc-chat-page.hidden{display:none!important}
-/* The skeleton Arena Dispatch header belongs to the main Chat view only.
-   Events opens directly on its filters/history list. */
-#chatPage.asc-events-mode>.asc-chat-dispatch{display:none!important}
-#chatPage.asc-events-mode{gap:0}
 body.events-log-mode main.shell{padding-bottom:8px!important}
 
-/* Main Chat hero/header. Hidden while Events mode is active. */
+/* This header never changes when switching Chat / Events. Only the content below changes. */
 .asc-chat-dispatch{
   flex:0 0 auto;
   min-height:138px;
@@ -26782,7 +26778,7 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
   position:relative;
   isolation:isolate;
 }
-/* Skeleton scene belongs to the Main Chat header only. */
+/* Shared skeleton scene remains visible on BOTH Chat and Events. */
 .asc-chat-dispatch:before{
   content:"";
   position:absolute;
@@ -26847,7 +26843,7 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
 .asc-chat-dispatch-refresh.refreshing:first-letter{animation:ascDispatchRefreshSpin .7s linear infinite}
 @keyframes ascDispatchRefreshSpin{to{transform:rotate(360deg)}}
 
-/* Chat / Events buttons live inside the Main Chat header. */
+/* Chat / Events live under the permanent title + refresh row. */
 .asc-chat-mode-tabs{
   position:relative;
   z-index:1;
@@ -26922,7 +26918,7 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
 #clanEventsPanel.asc-events-primary-panel{margin:0 0 9px!important;overflow:hidden}
 #clanEventsPanel.asc-events-primary-panel>.tools.asc-events-filter-tools{
   display:grid;
-  grid-template-columns:minmax(150px,.9fr) minmax(170px,1.1fr) auto;
+  grid-template-columns:minmax(150px,1fr) minmax(170px,1fr);
   align-items:center;
   gap:7px;
   padding:9px;
@@ -26943,7 +26939,7 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
   .asc-chat-dispatch-refresh{min-height:34px;padding:6px 9px;font-size:8px}
   .asc-chat-mode-tabs{width:min(300px,100%);grid-template-columns:repeat(2,minmax(84px,1fr));gap:5px;padding:3px}
   .asc-chat-mode-tab{min-height:32px;padding:5px 10px;font-size:9px}
-  #clanEventsPanel.asc-events-primary-panel>.tools.asc-events-filter-tools{grid-template-columns:1fr 1fr auto;gap:5px;padding:7px}
+  #clanEventsPanel.asc-events-primary-panel>.tools.asc-events-filter-tools{grid-template-columns:1fr 1fr;gap:5px;padding:7px}
   #clanEventsPanel .asc-events-filter-tools select{height:34px;padding:5px 6px;font-size:8px}
   #clanEventsPanel .asc-events-filter-tools .btn{height:34px;padding:5px 8px;font-size:8px}
   #chatPage .asc-chat-room-head{min-height:46px;padding:6px 8px}
