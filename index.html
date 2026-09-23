@@ -10346,6 +10346,9 @@ body.owner-settings-mode .owner-community-settings-body textarea:focus{
   #eventsPage .asc-log-row-enter{animation:none!important;opacity:1!important;transform:none!important}
 }
 
+/* Unified Events rows are animated by recent-battles.js so WebView cannot leave them ghosted. */
+#eventCenterRows .event-compact-row.asc-log-row-enter{opacity:1!important;transform:none!important;animation:none!important}
+
 /* All player-name links use one obvious, touch-friendly interaction. */
 .activity-player-link,
 .battle-player-link,
