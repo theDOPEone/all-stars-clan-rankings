@@ -26762,26 +26762,40 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
 /* This header never changes when switching Chat / Events. Only the content below changes. */
 .asc-chat-dispatch{
   flex:0 0 auto;
-  min-height:112px;
+  min-height:138px;
   display:flex;
   flex-direction:column;
-  gap:9px;
-  padding:12px 14px 10px;
-  border:1px solid rgba(239,200,94,.54);
-  border-radius:13px;
+  justify-content:flex-end;
+  gap:10px;
+  padding:16px 16px 12px;
+  border:1px solid rgba(239,200,94,.62);
+  border-radius:14px;
   background:
-    radial-gradient(circle at 14% -8%,rgba(90,181,255,.20),transparent 34%),
-    linear-gradient(180deg,rgba(17,86,130,.99),rgba(7,43,73,.99));
-  box-shadow:inset 0 1px rgba(255,255,255,.10),inset 0 -1px rgba(255,216,113,.08),0 12px 28px rgba(0,15,34,.25);
+    radial-gradient(circle at 18% -12%,rgba(93,188,255,.28),transparent 37%),
+    linear-gradient(90deg,rgba(5,42,70,.98) 0%,rgba(7,54,87,.94) 48%,rgba(8,44,73,.86) 100%);
+  box-shadow:inset 0 1px rgba(255,255,255,.12),inset 0 -1px rgba(255,216,113,.10),0 12px 28px rgba(0,15,34,.28);
   overflow:hidden;
   position:relative;
+  isolation:isolate;
+}
+/* Shared skeleton scene remains visible on BOTH Chat and Events. */
+.asc-chat-dispatch:before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:-20px -8px -34px 38%;
+  pointer-events:none;
+  background:url('./assets/arena-characters/skeleton_army.png') right center/auto 128% no-repeat;
+  opacity:.34;
+  filter:drop-shadow(0 10px 14px rgba(0,0,0,.30));
 }
 .asc-chat-dispatch:after{
   content:"";
   position:absolute;
+  z-index:-1;
   inset:0;
   pointer-events:none;
-  background:linear-gradient(105deg,transparent 0 64%,rgba(255,231,151,.05) 73%,transparent 82%);
+  background:linear-gradient(90deg,rgba(3,30,52,.28) 0%,rgba(3,30,52,.08) 58%,rgba(2,21,36,.36) 100%);
 }
 .asc-chat-dispatch-top{
   position:relative;
@@ -26900,15 +26914,34 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
 #chatPage>#eventsPage.asc-chat-events.hidden{display:none!important}
 #chatPage>#eventsPage::after{content:none!important;display:none!important;height:0!important;min-height:0!important}
 
+/* Events begins immediately with its two filters; there is no second page/header inside the tab. */
+#clanEventsPanel.asc-events-primary-panel{margin:0 0 9px!important;overflow:hidden}
+#clanEventsPanel.asc-events-primary-panel>.tools.asc-events-filter-tools{
+  display:grid;
+  grid-template-columns:minmax(150px,.9fr) minmax(170px,1.1fr) auto;
+  align-items:center;
+  gap:7px;
+  padding:9px;
+  border-bottom:1px solid rgba(239,200,94,.20);
+  background:linear-gradient(180deg,rgba(18,79,119,.97),rgba(8,47,78,.98));
+}
+#clanEventsPanel .asc-events-filter-tools select{min-width:0;width:100%;height:36px}
+#clanEventsPanel .asc-events-filter-tools .btn{height:36px;margin:0;white-space:nowrap}
+#clanEventsPanel>#events{margin:0}
+
 @media(max-width:700px){
   #chatPage.asc-chat-page{height:clamp(420px,calc(100dvh - 132px),700px);gap:6px}
-  .asc-chat-dispatch{min-height:104px;padding:9px 10px 8px;gap:7px}
+  .asc-chat-dispatch{min-height:122px;padding:11px 10px 9px;gap:8px}
+  .asc-chat-dispatch:before{inset:-14px -42px -30px 24%;background-size:auto 122%;opacity:.30}
   .asc-chat-dispatch-top{gap:8px}
   .asc-chat-dispatch-kicker{font-size:7px;letter-spacing:.085em}
   .asc-chat-dispatch h2{font-size:19px}
   .asc-chat-dispatch-refresh{min-height:34px;padding:6px 9px;font-size:8px}
   .asc-chat-mode-tabs{width:min(300px,100%);grid-template-columns:repeat(2,minmax(84px,1fr));gap:5px;padding:3px}
   .asc-chat-mode-tab{min-height:32px;padding:5px 10px;font-size:9px}
+  #clanEventsPanel.asc-events-primary-panel>.tools.asc-events-filter-tools{grid-template-columns:1fr 1fr auto;gap:5px;padding:7px}
+  #clanEventsPanel .asc-events-filter-tools select{height:34px;padding:5px 6px;font-size:8px}
+  #clanEventsPanel .asc-events-filter-tools .btn{height:34px;padding:5px 8px;font-size:8px}
   #chatPage .asc-chat-room-head{min-height:46px;padding:6px 8px}
   #chatPage .asc-chat-channel-tab{min-height:32px;padding:6px 9px;font-size:9px}
   #chatPage .asc-chat-composer{padding:7px 8px 6px}
@@ -26917,7 +26950,8 @@ body.events-log-mode main.shell{padding-bottom:8px!important}
   #chatPage .asc-chat-compose-meta{margin-top:3px}
 }
 @media(max-width:430px){
-  .asc-chat-dispatch h2{font-size:17px}
+  .asc-chat-dispatch h2{font-size:18px}
+  .asc-chat-dispatch-kicker{max-width:68%;line-height:1.25}
   .asc-chat-dispatch-refresh span{display:none}
   .asc-chat-dispatch-refresh{width:38px;padding:0;font-size:17px}
   .asc-chat-mode-tabs{width:100%}
