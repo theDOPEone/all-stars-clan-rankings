@@ -29037,8 +29037,11 @@ document.addEventListener('visibilitychange',()=>{
 
 function ascInitAppMusic(){
   syncAscNowPlaying();
+  // Register the first-gesture fallback before trying autoplay. Browsers that
+  // block audible startup will begin playback on the first interaction.
+  ascAppMusicState.autoplayPending=true;
   ascBindAutoplayUnlock();
-  window.setTimeout(()=>{void ascTryAutoplayAppMusic()},90);
+  void ascTryAutoplayAppMusic();
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ascInitAppMusic,{once:true});
 else ascInitAppMusic();
