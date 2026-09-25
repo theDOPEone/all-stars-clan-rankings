@@ -28742,7 +28742,7 @@ body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;
   </div><button class="btn public-signin-top" onclick="openServerLogin('member','login')">Sign In</button></header><nav class="public-site-nav"><button id="navDash" class="btn active" onclick="showPage('dashboard')">Clan Dashboard</button><button id="navRankings" class="btn" onclick="showPage('rankings')">All Stars Rankings</button></nav><main class="shell"><div id="publicStatus" class="public-site-status" role="status"></div><section id="dashboardPage" class="dashboard-welcome-page"><div id="dashboard"></div></section><section id="rankingsPage" class="hidden">
   <div id="familySummary" class="family-summary clan-honor-mount clan-honor-scene-mount"></div>
   <div id="familySummaryDetails" class="clan-honor-details-mount"></div>
-  <div class="family-table-panel family-table-after-top3">
+  <div id="familyFullList" class="family-table-panel family-table-after-top3" hidden>
     <div class="family-table-find-dock">
       <div class="family-table-find-copy">
         <div class="family-table-find-kicker">ALL STARS FAMILY RANKINGS</div>
@@ -28750,13 +28750,13 @@ body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;
         <div class="family-table-find-sub">Search by Clash name or player tag and jump directly to your current clan roster.</div>
       </div>
       <div class="family-find family-find-table"><input id="familyFindInput" placeholder="Clash name or #PLAYER_TAG..." onkeydown="if(event.key==='Enter')findMeInFamily()"><button class="btn" onclick="findMeInFamily()">Find Me</button></div>
-      <div id="familyFindResult" class="family-find-result family-find-result-table">Enter your Clash Royale name or tag and we will jump to your current clan roster.</div>
+      <div id="familyFindResult" class="family-find-result family-find-result-table" role="status">Search your Clash name or player tag.</div>
     </div>
 
     <div class="rankings-list-head">
       <div class="rankings-list-head-copy">
         <span>ALL STARS FAMILY</span>
-        <b>Player Rankings</b>
+        <b tabindex="-1" id="familyFullListTitle">Player Rankings</b>
         <small>Browse the complete family list across every clan.</small>
       </div>
       <button class="rankings-list-find-button" type="button" onclick="openRankingsFindMe()" aria-label="Find a player in the rankings">
@@ -30030,6 +30030,7 @@ function renderFamilyRankings(){
   const avgT=players?Math.round(rows.reduce((a,x)=>a+(x.m.trophies||0),0)/players):0,totalD=rows.reduce((a,x)=>a+(x.m.donations||0),0),linked=rows.filter(x=>!!(discordLinkFor(x.m.tag)||publicDiscordLinkFor(x.m.tag))).length;
   renderClanHonorBoard(players,clans,avgT,totalD,linked);
   renderClanHonorTop3(rows);
+  if(!window.rankingsFullListVisible)return;
   const modes=['performance','war','donations','trophies','activity','consistency'];
   const descriptions={performance:'Overall rating, then war average and trophies',war:'Highest completed-war average first',donations:'Most donations this week first',trophies:'Highest current trophies first',activity:'Most recently seen first',consistency:'Highest productive-week consistency first; unknown data last'};
   $('familyControls').innerHTML=`<span class="label">Ranking by:</span><div class="family-filter-options">${modes.map(m=>`<button class="family-filter ${m===familyRankingMode?'active':''}" aria-pressed="${m===familyRankingMode}" onclick="setFamilyRankingMode('${m}')">${familyModeLabel(m)}</button>`).join('')}</div><div class="family-sort-summary" role="status">${esc(familyModeLabel(familyRankingMode))} · ${esc(descriptions[familyRankingMode])} · ${players} players</div>`;
