@@ -30129,6 +30129,8 @@ function clanHonorWarStartsSoon(selection){
     &&selection.rows.every(row=>Number(row.value||0)<=0);
 }
 let rankingsSceneView='welcome';
+window.rankingsFullListVisible=false;
+let rankingsSearchResults=null;
 let rankingsSceneTransition=null;
 async function setRankingsSceneView(view,closePopups=true){
   if(!['welcome','graphs','trophies'].includes(view))return;
@@ -30182,7 +30184,15 @@ function syncRankingsSceneHub(){
     nav.innerHTML=[['graphs','Clan Honor Graphs','left'],['welcome','Welcome','center'],['trophies','Family Rank Podiums','right']].map(([key,label,side])=>`<button type="button" class="rankings-star ${side}" data-scene-button="${key}" aria-label="${label}" title="${label}" onclick="setRankingsSceneView('${key}')">${key==='welcome'?'<span>Welcome</span>':rankingsGoldIcon(key)}</button>`).join('');frame.append(nav);
     const hub=document.createElement('section');hub.id='rankingsWelcome';hub.className='rankings-welcome';
     hub.innerHTML='<header class="rankings-scene-heading"><div class="rankings-hub-kicker">ALL STARS • RANKINGS</div><h2>Find your place<br>among the stars.</h2><p>Your family. Your competition.<br>Choose a gold icon to explore.</p></header><div class="rankings-search-inset"><div id="rankingsHubFind"></div><a class="rankings-global-link" href="https://royaleapi.com/players/leaderboard" target="_blank" rel="noopener">Global leaderboard ↗</a></div>';
+    hub.querySelector('.rankings-search-inset').insertAdjacentHTML('beforeend','<button type="button" class="rankings-full-list-button" aria-controls="familyFullList" onclick="showRankingsFullList()">See Full Player List ↓</button>');
+    const results=document.createElement('section');
+    results.id='rankingsSearchResults';results.className='rankings-search-results';results.hidden=true;
+    results.setAttribute('aria-label','Find Me player results');
+    results.innerHTML='<div class="rankings-results-head"><b id="rankingsResultsTitle">Your results</b><button type="button" onclick="closeRankingsSearchResults()" aria-label="Close search results">×</button></div><div id="rankingsResultsBody" class="rankings-results-scroll" tabindex="0" aria-label="Player stats results"></div>';
+    hub.append(results);
     frame.append(hub);
+    if('ResizeObserver' in window){const fit=new ResizeObserver(positionRankingsSearchResults);fit.observe(hub);fit.observe(hub.querySelector('.rankings-search-inset'))}
+    if(rankingsSearchResults)renderRankingsSearchResults();
     const atmosphere=document.createElement('div');atmosphere.className='rankings-character-distance';atmosphere.setAttribute('aria-hidden','true');
     const characters=[
       './assets/arena-characters/Musketeer_Hero_Pose03_4K_FX.png',
@@ -30214,11 +30224,61 @@ function syncRankingsSceneHub(){
   }
   const find=document.querySelector('.family-table-find-dock'),dock=$('rankingsHubFind');
   if(find&&dock&&find.parentElement!==dock)dock.append(find);
+  positionRankingsSearchResults();
   if(!details.querySelector('.rankings-scene-heading')){
     const heading=document.createElement('header');heading.className='rankings-scene-heading';heading.innerHTML='<div class="rankings-hub-kicker">ALL STARS FAMILY</div><h2>Family Rank</h2><p>Our leading clans.<br>United by Honor.</p>';details.append(heading);
   }
   setRankingsSceneView(rankingsSceneView,false);
   if(typeof scheduleRankingsMobileSceneFit==='function')scheduleRankingsMobileSceneFit();
+}
+function positionRankingsSearchResults(){
+  const hub=$('rankingsWelcome'),search=hub?.querySelector('.rankings-search-inset'),results=$('rankingsSearchResults');
+  if(hub&&search&&results)results.style.bottom=`${Math.max(0,hub.clientHeight-search.offsetTop)+10}px`;
+}
+function rankingsResultCardHtml(x){
+  const m=x.m||{},score=x.score||{},hours=hoursSince(m.lastSeen);
+  const number=value=>value==null?'—':Number(value).toLocaleString();
+  const stats=[
+    ['Family rank',x.familyRank?`#${x.familyRank}`:'—'],['Clan rank',x.clanRank?`#${x.clanRank}`:'—'],['Rating',score.overall==null?'—':`${score.overall} / 5`],
+    ['War average',score.avgFame==null?'—':number(Math.round(score.avgFame))],['Current war',number(m.currentWar?.fame)],['Donations · week',number(m.donations)],
+    ['Trophies',number(m.trophies)],['Last seen',hours==null?'Unknown':`${fmtHours(hours)} ago`],['Productive weeks',score.known?`${score.solid||0} / ${score.known}`:'—']
+  ];
+  return `<article class="rankings-result-card"><div class="rankings-result-identity"><div><b>${esc(m.name||'Player')}</b><span>${esc(x.c?.name||'ALL STARS')} · ${esc(roleName(m.role))}</span><small>${esc(m.tag||'')}</small></div><button type="button" onclick="openPlayer('${encodeURIComponent(m.tag||'')}')" aria-label="View ${esc(m.name||'player')} profile">View ↗</button></div><dl class="rankings-result-stats">${stats.map(([label,value])=>`<div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl></article>`;
+}
+function renderRankingsSearchResults(){
+  const panel=$('rankingsSearchResults'),body=$('rankingsResultsBody');
+  if(!panel||!body||!rankingsSearchResults)return;
+  const {matches,query}=rankingsSearchResults;
+  $('rankingsResultsTitle').textContent=matches.length?`${matches.length} player${matches.length===1?'':'s'} found`:'No players found';
+  body.innerHTML=matches.length?matches.map(rankingsResultCardHtml).join(''):`<div class="rankings-results-empty">No match for <b>${esc(query)}</b>.<br>Try an exact Clash name or #player tag.</div>`;
+  panel.hidden=false;body.scrollTop=0;
+  positionRankingsSearchResults();
+}
+async function showRankingsSearchResults(matches,query){
+  rankingsSearchResults={matches,query};
+  $('familyFindInput')?.blur();
+  await setRankingsSceneView('welcome');
+  renderRankingsSearchResults();
+  const panel=$('rankingsSearchResults');
+  if(panel){panel.getAnimations().forEach(animation=>animation.cancel());panel.animate([{opacity:0},{opacity:1}],{duration:420,easing:'ease-out'})}
+  const status=$('familyFindResult');if(status)status.textContent=matches.length?'Your player stats are shown above.':'Try another name or player tag.';
+}
+function closeRankingsSearchResults(){
+  rankingsSearchResults=null;
+  const panel=$('rankingsSearchResults');if(panel)panel.hidden=true;
+  $('familyFindInput')?.focus({preventScroll:true});
+}
+function showRankingsFullList(){
+  const list=$('familyFullList');if(!list)return;
+  const firstOpen=!window.rankingsFullListVisible;
+  window.rankingsFullListVisible=true;list.hidden=false;
+  renderFamilyRankings();
+  requestAnimationFrame(()=>{
+    if(firstOpen)list.animate([{opacity:0,transform:'translateY(-16px)'},{opacity:1,transform:'translateY(0)'}],{duration:650,easing:'ease-out'});
+    const navHeight=document.querySelector('main.shell>.nav')?.getBoundingClientRect().height||60;
+    window.scrollTo({top:Math.max(0,list.getBoundingClientRect().top+window.scrollY-navHeight-20),behavior:'smooth'});
+    $('familyFullListTitle')?.focus({preventScroll:true});
+  });
 }
 function syncRankingsCharacterMotion(){
   const layer=document.querySelector('.rankings-character-distance');if(!layer)return;
