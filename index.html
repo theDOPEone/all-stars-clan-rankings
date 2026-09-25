@@ -11925,6 +11925,9 @@ html[data-asc-honor-view="mobile-portrait"] #familySummary .rankings-unified-sce
 #familySummary .rankings-unified-scene:not([data-scene-view="trophies"]) #familySummaryDetails,
 #familySummary .rankings-unified-scene:not([data-scene-view="graphs"]) .clan-honor-cinematic-content,
 #familySummary .rankings-unified-scene:not([data-scene-view="welcome"]) #rankingsWelcome{transition:opacity .34s ease,visibility 0s linear .34s}
+#familySummary .rankings-unified-scene.rankings-scene-fading-out #familySummaryDetails,
+#familySummary .rankings-unified-scene.rankings-scene-fading-out .clan-honor-cinematic-content,
+#familySummary .rankings-unified-scene.rankings-scene-fading-out #rankingsWelcome{opacity:0!important}
 .rankings-star-nav{position:absolute;inset:0;pointer-events:none;z-index:10}
 .rankings-star{position:absolute;pointer-events:auto;width:9%;height:14%;top:21%;border:0;background:transparent;cursor:pointer;border-radius:45%;padding:0;color:#fff0b5}
 .rankings-star.left{left:5%}.rankings-star.right{right:5%}.rankings-star.center{left:44%;top:0;width:12%;height:15%}
@@ -30136,16 +30139,38 @@ function clanHonorWarStartsSoon(selection){
     &&selection.rows.every(row=>Number(row.value||0)<=0);
 }
 let rankingsSceneView='welcome';
+let rankingsSceneTransitionTimer=0;
+let rankingsSceneTransitionFrame=null;
 function setRankingsSceneView(view,closePopups=true){
   if(!['welcome','graphs','trophies'].includes(view))return;
   rankingsSceneView=view;
   if(closePopups){closeClanHonorInfo();closeSimpleClanInfo()}
   const frame=document.querySelector('#familySummary .honor-scene-frame');if(!frame)return;
-  frame.dataset.sceneView=view;
-  frame.querySelectorAll('[data-scene-button]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.sceneButton===view)));
-  const graph=frame.querySelector('.clan-honor-cinematic-content'),trophies=$('familySummaryDetails'),hub=$('rankingsWelcome');
-  [[graph,'graphs'],[trophies,'trophies'],[hub,'welcome']].forEach(([el,key])=>{if(el){el.setAttribute('aria-hidden',String(key!==view));el.inert=key!==view}});
-  syncRankingsCharacterMotion();
+  if(!closePopups&&rankingsSceneTransitionTimer&&rankingsSceneTransitionFrame===frame)return;
+  clearTimeout(rankingsSceneTransitionTimer);
+  rankingsSceneTransitionTimer=0;
+  rankingsSceneTransitionFrame=null;
+  const applyView=()=>{
+    frame.dataset.sceneView=view;
+    frame.querySelectorAll('[data-scene-button]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.sceneButton===view)));
+    const graph=frame.querySelector('.clan-honor-cinematic-content'),trophies=$('familySummaryDetails'),hub=$('rankingsWelcome');
+    [[graph,'graphs'],[trophies,'trophies'],[hub,'welcome']].forEach(([el,key])=>{if(el){el.setAttribute('aria-hidden',String(key!==view));el.inert=key!==view}});
+    syncRankingsCharacterMotion();
+  };
+  if(!closePopups||frame.dataset.sceneView===view||window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    frame.classList.remove('rankings-scene-fading-out');
+    applyView();
+    return;
+  }
+  frame.classList.add('rankings-scene-fading-out');
+  rankingsSceneTransitionFrame=frame;
+  rankingsSceneTransitionTimer=window.setTimeout(()=>{
+    rankingsSceneTransitionTimer=0;
+    rankingsSceneTransitionFrame=null;
+    if(!frame.isConnected)return;
+    applyView();
+    requestAnimationFrame(()=>requestAnimationFrame(()=>frame.classList.remove('rankings-scene-fading-out')));
+  },240);
 }
 function syncRankingsSceneHub(){
   const frame=document.querySelector('#familySummary .honor-scene-frame'),details=$('familySummaryDetails');if(!frame||!details)return;
