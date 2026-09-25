@@ -18615,6 +18615,24 @@ body.asc-card-picker-open #favoriteCardPickerModal .favorite-deck-card-shimmer{
 
 /* Keep the mobile scene clean: one composite image, no crowding. */
 @media(max-width:700px){
+  .dashboard-welcome-hero{
+    background-image:
+      linear-gradient(90deg,rgba(3,25,45,.84),rgba(5,37,62,.40)),
+      url('assets/arena/CR_LS_April26_Final.jpg')!important;
+    background-size:cover,cover!important;
+    background-position:center,center 62%!important;
+  }
+  .dashboard-welcome-hero::before{
+    background:linear-gradient(180deg,rgba(3,26,45,.13),rgba(3,26,45,.50) 55%,rgba(3,26,45,.72))!important;
+  }
+  .dashboard-welcome-hero--signed-out .dashboard-welcome-prince,
+  .dashboard-welcome-hero--error .dashboard-welcome-prince{
+    right:-20%!important;
+    bottom:-7px!important;
+    height:90%!important;
+    max-height:none!important;
+    opacity:.93!important;
+  }
   .dashboard-welcome-character-glow{
     right:-20%;
     bottom:56px;
@@ -18623,17 +18641,21 @@ body.asc-card-picker-open #favoriteCardPickerModal .favorite-deck-card-shimmer{
     opacity:.72;
   }
   .dashboard-welcome-hero--signed-in .dashboard-welcome-prince{
-    right:-1%!important;
-    bottom:104px!important;
-    height:56%!important;
+    right:-16%!important;
+    bottom:-7px!important;
+    height:72%!important;
     max-height:none!important;
   }
 }
 
 @media(max-width:430px){
+  .dashboard-welcome-hero--signed-out .dashboard-welcome-prince,
+  .dashboard-welcome-hero--error .dashboard-welcome-prince{
+    right:-24%!important;
+  }
   .dashboard-welcome-hero--signed-in .dashboard-welcome-prince{
-    right:-4%!important;
-    height:54%!important;
+    right:-20%!important;
+    height:70%!important;
   }
 }
 
@@ -30133,7 +30155,7 @@ function syncRankingsSceneHub(){
   details.querySelectorAll('.asc-honor-scene-art,.asc-gold-backdrop,.clan-honor-floating-label,.clan-honor-fourth-button').forEach(el=>el.remove());
   if(!frame.querySelector('.rankings-star-nav')){
     const nav=document.createElement('nav');nav.className='rankings-star-nav';nav.setAttribute('aria-label','Rankings scene');
-    nav.innerHTML=[['graphs','Graphs','left'],['welcome','Welcome','center'],['trophies','Trophies','right']].map(([key,label,side])=>`<button type="button" class="rankings-star ${side}" data-scene-button="${key}" aria-label="${label}" title="${label}" onclick="setRankingsSceneView('${key}')">${key==='welcome'?'<span>Welcome</span>':rankingsGoldIcon(key)}</button>`).join('');frame.append(nav);
+    nav.innerHTML=[['graphs','Clan Honor Graphs','left'],['welcome','Welcome','center'],['trophies','Family Rank Podiums','right']].map(([key,label,side])=>`<button type="button" class="rankings-star ${side}" data-scene-button="${key}" aria-label="${label}" title="${label}" onclick="setRankingsSceneView('${key}')">${key==='welcome'?'<span>Welcome</span>':rankingsGoldIcon(key)}</button>`).join('');frame.append(nav);
     const hub=document.createElement('section');hub.id='rankingsWelcome';hub.className='rankings-welcome';
     hub.innerHTML='<header class="rankings-scene-heading"><div class="rankings-hub-kicker">ALL STARS • RANKINGS</div><h2>Find your place<br>among the stars.</h2><p>Your family. Your competition.<br>Choose a gold icon to explore.</p></header><div class="rankings-search-inset"><div id="rankingsHubFind"></div><a class="rankings-global-link" href="https://royaleapi.com/players/leaderboard" target="_blank" rel="noopener">Global leaderboard ↗</a></div>';
     frame.append(hub);
@@ -30180,8 +30202,11 @@ function syncRankingsCharacterMotion(){
 }
 document.addEventListener('visibilitychange',syncRankingsCharacterMotion);
 function rankingsGoldIcon(key){
-  const shape=key==='graphs'?'<path d="M17 68V47h13v21zm22 0V33h13v35zm22 0V18h13v50z"/><path d="M15 76h62" fill="none" stroke-width="5"/>':'<path d="M12 72V44h22v28zm22 0V29h25v43zm25 0V49h22v23z"/><path d="m47 12 4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z"/>';
-  return `<svg class="rankings-gold-icon" viewBox="0 0 94 94" aria-hidden="true"><defs><linearGradient id="iconGold-${key}" x2=".4" y2="1"><stop stop-color="#fff6bf"/><stop offset=".3" stop-color="#ffe374"/><stop offset=".55" stop-color="#df9e18"/><stop offset=".8" stop-color="#fff19e"/><stop offset="1" stop-color="#b66e08"/></linearGradient></defs><circle cx="47" cy="47" r="46" fill="#064290"/><g class="rankings-icon-gold" fill="url(#iconGold-${key})" stroke="#ffdf72" stroke-width="2" stroke-linejoin="round">${shape}</g></svg>`;
+  const shape=key==='graphs'
+    ?'<path d="M17 68V47h13v21zm22 0V33h13v35zm22 0V18h13v50z"/><path d="M15 76h62" fill="none" stroke-width="5"/>'
+    :'<path d="M8 70h78v8H8zM11 50h22v20H11zM35 38h24v32H35zM61 53h22v17H61z"/><path d="m37 24 5 4 5-8 5 8 5-4-2 10H39z"/><path d="M35 38h24M11 50h22M61 53h22" fill="none" stroke="#fff4ba" stroke-width="2"/>';
+  const numbers=key==='trophies'?'<g fill="#16416f" stroke="none" font-family="Arial,sans-serif" font-weight="900" text-anchor="middle"><text x="47" y="61" font-size="17">1</text><text x="22" y="65" font-size="13">2</text><text x="72" y="66" font-size="12">3</text></g>':'';
+  return `<svg class="rankings-gold-icon" viewBox="0 0 94 94" aria-hidden="true"><defs><linearGradient id="iconGold-${key}" x2=".4" y2="1"><stop stop-color="#fff6bf"/><stop offset=".3" stop-color="#ffe374"/><stop offset=".55" stop-color="#df9e18"/><stop offset=".8" stop-color="#fff19e"/><stop offset="1" stop-color="#b66e08"/></linearGradient></defs><circle cx="47" cy="47" r="46" fill="#064290"/><g class="rankings-icon-gold" fill="url(#iconGold-${key})" stroke="#ffdf72" stroke-width="2" stroke-linejoin="round">${shape}</g>${numbers}</svg>`;
 }
 
 /* Mobile portrait scene fit.
