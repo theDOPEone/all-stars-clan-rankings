@@ -11914,8 +11914,18 @@ html[data-asc-diamond-background="red"] body:not(.live-game-mode)::before{
 #rankingsPage #familyFullList .rankings-list-head-copy>b{font-size:24px;line-height:1.15}
 #rankingsPage #familyFullList .rankings-list-head-copy>span{font-size:10px}
 #rankingsPage #familyFullList .rankings-list-head-copy>small{display:block;font:12px/1.4 'Segoe UI',sans-serif}
-html[data-asc-honor-view="mobile-portrait"] .rankings-search-results{top:32%;left:9%;right:9%}
-#familySummary .has-search-results .rankings-scene-heading p{display:none}
+.rankings-search-results{top:19%}
+html[data-asc-honor-view="mobile-portrait"] .rankings-search-results{top:25%;left:9%;right:9%}
+#familySummary .has-search-results .rankings-scene-heading{display:none}
+.rankings-results-scroll{position:relative;flex:1;padding:0;scroll-snap-type:y mandatory}
+.rankings-result-card{box-sizing:border-box;min-height:100%;margin:0!important;border:0;border-radius:0;padding:12px;scroll-snap-align:start;scroll-snap-stop:always;background:radial-gradient(ellipse at top right,#1b63874d,transparent 65%),#06273bc9}
+.rankings-result-stats{gap:5px}
+.rankings-result-stats>div{background:linear-gradient(135deg,#20506c99,#0b2b42cc);border-color:#d6b56540;border-left:2px solid #d6b56580}
+.rankings-page-controls{display:flex;align-items:center;gap:5px;order:1;margin-left:auto}
+.rankings-results-head>button{order:2}
+.rankings-page-controls span{font-size:11px;white-space:nowrap;color:#deefff}
+.rankings-results-head .rankings-page-controls button{font-size:13px;width:28px;border:1px solid #d6b565;background:linear-gradient(#a98025,#654609);color:#fff0b2}
+.rankings-page-controls button:disabled{opacity:.35;cursor:default}
 @media(max-width:600px){
  .rankings-result-card{padding:7px}.rankings-result-stats>div{padding:5px}.rankings-result-stats dt{font-size:9px}.rankings-result-stats dd{font-size:12px}
  #rankingsPage .rankings-search-inset{padding:10px;gap:5px}
@@ -30237,6 +30247,9 @@ function syncRankingsSceneHub(){
     results.setAttribute('aria-label','Find Me player results');
     results.innerHTML='<div class="rankings-results-head"><b id="rankingsResultsTitle">Your results</b><button type="button" onclick="closeRankingsSearchResults()" aria-label="Close search results">×</button></div><div id="rankingsResultsBody" class="rankings-results-scroll" data-main-swipe-ignore tabindex="0" aria-label="Player stats results"></div>';
     hub.append(results);
+    results.querySelector('.rankings-results-head').insertAdjacentHTML('beforeend','<div class="rankings-page-controls"><button type="button" data-step="-1" onclick="stepRankingsResult(-1)" aria-label="Previous player">▲</button><span id="rankingsResultPosition" aria-live="polite"></span><button type="button" data-step="1" onclick="stepRankingsResult(1)" aria-label="Next player">▼</button></div>');
+    const resultBody=results.querySelector('.rankings-results-scroll');
+    resultBody.addEventListener('scroll',()=>{if(resultBody._paint)return;resultBody._paint=requestAnimationFrame(()=>{resultBody._paint=0;paintRankingsResultPages()})},{passive:true});
     frame.append(hub);
     if('ResizeObserver' in window){const fit=new ResizeObserver(positionRankingsSearchResults);fit.observe(hub);fit.observe(hub.querySelector('.rankings-search-inset'))}
     if(rankingsSearchResults)renderRankingsSearchResults();
@@ -30282,6 +30295,25 @@ function positionRankingsSearchResults(){
   const hub=$('rankingsWelcome'),search=hub?.querySelector('.rankings-search-inset'),results=$('rankingsSearchResults');
   if(hub&&search&&results)results.style.bottom=`${Math.max(0,hub.clientHeight-search.offsetTop)+10}px`;
 }
+function paintRankingsResultPages(){
+  const body=$('rankingsResultsBody');if(!body)return;
+  const cards=[...body.querySelectorAll('.rankings-result-card')];
+  const origin=cards[0]?.offsetTop||0;
+  let nearest=0,distance=Infinity;
+  cards.forEach((card,index)=>{
+    const delta=Math.abs(card.offsetTop-origin-body.scrollTop);
+    card.style.opacity=String(Math.max(.2,1-delta/Math.max(1,body.clientHeight)));
+    if(delta<distance){distance=delta;nearest=index}
+  });
+  body.dataset.page=nearest;
+  $('rankingsResultPosition').textContent=cards.length?`${nearest+1} / ${cards.length}`:'';
+  document.querySelectorAll('.rankings-page-controls button').forEach(button=>button.disabled=!cards.length||(Number(button.dataset.step)<0?nearest===0:nearest===cards.length-1));
+}
+function stepRankingsResult(direction){
+  const body=$('rankingsResultsBody'),cards=body?.querySelectorAll('.rankings-result-card');if(!cards?.length)return;
+  const next=Math.max(0,Math.min(cards.length-1,Number(body.dataset.page||0)+direction));
+  body.scrollTo({top:cards[next].offsetTop-cards[0].offsetTop,behavior:'smooth'});
+}
 function rankingsResultCardHtml(x){
   const m=x.m||{},score=x.score||{},hours=hoursSince(m.lastSeen);
   const number=value=>value==null?'—':Number(value).toLocaleString();
@@ -30301,6 +30333,7 @@ function renderRankingsSearchResults(){
   panel.hidden=false;body.scrollTop=0;
   $('rankingsWelcome')?.classList.add('has-search-results');
   positionRankingsSearchResults();
+  requestAnimationFrame(paintRankingsResultPages);
 }
 async function showRankingsSearchResults(matches,query){
   rankingsSearchResults={matches,query};
