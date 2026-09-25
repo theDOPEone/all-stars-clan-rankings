@@ -11918,16 +11918,10 @@ html[data-asc-honor-view="mobile-portrait"] .rankings-search-inset{bottom:7%;lef
 html[data-asc-honor-view="mobile-portrait"] #familySummary .rankings-unified-scene #familySummaryDetails .clan-honor-fourth-button{top:31%!important;left:50%!important;width:74%!important;font-size:11px!important}
 #familySummary .rankings-unified-scene:not([data-scene-view="trophies"]) #familySummaryDetails,
 #familySummary .rankings-unified-scene:not([data-scene-view="graphs"]) .clan-honor-cinematic-content,
-#familySummary .rankings-unified-scene:not([data-scene-view="welcome"]) #rankingsWelcome{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+#familySummary .rankings-unified-scene:not([data-scene-view="welcome"]) #rankingsWelcome{display:none!important}
 #familySummary .rankings-unified-scene #familySummaryDetails,
 #familySummary .rankings-unified-scene .clan-honor-cinematic-content,
-#familySummary .rankings-unified-scene #rankingsWelcome{opacity:1;visibility:visible;transition:opacity .42s ease,visibility 0s linear 0s;will-change:opacity}
-#familySummary .rankings-unified-scene:not([data-scene-view="trophies"]) #familySummaryDetails,
-#familySummary .rankings-unified-scene:not([data-scene-view="graphs"]) .clan-honor-cinematic-content,
-#familySummary .rankings-unified-scene:not([data-scene-view="welcome"]) #rankingsWelcome{transition:opacity .34s ease,visibility 0s linear .34s}
-#familySummary .rankings-unified-scene.rankings-scene-fading-out #familySummaryDetails,
-#familySummary .rankings-unified-scene.rankings-scene-fading-out .clan-honor-cinematic-content,
-#familySummary .rankings-unified-scene.rankings-scene-fading-out #rankingsWelcome{opacity:0!important}
+#familySummary .rankings-unified-scene #rankingsWelcome{opacity:1;visibility:visible;transition:none;will-change:opacity}
 .rankings-star-nav{position:absolute;inset:0;pointer-events:none;z-index:10}
 .rankings-star{position:absolute;pointer-events:auto;width:9%;height:14%;top:21%;border:0;background:transparent;cursor:pointer;border-radius:45%;padding:0;color:#fff0b5}
 .rankings-star.left{left:5%}.rankings-star.right{right:5%}.rankings-star.center{left:44%;top:0;width:12%;height:15%}
@@ -11971,11 +11965,6 @@ html[data-asc-honor-view="mobile-portrait"] #familySummary .honor-scene-frame.ra
    inherit the same Y transform, so their internal alignment remains intact. */
 html[data-asc-honor-view="mobile-portrait"] #familySummary .honor-scene-frame.rankings-unified-scene.main-page-current{
   isolation:isolate;
-}
-@media(prefers-reduced-motion:reduce){
-  #familySummary .rankings-unified-scene #familySummaryDetails,
-  #familySummary .rankings-unified-scene .clan-honor-cinematic-content,
-  #familySummary .rankings-unified-scene #rankingsWelcome{transition:none!important}
 }
 
 
@@ -30139,17 +30128,19 @@ function clanHonorWarStartsSoon(selection){
     &&selection.rows.every(row=>Number(row.value||0)<=0);
 }
 let rankingsSceneView='welcome';
-let rankingsSceneTransitionTimer=0;
-let rankingsSceneTransitionFrame=null;
-function setRankingsSceneView(view,closePopups=true){
+let rankingsSceneTransition=null;
+async function setRankingsSceneView(view,closePopups=true){
   if(!['welcome','graphs','trophies'].includes(view))return;
   rankingsSceneView=view;
   if(closePopups){closeClanHonorInfo();closeSimpleClanInfo()}
   const frame=document.querySelector('#familySummary .honor-scene-frame');if(!frame)return;
-  if(!closePopups&&rankingsSceneTransitionTimer&&rankingsSceneTransitionFrame===frame)return;
-  clearTimeout(rankingsSceneTransitionTimer);
-  rankingsSceneTransitionTimer=0;
-  rankingsSceneTransitionFrame=null;
+  if(!closePopups&&rankingsSceneTransition?.frame===frame)return;
+  const panels={graphs:frame.querySelector('.clan-honor-cinematic-content'),trophies:$('familySummaryDetails'),welcome:$('rankingsWelcome')};
+  const outgoing=panels[frame.dataset.sceneView],incoming=panels[view];
+  const outgoingOpacity=outgoing?Number(getComputedStyle(outgoing).opacity):1;
+  const interrupted=!!rankingsSceneTransition;
+  rankingsSceneTransition?.animation?.cancel();
+  rankingsSceneTransition=null;
   const applyView=()=>{
     frame.dataset.sceneView=view;
     frame.querySelectorAll('[data-scene-button]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.sceneButton===view)));
@@ -30157,20 +30148,27 @@ function setRankingsSceneView(view,closePopups=true){
     [[graph,'graphs'],[trophies,'trophies'],[hub,'welcome']].forEach(([el,key])=>{if(el){el.setAttribute('aria-hidden',String(key!==view));el.inert=key!==view}});
     syncRankingsCharacterMotion();
   };
-  if(!closePopups||frame.dataset.sceneView===view||window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    frame.classList.remove('rankings-scene-fading-out');
+  if(!closePopups||!outgoing||!incoming||(frame.dataset.sceneView===view&&!interrupted)){
     applyView();
     return;
   }
-  frame.classList.add('rankings-scene-fading-out');
-  rankingsSceneTransitionFrame=frame;
-  rankingsSceneTransitionTimer=window.setTimeout(()=>{
-    rankingsSceneTransitionTimer=0;
-    rankingsSceneTransitionFrame=null;
-    if(!frame.isConnected)return;
+  // Animate only the content panel. The frame and each character's own animation
+  // remain independent. This opacity-only effect also works in reduced-motion mode.
+  const transition={frame,animation:null};
+  rankingsSceneTransition=transition;
+  const fade=async(panel,from,to,duration)=>{
+    transition.animation=panel.animate([{opacity:from},{opacity:to}],{duration,easing:'ease-in-out',fill:'both'});
+    try{await transition.animation.finished}catch{return false}
+    return rankingsSceneTransition===transition&&frame.isConnected;
+  };
+  if(outgoing!==incoming){
+    if(!await fade(outgoing,outgoingOpacity,0,320))return;
     applyView();
-    requestAnimationFrame(()=>requestAnimationFrame(()=>frame.classList.remove('rankings-scene-fading-out')));
-  },240);
+    transition.animation.cancel();
+  }
+  if(!await fade(incoming,outgoing===incoming?outgoingOpacity:0,1,420))return;
+  transition.animation.cancel();
+  rankingsSceneTransition=null;
 }
 function syncRankingsSceneHub(){
   const frame=document.querySelector('#familySummary .honor-scene-frame'),details=$('familySummaryDetails');if(!frame||!details)return;
