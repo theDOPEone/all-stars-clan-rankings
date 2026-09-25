@@ -11886,7 +11886,7 @@ html[data-asc-diamond-background="red"] body:not(.live-game-mode)::before{
 #rankingsPage #familyFullList[hidden],#rankingsSearchResults[hidden]{display:none!important}
 .rankings-search-results{position:absolute;z-index:6;top:33%;left:17%;right:17%;min-height:0;display:flex;flex-direction:column;overflow:hidden;pointer-events:auto;text-align:left;border:1px solid #d6b565;border-radius:12px;background:linear-gradient(140deg,rgba(16,58,86,.94),rgba(4,24,42,.95));box-shadow:0 8px 24px #0006,inset 0 1px #fff1;backdrop-filter:blur(5px)}
 .rankings-results-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-bottom:1px solid #d6b56545;flex:none}
-.rankings-results-head b{color:#ffe39a;font:700 12px/1.2 'Segoe UI',sans-serif}
+.rankings-results-head b{color:#ffe39a;font:700 12px/1.2 'Segoe UI',sans-serif!important}
 .rankings-results-head button{border:0;border-radius:5px;background:#163c56;color:#deefff;width:30px;height:28px;font:22px/1 Arial;cursor:pointer}
 .rankings-results-scroll{min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;touch-action:pan-y;padding:7px;scrollbar-width:thin;scrollbar-color:#d6b565 #06273c}
 .rankings-result-card{padding:9px;border:1px solid #50748a70;border-radius:8px;background:#06273bc9;margin-bottom:7px;min-width:0}
@@ -11899,8 +11899,8 @@ html[data-asc-diamond-background="red"] body:not(.live-game-mode)::before{
 .rankings-result-identity button{flex:none;border:1px solid #537f98;border-radius:5px;padding:7px;background:#154463;color:#e6f5ff;font:600 11px 'Segoe UI',sans-serif;cursor:pointer}
 .rankings-result-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin:0}
 .rankings-result-stats>div{min-width:0;padding:6px;border:1px solid #48738b40;border-radius:5px;background:#12384c85}
-.rankings-result-stats dt{color:#a0c2d5;font:10px/1.25 'Segoe UI',sans-serif}
-.rankings-result-stats dd{margin:3px 0 0;color:#f4f9ff;font:700 13px/1.15 'Segoe UI',sans-serif;overflow-wrap:anywhere}
+.rankings-result-stats dt{color:#a0c2d5;font:10px/1.25 'Segoe UI',sans-serif!important}
+.rankings-result-stats dd{margin:3px 0 0;color:#f4f9ff;font:700 13px/1.15 'Segoe UI',sans-serif!important;overflow-wrap:anywhere}
 .rankings-results-empty{padding:18px 10px;color:#c5dfed;font:13px/1.5 'Segoe UI',sans-serif}
 #rankingsPage .rankings-search-inset{display:grid;grid-template-columns:1fr auto;align-items:center;gap:7px}
 #rankingsHubFind{grid-column:1/-1;min-width:0}
@@ -11912,6 +11912,7 @@ html[data-asc-diamond-background="red"] body:not(.live-game-mode)::before{
 #rankingsPage #familyFullList .rankings-list-head-copy>span{font-size:10px}
 #rankingsPage #familyFullList .rankings-list-head-copy>small{display:block;font:12px/1.4 'Segoe UI',sans-serif}
 html[data-asc-honor-view="mobile-portrait"] .rankings-search-results{top:32%;left:9%;right:9%}
+#familySummary .has-search-results .rankings-scene-heading p{display:none}
 @media(max-width:600px){
  .rankings-result-card{padding:7px}.rankings-result-stats>div{padding:5px}.rankings-result-stats dt{font-size:9px}.rankings-result-stats dd{font-size:12px}
  #rankingsPage .rankings-search-inset{padding:10px;gap:5px}
@@ -30295,6 +30296,7 @@ function renderRankingsSearchResults(){
   $('rankingsResultsTitle').textContent=matches.length?`${matches.length} player${matches.length===1?'':'s'} found`:'No players found';
   body.innerHTML=matches.length?matches.map(rankingsResultCardHtml).join(''):`<div class="rankings-results-empty">No match for <b>${esc(query)}</b>.<br>Try an exact Clash name or #player tag.</div>`;
   panel.hidden=false;body.scrollTop=0;
+  $('rankingsWelcome')?.classList.add('has-search-results');
   positionRankingsSearchResults();
 }
 async function showRankingsSearchResults(matches,query){
@@ -30309,6 +30311,7 @@ async function showRankingsSearchResults(matches,query){
 function closeRankingsSearchResults(){
   rankingsSearchResults=null;
   const panel=$('rankingsSearchResults');if(panel)panel.hidden=true;
+  $('rankingsWelcome')?.classList.remove('has-search-results');
   $('familyFindInput')?.focus({preventScroll:true});
 }
 function showRankingsFullList(){
