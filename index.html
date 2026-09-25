@@ -11883,6 +11883,49 @@ html[data-asc-diamond-background="red"] body:not(.live-game-mode)::before{
 }
 
 /* One persistent frame; only these three content panels switch. */
+#rankingsPage #familyFullList[hidden],#rankingsSearchResults[hidden]{display:none!important}
+.rankings-search-results{position:absolute;z-index:6;top:33%;left:17%;right:17%;min-height:0;display:flex;flex-direction:column;overflow:hidden;pointer-events:auto;text-align:left;border:1px solid #d6b565;border-radius:12px;background:linear-gradient(140deg,rgba(16,58,86,.94),rgba(4,24,42,.95));box-shadow:0 8px 24px #0006,inset 0 1px #fff1;backdrop-filter:blur(5px)}
+.rankings-results-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;border-bottom:1px solid #d6b56545;flex:none}
+.rankings-results-head b{color:#ffe39a;font:700 12px/1.2 'Segoe UI',sans-serif}
+.rankings-results-head button{border:0;border-radius:5px;background:#163c56;color:#deefff;width:30px;height:28px;font:22px/1 Arial;cursor:pointer}
+.rankings-results-scroll{min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;touch-action:pan-y;padding:7px;scrollbar-width:thin;scrollbar-color:#d6b565 #06273c}
+.rankings-result-card{padding:9px;border:1px solid #50748a70;border-radius:8px;background:#06273bc9;margin-bottom:7px;min-width:0}
+.rankings-result-card:last-child{margin-bottom:0}
+.rankings-result-identity{display:flex;align-items:center;justify-content:space-between;gap:7px;margin-bottom:7px}
+.rankings-result-identity>div{min-width:0}
+.rankings-result-identity b{display:block;color:#ffe29a;font:700 15px/1.2 'Segoe UI',sans-serif;overflow-wrap:anywhere}
+.rankings-result-identity span,.rankings-result-identity small{display:block;color:#accbdc;font:11px/1.35 'Segoe UI',sans-serif;overflow-wrap:anywhere}
+.rankings-result-identity small{font-size:10px;color:#80abc4}
+.rankings-result-identity button{flex:none;border:1px solid #537f98;border-radius:5px;padding:7px;background:#154463;color:#e6f5ff;font:600 11px 'Segoe UI',sans-serif;cursor:pointer}
+.rankings-result-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin:0}
+.rankings-result-stats>div{min-width:0;padding:6px;border:1px solid #48738b40;border-radius:5px;background:#12384c85}
+.rankings-result-stats dt{color:#a0c2d5;font:10px/1.25 'Segoe UI',sans-serif}
+.rankings-result-stats dd{margin:3px 0 0;color:#f4f9ff;font:700 13px/1.15 'Segoe UI',sans-serif;overflow-wrap:anywhere}
+.rankings-results-empty{padding:18px 10px;color:#c5dfed;font:13px/1.5 'Segoe UI',sans-serif}
+#rankingsPage .rankings-search-inset{display:grid;grid-template-columns:1fr auto;align-items:center;gap:7px}
+#rankingsHubFind{grid-column:1/-1;min-width:0}
+#rankingsPage .rankings-global-link{margin:0;text-align:left;font-size:10px!important}
+.rankings-full-list-button{border:1px solid #caa954;border-radius:6px;padding:8px;background:linear-gradient(#1e5979,#0c314e);color:#ffe69d;font:600 11px/1.2 'Segoe UI',sans-serif;cursor:pointer}
+#rankingsPage #familyFullList{margin-top:18px;scroll-margin-top:85px}
+#rankingsPage #familyFullList .rankings-list-head{min-height:116px;margin:0;padding:18px 20px;border:0;border-bottom:1px solid #d6b56585;border-radius:0;background:linear-gradient(90deg,#082a43f2,#0b3458ad),url('./assets/arena/Loading screen Clan Wars 2.png') center 42%/cover no-repeat}
+#rankingsPage #familyFullList .rankings-list-head-copy>b{font-size:24px;line-height:1.15}
+#rankingsPage #familyFullList .rankings-list-head-copy>span{font-size:10px}
+#rankingsPage #familyFullList .rankings-list-head-copy>small{display:block;font:12px/1.4 'Segoe UI',sans-serif}
+html[data-asc-honor-view="mobile-portrait"] .rankings-search-results{top:32%;left:9%;right:9%}
+@media(max-width:600px){
+ .rankings-result-card{padding:7px}.rankings-result-stats>div{padding:5px}.rankings-result-stats dt{font-size:9px}.rankings-result-stats dd{font-size:12px}
+ #rankingsPage .rankings-search-inset{padding:10px;gap:5px}
+ #rankingsHubFind .family-table-find-title{font-size:15px!important}
+ #rankingsHubFind .family-table-find-dock{padding:0}
+ #rankingsHubFind .family-find{margin-top:7px}
+ #rankingsHubFind .family-find input{height:36px;padding:6px;min-width:0}
+ #rankingsHubFind .family-find .btn{min-width:70px;padding:6px;font-size:12px}
+ #rankingsHubFind .family-find-result{min-height:0;margin-top:5px;font:10px/1.3 'Segoe UI',sans-serif}
+ .rankings-full-list-button{font-size:10px;padding:7px 6px}
+ #rankingsPage #familyFullList .rankings-list-head{min-height:100px;padding:14px}
+ #rankingsPage #familyFullList .rankings-list-head-copy>b{font-size:20px}
+ #rankingsPage #familyFullList .rankings-list-head-copy>small{font-size:11px}
+}
 .rankings-character-distance{position:absolute;inset:36% 17% 30%;overflow:hidden;pointer-events:none;z-index:0;contain:layout paint}
 .rankings-character-travel{position:absolute;left:0;top:12%;width:100%;height:60%;opacity:0;animation:rankingsDistantCrossing 12s linear infinite;animation-play-state:paused}
 .rankings-character-travel img{display:block;width:21%;height:100%;object-fit:contain;filter:saturate(.65) brightness(.8);opacity:.8}
