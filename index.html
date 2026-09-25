@@ -30231,7 +30231,7 @@ function syncRankingsSceneHub(){
     const results=document.createElement('section');
     results.id='rankingsSearchResults';results.className='rankings-search-results';results.hidden=true;
     results.setAttribute('aria-label','Find Me player results');
-    results.innerHTML='<div class="rankings-results-head"><b id="rankingsResultsTitle">Your results</b><button type="button" onclick="closeRankingsSearchResults()" aria-label="Close search results">×</button></div><div id="rankingsResultsBody" class="rankings-results-scroll" tabindex="0" aria-label="Player stats results"></div>';
+    results.innerHTML='<div class="rankings-results-head"><b id="rankingsResultsTitle">Your results</b><button type="button" onclick="closeRankingsSearchResults()" aria-label="Close search results">×</button></div><div id="rankingsResultsBody" class="rankings-results-scroll" data-main-swipe-ignore tabindex="0" aria-label="Player stats results"></div>';
     hub.append(results);
     frame.append(hub);
     if('ResizeObserver' in window){const fit=new ResizeObserver(positionRankingsSearchResults);fit.observe(hub);fit.observe(hub.querySelector('.rankings-search-inset'))}
