@@ -28780,6 +28780,183 @@ html.asc-any-popup-open #pageBackToTop{opacity:0!important;visibility:hidden!imp
  #shopPreviewOverlay .shop-preview-return-fixed{left:max(2px,env(safe-area-inset-left));width:35px;min-height:0;height:152px;padding:8px 5px;border-radius:0 10px 10px 0;writing-mode:vertical-rl;font-size:12px;white-space:normal}
 }
 
+/* The search dossier lives inside the ranking scene, never over its navigation. */
+#rankingsPage #rankingsSearchResults.rp-viewer{top:16%!important;left:17%!important;right:17%!important;border:1px solid #e9c56b;border-radius:18px;background:linear-gradient(145deg,#0c3b66f7,#051e3af7);box-shadow:0 12px 35px #00101fd0,inset 0 0 0 3px #e6c66f12;backdrop-filter:blur(8px);container-type:inline-size}
+#rankingsSearchResults.rp-viewer .rankings-results-head{padding:7px 12px;min-height:38px;background:linear-gradient(110deg,#0d4a7b,#05213c);border-bottom:1px solid #bfefff26}
+#rankingsSearchResults.rp-viewer .rankings-results-head b{font-size:10px!important;letter-spacing:1.4px;color:#ffe4a2}
+#rankingsSearchResults.rp-viewer .rankings-results-head>button{width:34px;height:32px;border:1px solid #4ca5d35c;background:#0d375c;border-radius:9px}
+#rankingsSearchResults.rp-viewer .rp-accounts{display:flex;gap:6px;padding:7px 10px;overflow-x:auto;flex:none;scrollbar-width:thin;scrollbar-color:#3679a3 #06223b;background:#03192d80}
+#rankingsSearchResults.rp-viewer .rp-accounts[hidden]{display:none}
+#rankingsSearchResults.rp-viewer .rp-accounts button{min-width:92px;max-width:150px;flex:none;padding:6px 9px;text-align:left;border:1px solid #4d91bb50;border-radius:8px;background:#113d5c;color:#c3e3f5;cursor:pointer}
+#rankingsSearchResults.rp-viewer .rp-accounts button[aria-pressed="true"]{border-color:#f5cd6d;background:linear-gradient(130deg,#755019,#2f342d);color:#fff0bc;box-shadow:inset 0 0 9px #ffc94520}
+#rankingsSearchResults.rp-viewer .rp-accounts b{display:block;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#rankingsSearchResults.rp-viewer .rp-accounts small{display:block;font-size:9px;opacity:.7;margin-top:2px}
+#rankingsSearchResults.rp-viewer .rankings-results-scroll{scrollbar-width:none;scroll-snap-type:y mandatory;overflow-x:hidden;overflow-y:auto;min-height:0;flex:1;position:relative}
+#rankingsSearchResults.rp-viewer .rankings-results-scroll::-webkit-scrollbar{display:none}
+#rankingsSearchResults.rp-viewer .rp-page{height:100%;min-height:100%;max-height:100%;overflow-y:auto;overscroll-behavior-y:auto;scrollbar-width:thin;display:flex;flex-direction:column;gap:10px;padding:16px 20px;position:relative;isolation:isolate;scroll-snap-align:start;scroll-snap-stop:always;background:radial-gradient(ellipse at 90% 0,#258dc447,transparent 60%),linear-gradient(150deg,#103e65f5,#03182bf5);color:#e7f4ff}
+#rankingsSearchResults.rp-viewer .rp-page::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.12;background:url('./assets/clan_honor_portrait_backdrop.png') center 40%/cover}
+#rankingsSearchResults.rp-viewer .rp-page::after{content:"✦";position:absolute;right:10px;bottom:5px;font-size:160px;line-height:1;color:#56b4ed08;z-index:-1;pointer-events:none}
+#rankingsSearchResults.rp-viewer .rp-gold{background:radial-gradient(ellipse at 80% 0,#ffd26625,transparent 60%),linear-gradient(145deg,#133d60f7,#051a2df7)}
+#rankingsSearchResults.rp-viewer .rp-purple{background:radial-gradient(ellipse at 85% 0,#8762de50,transparent 65%),linear-gradient(145deg,#123454f7,#10172ff7)}
+#rankingsSearchResults.rp-viewer .rp-battle{background:linear-gradient(125deg,#204b6daa,#0c2035cc)}
+#rankingsSearchResults.rp-viewer .rp-page-heading{display:flex;align-items:center;gap:10px;flex:none;border-bottom:1px solid #ebc97638;padding-bottom:10px}
+#rankingsSearchResults.rp-viewer .rp-page-heading>span{display:grid;place-items:center;font-size:26px;color:#ffda7f;width:42px;height:42px;border:1px solid #d4b1598a;border-radius:12px;background:linear-gradient(145deg,#2a6088,#102d48);box-shadow:inset 0 0 14px #ffdf7420;flex:none}
+#rankingsSearchResults.rp-viewer .rp-page-heading small{font-size:8px;letter-spacing:1.4px;color:#89c6e9;display:block;margin-bottom:4px}
+#rankingsPage #rankingsSearchResults.rp-viewer .rp-page-heading h3,#rankingsPage #rankingsSearchResults.rp-viewer .rp-identity h4{font-family:'Clash UI','Segoe UI',sans-serif!important;font-size:clamp(16px,4.4cqw,24px);line-height:1.2;margin:0;color:#ffe09a;text-shadow:0 2px 2px #001324}
+#rankingsSearchResults.rp-viewer .rp-page-content{display:flex;flex-direction:column;gap:12px;flex:1;min-height:0}
+#rankingsSearchResults.rp-viewer .rp-identity{display:flex;gap:12px;align-items:center}
+#rankingsSearchResults.rp-viewer .rp-identity>img{width:72px;height:78px;object-fit:contain;flex:none;filter:drop-shadow(0 3px 8px #1fabff55)}
+#rankingsSearchResults.rp-viewer .rp-identity>div{min-width:0}
+#rankingsSearchResults.rp-viewer .rp-identity h4{overflow-wrap:anywhere}
+#rankingsSearchResults.rp-viewer .rp-identity p{margin:5px 0;font-size:11px;color:#b8d9e9;line-height:1.35}
+#rankingsSearchResults.rp-viewer .rp-identity small{font-size:9px;color:#7eb6d6}
+#rankingsSearchResults.rp-viewer .rp-stars{color:#ffce54;font-size:17px;letter-spacing:1px;margin-top:4px}
+#rankingsSearchResults.rp-viewer .rp-stars span{color:#b8d9e9;font-size:10px;margin-left:8px;letter-spacing:0}
+#rankingsSearchResults.rp-viewer .rp-ranks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#rankingsSearchResults.rp-viewer .rp-ranks>div{position:relative;padding:9px 14px;background:linear-gradient(120deg,#256e9d,#0a3156);border:1px solid #cbb66988;border-radius:3px 14px 3px 14px;box-shadow:inset 0 0 18px #00173170}
+#rankingsSearchResults.rp-viewer .rp-ranks small{font-size:9px;letter-spacing:1.1px;color:#bbdef5;display:block}
+#rankingsPage #rankingsSearchResults.rp-viewer .rp-ranks b,#rankingsPage #rankingsSearchResults.rp-viewer .rp-hero-stat b{font-family:'Clash UI','Segoe UI',sans-serif!important;font-size:30px;color:#ffe092;text-shadow:0 2px #624814}
+#rankingsSearchResults.rp-viewer .rp-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px;margin:0}
+#rankingsSearchResults.rp-viewer .rp-stats>div{min-width:0;padding:10px 0;border-bottom:1px solid #69aed632}
+#rankingsSearchResults.rp-viewer .rp-stats dt{font-size:11px;color:#9ec7df;line-height:1.25}
+#rankingsSearchResults.rp-viewer .rp-stats dd{font-size:18px;color:#fff3cf;margin:5px 0 0;line-height:1.15;overflow-wrap:anywhere}
+#rankingsSearchResults.rp-viewer .rp-note{font-size:10px;line-height:1.4;color:#9fc6dc;margin:0}
+#rankingsSearchResults.rp-viewer .rp-hero-stat{display:flex;flex-direction:column;align-items:center;padding:16px 0 10px;background:radial-gradient(ellipse,#4b99cc30,transparent 72%)}
+#rankingsPage #rankingsSearchResults.rp-viewer .rp-hero-stat b{font-size:48px}
+#rankingsSearchResults.rp-viewer .rp-hero-stat span{font-size:9px;letter-spacing:1.3px;color:#acd7f2;margin-top:7px}
+#rankingsPage #rankingsSearchResults.rp-viewer .rp-hero-small b{font-size:32px}
+#rankingsSearchResults.rp-viewer .rp-seal{font-size:10px;text-align:center;letter-spacing:2px;color:#c6a4ea;margin-top:auto;padding:15px 0}
+#rankingsSearchResults.rp-viewer .rp-battle-list{display:grid;grid-template-rows:1fr 1fr;gap:12px;flex:1;min-height:0}
+#rankingsSearchResults.rp-viewer .rp-battle{border:1px solid #6098b952;border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:5px;min-height:0}
+#rankingsSearchResults.rp-viewer .rp-battle.win{border-left:3px solid #63e4bb}
+#rankingsSearchResults.rp-viewer .rp-battle.loss{border-left:3px solid #e98992}
+#rankingsSearchResults.rp-viewer .rp-battle-ribbon{font-size:10px;letter-spacing:1.2px;color:#bbd7e9;display:flex;justify-content:space-between;gap:6px}
+#rankingsSearchResults.rp-viewer .win .rp-battle-ribbon{color:#80f0c3}
+#rankingsSearchResults.rp-viewer .loss .rp-battle-ribbon{color:#ffa5ad}
+#rankingsSearchResults.rp-viewer .rp-battle-ribbon time{font-size:9px;color:#99b5c9;letter-spacing:0}
+#rankingsSearchResults.rp-viewer .rp-battle-score{font-size:25px;color:#ffdf7d;line-height:1.1}
+#rankingsSearchResults.rp-viewer .rp-battle-score span{font-size:.65em;color:#c5a550;margin:0 9px}
+#rankingsSearchResults.rp-viewer .rp-opponent{font-size:12px;overflow-wrap:anywhere}
+#rankingsSearchResults.rp-viewer .rp-battle small{font-size:10px;color:#a8c7dc}
+#rankingsSearchResults.rp-viewer .rp-battle-featured{padding:20px;flex:1;justify-content:center;text-align:center;background:radial-gradient(ellipse,#4681a630,transparent 75%)}
+#rankingsSearchResults.rp-viewer .rp-battle-featured .rp-battle-score{font-size:58px;margin:18px 0}
+#rankingsSearchResults.rp-viewer .rp-war-chart{display:flex;gap:10px;min-height:90px;height:130px;flex:1;max-height:180px;align-items:stretch;padding:10px 0 0;border-bottom:1px solid #80b6d54d}
+#rankingsSearchResults.rp-viewer .rp-war-column{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
+#rankingsSearchResults.rp-viewer .rp-war-column b{font-size:10px;color:#f2da99}
+#rankingsSearchResults.rp-viewer .rp-war-column small{font-size:10px;color:#95c7e6;padding-bottom:8px}
+#rankingsSearchResults.rp-viewer .rp-war-track{flex:1;width:70%;display:flex;align-items:flex-end;background:#143c554d;border-radius:4px 4px 0 0;min-height:0}
+#rankingsSearchResults.rp-viewer .rp-war-track i{width:100%;display:block;background:linear-gradient(90deg,#c58d28,#ffde74,#d9a33e);border-radius:4px 4px 0 0;box-shadow:0 0 12px #ffcc4e30}
+#rankingsSearchResults.rp-viewer .rp-rating-bars{display:flex;flex-direction:column;gap:20px;padding:10px 0}
+#rankingsSearchResults.rp-viewer .rp-rating-bars>div{display:grid;grid-template-columns:90px 1fr 24px;gap:9px;align-items:center;font-size:11px;color:#c4dfee}
+#rankingsSearchResults.rp-viewer .rp-rating-bars i{height:10px;background:#102137;border-radius:5px;overflow:hidden}
+#rankingsSearchResults.rp-viewer .rp-rating-bars i b{display:block;height:100%;background:linear-gradient(90deg,#377fbc,#8ed5ff);border-radius:5px}
+#rankingsSearchResults.rp-viewer .rp-history{display:grid;gap:7px}
+#rankingsSearchResults.rp-viewer .rp-history>div{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #8fb8cd28;font-size:11px;color:#a3c6da}
+#rankingsSearchResults.rp-viewer .rp-history b{color:#f9e1a0}
+#rankingsSearchResults.rp-viewer .rp-favorite{display:flex;align-items:center;gap:12px}
+#rankingsSearchResults.rp-viewer .rp-favorite img{height:85px;width:75px;object-fit:contain;filter:drop-shadow(0 0 8px #bc87ed55)}
+#rankingsSearchResults.rp-viewer .rp-favorite>span{font-size:46px;color:#e4cb87}
+#rankingsSearchResults.rp-viewer .rp-favorite b,#rankingsSearchResults.rp-viewer .rp-favorite small{display:block}
+#rankingsSearchResults.rp-viewer .rp-favorite small{font-size:9px;letter-spacing:1.5px;color:#c6a8f0;margin-bottom:8px}
+#rankingsSearchResults.rp-viewer .rp-favorite b{font-size:18px;color:#ffe49b}
+#rankingsSearchResults.rp-viewer .rp-deck{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+#rankingsSearchResults.rp-viewer .rp-deck img{width:100%;height:64px;object-fit:contain}
+#rankingsSearchResults.rp-viewer .rp-deck small{display:block;font-size:8px;text-align:center;color:#bfd8ee;line-height:1.1}
+#rankingsSearchResults.rp-viewer .rp-bio{background:#0b254870;border-left:2px solid #b391e7;padding:12px;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+#rankingsSearchResults.rp-viewer .rp-bio p{margin:8px 0 0;color:#adcddd;white-space:pre-wrap}
+#rankingsSearchResults.rp-viewer .rp-accolades{display:grid;gap:14px}
+#rankingsSearchResults.rp-viewer .rp-accolades>div{display:flex;align-items:center;gap:12px;padding:9px;border-bottom:1px solid #ceb47640}
+#rankingsSearchResults.rp-viewer .rp-accolades span{font-size:26px}
+#rankingsSearchResults.rp-viewer .rp-accolades b{font-size:12px;color:#f3dda1}
+#rankingsSearchResults.rp-viewer .rp-accolades small{display:block;color:#94bad4;font-size:10px;margin-top:6px}
+#rankingsSearchResults.rp-viewer .rp-empty{display:grid;place-content:center;text-align:center;flex:1;padding:15px;min-height:120px;color:#a8cde2;font-size:13px;line-height:1.6}
+#rankingsSearchResults.rp-viewer .rp-empty>span{font-size:42px;color:#e2c373}
+#rankingsSearchResults.rp-viewer .rp-navigation{flex:none;display:flex;align-items:center;gap:10px;padding:9px 12px;background:linear-gradient(#103657,#07213a);border-top:1px solid #c6a85460}
+#rankingsSearchResults.rp-viewer .rp-navigation>div:first-child{min-width:0;flex:1}
+#rankingsSearchResults.rp-viewer .rp-navigation span{font-size:10px;color:#f3d88e;display:block;white-space:nowrap}
+#rankingsSearchResults.rp-viewer .rp-navigation small{font-size:9px;color:#7daecc;display:block;margin-top:3px}
+#rankingsSearchResults.rp-viewer .rp-navigation select{width:96px;min-height:32px;font-size:10px;padding:5px;color:#d5edff;border:1px solid #5589ab75;background:#0a2945}
+#rankingsSearchResults.rp-viewer .rankings-page-controls{margin:0}
+#rankingsSearchResults.rp-viewer :focus-visible{outline:2px solid #84dcff;outline-offset:-2px}
+@media(max-width:700px){
+  html[data-asc-honor-view] #rankingsPage #rankingsSearchResults.rp-viewer{top:16%!important;left:8%!important;right:8%!important}
+  #rankingsSearchResults.rp-viewer .rp-page{padding:12px;gap:9px}
+  #rankingsSearchResults.rp-viewer .rp-page-content{gap:10px}
+  #rankingsSearchResults.rp-viewer .rp-page-heading{gap:8px;padding-bottom:8px}
+  #rankingsSearchResults.rp-viewer .rp-page-heading>span{width:34px;height:34px;font-size:22px}
+  #rankingsSearchResults.rp-viewer .rp-stats>div{padding:8px 0}
+  #rankingsSearchResults.rp-viewer .rp-stats dt{font-size:10px}
+  #rankingsSearchResults.rp-viewer .rp-stats dd{font-size:16px}
+  #rankingsSearchResults.rp-viewer .rp-identity>img{width:55px;height:65px}
+  #rankingsSearchResults.rp-viewer .rp-hero-stat{padding:8px 0}
+  #rankingsSearchResults.rp-viewer .rp-navigation{gap:6px;padding:8px}
+}
+@media(prefers-reduced-motion:reduce){#rankingsSearchResults.rp-viewer *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+/* One compact account selector leaves the entire inner viewport for a profile page. */
+#rankingsSearchResults.rp-viewer .rankings-results-head{gap:7px;padding:7px 12px;flex-wrap:wrap}
+#rankingsSearchResults.rp-viewer .rankings-results-head b{font-size:9px!important;letter-spacing:.7px}
+#rankingsSearchResults.rp-viewer select.rp-accounts{width:auto;min-width:0;flex:1;height:32px;margin:0;padding:4px 6px;border:1px solid #bb9f6070;color:#ffe4a2;font-size:11px;background:#123957;order:1}
+#rankingsSearchResults.rp-viewer .rankings-results-head>button{order:2;flex:none}
+#rankingsSearchResults.rp-viewer .rankings-results-scroll{container-type:size}
+#rankingsSearchResults.rp-viewer .rp-navigation{padding:6px 9px}
+#rankingsSearchResults.rp-viewer .rp-navigation select{width:85px}
+#rankingsSearchResults.rp-viewer .rp-page{overflow-y:auto}
+@container(max-height:330px){
+  #rankingsSearchResults.rp-viewer .rp-page{padding:10px 12px;gap:8px}
+  #rankingsSearchResults.rp-viewer .rp-page-heading{padding-bottom:6px;gap:7px}
+  #rankingsSearchResults.rp-viewer .rp-page-heading>span{height:28px;width:28px;font-size:19px}
+  #rankingsSearchResults.rp-viewer .rp-page-heading small{font-size:7px;margin-bottom:3px;letter-spacing:.9px}
+  #rankingsPage #rankingsSearchResults.rp-viewer .rp-page-heading h3{font-size:16px}
+  #rankingsSearchResults.rp-viewer .rp-page-content{gap:8px}
+  #rankingsSearchResults.rp-viewer .rp-identity>img{height:60px;width:54px}
+  #rankingsSearchResults.rp-viewer .rp-ranks>div{padding:8px 12px}
+  #rankingsSearchResults.rp-viewer .rp-stats>div{padding:7px 0}
+  #rankingsSearchResults.rp-viewer .rp-stats dd{font-size:16px;margin-top:3px}
+  #rankingsSearchResults.rp-viewer .rp-stats dt{font-size:10px}
+  #rankingsSearchResults.rp-viewer .rp-note{font-size:9px}
+  #rankingsSearchResults.rp-viewer .rp-hero-stat{padding:6px 0}
+  #rankingsPage #rankingsSearchResults.rp-viewer .rp-hero-stat b{font-size:34px}
+  #rankingsSearchResults.rp-viewer .rp-seal{padding:8px 0}
+  #rankingsSearchResults.rp-viewer .rp-battle{padding:8px 10px;gap:3px}
+  #rankingsSearchResults.rp-viewer .rp-battle-score{font-size:22px}
+  #rankingsSearchResults.rp-viewer .rp-battle-featured .rp-battle-score{font-size:46px;margin:10px 0}
+  #rankingsSearchResults.rp-viewer .rp-rating-bars{gap:14px;padding:5px 0}
+  #rankingsSearchResults.rp-viewer .rp-war-chart{min-height:70px;height:90px;padding-top:0}
+  #rankingsSearchResults.rp-viewer .rp-deck img{height:60px}
+  #rankingsSearchResults.rp-viewer .rp-accolades{gap:5px}
+  #rankingsSearchResults.rp-viewer .rp-accolades>div{padding:6px}
+  #rankingsSearchResults.rp-viewer .rp-favorite{justify-content:center;flex:1}
+  #rankingsSearchResults.rp-viewer .rp-favorite img{height:140px;width:105px}
+}
+@media(max-width:700px){
+  #rankingsSearchResults.rp-viewer .rankings-results-head{padding-left:44px;padding-right:44px}
+  #rankingsSearchResults.rp-viewer .rankings-results-head b{display:none}
+  #rankingsSearchResults.rp-viewer .rp-navigation>div:first-child>span{font-size:9px;max-width:132px;overflow:hidden;text-overflow:ellipsis}
+}
+/* Content is divided into complete snap pages; only the outer viewport scrolls. */
+#rankingsSearchResults.rp-viewer .rp-page{overflow:hidden!important}
+#rankingsSearchResults.rp-viewer .rp-page::after{display:none}
+#rankingsSearchResults.rp-viewer .rp-empty{min-height:0;padding:6px}
+#rankingsSearchResults.rp-viewer .rp-battle-group{min-height:0}
+#rankingsSearchResults.rp-viewer .rp-stats+ .rp-stats{margin-top:-8px}
+@container(max-height:240px){
+  #rankingsSearchResults.rp-viewer .rp-page-heading small{display:none}
+  #rankingsPage #rankingsSearchResults.rp-viewer .rp-page-heading h3{font-size:14px}
+  #rankingsSearchResults.rp-viewer .rp-page-heading>span{width:23px;height:23px;font-size:16px}
+  #rankingsSearchResults.rp-viewer .rp-identity>img{width:44px;height:48px}
+  #rankingsSearchResults.rp-viewer .rp-identity p{font-size:10px;margin:3px 0}
+  #rankingsSearchResults.rp-viewer .rp-identity h4{font-size:16px!important}
+  #rankingsSearchResults.rp-viewer .rp-stars{font-size:14px;margin-top:3px}
+  #rankingsSearchResults.rp-viewer .rp-hero-stat b{font-size:27px!important}
+  #rankingsSearchResults.rp-viewer .rp-hero-stat span{font-size:8px;margin-top:3px}
+  #rankingsSearchResults.rp-viewer .rp-favorite img{height:75px;width:65px}
+  #rankingsSearchResults.rp-viewer .rp-battle-featured{padding:8px}
+  #rankingsSearchResults.rp-viewer .rp-battle-featured .rp-battle-score{font-size:30px;margin:5px 0}
+  #rankingsSearchResults.rp-viewer .rp-war-chart{min-height:50px;height:70px}
+  #rankingsSearchResults.rp-viewer .rp-bio{padding:6px;font-size:11px}
+}
+#rankingsSearchResults.rp-viewer .rp-identity>img{border:1px solid #d9ba6470;border-radius:12px;background:#072c47;box-shadow:inset 0 0 15px #35a8e526}
+
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header>.public-signin-top{margin-left:0}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
 #playerModal .modalcard{background:linear-gradient(180deg,#0f4066 0%,#082b4a 100%)!important;border:1px solid rgba(239,200,94,.58)!important;box-shadow:0 24px 70px rgba(0,0,0,.62),inset 0 1px rgba(255,255,255,.04)!important}#playerModal .modalbody{background:radial-gradient(circle at 50% -18%,rgba(53,158,224,.16),transparent 42%),linear-gradient(180deg,#0b3558 0%,#071f37 100%)!important}#playerModal .public-player-card{padding:18px!important;border:1px solid rgba(239,200,94,.28);border-radius:9px;background:linear-gradient(180deg,rgba(16,73,116,.96),rgba(7,39,67,.98));box-shadow:inset 0 1px rgba(255,255,255,.035)}.public-signin-modal{position:fixed;inset:0;z-index:30000;display:grid;place-items:center;padding:18px;background:rgba(2,13,25,.82);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}.public-signin-modal.hidden{display:none!important}.public-signin-card{width:min(520px,calc(100vw - 28px));overflow:hidden;border-radius:13px;border:1px solid rgba(239,200,94,.72);background:linear-gradient(180deg,#10517e 0%,#082e50 52%,#061f38 100%);box-shadow:0 28px 90px rgba(0,0,0,.68),0 0 35px rgba(37,145,216,.14),inset 0 1px rgba(255,255,255,.05);color:#eaf6ff}.public-signin-head{display:flex;align-items:center;gap:11px;padding:13px 14px;border-bottom:1px solid rgba(239,200,94,.30);background:linear-gradient(180deg,#17699e,#0e4774)}.public-signin-head img{width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 3px 5px rgba(0,0,0,.35))}.public-signin-brand{min-width:0;flex:1}.public-signin-brand span{display:block;color:#9bc9e4;font-size:8px;font-weight:900;letter-spacing:.12em}.public-signin-brand b{display:block;margin-top:2px;color:#ffe18a;font-size:17px;line-height:1.1}.public-signin-close{width:36px;height:36px;border:1px solid #477e9e;border-radius:7px;background:#0a3558;color:#eaf6ff;font-size:18px;font-weight:900;cursor:pointer}.public-signin-body{padding:20px 20px 18px;text-align:center}.public-signin-badge{display:inline-flex;padding:5px 9px;border:1px solid rgba(239,200,94,.45);border-radius:999px;background:rgba(111,75,8,.34);color:#ffe18a;font-size:8px;font-weight:900;letter-spacing:.10em}.public-signin-body h2{margin:11px 0 8px;color:#ffe18a;font-size:23px;line-height:1.1;text-shadow:0 2px 5px rgba(0,0,0,.4)}.public-signin-body p{margin:7px auto;max-width:420px;color:#b9d8e9;font-size:12px;line-height:1.55}.public-signin-body p strong{color:#fff0b0}.public-signin-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:17px}.public-signin-actions .btn{min-height:43px;font-size:12px!important;font-weight:900!important}.public-signin-actions .primary{color:#3c2800!important;background:linear-gradient(180deg,#ffe985,#d6a72f)!important;border-color:#fff0a7!important}@media(max-width:560px){.public-signin-body{padding:18px 14px 15px}.public-signin-body h2{font-size:20px}.public-signin-body p{font-size:11px}.public-signin-actions{grid-template-columns:1fr}.public-signin-head{padding:11px 12px}}
 
@@ -30408,7 +30585,7 @@ function paginateRankingsProfilePages(body){
       if(content.scrollHeight<=content.clientHeight+2||content.children.length===1)continue;
       unit.remove();
       const next=source.cloneNode(true);next.querySelector('.rp-page-content').replaceChildren();
-      next.dataset.pageTitle=source.dataset.pageTitle+' · '+(++part);
+      next.dataset.pageTitle=source.dataset.pageTitle+' · continued '+(++part);
       next.querySelector('h3').textContent=next.dataset.pageTitle;
       page.after(next);page=next;content=next.querySelector('.rp-page-content');content.append(unit);
     }
