@@ -28806,7 +28806,7 @@ body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;
         <div class="family-table-find-title">🔎 Find Your Player</div>
         <div class="family-table-find-sub">Search by Clash name or player tag and jump directly to your current clan roster.</div>
       </div>
-      <div class="family-find family-find-table"><input id="familyFindInput" placeholder="Clash name or #PLAYER_TAG..." autocomplete="off" aria-label="Search player name or tag" aria-controls="rankingsSearchResults" oninput="queueFamilyPlayerSearch(event)" oncompositionend="queueFamilyPlayerSearch(event)" onkeydown="if(event.key==='Enter'){event.preventDefault();searchFamilyPlayerName()}else if(event.key==='Escape'){closeRankingsSearchResults()}"><button class="btn" onclick="findMeInFamily()">Find Me</button></div>
+      <div class="family-find family-find-table"><input id="familyFindInput" placeholder="Clash name or #PLAYER_TAG..." autocomplete="off" aria-label="Search player name or tag" aria-controls="rankingsSearchResults" onkeydown="if(event.key==='Enter')findMeInFamily()"><button class="btn" onclick="findMeInFamily()">Find Me</button></div>
       <div id="familyFindResult" class="family-find-result family-find-result-table" role="status">Search your Clash name or player tag.</div>
     </div>
 
@@ -30245,7 +30245,7 @@ function syncRankingsSceneHub(){
     const results=document.createElement('section');
     results.id='rankingsSearchResults';results.className='rankings-search-results';results.hidden=true;
     results.setAttribute('aria-label','Find Me player results');
-    results.innerHTML='<div class="rankings-results-head"><b id="rankingsResultsTitle">Your results</b><button type="button" onclick="closeRankingsSearchResults()" aria-label="Close search results">×</button></div><div id="rankingsResultsBody" class="rankings-results-scroll" data-main-swipe-ignore tabindex="0" aria-label="Player stats results"></div>';
+    results.innerHTML='<div class="rankings-results-head"><b id="rankingsResultsTitle" role="status" aria-live="polite">Your results</b><button type="button" onclick="closeRankingsSearchResults()" aria-label="Close search results">×</button></div><div id="rankingsResultsBody" class="rankings-results-scroll" data-main-swipe-ignore tabindex="0" aria-label="Player stats results"></div>';
     hub.append(results);
     results.querySelector('.rankings-results-head').insertAdjacentHTML('beforeend','<div class="rankings-page-controls"><button type="button" data-step="-1" onclick="stepRankingsResult(-1)" aria-label="Previous player">▲</button><span id="rankingsResultPosition" aria-live="polite"></span><button type="button" data-step="1" onclick="stepRankingsResult(1)" aria-label="Next player">▼</button></div>');
     const resultBody=results.querySelector('.rankings-results-scroll');
@@ -30336,7 +30336,7 @@ function renderRankingsSearchResults(){
   requestAnimationFrame(paintRankingsResultPages);
 }
 async function showRankingsSearchResults(matches,query,{keepFocus=false}={}){
-  clearTimeout(familySearchTimer);
+  if(typeof familySearchTimer!=='undefined')clearTimeout(familySearchTimer);
   rankingsSearchResults={matches,query};
   const request=rankingsSearchResults;
   if(!keepFocus)$('familyFindInput')?.blur();
@@ -30348,7 +30348,7 @@ async function showRankingsSearchResults(matches,query,{keepFocus=false}={}){
   const status=$('familyFindResult');if(status)status.textContent=matches.length?'Your player stats are shown above.':'Try another name or player tag.';
 }
 function closeRankingsSearchResults(){
-  clearTimeout(familySearchTimer);
+  if(typeof familySearchTimer!=='undefined')clearTimeout(familySearchTimer);
   rankingsSearchResults=null;
   const panel=$('rankingsSearchResults');if(panel)panel.hidden=true;
   $('rankingsWelcome')?.classList.remove('has-search-results');
