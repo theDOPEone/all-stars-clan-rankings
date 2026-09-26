@@ -30311,7 +30311,8 @@ function rankingsProfilePages(x,data){
   const m=x.m||{},s=x.score||{},p=data?.player?.player||m,live=data?.live,profile=data?.community,two=data?.two;
   const pages=[],hours=hoursSince(m.lastSeen),display=profile?.displayName||m.name||'Player';
   const avatar=profile?.profilePhotoUrl||(typeof playerProfileDiscordAvatar==='function'?playerProfileDiscordAvatar(m.tag):'')||'./assets/brand/all-stars-clan-crest.png';
-  pages.push(rpPage('Player spotlight','✦',`<div class="rp-identity"><img src="${esc(avatar)}" alt="" onerror="this.onerror=null;this.src='./assets/brand/all-stars-clan-crest.png'"><div><h4>${esc(display)}</h4><p>${esc(x.c?.name||p.clanName||'ALL STARS')} · ${esc(roleName(m.role))}</p><small>${esc(m.tag)}</small><div class="rp-stars" aria-label="${esc(String(s.overall??0))} out of 5">${'★'.repeat(Math.max(0,Math.min(5,Math.round(s.overall||0))))}<span>${esc(String(s.overall??'—'))} / 5</span></div></div></div><div class="rp-ranks"><div><small>FAMILY RANK</small><b>${x.familyRank?'#'+x.familyRank:'—'}</b></div><div><small>CLAN RANK</small><b>${x.clanRank?'#'+x.clanRank:'—'}</b></div></div>${rpStats([['Trophies',rpNumber(m.trophies)],['Donations this week',rpNumber(m.donations)],['Last seen',hours==null?'Unknown':fmtHours(hours)+' ago'],['Clan points',rpNumber(profile?.points)]])}`,'gold'));
+  pages.push(rpPage('Player spotlight','✦',`<div class="rp-identity"><img src="${esc(avatar)}" alt="" onerror="this.onerror=null;this.src='./assets/brand/all-stars-clan-crest.png'"><div><h4>${esc(display)}</h4><p>${esc(x.c?.name||p.clanName||'ALL STARS')} · ${esc(roleName(m.role))}</p><small>${esc(m.tag)}</small><div class="rp-stars" aria-label="${esc(String(s.overall??0))} out of 5">${'★'.repeat(Math.max(0,Math.min(5,Math.round(s.overall||0))))}<span>${esc(String(s.overall??'—'))} / 5</span></div></div></div><div class="rp-ranks"><div><small>FAMILY RANK</small><b>${x.familyRank?'#'+x.familyRank:'—'}</b></div><div><small>CLAN RANK</small><b>${x.clanRank?'#'+x.clanRank:'—'}</b></div></div>`,'gold'));
+  pages.push(rpPage('Clan snapshot','✦',rpStats([['Trophies',rpNumber(m.trophies)],['Donations this week',rpNumber(m.donations)],['Last seen',hours==null?'Unknown':fmtHours(hours)+' ago'],['Clan points',rpNumber(profile?.points)]])+rpNote('Family and clan placements follow the selected ranking category.')));
   if(!data){pages.push(rpPage('Opening the dossier','✦',rpEmpty('Loading career, battles, deck and clan history…')));return pages}
   const loadingError=rpNote('Some profile details could not load. Available tracker stats are still shown.');
   if(!live)pages.push(rpPage('Career stats','♛',rpEmpty('Live career stats are temporarily unavailable.')+loadingError));
@@ -30338,12 +30339,15 @@ function rankingsProfilePages(x,data){
   pages.push(rpPage('War · participation','⚑',rpStats([['Current war fame',rpNumber(m.currentWar?.fame)],['Decks this war',rpNumber(m.currentWar?.decksUsed)],['Decks today',rpNumber(m.currentWar?.decksUsedToday)],['Average decks',s.avgDecks==null?'—':Number(s.avgDecks).toFixed(1)],['Productive weeks',s.known?`${s.solid||0} / ${s.known}`:'—'],['Boat attacks',rpNumber(m.currentWar?.boatAttacks)]])+rpNote('Current war is in progress. Completed wars determine the averages.')));
   pages.push(rpPage('Performance · the breakdown','★',`<div class="rp-rating-bars">${[['War fame',s.war],['Participation',s.decks],['Donations',s.donations],['Activity',s.activity],['Consistency',s.consistency]].map(([label,value])=>`<div><span>${label}</span><i><b style="width:${Math.max(0,Math.min(100,Number(value||0)*20))}%"></b></i><strong>${value==null?'—':Number(value).toFixed(1)}</strong></div>`).join('')}</div>${rpNote('Each category is rated out of five using tracked clan activity.')}`,'purple'));
   const donations=data.player?.donations||[];
-  pages.push(rpPage('Donations · clan support','✦',`<div class="rp-hero-stat"><b>${rpNumber(m.donations)}</b><span>CARDS GIVEN THIS WEEK</span></div>${rpStats([['Received this week',rpNumber(m.donationsReceived)],['Prior-week average',s.donBase==null?'—':rpNumber(Math.round(s.donBase))]])}<div class="rp-history">${donations.slice(0,4).map(d=>`<div><span>Week of ${esc(rpDate(d.weekStart))}</span><b>${rpNumber(d.donations)}</b></div>`).join('')||rpNote('No weekly donation history yet.')}</div>`,'gold'));
+  pages.push(rpPage('Donations · clan support','✦',`<div class="rp-hero-stat"><b>${rpNumber(m.donations)}</b><span>CARDS GIVEN THIS WEEK</span></div>${rpStats([['Received this week',rpNumber(m.donationsReceived)],['Prior-week average',s.donBase==null?'—':rpNumber(Math.round(s.donBase))]])}`,'gold'));
+  pages.push(rpPage('Donations · weekly history','✦',`<div class="rp-history">${donations.slice(0,6).map(d=>`<div><span>Week of ${esc(rpDate(d.weekStart))}</span><b>${rpNumber(d.donations)}</b></div>`).join('')||rpNote('No weekly donation history yet.')}</div>`,'gold'));
   const deck=typeof resolveCommunityProfileDeck==='function'?resolveCommunityProfileDeck(profile||{},live):{cards:live?.currentDeck||[]};
   const cards=Array.isArray(deck)?deck:deck.cards||live?.currentDeck||[];
   const favorite=typeof resolveCommunityProfileCardArt==='function'?resolveCommunityProfileCardArt(profile||{},live):{name:live?.favouriteCardName,icon:live?.favouriteCardIcon};
-  pages.push(rpPage('The loadout','♜',`<div class="rp-favorite">${favorite?.icon?`<img src="${esc(favorite.icon)}" alt="">`:'<span>♜</span>'}<div><small>FAVORITE CARD</small><b>${esc(favorite?.name||'Not set')}</b></div></div><div class="rp-deck">${cards.slice(0,8).map(c=>`<div>${c.icon?`<img src="${esc(c.icon)}" alt="${esc(c.name)}" loading="lazy">`:''}<small>${esc(c.name||'Card')}</small></div>`).join('')}</div>${rpNote(cards.length?(deck.custom?'Player’s custom profile deck.':'Current Clash Royale deck.'):'Deck is unavailable until the live profile loads.')}`,'purple'));
-  pages.push(rpPage('Behind the crown','✦',`<div class="rp-bio"><b>${esc(profile?.statusMessage||display)}</b><p>${esc(profile?.about||'This player has not added a bio yet.')}</p></div>${rpStats([['Community role',profile?.role||roleName(m.role)],['Clan points',rpNumber(profile?.points)],['Member since',rpDate(profile?.createdUtc)],['Player tag',m.tag]])}`));
+  pages.push(rpPage('The loadout','♜',`<div class="rp-favorite">${favorite?.icon?`<img src="${esc(favorite.icon)}" alt="">`:'<span>♜</span>'}<div><small>FAVORITE CARD</small><b>${esc(favorite?.name||'Not set')}</b></div></div>`,'purple'));
+  pages.push(rpPage('The deck','♜',`<div class="rp-deck">${cards.slice(0,8).map(c=>`<div>${c.icon?`<img src="${esc(c.icon)}" alt="${esc(c.name)}" loading="lazy">`:''}<small>${esc(c.name||'Card')}</small></div>`).join('')}</div>${rpNote(cards.length?(deck.custom?'Player’s custom profile deck.':'Current Clash Royale deck.'):'Deck is unavailable until the live profile loads.')}`,'purple'));
+  pages.push(rpPage('Behind the crown','✦',`<div class="rp-bio"><b>${esc(profile?.statusMessage||display)}</b></div>${rpStats([['Community role',profile?.role||roleName(m.role)],['Clan points',rpNumber(profile?.points)],['Member since',rpDate(profile?.createdUtc)],['Player tag',m.tag]])}`));
+  const bio=String(profile?.about||'');if(bio){const chunks=bio.match(/.{1,240}(?:\s|$)|.{1,240}/gs)||[];chunks.forEach((text,i)=>pages.push(rpPage('About '+display+(chunks.length>1?` · ${i+1}`:''),'✦',`<div class="rp-bio"><p>${esc(text.trim())}</p></div>`)))}
   const accolades=data.player?.accolades||[];
   if(accolades.length)for(let i=0;i<accolades.length;i+=4)pages.push(rpPage('Honors & accolades','★',`<div class="rp-accolades">${accolades.slice(i,i+4).map(a=>`<div><span>${esc(a.icon||'🏅')}</span><b>${esc(a.name)}<small>Tier ${rpNumber(a.tier)} · ${esc(rpDate(a.earnedUtc))}</small></b></div>`).join('')}</div>`,'gold'));
   return pages;
@@ -30379,7 +30383,7 @@ function stepRankingsResult(direction){jumpRankingsProfilePage(Number($('ranking
 function setupRankingsProfileViewer(){
   const panel=$('rankingsSearchResults'),body=$('rankingsResultsBody');if(!panel||!body||$('rankingsProfileAccounts'))return;
   panel.classList.add('rp-viewer');
-  const accounts=document.createElement('div');accounts.id='rankingsProfileAccounts';accounts.className='rp-accounts';accounts.setAttribute('aria-label','Matching players');body.before(accounts);
+  const accounts=document.createElement('select');accounts.id='rankingsProfileAccounts';accounts.className='rp-accounts';accounts.setAttribute('aria-label','Matching players');accounts.onchange=()=>selectRankingsProfile(Number(accounts.value));panel.querySelector('.rankings-results-head').append(accounts);
   const footer=document.createElement('footer');footer.className='rp-navigation';footer.innerHTML='<div><span id="rankingsProfilePageLabel" aria-live="polite">Player spotlight</span><small>Swipe up / down to explore</small></div><select id="rankingsProfileJump" aria-label="Jump to profile section" onchange="jumpRankingsProfilePage(this.value)"></select>';body.after(footer);
   const controls=panel.querySelector('.rankings-page-controls');if(controls){controls.querySelectorAll('button').forEach(button=>button.remove());footer.append(controls)}
   body.setAttribute('aria-label','Player profile pages');body.addEventListener('keydown',e=>{if(e.target!==body)return;const keys={ArrowDown:1,PageDown:1,ArrowUp:-1,PageUp:-1};if(keys[e.key]){e.preventDefault();stepRankingsResult(keys[e.key])}else if(e.key==='Home'||e.key==='End'){e.preventDefault();jumpRankingsProfilePage(e.key==='Home'?0:1000)}});
@@ -30393,13 +30397,13 @@ function renderRankingsProfileContent(x,data,preserve=false){
   $('rankingsProfileJump').innerHTML=pages.map((p,i)=>`<option value="${i}">${i+1}. ${esc(p.dataset.pageTitle)}</option>`).join('');
   const index=preserve?Math.max(0,pages.findIndex(p=>p.dataset.pageTitle===oldTitle)):0;
   body.scrollTop=(pages[index]?.offsetTop||0)-(pages[0]?.offsetTop||0);body.dataset.page=index;
-  $('rankingsResultsTitle').textContent=data?'PLAYER DOSSIER':'LOADING PROFILE…';
+  $('rankingsResultsTitle').textContent=data?(rankingsSearchResults.matches.length>1?`${rankingsSearchResults.matches.length} PLAYERS`:'PLAYER DOSSIER'):'LOADING…';
   requestAnimationFrame(paintRankingsResultPages);
 }
 async function selectRankingsProfile(index){
   const state=rankingsSearchResults,x=state?.matches[index];if(!x)return;
   const selection=++rankingsProfileSelection;state.selected=index;
-  document.querySelectorAll('#rankingsProfileAccounts button').forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));
+  $('rankingsProfileAccounts').value=String(index);
   renderRankingsProfileContent(x,null);
   const data=await loadRankingsProfile(x.m.tag);
   if(state!==rankingsSearchResults||selection!==rankingsProfileSelection)return;
@@ -30409,7 +30413,7 @@ function renderRankingsSearchResults(){
   const panel=$('rankingsSearchResults'),body=$('rankingsResultsBody');if(!panel||!body||!rankingsSearchResults)return;
   setupRankingsProfileViewer();
   const {matches,query}=rankingsSearchResults;
-  $('rankingsProfileAccounts').innerHTML=matches.map((x,i)=>`<button type="button" aria-pressed="${i===0}" onclick="selectRankingsProfile(${i})"><b>${esc(x.m.name)}</b><small>${esc(x.m.tag)}</small></button>`).join('');
+  $('rankingsProfileAccounts').innerHTML=matches.map((x,i)=>`<option value="${i}">${esc(x.m.name)} · ${esc(x.m.tag)}</option>`).join('');
   $('rankingsProfileAccounts').hidden=matches.length<2;
   panel.hidden=false;$('rankingsWelcome')?.classList.add('has-search-results');positionRankingsSearchResults();
   if(matches.length)selectRankingsProfile(0);
