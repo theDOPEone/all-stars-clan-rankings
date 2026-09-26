@@ -30247,7 +30247,7 @@ function syncRankingsSceneHub(){
     results.setAttribute('aria-label','Find Me player results');
     results.innerHTML='<div class="rankings-results-head"><b id="rankingsResultsTitle" role="status" aria-live="polite">Your results</b><button type="button" onclick="closeRankingsSearchResults()" aria-label="Close search results">×</button></div><div id="rankingsResultsBody" class="rankings-results-scroll" data-main-swipe-ignore tabindex="0" aria-label="Player stats results"></div>';
     hub.append(results);
-    results.querySelector('.rankings-results-head').insertAdjacentHTML('beforeend','<div class="rankings-page-controls"><button type="button" data-step="-1" onclick="stepRankingsResult(-1)" aria-label="Previous player">▲</button><span id="rankingsResultPosition" aria-live="polite"></span><button type="button" data-step="1" onclick="stepRankingsResult(1)" aria-label="Next player">▼</button></div>');
+    results.querySelector('.rankings-results-head').insertAdjacentHTML('beforeend','<div class="rankings-page-controls"><span id="rankingsResultPosition" aria-live="polite"></span></div>');
     const resultBody=results.querySelector('.rankings-results-scroll');
     resultBody.addEventListener('scroll',()=>{if(resultBody._paint)return;resultBody._paint=requestAnimationFrame(()=>{resultBody._paint=0;paintRankingsResultPages()})},{passive:true});
     frame.append(hub);
@@ -30356,7 +30356,7 @@ async function loadRankingsProfile(tag){
   const now=Date.now(),cached=rankingsProfileCache.get(tag);if(cached&&now-cached.at<60000)return cached.promise;
   const encoded=encodeURIComponent(tag),paths={player:'player',live:'public-player-style',community:'member-profile',two:'2v2-player-stats',battles:'recent-battles',war:'war-battles'};
   const promise=Promise.all(Object.entries(paths).map(async([key,path])=>{
-    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),10000);
+    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);
     try{const r=await publicFetch(`/api/${path}/${encoded}`,{signal:controller.signal});return[key,r.ok?await r.json():null]}catch{return[key,null]}finally{clearTimeout(timer)}
   })).then(Object.fromEntries);
   rankingsProfileCache.set(tag,{at:now,promise});
@@ -30387,12 +30387,38 @@ function setupRankingsProfileViewer(){
   const footer=document.createElement('footer');footer.className='rp-navigation';footer.innerHTML='<div><span id="rankingsProfilePageLabel" aria-live="polite">Player spotlight</span><small>Swipe up / down to explore</small></div><select id="rankingsProfileJump" aria-label="Jump to profile section" onchange="jumpRankingsProfilePage(this.value)"></select>';body.after(footer);
   const controls=panel.querySelector('.rankings-page-controls');if(controls){controls.querySelectorAll('button').forEach(button=>button.remove());footer.append(controls)}
   body.setAttribute('aria-label','Player profile pages');body.addEventListener('keydown',e=>{if(e.target!==body)return;const keys={ArrowDown:1,PageDown:1,ArrowUp:-1,PageUp:-1};if(keys[e.key]){e.preventDefault();stepRankingsResult(keys[e.key])}else if(e.key==='Home'||e.key==='End'){e.preventDefault();jumpRankingsProfilePage(e.key==='Home'?0:1000)}});
-  new ResizeObserver(()=>{if(panel.hidden)return;const page=Number(body.dataset.page||0);requestAnimationFrame(()=>{const cards=body.querySelectorAll('.rp-page');if(cards[page])body.scrollTop=cards[page].offsetTop-cards[0].offsetTop;paintRankingsResultPages()})}).observe(body);
+  let size='',resizeTimer;new ResizeObserver(()=>{const next=body.clientWidth+'x'+body.clientHeight;if(panel.hidden||next===size)return;size=next;clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{const state=rankingsSearchResults,x=state?.matches[state.selected||0];if(x)renderRankingsProfileContent(x,state.profileData||null,true)},80)}).observe(body);
+}
+function paginateRankingsProfilePages(body){
+  // Pack complete rows into real viewport-sized pages instead of nesting scrollbars.
+  const sources=[...body.querySelectorAll('.rp-page')];
+  for(const source of sources){
+    const original=source.querySelector('.rp-page-content'),units=[];
+    for(const block of [...original.children]){
+      const group=block.matches('.rp-stats,.rp-history,.rp-battle-list,.rp-deck,.rp-rating-bars,.rp-accolades');
+      const size=block.matches('.rp-stats,.rp-accolades')?2:block.matches('.rp-deck')?4:1;
+      if(group){
+        const children=[...block.children];
+        for(let i=0;i<children.length;i+=size){const wrapper=block.cloneNode(false);if(wrapper.matches('.rp-battle-list'))wrapper.className='rp-battle-group';children.slice(i,i+size).forEach(child=>wrapper.append(child));units.push(wrapper)}
+      }else units.push(block);
+    }
+    original.replaceChildren();let page=source,content=original,part=1;
+    for(const unit of units){
+      content.append(unit);
+      if(content.scrollHeight<=content.clientHeight+2||content.children.length===1)continue;
+      unit.remove();
+      const next=source.cloneNode(true);next.querySelector('.rp-page-content').replaceChildren();
+      next.dataset.pageTitle=source.dataset.pageTitle+' · '+(++part);
+      next.querySelector('h3').textContent=next.dataset.pageTitle;
+      page.after(next);page=next;content=next.querySelector('.rp-page-content');content.append(unit);
+    }
+  }
 }
 function renderRankingsProfileContent(x,data,preserve=false){
   const body=$('rankingsResultsBody');if(!body)return;
   const oldTitle=body.querySelectorAll('.rp-page')[Number(body.dataset.page||0)]?.dataset.pageTitle;
   body.innerHTML=rankingsProfilePages(x,data).join('');
+  paginateRankingsProfilePages(body);
   const pages=[...body.querySelectorAll('.rp-page')];
   $('rankingsProfileJump').innerHTML=pages.map((p,i)=>`<option value="${i}">${i+1}. ${esc(p.dataset.pageTitle)}</option>`).join('');
   const index=preserve?Math.max(0,pages.findIndex(p=>p.dataset.pageTitle===oldTitle)):0;
@@ -30402,12 +30428,12 @@ function renderRankingsProfileContent(x,data,preserve=false){
 }
 async function selectRankingsProfile(index){
   const state=rankingsSearchResults,x=state?.matches[index];if(!x)return;
-  const selection=++rankingsProfileSelection;state.selected=index;
+  const selection=++rankingsProfileSelection;state.selected=index;state.profileData=null;
   $('rankingsProfileAccounts').value=String(index);
   renderRankingsProfileContent(x,null);
   const data=await loadRankingsProfile(x.m.tag);
   if(state!==rankingsSearchResults||selection!==rankingsProfileSelection)return;
-  renderRankingsProfileContent(x,data,true);
+  state.profileData=data;renderRankingsProfileContent(x,data,true);
 }
 function renderRankingsSearchResults(){
   const panel=$('rankingsSearchResults'),body=$('rankingsResultsBody');if(!panel||!body||!rankingsSearchResults)return;
