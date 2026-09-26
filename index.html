@@ -28780,6 +28780,13 @@ html.asc-any-popup-open #pageBackToTop{opacity:0!important;visibility:hidden!imp
  #shopPreviewOverlay .shop-preview-return-fixed{left:max(2px,env(safe-area-inset-left));width:35px;min-height:0;height:152px;padding:8px 5px;border-radius:0 10px 10px 0;writing-mode:vertical-rl;font-size:12px;white-space:normal}
 }
 
+
+.asc-chat-plus{position:relative;overflow:hidden;touch-action:manipulation}
+#ascChatPhotoInput{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:16px;z-index:2}
+.asc-chat-plus:focus-within{outline:2px solid #ffe397;outline-offset:2px}
+.asc-chat-plus[aria-disabled="true"]{opacity:.45}
+.rankings-list-collapse{flex:none;font-size:11px;padding:8px}
+
 /* The search dossier lives inside the ranking scene, never over its navigation. */
 #rankingsPage #rankingsSearchResults.rp-viewer{top:var(--rp-panel-top,230px)!important;left:17%!important;right:17%!important;border:1px solid #e9c56b;border-radius:18px;background:linear-gradient(145deg,#0c3b66f7,#051e3af7);box-shadow:0 12px 35px #00101fd0,inset 0 0 0 3px #e6c66f12;backdrop-filter:blur(8px);container-type:inline-size}
 #rankingsSearchResults.rp-viewer .rankings-results-head{padding:7px 12px;min-height:38px;background:linear-gradient(110deg,#0d4a7b,#05213c);border-bottom:1px solid #bfefff26}
@@ -29074,6 +29081,7 @@ body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;
         <b tabindex="-1" id="familyFullListTitle">Player Rankings</b>
         <small>Browse the complete family list across every clan.</small>
       </div>
+      <button class="btn rankings-list-collapse" type="button" onclick="showRankingsFullList()" aria-label="Collapse full player list">Collapse ↑</button>
       <button class="rankings-list-find-button" type="button" onclick="openRankingsFindMe()" aria-label="Find a player in the rankings">
         <span class="rankings-list-find-icon" aria-hidden="true">⌕</span>
         <span class="rankings-list-find-label">Find Player</span>
@@ -30499,7 +30507,7 @@ function syncRankingsSceneHub(){
     nav.innerHTML=[['graphs','Clan Honor Graphs','left'],['welcome','Welcome','center'],['trophies','Family Rank Podiums','right']].map(([key,label,side])=>`<button type="button" class="rankings-star ${side}" data-scene-button="${key}" aria-label="${label}" title="${label}" onclick="setRankingsSceneView('${key}')">${key==='welcome'?'<span>Welcome</span>':rankingsGoldIcon(key)}</button>`).join('');frame.append(nav);
     const hub=document.createElement('section');hub.id='rankingsWelcome';hub.className='rankings-welcome';
     hub.innerHTML='<header class="rankings-scene-heading"><div class="rankings-hub-kicker">ALL STARS • RANKINGS</div><h2>Find your place<br>among the stars.</h2><p>Your family. Your competition.<br>Choose a gold icon to explore.</p></header><div class="rankings-search-inset"><div id="rankingsHubFind"></div><a class="rankings-global-link" href="https://royaleapi.com/players/leaderboard" target="_blank" rel="noopener">Global leaderboard ↗</a></div>';
-    hub.querySelector('.rankings-search-inset').insertAdjacentHTML('beforeend','<button type="button" class="rankings-full-list-button" aria-controls="familyFullList" onclick="showRankingsFullList()">See Full Player List ↓</button>');
+    hub.querySelector('.rankings-search-inset').insertAdjacentHTML('beforeend','<button type="button" class="rankings-full-list-button" aria-expanded="false" aria-controls="familyFullList" onclick="showRankingsFullList()">See Full Player List ↓</button>');
     const results=document.createElement('section');
     results.id='rankingsSearchResults';results.className='rankings-search-results';results.hidden=true;
     results.setAttribute('aria-label','Find Me player results');
@@ -30692,7 +30700,9 @@ function closeRankingsSearchResults(){
 function showRankingsFullList(){
   const list=$('familyFullList');if(!list)return;
   const firstOpen=!window.rankingsFullListVisible;
-  window.rankingsFullListVisible=true;list.hidden=false;
+  window.rankingsFullListVisible=firstOpen;list.hidden=!firstOpen;
+  document.querySelectorAll('.rankings-full-list-button').forEach(button=>{button.textContent=firstOpen?'Hide Full Player List ↑':'See Full Player List ↓';button.setAttribute('aria-expanded',String(firstOpen))});
+  if(!firstOpen){document.querySelector('.rankings-full-list-button')?.focus({preventScroll:true});return;}
   renderFamilyRankings();
   requestAnimationFrame(()=>{
     if(firstOpen)list.animate([{opacity:0,transform:'translateY(-16px)'},{opacity:1,transform:'translateY(0)'}],{duration:650,easing:'ease-out'});
