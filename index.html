@@ -28787,6 +28787,19 @@ html.asc-any-popup-open #pageBackToTop{opacity:0!important;visibility:hidden!imp
 .asc-chat-plus[aria-disabled="true"]{opacity:.45}
 .rankings-list-collapse{flex:none;font-size:11px;padding:8px}
 
+.arena-weekly-toggle{width:100%;min-height:40px;border:1px solid #d7b755;border-radius:9px;background:linear-gradient(120deg,#1b557b,#092d49);color:#ffe39a;font:inherit;font-size:13px;cursor:pointer}
+.arena-weekly{border:1px solid #c7a65d;border-radius:12px;overflow:hidden;background:radial-gradient(ellipse at top,#195382,#051c30 80%);padding:12px;color:#d9e9f4}
+.arena-weekly[hidden]{display:none}
+.arena-weekly header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.arena-weekly h3{margin:5px 0;color:#ffe39a;font-size:20px}.arena-weekly header small{color:#9cbdd6;font-size:8px;letter-spacing:1px}
+.arena-weekly header label{font-size:9px;color:#bcd5e5;max-width:50%}.arena-weekly select{display:block;margin-top:5px;background:#08283e;color:#ffe39a;border:1px solid #76876f;border-radius:6px;width:100%;min-height:36px;font:12px 'Segoe UI',sans-serif}
+.arena-weekly-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.arena-weekly-tabs button{display:grid;place-items:center;padding:6px 2px;border:1px solid #356180;border-radius:8px;color:#b7d4e7;background:#062237;cursor:pointer;font:inherit;font-size:9px}.arena-weekly-tabs button[aria-pressed=true]{border-color:#f2cc65;background:linear-gradient(#6b521f,#243944);color:#ffe69e}.arena-weekly-tabs img{height:42px;width:42px;object-fit:contain}
+.arena-weekly-period{display:flex;justify-content:space-between;gap:8px;font:11px 'Segoe UI',sans-serif;margin:12px 0;color:#a5c9df}.arena-weekly-period span{color:#f5d882}
+.arena-weekly-champion{display:flex;align-items:center;gap:10px;padding:10px 5px 16px;border-bottom:1px solid #d5b45b55}.arena-weekly-champion img{width:70px;height:70px;object-fit:contain}.arena-weekly-champion div{min-width:0}.arena-weekly-champion small{font-size:8px;letter-spacing:1px;color:#d4b968}.arena-weekly-champion strong{display:block;font-size:18px;color:#ffe394;overflow-wrap:anywhere;margin:5px 0}.arena-weekly-champion p{font:11px 'Segoe UI',sans-serif;margin:0;color:#a4c9dd}
+.arena-weekly-rows{max-height:320px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#ac9657 #08283e}.arena-weekly-row{display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:8px;align-items:center;padding:11px 4px;border-bottom:1px solid #40779944}.arena-weekly-row>b{font-size:12px;color:#a7c9df}.arena-weekly-row.first>b{color:#ffda74}.arena-weekly-row small{display:block;font:10px 'Segoe UI',sans-serif;color:#8cbbd4;margin-top:3px}.arena-weekly-row>strong{text-align:right;font-size:18px;color:#ffe291}.arena-weekly-row button{max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:left;font-size:13px}
+.arena-weekly-note{font:10px/1.4 'Segoe UI',sans-serif;color:#97b9cf;margin:12px 0 0}.arena-weekly :focus-visible,.arena-weekly-toggle:focus-visible{outline:2px solid #8bdbff;outline-offset:2px}
+@media(max-width:360px){.arena-weekly{padding:8px}.arena-weekly h3{font-size:16px}.arena-weekly-tabs button{font-size:8px}.arena-weekly-champion strong{font-size:16px}}
+
 /* The search dossier lives inside the ranking scene, never over its navigation. */
 #rankingsPage #rankingsSearchResults.rp-viewer{top:var(--rp-panel-top,230px)!important;left:17%!important;right:17%!important;border:1px solid #e9c56b;border-radius:18px;background:linear-gradient(145deg,#0c3b66f7,#051e3af7);box-shadow:0 12px 35px #00101fd0,inset 0 0 0 3px #e6c66f12;backdrop-filter:blur(8px);container-type:inline-size}
 #rankingsSearchResults.rp-viewer .rankings-results-head{padding:7px 12px;min-height:38px;background:linear-gradient(110deg,#0d4a7b,#05213c);border-bottom:1px solid #bfefff26}
@@ -30604,7 +30617,7 @@ function rankingsProfilePages(x,data){
   const deck=typeof resolveCommunityProfileDeck==='function'?resolveCommunityProfileDeck(profile||{},live):{cards:live?.currentDeck||[]},cards=Array.isArray(deck)?deck:deck.cards||live?.currentDeck||[];
   const favorite=typeof resolveCommunityProfileCardArt==='function'?resolveCommunityProfileCardArt(profile||{},live):{name:live?.favouriteCardName};
   const donations=data?.player?.donations||[],accolades=data?.player?.accolades||[];
-  pages.push(rpPage('Profile & Donations','✦',rpStats([['Given this week',rpNumber(m.donations)],['Received · week',rpNumber(m.donationsReceived)],['Prior-week average',s.donBase==null?'—':rpNumber(Math.round(s.donBase))]])+`<div class="rp-donation-weeks">${donations.slice(0,4).map(d=>`<span>${esc(rpDate(d.weekStart))}<b>${rpNumber(d.donations)}</b></span>`).join('')}</div><h4 class="rp-section-label">${esc(deck.custom?'PROFILE DECK':'CURRENT DECK')} · FAVORITE: ${esc(favorite?.name||'Not set')}</h4><div class="rp-deck">${cards.slice(0,8).map(c=>`<div>${c.icon?`<img src="${esc(c.icon)}" alt="${esc(c.name)}" loading="lazy">`:''}<small>${esc(c.name||'Card')}</small></div>`).join('')}</div>${cards.length?'':note('Deck details are temporarily unavailable.')}<div class="rp-profile-summary"><b>${esc(profile?.statusMessage||profile?.role||roleName(m.role))}</b><span>Member since ${esc(rpDate(profile?.createdUtc))} · ${rpNumber(profile?.points)} clan points</span>${profile?.about?`<p>${esc(profile.about)}</p>`:''}</div>${accolades.length?`<div class="rp-honors-summary">${accolades.slice(0,3).map(a=>`${esc(a.icon||'🏅')} ${esc(a.name)}`).join(' · ')}${accolades.length>3?` · +${accolades.length-3} more`:''}</div>`:''}<button class="rp-full-profile" type="button" onclick="openPlayer('${encodeURIComponent(m.tag)}')">Open complete profile ↗</button>`,'purple'));
+  pages.push(rpPage('Profile & Donations','✦',rpStats([['Given this week',rpNumber(m.donations)],['Received · week',rpNumber(m.donationsReceived)],['Prior-week average',s.donBase==null?'—':rpNumber(Math.round(s.donBase))]])+`<div class="rp-donation-weeks">${donations.slice(0,4).map(d=>`<span>${esc(rpDate(d.weekStart))}<b>${rpNumber(d.donations)}</b></span>`).join('')}</div><h4 class="rp-section-label">${esc(deck.custom?'PROFILE DECK':'CURRENT DECK')} · FAVORITE: ${esc(favorite?.name||'Not set')}</h4><div class="rp-deck">${cards.slice(0,8).map(c=>`<div>${c.icon?`<img src="${esc(c.icon)}" alt="${esc(c.name)}" loading="lazy">`:''}<small>${esc(c.name||'Card')}</small></div>`).join('')}</div>${cards.length?'':note('Deck details are temporarily unavailable.')}<div class="rp-profile-summary"><b>${esc(profile?.statusMessage||profile?.role||roleName(m.role))}</b><span>Member since ${esc(rpDate(profile?.createdUtc))} · ${rpNumber(profile?.points)} clan points</span>${profile?.about?`<p>${esc(profile.about)}</p>`:''}</div>${accolades.length?`<div class="rp-honors-summary">${accolades.slice(0,3).map(a=>`${arenaAccoladeIconHtml(a.icon)} ${esc(a.name)}`).join(' · ')}${accolades.length>3?` · +${accolades.length-3} more`:''}</div>`:''}<button class="rp-full-profile" type="button" onclick="openPlayer('${encodeURIComponent(m.tag)}')">Open complete profile ↗</button>`,'purple'));
   return pages;
 }
 
@@ -30764,6 +30777,11 @@ window.addEventListener('resize',scheduleRankingsMobileSceneFit,{passive:true});
 window.addEventListener('orientationchange',()=>setTimeout(syncRankingsMobileSceneFit,100),{passive:true});
 window.visualViewport?.addEventListener('resize',scheduleRankingsMobileSceneFit,{passive:true});
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)scheduleRankingsMobileSceneFit()});
+
+function arenaAccoladeIconHtml(icon){
+ const safe=['icon_1v1.png','icon_2v2.png','icon_war.png','icon_challenge.png'].map(name=>'./assets/fight-night/'+name);
+ return safe.includes(icon)?'<img src="'+icon+'" alt="Weekly champion" style="width:32px;height:32px;object-fit:contain;vertical-align:middle">':esc(icon||'🏅');
+}
 
 
 function openPublicSignInNotice(){const modal=$('publicSignInNotice');if(!modal)return;modal.classList.remove('hidden');modal.setAttribute('aria-hidden','false');requestAnimationFrame(()=>modal.querySelector('.public-signin-close')?.focus())}
