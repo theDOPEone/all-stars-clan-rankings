@@ -30301,7 +30301,7 @@ const rpNumber=value=>value==null||value===''?'—':Number(value).toLocaleString
 const rpDate=value=>{const d=new Date(value);return value&&!isNaN(d)?d.toLocaleDateString(undefined,{month:'short',day:'numeric'}):'—'};
 function rpStats(rows){return `<dl class="rp-stats">${rows.map(([label,value])=>`<div><dt>${esc(label)}</dt><dd>${esc(String(value??'—'))}</dd></div>`).join('')}</dl>`}
 function rpNote(text){return `<p class="rp-note">${esc(text)}</p>`}
-function rpPage(title,icon,content,tone='blue'){return `<article class="rankings-result-card rp-page rp-${tone}" data-page-title="${esc(title)}"><div class="rp-page-heading"><span>${icon}</span><div><small>ALL STARS · PLAYER DOSSIER</small><h3>${esc(title)}</h3></div></div><div class="rp-page-content">${content}</div></article>`}
+function rpPage(title,icon,content,tone='blue'){return `<article class="rankings-result-card rp-page rp-${tone==='battle'?'combat':tone}" data-page-title="${esc(title)}"><div class="rp-page-heading"><span>${icon}</span><div><small>ALL STARS · PLAYER DOSSIER</small><h3>${esc(title)}</h3></div></div><div class="rp-page-content">${content}</div></article>`}
 function rpEmpty(text){return `<div class="rp-empty"><span>✦</span><p>${esc(text)}</p></div>`}
 function rpBattle(b,featured=false){
   const outcome=String(b.result||b.outcome||'unknown').toLowerCase(),result=outcome==='win'?'VICTORY':outcome==='loss'?'DEFEAT':outcome==='draw'?'DRAW':'RECORDED';
