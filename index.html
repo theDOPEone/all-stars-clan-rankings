@@ -28806,7 +28806,7 @@ body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;
         <div class="family-table-find-title">🔎 Find Your Player</div>
         <div class="family-table-find-sub">Search by Clash name or player tag and jump directly to your current clan roster.</div>
       </div>
-      <div class="family-find family-find-table"><input id="familyFindInput" placeholder="Clash name or #PLAYER_TAG..." onkeydown="if(event.key==='Enter')findMeInFamily()"><button class="btn" onclick="findMeInFamily()">Find Me</button></div>
+      <div class="family-find family-find-table"><input id="familyFindInput" placeholder="Clash name or #PLAYER_TAG..." autocomplete="off" aria-label="Search player name or tag" aria-controls="rankingsSearchResults" oninput="queueFamilyPlayerSearch(event)" oncompositionend="queueFamilyPlayerSearch(event)" onkeydown="if(event.key==='Enter'){event.preventDefault();searchFamilyPlayerName()}else if(event.key==='Escape'){closeRankingsSearchResults()}"><button class="btn" onclick="findMeInFamily()">Find Me</button></div>
       <div id="familyFindResult" class="family-find-result family-find-result-table" role="status">Search your Clash name or player tag.</div>
     </div>
 
@@ -30335,16 +30335,20 @@ function renderRankingsSearchResults(){
   positionRankingsSearchResults();
   requestAnimationFrame(paintRankingsResultPages);
 }
-async function showRankingsSearchResults(matches,query){
+async function showRankingsSearchResults(matches,query,{keepFocus=false}={}){
+  clearTimeout(familySearchTimer);
   rankingsSearchResults={matches,query};
-  $('familyFindInput')?.blur();
-  await setRankingsSceneView('welcome');
+  const request=rankingsSearchResults;
+  if(!keepFocus)$('familyFindInput')?.blur();
+  if(rankingsSceneView!=='welcome')await setRankingsSceneView('welcome');
+  if(rankingsSearchResults!==request)return;
   renderRankingsSearchResults();
   const panel=$('rankingsSearchResults');
   if(panel){panel.getAnimations().forEach(animation=>animation.cancel());panel.animate([{opacity:0},{opacity:1}],{duration:420,easing:'ease-out'})}
   const status=$('familyFindResult');if(status)status.textContent=matches.length?'Your player stats are shown above.':'Try another name or player tag.';
 }
 function closeRankingsSearchResults(){
+  clearTimeout(familySearchTimer);
   rankingsSearchResults=null;
   const panel=$('rankingsSearchResults');if(panel)panel.hidden=true;
   $('rankingsWelcome')?.classList.remove('has-search-results');
