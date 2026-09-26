@@ -30533,6 +30533,8 @@ function syncRankingsSceneHub(){
 }
 function positionRankingsSearchResults(){
   const hub=$('rankingsWelcome'),search=hub?.querySelector('.rankings-search-inset'),results=$('rankingsSearchResults');
+  const frame=hub?.closest('.honor-scene-frame');
+  if(frame){const nativeHeight=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--asc-honor-height'));frame.style.setProperty('--rp-scene-stretch',String(nativeHeight?frame.offsetHeight/nativeHeight:1))}
   if(hub&&search&&results)results.style.bottom=`${Math.max(0,hub.clientHeight-search.offsetTop)+10}px`;
 }
 const rankingsProfileCache=new Map();
