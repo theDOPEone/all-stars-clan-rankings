@@ -28808,6 +28808,25 @@ html.asc-any-popup-open #pageBackToTop{opacity:0!important;visibility:hidden!imp
 @media(max-width:600px){.points-welcome-dialog{padding:16px}.points-welcome-dialog h2{font-size:21px}#coLeadersPage .leadership-command-hero #dreamTeamSection{margin:14px -14px -16px!important}.points-reveal-row>div:first-child{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.points-reveal-row{transition:none}}
 #coLeadersPage .leadership-command-live{min-width:0;white-space:normal!important}#coLeadersPage #leadershipCommandSync{white-space:normal!important;overflow-wrap:anywhere}
+/* Eight-second reward reveal: each row enters only when its turn begins. */
+.points-welcome-dialog{position:fixed;isolation:isolate}
+.points-welcome-dialog .points-reveal-row{opacity:0;transform:translateY(9px);transition:opacity .3s,transform .3s;visibility:hidden}
+.points-welcome-dialog .points-reveal-row.active{opacity:1;transform:none;visibility:visible}
+.points-reveal-row.counting{filter:drop-shadow(0 0 8px #68cfff55)}
+.points-reveal-row.counting b{color:#fff5bc;text-shadow:0 0 12px #ffdc68}
+.points-reveal-track span{position:relative}
+.points-reveal-row.counting .points-reveal-track span::after{content:'✦';position:absolute;right:0;top:-6px;color:#fff5c1;font-size:17px;text-shadow:0 0 9px #fff,0 0 16px #ffdc58;animation:points-star-spin .8s linear infinite}
+.points-reveal-row.counted b::before{content:'✦ ';color:#f8d672}
+.points-reveal-burst{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:inherit;z-index:-1}
+.points-reveal-burst span{position:absolute;left:50%;top:65%;font-size:21px;color:#ffda65;opacity:0}
+.reveal-complete .points-reveal-burst span{animation:points-crown-burst 1.4s ease-out both;animation-delay:calc(var(--ray)*.025s)}
+.reveal-complete .points-reveal-total strong{animation:points-total-glow 1.2s ease-out both}
+@keyframes points-star-spin{to{transform:rotate(180deg)}}
+@keyframes points-crown-burst{0%{opacity:0;transform:rotate(calc(var(--ray)*30deg)) translateY(10px) scale(.3)}20%{opacity:1}100%{opacity:0;transform:rotate(calc(var(--ray)*30deg)) translateY(-250px) scale(1.3)}}
+@keyframes points-total-glow{0%{transform:scale(.94);text-shadow:0 0 35px #ffe174}35%{transform:scale(1.09);text-shadow:0 0 20px #ffd44b}100%{transform:scale(1);text-shadow:0 0 5px #ffce4730}}
+.points-welcome-dialog.reveal-reduced .points-reveal-row{transform:none;transition:none}
+.points-welcome-dialog.reveal-reduced .points-reveal-burst,.points-welcome-dialog.reveal-reduced .points-reveal-track span::after{display:none}
+.points-welcome-dialog.reveal-reduced .points-reveal-total strong{animation:none}
 
 /* The search dossier lives inside the ranking scene, never over its navigation. */
 #rankingsPage #rankingsSearchResults.rp-viewer{top:var(--rp-panel-top,230px)!important;left:17%!important;right:17%!important;border:1px solid #e9c56b;border-radius:18px;background:linear-gradient(145deg,#0c3b66f7,#051e3af7);box-shadow:0 12px 35px #00101fd0,inset 0 0 0 3px #e6c66f12;backdrop-filter:blur(8px);container-type:inline-size}
