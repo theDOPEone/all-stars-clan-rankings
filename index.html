@@ -28797,6 +28797,35 @@ html.asc-any-popup-open #pageBackToTop{opacity:0!important;visibility:hidden!imp
  #shopPreviewOverlay .shop-live-profile-preview .community-profile-preview-identity{padding:10px}
  #shopPreviewOverlay .shop-preview-return-fixed{left:max(2px,env(safe-area-inset-left));width:35px;min-height:0;height:152px;padding:8px 5px;border-radius:0 10px 10px 0;writing-mode:vertical-rl;font-size:12px;white-space:normal}
 }
+/* Three items per swipe, including the phone layout. */
+#shopPage .royal-shop-item-rail>.asc-shop-item{scroll-snap-align:none}
+#shopPage .royal-shop-item-rail>.asc-shop-item:nth-child(3n+1){scroll-snap-align:start;scroll-snap-stop:always}
+@media(max-width:600px){
+ #shopPage .royal-shop-carousel{padding:0 2px}
+ #shopPage .royal-shop-item-rail{grid-auto-columns:calc((100% - 12px)/3)!important;gap:6px!important;padding:5px 0 10px!important}
+ #shopPage .royal-shop-item-rail>.asc-shop-item{border-width:1px!important;border-radius:9px!important;contain-intrinsic-size:auto 280px}
+ #shopPage .asc-shop-item-visual{height:76px!important;min-height:76px!important;margin:18px 3px 0!important;overflow:hidden!important}
+ #shopPage .asc-shop-item-visual .profile-theme-demo{width:94%!important;height:65px!important;padding:4px!important;gap:3px!important;border-radius:5px!important}
+ #shopPage .profile-theme-demo-header{font-size:5px!important;gap:3px!important}
+ #shopPage .profile-theme-demo-header small{display:none}
+ #shopPage .profile-theme-demo-avatar{flex-basis:12px;height:12px;border-width:1px}
+ #shopPage .profile-theme-demo-content{padding:4px;gap:3px}
+ #shopPage .profile-theme-demo-content>span:not(.profile-theme-demo-badge){height:3px}
+ #shopPage .profile-theme-demo-badge{width:12px;height:12px;right:3px;top:3px;font-size:8px}
+ #shopPage .profile-theme-demo-colors{height:6px;gap:2px}
+ #shopPage .asc-shop-item-body{padding:6px!important;gap:5px!important}
+ #shopPage .asc-shop-item h4{font:700 11px/1.2 'Segoe UI',sans-serif!important;overflow-wrap:anywhere;min-height:27px}
+ #shopPage .asc-shop-rarity{font-size:8px!important;margin-top:2px!important}
+ #shopPage .asc-shop-item-desc{display:none!important}
+ #shopPage .asc-shop-price{padding:4px 0!important;display:block!important}
+ #shopPage .asc-shop-price strong{font-size:17px!important}
+ #shopPage .asc-shop-price small{font-size:8px!important}
+ #shopPage .asc-shop-price>.asc-shop-section-badge{display:none!important}
+ #shopPage .asc-shop-actions{display:flex!important;flex-direction:column!important;gap:4px!important}
+ #shopPage .asc-shop-actions button{width:100%;min-height:36px!important;font-size:9px!important;padding:5px 2px!important;overflow-wrap:anywhere}
+ #shopPage .asc-shop-ribbon{font-size:6px!important;padding:3px 4px!important;top:5px!important;left:4px!important;max-width:calc(100% - 8px)}
+ #shopPage .royal-shop-rail-arrow{width:20px;height:38px;top:28%;font-size:28px}
+}
 
 
 .asc-chat-plus{position:relative;overflow:hidden;touch-action:manipulation}
