@@ -30624,7 +30624,12 @@ function positionRankingsSearchResults(){
 const bounds=hub.getBoundingClientRect(),scale=bounds.height/hub.clientHeight||1;
 const flags=[...frame.querySelectorAll('.rankings-star.left,.rankings-star.right')];
 const top=Math.ceil((Math.max(...flags.map(flag=>flag.getBoundingClientRect().bottom))-bounds.top)/scale)+12;
-hub.style.setProperty('--rp-panel-top',top+'px');results.style.bottom='auto';
+const desktop=window.innerWidth>=900&&document.documentElement.dataset.ascHonorView!=='mobile-portrait';
+const crest=frame.querySelector('.rankings-star.center');
+const panelTop=desktop&&crest?Math.min(top,Math.ceil((crest.getBoundingClientRect().bottom-bounds.top)/scale)+20):top;
+hub.style.setProperty('--rp-panel-top',panelTop+'px');
+hub.style.setProperty('--rp-panel-height',(425+top-panelTop)+'px');
+hub.style.setProperty('--rp-search-top',(top+435)+'px');results.style.bottom='auto';
 }
 }
 const rankingsProfileCache=new Map();
