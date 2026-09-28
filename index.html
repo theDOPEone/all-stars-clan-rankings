@@ -29409,7 +29409,19 @@ function primeAscAppMusic(){
   return audio;
 }
 let ascAppMusicUnlockBound=false;
+async function ascPlayAppMusic(audio){
+  if(window.ascPointsWelcomeMusicHold)return;
+  await audio.play();
+  if(window.ascPointsWelcomeMusicHold)audio.pause();
+}
+function ascReleasePointsWelcomeMusic(){
+  window.ascPointsWelcomeMusicHold=false;
+  if(document.hidden)return;
+  if(ascAppMusicState.enabled&&ascAppMusicState.audio)void ascPlayAppMusic(ascAppMusicState.audio).catch(()=>{});
+  else if(ascAppMusicState.autoplayPending)void ascTryAutoplayAppMusic();
+}
 async function ascTryAutoplayAppMusic(){
+  if(window.ascPointsWelcomeMusicHold)return false;
   if(ascAppMusicState.enabled||ascAppMusicState.starting)return true;
   const audio=primeAscAppMusic();
   ascAppMusicState.starting=true;
@@ -29418,7 +29430,7 @@ async function ascTryAutoplayAppMusic(){
   syncDashboardMusicButton();
   showAscNowPlaying(true);
   try{
-    await audio.play();
+    await ascPlayAppMusic(audio);
     ascAppMusicState.starting=false;
     ascAppMusicState.enabled=true;
     ascAppMusicState.autoplayPending=false;
@@ -29535,7 +29547,7 @@ async function ascLoadMusicTrack(index,autoPlay=true){
   audio.load();
   syncDashboardMusicButton();
   if(shouldPlay){
-    try{await audio.play()}
+    try{await ascPlayAppMusic(audio)}
     catch{
       ascAppMusicState.starting=false;
       ascAppMusicState.enabled=false;
@@ -29555,7 +29567,7 @@ async function toggleAppMusic(){
     return;
   }
 
-  // Mark music ON immediately on the user's first press. audio.play() remains
+  // Mark music ON immediately on the user's first press. ascPlayAppMusic(audio) remains
   // pending while the first file buffers instead of making the user press again.
   ascAppMusicState.starting=true;
   ascAppMusicState.enabled=true;
@@ -29564,7 +29576,7 @@ async function toggleAppMusic(){
   showAscNowPlaying(true);
 
   try{
-    await audio.play();
+    await ascPlayAppMusic(audio);
     ascAppMusicState.starting=false;
     ascAppMusicState.enabled=true;
     syncDashboardMusicButton();
@@ -29603,7 +29615,7 @@ document.addEventListener('visibilitychange',()=>{
     audio.pause();
   }else if(!document.hidden&&ascAppMusicState.enabled&&ascAppMusicState.resumeAfterVisibility){
     ascAppMusicState.resumeAfterVisibility=false;
-    audio.play().catch(()=>{
+    ascPlayAppMusic(audio).catch(()=>{
       ascAppMusicState.enabled=false;
       syncDashboardMusicButton();
     });
