@@ -29096,10 +29096,10 @@ html.asc-any-popup-open #pageBackToTop{opacity:0!important;visibility:hidden!imp
 @media(min-width:900px){#familySummary .honor-scene-frame.rankings-unified-scene[data-scene-view="welcome"]:has(.has-search-results){height:900px!important;min-height:900px!important}}
 #rankingsSearchResults .rp-honors-summary img{width:14px!important;height:14px!important}
 /* Mobile rankings ends at its scene/list, with the legal footer just below. */
+body:has(#rankingsPage.main-page-current) #pageBackToTopDock,
+body:has(#rankingsPage.main-page-current) #pageBackToTop{display:none!important}
+#rankingsPage::after{display:none!important;height:0!important;min-height:0!important}
 @media(max-width:700px){
- body:has(#rankingsPage.main-page-current) #pageBackToTopDock,
- body:has(#rankingsPage.main-page-current) #pageBackToTop{display:none!important}
- #rankingsPage::after{display:none!important;height:0!important;min-height:0!important}
  body:has(#rankingsPage.main-page-current) main.shell>.nav{margin-bottom:2px!important}
  body:has(#rankingsPage.main-page-current) .fan-content-notice{margin-top:8px!important}
 }
@@ -30783,12 +30783,8 @@ function rankingsGoldIcon(key){
   return `<svg class="rankings-gold-icon" viewBox="0 0 94 94" aria-hidden="true"><defs><linearGradient id="iconGold-${key}" x2=".4" y2="1"><stop stop-color="#fff6bf"/><stop offset=".3" stop-color="#ffe374"/><stop offset=".55" stop-color="#df9e18"/><stop offset=".8" stop-color="#fff19e"/><stop offset="1" stop-color="#b66e08"/></linearGradient></defs><circle cx="47" cy="47" r="46" fill="#064290"/><g class="rankings-icon-gold" fill="url(#iconGold-${key})" stroke="#ffdf72" stroke-width="2" stroke-linejoin="round">${shape}</g>${numbers}</svg>`;
 }
 
-/* Mobile portrait scene fit.
-   The native portrait artwork is 470.5 x 836, which is almost exactly a full
-   iPhone-7 viewport once scaled to phone width.  When the app nav is present,
-   that leaves too little usable vertical room.  Compress the unified Rankings
-   frame on Y only, move it slightly down below the nav, and reclaim the unused
-   layout height so the page does not gain a large blank tail. */
+/* Fill the mobile viewport below the navigation. Preserve the native minimum
+   height on short phones and reserve layout space for any vertical stretch. */
 function syncRankingsMobileSceneFit(){
   const root=document.documentElement;
   const frame=document.querySelector('#familySummary .honor-scene-frame.rankings-unified-scene');
@@ -30806,8 +30802,7 @@ function syncRankingsMobileSceneFit(){
   const navHeight=Math.max(0,Number(nav?.getBoundingClientRect?.().height||0));
   const frameHeight=Math.max(1,Number(frame.offsetHeight||parseFloat(getComputedStyle(root).getPropertyValue('--asc-honor-height'))||0));
 
-  /* Reserve the nav plus a small breathing gap.  Clamp the result so short
-     phones get meaningful relief without making artwork/text look crushed. */
+  // The footer can sit below the fold; do not compress the scene to expose it.
   const topOffset=0;
   const available=Math.max(430,viewportHeight-navHeight-8);
   const yScale=Math.max(1,available/frameHeight);
