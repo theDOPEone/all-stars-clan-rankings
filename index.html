@@ -28836,6 +28836,28 @@ html.asc-any-popup-open #pageBackToTop{opacity:0!important;visibility:hidden!imp
 #pointsWelcomeChosen{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
 .points-welcome-member-chip{padding:7px 10px;border:1px solid #ad945b;border-radius:8px;color:#ffe19b;background:#174765;cursor:pointer;font:13px 'Segoe UI',sans-serif}
 .points-welcome-member-chip small{color:#a8ccdf;margin-left:5px}.points-welcome-member-chip>span{margin-left:8px;font-size:18px}.points-welcome-no-members{font-size:12px;color:#a8ccdf}
+/* Compact summary keeps all eight reward rows and final actions in view. */
+.points-welcome-dialog{padding:16px;overflow:auto}
+.points-welcome-dialog header img{width:42px;height:52px}
+.points-welcome-dialog h2{font-size:22px;margin:3px 0}
+.points-welcome-dialog #pointsWelcomeIntro{margin:9px 0;font-size:12px;line-height:1.35}
+.points-welcome-dialog .points-reveal-row{margin:9px 0}
+.points-welcome-dialog .points-reveal-track{margin-top:4px;height:7px}
+.points-welcome-dialog .points-reveal-total{padding:8px 0}
+.points-welcome-dialog .points-reveal-total strong{font-size:36px;margin:2px 0}
+.points-welcome-dialog #pointsRevealMessage{margin:4px 0;font-size:11px;line-height:1.3}
+.points-welcome-dialog .points-welcome-actions[hidden]{display:none!important}
+.points-welcome-dialog .points-welcome-actions{flex-wrap:nowrap}
+.points-welcome-dialog .points-welcome-actions button{flex:1;min-height:36px}
+@media(max-height:700px){
+ .points-welcome-dialog{padding:12px;max-height:calc(100dvh - 16px)}
+ .points-welcome-dialog header img{height:40px;width:34px}
+ .points-welcome-dialog h2{font-size:18px}
+ .points-welcome-dialog .points-reveal-row{margin:6px 0}
+ .points-welcome-dialog .points-reveal-row>div:first-child{font-size:10px}
+ .points-welcome-dialog .points-reveal-total{padding:5px 0}
+ .points-welcome-dialog .points-reveal-total strong{font-size:30px}
+}
 
 /* The search dossier lives inside the ranking scene, never over its navigation. */
 #rankingsPage #rankingsSearchResults.rp-viewer{top:var(--rp-panel-top,230px)!important;left:17%!important;right:17%!important;border:1px solid #e9c56b;border-radius:18px;background:linear-gradient(145deg,#0c3b66f7,#051e3af7);box-shadow:0 12px 35px #00101fd0,inset 0 0 0 3px #e6c66f12;backdrop-filter:blur(8px);container-type:inline-size}
