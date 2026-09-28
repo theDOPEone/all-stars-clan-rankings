@@ -29080,8 +29080,8 @@ html.asc-any-popup-open #pageBackToTop{opacity:0!important;visibility:hidden!imp
 #familySummary .rankings-unified-scene[data-scene-view="welcome"]:has(.has-search-results) .clan-honor-cinematic-stage{transform:scale(var(--asc-honor-scale,1)) scaleY(var(--rp-scene-stretch,1))!important}
 
 /* Keep the dossier beneath scene navigation and remove unused vertical space. */
-#rankingsPage #rankingsSearchResults.rp-viewer{height:425px!important;bottom:auto!important}
-#rankingsPage .has-search-results .rankings-search-inset{top:calc(var(--rp-panel-top,230px) + 435px)!important;bottom:auto!important;padding:8px 10px!important;gap:4px}
+#rankingsPage #rankingsSearchResults.rp-viewer{height:var(--rp-panel-height,425px)!important;bottom:auto!important}
+#rankingsPage .has-search-results .rankings-search-inset{top:var(--rp-search-top,665px)!important;bottom:auto!important;padding:8px 10px!important;gap:4px}
 #rankingsPage .has-search-results #rankingsHubFind .family-table-find-dock{padding:0!important}
 #rankingsPage .has-search-results #rankingsHubFind .family-table-find-title{font-size:16px!important;margin:0!important}
 #rankingsPage .has-search-results #rankingsHubFind .family-find{margin:6px 0 0!important;gap:6px}
@@ -29102,6 +29102,23 @@ body:has(#rankingsPage.main-page-current) #pageBackToTop{display:none!important}
 @media(max-width:700px){
  body:has(#rankingsPage.main-page-current) main.shell>.nav{margin-bottom:2px!important}
  body:has(#rankingsPage.main-page-current) .fan-content-notice{margin-top:8px!important}
+}
+
+/* A distinct, softly faded arena for each of the five swipe pages. */
+#rankingsSearchResults.rp-viewer .rp-page:nth-child(1){--rp-arena:url('./assets/arena/Arena_Valhalla.png')}
+#rankingsSearchResults.rp-viewer .rp-page:nth-child(2){--rp-arena:url('./assets/arena/Boot Camp Arena.png')}
+#rankingsSearchResults.rp-viewer .rp-page:nth-child(3){--rp-arena:url('./assets/arena/Arena_FightNight.png')}
+#rankingsSearchResults.rp-viewer .rp-page:nth-child(4){--rp-arena:url('./assets/arena/Loading screen Clan Wars 2.png')}
+#rankingsSearchResults.rp-viewer .rp-page:nth-child(5){--rp-arena:url('./assets/arena/Arena_CozyClashmas.png')}
+#rankingsSearchResults.rp-viewer .rp-page::before{background-image:var(--rp-arena);background-position:center;background-size:cover;opacity:.20}
+@media(min-width:900px){
+ #rankingsSearchResults.rp-viewer .rp-page{padding:16px 20px;gap:10px}
+ #rankingsSearchResults.rp-viewer .rp-page-content{gap:12px}
+ #rankingsSearchResults.rp-viewer .rp-stats dt{font-size:11px}
+ #rankingsSearchResults.rp-viewer .rp-stats dd{font-size:18px}
+ #rankingsSearchResults.rp-viewer .rp-identity p{font-size:12px}
+ #rankingsSearchResults.rp-viewer .rp-ratings-inline>span{font-size:10px}
+ #rankingsSearchResults.rp-viewer .rp-ratings-inline b{font-size:18px}
 }
 
 body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0a3555;border-bottom:1px solid #caa541}.public-site-header img{width:48px;height:48px}.public-site-header strong{color:#ffe18a;font-size:22px}.public-site-header small{display:block;font-size:10px;color:#b0d0e5}.public-site-header>.public-signin-top{margin-left:0}.public-site-nav{display:flex;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;padding:8px;background:#0a3555}.public-site-nav button{min-height:40px;font-size:13px}.public-site-nav button.active{color:#ffe18a;border-color:#d9b34b}.public-player-card{padding:16px}.public-player-card h2{color:#ffe18a}.public-site-status{padding:6px 10px;font-size:11px;color:#b0d0e5}.public-site-status:empty{display:none}@media(max-width:600px){.public-site-header strong{font-size:17px}.public-site-header{padding:10px}.public-site-nav button{font-size:11px}.public-site-header button{font-size:11px}}
