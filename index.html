@@ -29507,10 +29507,17 @@ function primeAscAppMusic(){
 let ascAppMusicUnlockBound=false;
 async function ascPlayAppMusic(audio){
   if(window.ascPointsWelcomeMusicHold)return;
-  await audio.play();
-  if(window.ascPointsWelcomeMusicHold)audio.pause();
+  const fade=window.ascMenuMusicFadePending;window.ascMenuMusicFadePending=false;
+  const target=audio._menuFadeTarget??audio.volume;audio._menuFadeTarget=target;
+  const token=(audio._menuFadeToken||0)+1;audio._menuFadeToken=token;
+  if(fade)audio.volume=0;
+  try{await audio.play()}catch(error){audio.volume=target;throw error}
+  if(window.ascPointsWelcomeMusicHold){audio.pause();audio.volume=target;return}
+  if(fade){const start=performance.now();function frame(now){if(audio._menuFadeToken!==token)return;if(window.ascPointsWelcomeMusicHold||audio.paused){audio.volume=target;return}const progress=Math.min(1,(now-start)/1600);audio.volume=target*progress;if(progress<1)requestAnimationFrame(frame)}requestAnimationFrame(frame)}
+  else audio.volume=target;
 }
-function ascReleasePointsWelcomeMusic(){
+function ascReleasePointsWelcomeMusic(fade=false){
+  if(fade)window.ascMenuMusicFadePending=true;
   window.ascPointsWelcomeMusicHold=false;
   if(document.hidden)return;
   if(ascAppMusicState.enabled&&ascAppMusicState.audio)void ascPlayAppMusic(ascAppMusicState.audio).catch(()=>{});
