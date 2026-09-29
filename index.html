@@ -30219,7 +30219,7 @@ function ascHonorSceneAsset(mode){
 function syncAscHonorSceneAssets(mode){
   const src=ascHonorSceneAsset(mode);
   document.querySelectorAll('.asc-honor-scene-art').forEach(img=>{
-    if(img.getAttribute('src')!==src)img.setAttribute('src',src);
+    if((img.getAttribute('src')||'').split('&retry=')[0]!==src){img._sceneRetries=0;img.setAttribute('src',src);}
   });
   document.querySelectorAll('img.asc-honor-scene-art,.clan-honor-asset-podium > img,.clan-honor-asset-console > img').forEach(img=>{
     if(!img._goldLoad){img._goldLoad=()=>ascAddGoldShimmer(img);img.addEventListener('load',img._goldLoad)}
@@ -30439,8 +30439,8 @@ function renderClanHonorBoard(players,clans,avgT,totalD,linked){
     </section>
   </section>`;
   if(details._honorMarkup!==detailsHtml){details.innerHTML=detailsHtml;details._honorMarkup=detailsHtml}
-  syncRankingsSceneHub();
   observeClanHonorScene();
+  syncRankingsSceneHub();
   refreshClanHonorPodiumLeaderAvatars(rows);
   if(!arenaReady&&!clanHonorArenaLoading)ensureClanHonorArenaRatings();
   if(!clanHonorHistory&&!clanHonorHistoryLoading)ensureClanHonorHistory();
