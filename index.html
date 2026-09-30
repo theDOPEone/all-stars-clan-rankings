@@ -29406,8 +29406,8 @@ function ascPickInitialMusicIndex(){
   let previous=-1;
   try{previous=Number(localStorage.getItem('ascLastInitialMusicIndex')??-1)}catch{}
   const choices=[];
-  for(let i=0;i<count;i++)if(i!==previous)choices.push(i);
-  const next=choices[Math.floor(Math.random()*choices.length)]??0;
+  for(let i=0;i<count;i++)if(i!==previous&&!ascMemberPrefs.disabledSongs.includes(ascAppMusicPlaylist[i].src))choices.push(i);
+  const next=choices[Math.floor(Math.random()*choices.length)]??ascAllowedMusicIndices()[0]??0;
   try{localStorage.setItem('ascLastInitialMusicIndex',String(next))}catch{}
   return next;
 }
@@ -29416,7 +29416,7 @@ const ascAppMusicState={
   enabled:false,
   starting:false,
   autoplayPending:false,
-  shuffle:false,
+  shuffle:ascMemberPrefs.shuffle,
   trackIndex:ascPickInitialMusicIndex(),
   resumeAfterVisibility:false,
   shuffleBag:[],
@@ -29476,7 +29476,7 @@ function ensureAscAppMusic(){
   audio.loop=!ascAppMusicState.shuffle;
   audio.preload='metadata';
   audio.playsInline=true;
-  audio.volume=.34;
+  audio.volume=ascMemberPrefs.musicVolume;
   audio.addEventListener('ended',()=>{
     if(ascAppMusicState.shuffle&&ascAppMusicState.enabled)nextAppMusic(true);
   });
@@ -29610,7 +29610,7 @@ function ascRefillShuffleBag(){
   const current=ascAppMusicState.trackIndex;
   const choices=[];
   for(let i=0;i<count;i++){
-    if(i!==current)choices.push(i);
+    if(i!==current&&!ascMemberPrefs.disabledSongs.includes(ascAppMusicPlaylist[i].src))choices.push(i);
   }
   ascAppMusicState.shuffleBag=ascShuffleArray(choices);
   ascAppMusicState.shuffleCycle=(ascAppMusicState.shuffleCycle||0)+1;
@@ -29632,7 +29632,7 @@ function ascPickShuffleIndex(){
     next=ascAppMusicState.shuffleBag.shift();
   }
 
-  return Number.isInteger(next)?next:(ascAppMusicState.trackIndex+1)%count;
+  return Number.isInteger(next)?next:ascNextAllowedMusicIndex();
 }
 async function ascLoadMusicTrack(index,autoPlay=true){
   const count=ascAppMusicPlaylist.length;
@@ -29694,7 +29694,7 @@ async function nextAppMusic(fromEnded=false){
   if(!ascAppMusicState.enabled&&!fromEnded)return;
   const nextIndex=ascAppMusicState.shuffle
     ? ascPickShuffleIndex()
-    : (ascAppMusicState.trackIndex+1)%ascAppMusicPlaylist.length;
+    : ascNextAllowedMusicIndex();
   await ascLoadMusicTrack(nextIndex,true);
 }
 function toggleAppMusicShuffle(){
@@ -29708,6 +29708,8 @@ function toggleAppMusicShuffle(){
     ascAppMusicState.shuffleBag=[];
   }
 
+  ascMemberPrefs.shuffle=ascAppMusicState.shuffle;
+  try{localStorage.setItem('ascMemberPrefs',JSON.stringify(ascMemberPrefs))}catch{}
   syncDashboardMusicButton();
   showAscNowPlaying(false);
 }
