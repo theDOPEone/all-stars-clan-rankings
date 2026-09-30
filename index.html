@@ -29224,6 +29224,201 @@ body{color:#e8f0fa}.public-site-header{display:flex;align-items:center;gap:12px;
 .public-site-header{flex-wrap:wrap}.public-site-header .header-music-controls{position:static!important;top:auto!important;right:auto!important;margin-left:auto!important;display:flex!important;align-items:center!important;gap:7px!important}.public-site-header .header-music-controls .dashboard-music-toggle,.public-site-header .header-music-controls .dashboard-music-next,.public-site-header .header-music-controls .dashboard-music-shuffle{margin-left:0!important;flex:0 0 auto}.public-site-header>.public-signin-top{margin-left:0!important}.public-site-header .asc-now-playing{display:block!important}
 @media(max-width:760px){.public-site-header{gap:8px}.public-site-header .header-music-controls{order:3;width:100%;justify-content:center;margin-left:0!important}.public-site-header .asc-now-playing{flex-basis:150px!important;width:150px!important}.public-site-header>.public-signin-top{margin-left:auto!important}}
 @media(max-width:430px){.public-site-header .asc-now-playing{flex-basis:118px!important;width:118px!important}.public-site-header .header-music-controls{gap:4px!important}.public-site-header .header-music-controls .dashboard-music-toggle,.public-site-header .header-music-controls .dashboard-music-next,.public-site-header .header-music-controls .dashboard-music-shuffle{width:32px!important;height:32px!important}}
+
+
+
+/* ===== GITHUB PUBLIC MOBILE HEADER MUSIC LAYOUT FIX =====
+   Keep the three music controls in the top-right corner on phones and place
+   the Now Playing marquee directly beneath them.  This block intentionally
+   comes after the generated public-site overrides so Samsung/Chrome and
+   desktop mobile emulation resolve to the same layout. */
+@media(max-width:760px){
+  .public-site-header{
+    position:relative!important;
+    display:grid!important;
+    grid-template-columns:44px minmax(0,1fr) 104px!important;
+    grid-template-rows:auto auto!important;
+    grid-template-areas:
+      "publicCrest publicBrand publicMusic"
+      "publicCrest publicSignin publicMusic"!important;
+    align-items:start!important;
+    column-gap:8px!important;
+    row-gap:3px!important;
+    min-height:76px!important;
+    padding:9px 10px 8px!important;
+    flex-wrap:nowrap!important;
+  }
+  .public-site-header>img{
+    grid-area:publicCrest!important;
+    width:44px!important;
+    height:44px!important;
+    margin:0!important;
+    align-self:start!important;
+  }
+  .public-site-header>div:not(.header-music-controls){
+    grid-area:publicBrand!important;
+    min-width:0!important;
+    padding-top:2px!important;
+  }
+  .public-site-header strong{
+    display:block!important;
+    font-size:16px!important;
+    line-height:1.02!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  .public-site-header small{
+    margin-top:2px!important;
+    font-size:7px!important;
+    line-height:1.15!important;
+  }
+  .public-site-header>.public-signin-top{
+    grid-area:publicSignin!important;
+    justify-self:start!important;
+    align-self:end!important;
+    margin:0!important;
+    min-height:25px!important;
+    padding:4px 8px!important;
+    font-size:9px!important;
+    line-height:1!important;
+  }
+  .public-site-header .header-music-controls{
+    grid-area:publicMusic!important;
+    position:static!important;
+    top:auto!important;
+    right:auto!important;
+    display:grid!important;
+    grid-template-columns:repeat(3,32px)!important;
+    grid-template-rows:32px 20px!important;
+    width:104px!important;
+    min-width:104px!important;
+    max-width:104px!important;
+    height:53px!important;
+    min-height:53px!important;
+    gap:1px 4px!important;
+    margin:0!important;
+    padding:0!important;
+    justify-self:end!important;
+    justify-content:end!important;
+    align-content:start!important;
+    align-items:center!important;
+  }
+  .public-site-header .header-music-controls .dashboard-music-toggle,
+  .public-site-header .header-music-controls .dashboard-music-next,
+  .public-site-header .header-music-controls .dashboard-music-shuffle{
+    position:static!important;
+    width:32px!important;
+    height:32px!important;
+    min-width:32px!important;
+    min-height:32px!important;
+    margin:0!important;
+    padding:0!important;
+    font-size:14px!important;
+    justify-self:center!important;
+    align-self:start!important;
+  }
+  .public-site-header .header-music-controls .dashboard-music-toggle{
+    grid-column:1!important;
+    grid-row:1!important;
+    font-size:16px!important;
+  }
+  .public-site-header .header-music-controls .dashboard-music-next{
+    grid-column:2!important;
+    grid-row:1!important;
+  }
+  .public-site-header .header-music-controls .dashboard-music-shuffle{
+    grid-column:3!important;
+    grid-row:1!important;
+  }
+  .public-site-header .header-music-controls .asc-now-playing{
+    grid-column:1 / 4!important;
+    grid-row:2!important;
+    display:block!important;
+    width:104px!important;
+    min-width:104px!important;
+    max-width:104px!important;
+    height:20px!important;
+    min-height:20px!important;
+    margin:0!important;
+    padding:0!important;
+    justify-self:end!important;
+    align-self:start!important;
+    opacity:1!important;
+    visibility:visible!important;
+    transform:none!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+    overflow:hidden!important;
+    pointer-events:none!important;
+    transition:none!important;
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%)!important;
+    mask-image:linear-gradient(to right,transparent 0,#000 12%,#000 88%,transparent 100%)!important;
+  }
+  .public-site-header .header-music-controls .asc-now-playing-viewport{
+    position:relative!important;
+    width:104px!important;
+    height:20px!important;
+    overflow:hidden!important;
+  }
+  .public-site-header .header-music-controls .asc-now-playing-text{
+    position:absolute!important;
+    left:100%!important;
+    top:50%!important;
+    width:max-content!important;
+    max-width:none!important;
+    white-space:nowrap!important;
+    font-size:8.2px!important;
+    line-height:1!important;
+    font-weight:500!important;
+    letter-spacing:.02em!important;
+    animation:ascPublicNowPlayingMobile 11s linear infinite!important;
+    will-change:transform!important;
+  }
+  @keyframes ascPublicNowPlayingMobile{
+    0%{transform:translate(0,-50%)}
+    100%{transform:translate(calc(-100% - 104px),-50%)}
+  }
+}
+@media(max-width:390px){
+  .public-site-header{
+    grid-template-columns:40px minmax(0,1fr) 98px!important;
+    column-gap:7px!important;
+    padding-left:8px!important;
+    padding-right:8px!important;
+  }
+  .public-site-header>img{width:40px!important;height:40px!important}
+  .public-site-header strong{font-size:14.5px!important}
+  .public-site-header small{font-size:6.5px!important}
+  .public-site-header .header-music-controls{
+    grid-template-columns:repeat(3,30px)!important;
+    grid-template-rows:30px 19px!important;
+    width:98px!important;
+    min-width:98px!important;
+    max-width:98px!important;
+    height:50px!important;
+    gap:1px 4px!important;
+  }
+  .public-site-header .header-music-controls .dashboard-music-toggle,
+  .public-site-header .header-music-controls .dashboard-music-next,
+  .public-site-header .header-music-controls .dashboard-music-shuffle{
+    width:30px!important;height:30px!important;min-width:30px!important;min-height:30px!important
+  }
+  .public-site-header .header-music-controls .asc-now-playing,
+  .public-site-header .header-music-controls .asc-now-playing-viewport{
+    width:98px!important;min-width:98px!important;max-width:98px!important;height:19px!important;min-height:19px!important
+  }
+  .public-site-header .header-music-controls .asc-now-playing-text{
+    font-size:7.8px!important;
+    animation-name:ascPublicNowPlayingMobileSmall!important;
+  }
+  @keyframes ascPublicNowPlayingMobileSmall{
+    0%{transform:translate(0,-50%)}
+    100%{transform:translate(calc(-100% - 98px),-50%)}
+  }
+}
+
 </style></head><body><header class="public-site-header"><img src="./assets/brand/all-stars-clan-crest.png" alt="ALL STARS crest"><div><strong>ALL STARS CLAN</strong><small>Clan activity, rankings and community</small></div><div class="header-music-controls" aria-label="App music controls">
     <div id="ascNowPlaying" class="asc-now-playing" aria-live="polite" title="Current app music">
       <div class="asc-now-playing-viewport">
