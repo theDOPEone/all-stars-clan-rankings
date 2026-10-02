@@ -1070,6 +1070,41 @@
     "bytes": 1153297
   },
   {
+    "path": "assets/brand/accolades/duelist.webp",
+    "version": "42a25c9a1b9e",
+    "bytes": 26466
+  },
+  {
+    "path": "assets/brand/accolades/duo.webp",
+    "version": "31b4665d85a6",
+    "bytes": 34962
+  },
+  {
+    "path": "assets/brand/accolades/legend.webp",
+    "version": "5e712e8d990c",
+    "bytes": 40124
+  },
+  {
+    "path": "assets/brand/accolades/medal.webp",
+    "version": "7feb61737dcd",
+    "bytes": 20682
+  },
+  {
+    "path": "assets/brand/accolades/perfect.webp",
+    "version": "4bcbf1f9d157",
+    "bytes": 28948
+  },
+  {
+    "path": "assets/brand/accolades/trophy.webp",
+    "version": "be00e560dd27",
+    "bytes": 36498
+  },
+  {
+    "path": "assets/brand/accolades/war.webp",
+    "version": "2b8296db11a5",
+    "bytes": 33140
+  },
+  {
     "path": "assets/brand/all-stars-clan-crest.png",
     "version": "ad97d4ea4010",
     "bytes": 1123354
