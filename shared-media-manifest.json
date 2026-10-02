@@ -1323,5 +1323,115 @@
     "path": "assets/shop/redesign/store.png",
     "version": "348a1c0a2242",
     "bytes": 1766478
+  },
+  {
+    "path": "assets/shop/thumbs/bg-april.jpg",
+    "version": "2258cb8762a1",
+    "bytes": 85519
+  },
+  {
+    "path": "assets/shop/thumbs/bg-arena-arm-wrestle.jpg",
+    "version": "b7cc03a719de",
+    "bytes": 38516
+  },
+  {
+    "path": "assets/shop/thumbs/bg-arena-barbarian-exit.jpg",
+    "version": "2382696705f3",
+    "bytes": 37321
+  },
+  {
+    "path": "assets/shop/thumbs/bg-arena-chess.jpg",
+    "version": "a96f7bc7bb6b",
+    "bytes": 64128
+  },
+  {
+    "path": "assets/shop/thumbs/bg-arena-clan-wars-2.jpg",
+    "version": "2f720838dafe",
+    "bytes": 104192
+  },
+  {
+    "path": "assets/shop/thumbs/bg-arena-dagger-duchess.jpg",
+    "version": "765b509cc6cd",
+    "bytes": 47933
+  },
+  {
+    "path": "assets/shop/thumbs/bg-arena-executioner-kitchen.jpg",
+    "version": "5c82c50eed72",
+    "bytes": 78707
+  },
+  {
+    "path": "assets/shop/thumbs/bg-arena-furnace.jpg",
+    "version": "fde34837fa6c",
+    "bytes": 75745
+  },
+  {
+    "path": "assets/shop/thumbs/bg-arena-lightning.jpg",
+    "version": "4fca5b0f95a7",
+    "bytes": 20850
+  },
+  {
+    "path": "assets/shop/thumbs/bg-arena-money-skeleton.jpg",
+    "version": "880cb2274445",
+    "bytes": 65055
+  },
+  {
+    "path": "assets/shop/thumbs/bg-arena-pekka-playhouse.jpg",
+    "version": "538a82a2428e",
+    "bytes": 62026
+  },
+  {
+    "path": "assets/shop/thumbs/bg-arena-pekka-portrait.jpg",
+    "version": "c2c8846ed7c0",
+    "bytes": 57257
+  },
+  {
+    "path": "assets/shop/thumbs/bg-blue-diamond.jpg",
+    "version": "72f9f1b3322b",
+    "bytes": 40763
+  },
+  {
+    "path": "assets/shop/thumbs/bg-champions.jpg",
+    "version": "761c76c9ce39",
+    "bytes": 97549
+  },
+  {
+    "path": "assets/shop/thumbs/bg-clashmas.jpg",
+    "version": "ce39c03475c2",
+    "bytes": 80153
+  },
+  {
+    "path": "assets/shop/thumbs/bg-gilded.jpg",
+    "version": "073ad0108c10",
+    "bytes": 73888
+  },
+  {
+    "path": "assets/shop/thumbs/bg-honor.jpg",
+    "version": "74c65948a22e",
+    "bytes": 86642
+  },
+  {
+    "path": "assets/shop/thumbs/bg-little-prince.jpg",
+    "version": "20650b1e7cff",
+    "bytes": 51627
+  },
+  {
+    "path": "assets/shop/thumbs/bg-throne.jpg",
+    "version": "6f6dd50e0035",
+    "bytes": 126070
+  },
+  {
+    "path": "assets/shop/thumbs/bg-valhalla.jpg",
+    "version": "dbeb8858aef4",
+    "bytes": 86406
+  },
+  {
+    "path": "assets/shop/thumbs/royal-gold-bg.jpg",
+    "version": "6f6dd50e0035",
+    "bytes": 126070
+  },
+  {
+    "path": "assets/shop/thumbs/showcase-bundle.jpg",
+    "version": "b94e3e8f7d1c",
+    "bytes": 51051
   }
 ]
